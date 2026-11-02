@@ -156,21 +156,12 @@ export function CampaignsClient({ initialCampaigns, isLive }: CampaignsClientPro
           {/* Action Buttons using genuine GalaxyButtons matching homepage */}
           <div className="pt-2 flex flex-wrap items-center gap-3">
             <GalaxyButton
-              href="/leadership/votes/verify"
-              variant="white-gradient"
-              size="default"
-              className="text-xs sm:text-sm"
-            >
-              Verify Ballot
-            </GalaxyButton>
-
-            <GalaxyButton
               href="/leadership/juror"
               variant="gradient-white"
               size="default"
               className="text-xs sm:text-sm"
             >
-              Juror Portal
+              Jury Portal
             </GalaxyButton>
 
             <GalaxyButton
@@ -201,8 +192,8 @@ export function CampaignsClient({ initialCampaigns, isLive }: CampaignsClientPro
           <div className="font-serif text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
             {totalVotes.toLocaleString()}
           </div>
-          <div className="text-xs font-bold text-slate-900 mt-1">Verified Ballots Cast</div>
-          <div className="text-[11px] text-slate-500 font-normal">1-Member-1-Vote cryptographically verified</div>
+          <div className="text-xs font-bold text-slate-900 mt-1">Verified Member Votes</div>
+          <div className="text-[11px] text-slate-500 font-normal">1-Member-1-Vote authenticated</div>
         </div>
 
         <div className="rounded-2xl bg-white border border-slate-200/90 p-4 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300">
@@ -366,3 +357,4 @@ export function CampaignsClient({ initialCampaigns, isLive }: CampaignsClientPro
     </div>
   )
 }
+

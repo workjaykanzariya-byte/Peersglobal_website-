@@ -54,8 +54,6 @@ export function ResultsView({ initialToken }: ResultsViewProps) {
   useEffect(() => {
     if (initialToken) {
       fetchResults(initialToken)
-    } else {
-      fetchResults('demo_cand_token_2026')
     }
   }, [initialToken])
 
@@ -76,8 +74,8 @@ export function ResultsView({ initialToken }: ResultsViewProps) {
 
         <button
           type="button"
-          onClick={() => fetchResults(token || 'demo_cand_token_2026')}
-          disabled={loading}
+          onClick={() => fetchResults(token || '')}
+          disabled={loading || !token}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 text-slate-200 text-xs font-bold border border-white/15 transition-colors shrink-0"
         >
           <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin text-sky-400' : ''}`} />

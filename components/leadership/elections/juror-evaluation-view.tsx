@@ -137,13 +137,13 @@ export function JurorEvaluationView({ assignment, token }: JurorEvaluationViewPr
         <AlertTriangle className="w-12 h-12 text-amber-500 mx-auto mb-3" />
         <h3 className="font-semibold text-xl font-bold text-slate-900 mb-2">Conflict of Interest Declared</h3>
         <p className="text-xs text-slate-600 max-w-md mx-auto mb-6">
-          You have recused yourself from evaluating {candidate.full_name}. This evaluation has been safely reassigned to an alternate juror.
+          You have recused yourself from evaluating {candidate.full_name}. This evaluation has been safely reassigned to an alternate jury member.
         </p>
         <Link
           href="/leadership/juror"
           className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-slate-900 text-white text-xs font-bold"
         >
-          Return to Juror Dashboard
+          Return to Jury Dashboard
         </Link>
       </div>
     )
@@ -166,7 +166,7 @@ export function JurorEvaluationView({ assignment, token }: JurorEvaluationViewPr
           href="/leadership/juror"
           className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold shadow-sm"
         >
-          Return to Juror Dashboard
+          Return to Jury Dashboard
         </Link>
       </div>
     )
@@ -475,7 +475,7 @@ export function JurorEvaluationView({ assignment, token }: JurorEvaluationViewPr
         <div className="rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 space-y-6 shadow-sm">
           <div className="border-b border-slate-100 pb-4">
             <h3 className="font-semibold text-lg font-bold text-slate-900">Jury Recommendation Report</h3>
-            <p className="text-xs text-slate-500">Formally conclude your juror review and endorse your recommendation.</p>
+            <p className="text-xs text-slate-500">Formally conclude your jury review and endorse your recommendation.</p>
           </div>
 
           <div className="space-y-4">

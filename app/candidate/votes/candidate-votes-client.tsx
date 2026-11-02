@@ -26,6 +26,7 @@ import {
   Phone,
   Calendar,
   Filter,
+  Clock,
 } from 'lucide-react'
 
 interface CandidateProfile {
@@ -67,34 +68,6 @@ interface SummaryData {
   cities_breakdown: Record<string, number>
 }
 
-// Quick-fill test candidates to streamline user evaluation
-const DEMO_NOMINEES = [
-  {
-    name: 'Rashi Khandelwal',
-    email: 'rashi.khandelwal@demo.unity.com',
-    company: 'qdqd',
-    role: 'District Executive Director (DED)',
-  },
-  {
-    name: 'Vineet Mittal',
-    email: 'vineet.mittal@navitas.com',
-    company: 'Navitas Solar',
-    role: 'District Executive Director',
-  },
-  {
-    name: 'Hardik Chauhan',
-    email: 'hardik@peersglobal.com',
-    company: 'Aequitas IT Solutions',
-    role: 'District Executive Director',
-  },
-  {
-    name: 'Swati Kulkarni',
-    email: 'swati.kulkarni@demo.unity.com',
-    company: 'Kulkarni Global Industries',
-    role: 'District Executive Director',
-  },
-]
-
 export function CandidateVotesClient() {
   // Step state: 'email' | 'otp' | 'dashboard'
   const [step, setStep] = useState<'email' | 'otp' | 'dashboard'>('email')
@@ -107,6 +80,8 @@ export function CandidateVotesClient() {
   // Feedback & loaders
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [isPendingApproval, setIsPendingApproval] = useState(false)
+  const [pendingMessage, setPendingMessage] = useState<string | null>(null)
   const [successMsg, setSuccessMsg] = useState<string | null>(null)
   const [resendTimer, setResendTimer] = useState<number>(60)
 
@@ -133,7 +108,7 @@ export function CandidateVotesClient() {
         setEmailInput(savedEmail)
         fetchMyVotes(savedToken)
       }
-    } catch {}
+    } catch { }
   }, [])
 
   // Timer countdown for resending OTP
@@ -152,6 +127,8 @@ export function CandidateVotesClient() {
     if (e) e.preventDefault()
     setError(null)
     setSuccessMsg(null)
+    setIsPendingApproval(false)
+    setPendingMessage(null)
 
     const emailToSend = (directEmail || emailInput).trim().toLowerCase()
     if (!emailToSend || !emailToSend.includes('@')) {
@@ -170,15 +147,23 @@ export function CandidateVotesClient() {
       const data = await res.json()
 
       if (!res.ok || !data.success) {
-        setError(data.message || 'Email not found in nominated candidates roster.')
+        if (data.is_pending) {
+          setIsPendingApproval(true)
+          setPendingMessage(
+            data.message ||
+            'Your application is submitted. After approval you will get the access to open the voting section.'
+          )
+        } else {
+          setError(
+            data.message ||
+            'Your application is submitted. After approval you will get the access to open the voting section.'
+          )
+        }
         return
       }
 
       setCandidate(data.candidate)
       setEmailInput(emailToSend)
-      if (data.dev_otp) {
-        setDevOtpHint(data.dev_otp)
-      }
       setSuccessMsg(data.message)
       setStep('otp')
       setResendTimer(60)
@@ -265,7 +250,7 @@ export function CandidateVotesClient() {
       try {
         localStorage.setItem('pg_candidate_session_token', data.token)
         localStorage.setItem('pg_candidate_session_email', emailInput)
-      } catch {}
+      } catch { }
 
       // Fetch strictly isolated votes for this candidate
       await fetchMyVotes(data.token)
@@ -310,7 +295,7 @@ export function CandidateVotesClient() {
     try {
       localStorage.removeItem('pg_candidate_session_token')
       localStorage.removeItem('pg_candidate_session_email')
-    } catch {}
+    } catch { }
     setSessionToken(null)
     setCandidate(null)
     setVotes([])
@@ -379,14 +364,27 @@ export function CandidateVotesClient() {
                   </p>
                 </div>
 
-                {error && (
-                  <div className="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs flex items-start gap-2.5">
+                {isPendingApproval ? (
+                  <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-200 text-xs flex items-start gap-3 animate-in fade-in duration-200 text-left">
+                    <div className="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                      <Clock className="w-4 h-4" />
+                    </div>
+                    <div className="space-y-1">
+                      <div className="font-bold text-amber-300 text-sm">Nomination Application Received</div>
+                      <p className="leading-relaxed text-slate-300">
+                        {pendingMessage ||
+                          'Your application is submitted. After approval you will get the access to open the voting section.'}
+                      </p>
+                    </div>
+                  </div>
+                ) : error ? (
+                  <div className="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs flex items-start gap-2.5 text-left">
                     <AlertCircle className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
                     <span className="leading-relaxed">{error}</span>
                   </div>
-                )}
+                ) : null}
 
-                <div className="space-y-2">
+                <div className="space-y-2 text-left">
                   <label className="text-xs font-semibold text-slate-300 flex items-center justify-between">
                     <span>Nomination Email Address</span>
                     <span className="text-[11px] text-slate-500">Official Nominee Email</span>
@@ -397,34 +395,14 @@ export function CandidateVotesClient() {
                       type="email"
                       required
                       value={emailInput}
-                      onChange={(e) => setEmailInput(e.target.value)}
-                      placeholder="e.g. vineet.mittal@navitas.com"
+                      onChange={(e) => {
+                        setEmailInput(e.target.value)
+                        if (error) setError(null)
+                        if (isPendingApproval) setIsPendingApproval(false)
+                      }}
+                      placeholder="Enter your registered nomination email"
                       className="w-full pl-10 pr-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700/80 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all font-mono"
                     />
-                  </div>
-                </div>
-
-                {/* Quick-Fill Helper for Evaluation */}
-                <div className="p-3.5 rounded-2xl bg-slate-900/60 border border-slate-800 text-left space-y-2">
-                  <div className="text-[11px] font-semibold text-slate-400 flex items-center gap-1.5 uppercase tracking-wider">
-                    <Sparkles className="w-3 h-3 text-amber-400" />
-                    Quick Demo Nominees (1-Click Fill):
-                  </div>
-                  <div className="flex flex-wrap gap-1.5">
-                    {DEMO_NOMINEES.map((nom) => (
-                      <button
-                        key={nom.email}
-                        type="button"
-                        onClick={() => {
-                          setEmailInput(nom.email)
-                          handleRequestOtp(undefined, nom.email)
-                        }}
-                        className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-blue-600/20 hover:border-blue-500/50 border border-slate-700 text-slate-300 hover:text-white text-xs font-medium transition-colors flex items-center gap-1"
-                      >
-                        <span className="text-sky-400 font-bold">{nom.name}</span>
-                        <span className="text-[10px] text-slate-400">({nom.email.split('@')[0]})</span>
-                      </button>
-                    ))}
                   </div>
                 </div>
 
@@ -535,23 +513,6 @@ export function CandidateVotesClient() {
                       />
                     ))}
                   </div>
-
-                  {/* Dev / Demo OTP Helper Box */}
-                  {devOtpHint && (
-                    <div className="p-3 rounded-xl bg-blue-950/40 border border-blue-500/30 flex items-center justify-between text-xs">
-                      <div className="flex items-center gap-2 text-sky-300">
-                        <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                        <span>Dispatched OTP Code: <strong className="font-mono text-white text-sm tracking-wider">{devOtpHint}</strong></span>
-                      </div>
-                      <button
-                        type="button"
-                        onClick={() => fillCode(devOtpHint)}
-                        className="px-2.5 py-1 rounded-md bg-blue-600/30 hover:bg-blue-600 text-sky-200 hover:text-white font-medium text-[11px] transition-colors"
-                      >
-                        Auto-Fill
-                      </button>
-                    </div>
-                  )}
                 </div>
 
                 <div className="flex items-center justify-between text-xs text-slate-400">
@@ -779,11 +740,10 @@ export function CandidateVotesClient() {
                 <button
                   type="button"
                   onClick={() => setSelectedCityFilter('ALL')}
-                  className={`px-3 py-2 rounded-xl text-xs font-semibold transition-colors ${
-                    selectedCityFilter === 'ALL'
+                  className={`px-3 py-2 rounded-xl text-xs font-semibold transition-colors ${selectedCityFilter === 'ALL'
                       ? 'bg-blue-600 text-white shadow-sm'
                       : 'bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white border border-slate-800'
-                  }`}
+                    }`}
                 >
                   All ({votes.length})
                 </button>
@@ -793,11 +753,10 @@ export function CandidateVotesClient() {
                     key={city}
                     type="button"
                     onClick={() => setSelectedCityFilter(city)}
-                    className={`px-3 py-2 rounded-xl text-xs font-semibold transition-colors ${
-                      selectedCityFilter.toUpperCase() === city.toUpperCase()
+                    className={`px-3 py-2 rounded-xl text-xs font-semibold transition-colors ${selectedCityFilter.toUpperCase() === city.toUpperCase()
                         ? 'bg-blue-600 text-white shadow-sm'
                         : 'bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white border border-slate-800'
-                    }`}
+                      }`}
                   >
                     {city} ({summary?.cities_breakdown[city] || 0})
                   </button>

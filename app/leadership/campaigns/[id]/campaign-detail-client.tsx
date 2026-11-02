@@ -9,7 +9,6 @@ import {
   ShieldCheck,
   Calendar,
   Users,
-  MapPin,
   ArrowRight,
   ChevronLeft,
   Award,
@@ -28,8 +27,6 @@ import {
 } from '@/lib/api/leadership'
 import { CountdownTimer } from '@/components/leadership/elections/countdown-timer'
 import { PhaseStepper } from '@/components/leadership/elections/phase-stepper'
-import { CandidateCard } from '@/components/leadership/elections/candidate-card'
-import { VoteModal } from '@/components/leadership/elections/vote-modal'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
 
 interface CampaignDetailClientProps {
@@ -40,20 +37,11 @@ interface CampaignDetailClientProps {
 
 export function CampaignDetailClient({
   campaign,
-  scopes,
-  candidates,
 }: CampaignDetailClientProps) {
   const phase = calculateCampaignPhase(campaign)
   const phaseInfo = getPhaseDisplay(phase)
 
-  const [selectedCandidateForVote, setSelectedCandidateForVote] = useState<Candidate | null>(null)
-  const [isVoteModalOpen, setIsVoteModalOpen] = useState(false)
-  const [activeTab, setActiveTab] = useState<'overview' | 'candidates' | 'scopes' | 'rules'>('overview')
-
-  const handleVoteClick = (cand: Candidate) => {
-    setSelectedCandidateForVote(cand)
-    setIsVoteModalOpen(true)
-  }
+  const [activeTab, setActiveTab] = useState<'overview' | 'rules'>('overview')
 
   let targetDate = campaign.nomination_ends_at
   let countdownLabel = 'Nominations Close In'
@@ -154,28 +142,6 @@ export function CampaignDetailClient({
           }`}
         >
           Timeline &amp; Overview
-        </button>
-        <button
-          type="button"
-          onClick={() => setActiveTab('candidates')}
-          className={`px-4 py-2.5 text-xs font-bold border-b-2 transition-all ${
-            activeTab === 'candidates'
-              ? 'border-[#1D4ED8] text-[#1D4ED8]'
-              : 'border-transparent text-slate-500 hover:text-slate-900'
-          }`}
-        >
-          Shortlisted Candidates ({candidates.length})
-        </button>
-        <button
-          type="button"
-          onClick={() => setActiveTab('scopes')}
-          className={`px-4 py-2.5 text-xs font-bold border-b-2 transition-all ${
-            activeTab === 'scopes'
-              ? 'border-[#1D4ED8] text-[#1D4ED8]'
-              : 'border-transparent text-slate-500 hover:text-slate-900'
-          }`}
-        >
-          Jurisdictions &amp; Scopes ({scopes.length})
         </button>
         <button
           type="button"
@@ -308,54 +274,7 @@ export function CampaignDetailClient({
         </div>
       )}
 
-      {/* ---------------- TAB 2: SHORTLISTED CANDIDATES ---------------- */}
-      {activeTab === 'candidates' && (
-        <div>
-          <div className="flex items-center justify-between mb-4">
-            <p className="text-xs text-slate-500 font-medium">
-              Approved candidates eligible for public voting in this selection cycle.
-            </p>
-            
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {candidates.map((cand) => (
-              <CandidateCard
-                key={cand.id}
-                candidate={cand}
-                canVote={false}
-                onVoteClick={handleVoteClick}
-              />
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* ---------------- TAB 3: JURISDICTIONS & SCOPES ---------------- */}
-      {activeTab === 'scopes' && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {scopes.map((s) => (
-            <div
-              key={s.id}
-              className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm"
-            >
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-blue-50 text-[#1D4ED8]">
-                  {s.scope_type}
-                </span>
-                <span className="text-xs text-slate-400 font-medium">{s.seats_available || 1} Seat</span>
-              </div>
-              <h4 className="font-semibold text-base font-bold text-slate-900">{s.name}</h4>
-              <p className="text-xs text-slate-500 mt-1 flex items-center gap-1">
-                <MapPin className="w-3 h-3 text-slate-400" />
-                {s.state || 'National'}, {s.district || s.name}
-              </p>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {/* ---------------- TAB 4: RULES OF ELECTION ---------------- */}
+      {/* ---------------- TAB 2: RULES OF ELECTION ---------------- */}
       {activeTab === 'rules' && (
         <div className="p-6 md:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-6">
           <div>
@@ -403,14 +322,6 @@ export function CampaignDetailClient({
           )}
         </div>
       )}
-
-      {/* Voting Modal */}
-      <VoteModal
-        campaign={campaign}
-        candidate={selectedCandidateForVote}
-        isOpen={isVoteModalOpen}
-        onClose={() => setIsVoteModalOpen(false)}
-      />
     </div>
   )
 }

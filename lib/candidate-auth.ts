@@ -37,7 +37,7 @@ export const KNOWN_CANDIDATES: CandidateProfile[] = [
   {
     id: 'aa4b2283-5512-49a7-98f3-59fa5259af44',
     full_name: 'wdqwdqwd',
-    email: 'rashi.khandelwal@demo.unity.com',
+    email: 'rashi.khandelwal@peersglobal.com',
     mobile: '9800000030',
     company: 'qdqd',
     designation: 'sadada',
@@ -92,7 +92,7 @@ export const KNOWN_CANDIDATES: CandidateProfile[] = [
   {
     id: '08eaec34-342c-49b1-9489-62cb8291aeb2',
     full_name: 'Swati Kulkarni',
-    email: 'swati.kulkarni@demo.unity.com',
+    email: 'swati.kulkarni@peersglobal.com',
     mobile: '+91 98000 00018',
     company: 'Kulkarni Global Industries',
     designation: 'Managing Director',
@@ -106,7 +106,7 @@ export const KNOWN_CANDIDATES: CandidateProfile[] = [
   {
     id: '974d3b4a-7c88-4820-bd34-dcd53bd80af6',
     full_name: 'Harsh Vora',
-    email: 'harsh.vora@demo.unity.com',
+    email: 'harsh.vora@peersglobal.com',
     mobile: '+91 98000 00011',
     company: 'Vora Diamond Tech',
     designation: 'Co-Founder & COO',
@@ -120,7 +120,7 @@ export const KNOWN_CANDIDATES: CandidateProfile[] = [
   {
     id: '10f394a5-f943-4951-b756-4ee5472d9d39',
     full_name: 'Bhavna Mehta',
-    email: 'bhavna.mehta@demo.unity.com',
+    email: 'bhavna.mehta@peersglobal.com',
     mobile: '+91 98000 00078',
     company: 'Mehta Textile Conglomerate',
     designation: 'Executive Partner',
@@ -249,11 +249,11 @@ export async function fetchRemoteCandidates(): Promise<CandidateProfile[]> {
                 })
               }
             }
-          } catch {}
+          } catch { }
         }
 
         if (results.length > 0) break
-      } catch {}
+      } catch { }
     }
   } catch (err) {
     console.warn('Error fetching remote candidates:', err)

@@ -140,7 +140,7 @@ export function VoteClient({
 
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                 Review the shortlisted candidates, watch their leadership pitch videos, and cast your verified vote.
-                Every ballot is protected by 2-factor OTP verification and cryptographic ledger sealing.
+                Every vote is protected by 2-factor OTP verification.
               </p>
 
               <div className="flex flex-wrap items-center gap-3 pt-1">
@@ -148,14 +148,7 @@ export function VoteClient({
                   <Lock className="w-3.5 h-3.5 text-emerald-600" />
                   1 Vote Per Verified Member
                 </div>
-                <Link
-                  href="/leadership/votes/verify"
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold border border-slate-300 transition-colors shadow-2xs"
-                >
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#1D4ED8]" />
-                  Ballot Audit &amp; Verification
-                </Link>
-              </div>
+                </div>
             </div>
 
             {/* Countdown Box */}

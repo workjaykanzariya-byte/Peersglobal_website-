@@ -145,15 +145,6 @@ export function CandidateVotingPoster({
             </div>
           </div>
 
-          {candidate.standing_score && (
-            <div className="absolute top-4 right-4 z-10">
-              <div className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-[10px] font-black text-white shadow-md">
-                <Award className="w-3.5 h-3.5 text-amber-300" />
-                <span>{candidate.standing_score}/100 SCORE</span>
-              </div>
-            </div>
-          )}
-
           {/* Smooth Decorative Wave Curve */}
           <div className="absolute bottom-0 inset-x-0 pointer-events-none z-10 leading-none">
             {/* Coral Accent Line */}

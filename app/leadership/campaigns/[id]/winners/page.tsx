@@ -107,7 +107,7 @@ export default async function CampaignWinnersPage({ params }: PageProps) {
             Governance &amp; Scrutiny Board Seal
           </div>
           <p className="text-xs text-slate-600 max-w-xl mx-auto leading-relaxed font-normal">
-            All ballots have been cryptographically verified, authenticated via 2-factor OTP, and tallied alongside weighted jury recommendation scores under the Peers Global Election Governance Protocol.
+            All member votes have been securely authenticated, authenticated via 2-factor OTP, and tallied alongside weighted jury recommendation scores under the Peers Global Election Governance Protocol.
           </p>
         </div>
       </div>

@@ -22,6 +22,12 @@ import {
   Mail,
   Phone,
   Search,
+  Eye,
+  ExternalLink,
+  X,
+  Download,
+  PlayCircle,
+  FileImage,
 } from 'lucide-react'
 import {
   Campaign,
@@ -60,6 +66,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
     bio: '',
     socialLinks: '',
     yearsExperience: 5,
+    photoUrl: '',
   })
 
   // Selected Scope
@@ -73,12 +80,99 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
   const [answers, setAnswers] = useState<Record<string, unknown>>({})
 
   // Document Uploads
-  const [uploadedFiles, setUploadedFiles] = useState<{
-    kyc_id_proof?: { name: string; size: number }
-    recommendation_letter?: { name: string; size: number }
-    profile_pdf?: { name: string; size: number }
-    vision_statement?: { name: string; size: number }
-  }>({})
+  interface UploadedDocMeta {
+    name: string
+    size: number
+    previewUrl?: string
+    file?: File
+    type?: string
+  }
+
+  interface FilePreviewModalState {
+    isOpen: boolean
+    title: string
+    url: string
+    fileType: 'image' | 'pdf' | 'video' | 'other'
+    fileName?: string
+    fileSize?: number
+  }
+
+  const [uploadedFiles, setUploadedFiles] = useState<Record<string, UploadedDocMeta>>({})
+  const [previewModal, setPreviewModal] = useState<FilePreviewModalState | null>(null)
+
+  // Esc key closes preview modal
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setPreviewModal(null)
+      }
+    }
+    if (previewModal?.isOpen) {
+      window.addEventListener('keydown', handleKeyDown)
+    }
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [previewModal?.isOpen])
+
+  // Helper to detect file type from filename, mime, or URL
+  const detectFileType = (
+    filename: string = '',
+    mime?: string,
+    url: string = ''
+  ): 'image' | 'pdf' | 'video' | 'other' => {
+    const combined = (filename + ' ' + url).toLowerCase()
+    const ext = filename.split('.').pop()?.toLowerCase() || ''
+
+    if (
+      ['jpg', 'jpeg', 'png', 'webp', 'gif', 'svg', 'bmp', 'avif'].includes(ext) ||
+      mime?.startsWith('image/') ||
+      combined.includes('.jpg') ||
+      combined.includes('.jpeg') ||
+      combined.includes('.png') ||
+      combined.includes('.webp') ||
+      url.startsWith('data:image/')
+    ) {
+      return 'image'
+    }
+
+    if (ext === 'pdf' || mime === 'application/pdf' || combined.includes('.pdf')) {
+      return 'pdf'
+    }
+
+    if (
+      ['mp4', 'mov', 'webm', 'ogg', 'mkv'].includes(ext) ||
+      mime?.startsWith('video/') ||
+      combined.includes('youtube.com') ||
+      combined.includes('youtu.be') ||
+      combined.includes('vimeo.com') ||
+      combined.includes('loom.com') ||
+      combined.includes('.mp4') ||
+      combined.includes('.webm')
+    ) {
+      return 'video'
+    }
+
+    return 'other'
+  }
+
+  // Convert video URLs (YouTube, Loom, Vimeo) to responsive embed URLs
+  const getMediaEmbedUrl = (url: string) => {
+    if (!url) return ''
+    const ytMatch = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/)
+    if (ytMatch && ytMatch[1]) {
+      return `https://www.youtube.com/embed/${ytMatch[1]}?autoplay=1`
+    }
+    const loomMatch = url.match(/loom\.com\/share\/([a-zA-Z0-9]+)/)
+    if (loomMatch && loomMatch[1]) {
+      return `https://www.loom.com/embed/${loomMatch[1]}`
+    }
+    const vimeoMatch = url.match(/vimeo\.com\/(\d+)/)
+    if (vimeoMatch && vimeoMatch[1]) {
+      return `https://player.vimeo.com/video/${vimeoMatch[1]}?autoplay=1`
+    }
+    return url
+  }
 
   // Draft status
   const [draftId, setDraftId] = useState<string>('nom-draft-' + Date.now())
@@ -128,7 +222,43 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
         </span>
       )
     }
-    return <span className="text-slate-900 font-semibold text-xs">{String(val)}</span>
+
+    const strVal = String(val ?? '')
+    const isUrl = strVal.startsWith('http://') || strVal.startsWith('https://') || strVal.startsWith('blob:') || strVal.startsWith('data:')
+    if (isUrl) {
+      const fType = detectFileType(strVal, undefined, strVal)
+      return (
+        <div className="inline-flex items-center gap-2 flex-wrap sm:justify-end">
+          <button
+            type="button"
+            onClick={() => {
+              setPreviewModal({
+                isOpen: true,
+                title: fType === 'video' ? 'Candidate Pitch Video' : 'Attached Document Preview',
+                url: strVal,
+                fileType: fType,
+                fileName: strVal.split('/').pop() || 'Attachment',
+              })
+            }}
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-blue-50 hover:bg-blue-100 text-[#1D4ED8] font-bold text-xs border border-blue-200/80 transition-colors cursor-pointer shadow-2xs"
+          >
+            <Eye className="w-3.5 h-3.5" />
+            <span>{fType === 'video' ? 'Watch Video' : 'Preview Document'}</span>
+          </button>
+          <a
+            href={strVal}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate-400 hover:text-[#1D4ED8] p-1 transition-colors"
+            title="Open original link in new tab"
+          >
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
+        </div>
+      )
+    }
+
+    return <span className="text-slate-900 font-semibold text-xs">{strVal}</span>
   }
 
   const triggerSaveDraft = async () => {
@@ -191,9 +321,10 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
           mobile: res.profile.mobile || cleanPhone,
           company: res.profile.company || res.profile.company_name || '',
           designation: res.profile.designation || '',
-          bio: res.profile.bio || 'Experienced promoter active in Peers Global community initiatives.',
+          bio: res.profile.bio || '',
           socialLinks: res.profile.socialLinks || '',
           yearsExperience: res.profile.yearsExperience || 5,
+          photoUrl: (res.profile as any).photo_url || (res.profile as any).profile_photo_url || '',
         })
         setLookupFeedback({
           status: 'success',
@@ -215,7 +346,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
         setLookupFeedback({
           status: 'not_found',
           message:
-            'No existing registered profile was found with these credentials in our database. You can proceed to complete your nomination profile manually.',
+            'No existing registered profile was found with these credentials in our database. You can proceed to complete your nomination profile and upload your candidate photo.',
         })
       }
     } catch (err: unknown) {
@@ -234,6 +365,19 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
     setCurrentStep(2)
   }
 
+  // Candidate Photo Upload Handler (for new/unverified candidates or changing profile headshot)
+  const handleCandidatePhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+    try {
+      const previewUrl = URL.createObjectURL(file)
+      setProfile((prev) => ({
+        ...prev,
+        photoUrl: previewUrl,
+      }))
+    } catch {}
+  }
+
   // File Upload Handler
   const handleFileUpload = async (
     docType: 'kyc_id_proof' | 'recommendation_letter' | 'profile_pdf' | 'vision_statement',
@@ -242,9 +386,22 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
     const file = e.target.files?.[0]
     if (!file) return
 
+    let previewUrl = ''
+    try {
+      previewUrl = URL.createObjectURL(file)
+    } catch {
+      // ignore
+    }
+
     setUploadedFiles((prev) => ({
       ...prev,
-      [docType]: { name: file.name, size: file.size },
+      [docType]: {
+        name: file.name,
+        size: file.size,
+        type: file.type,
+        previewUrl,
+        file,
+      },
     }))
 
     const formData = new FormData()
@@ -308,7 +465,9 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
           mobile: profile.mobile || phoneInput || '+919558739086',
           company_name: profile.company || 'Aequitas IT Solutions',
           designation: profile.designation || 'Managing Director & Founder',
+          photo_url: profile.photoUrl || undefined,
         },
+        photo_url: profile.photoUrl || undefined,
         answers: answers,
         documents: documentsPayload,
         declarations: {
@@ -337,7 +496,9 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
               designation: profile.designation || 'Managing Director & Founder',
               email: profile.email || emailInput,
               mobile: profile.mobile || phoneInput,
+              photo_url: profile.photoUrl || undefined,
             },
+            photo_url: profile.photoUrl || undefined,
             answers,
           }),
         })
@@ -361,7 +522,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
   }
 
   const stepsList = [
-    { num: 1, label: 'Identity Verification' },
+    { num: 1, label: 'Enter Contact Details' },
     { num: 2, label: 'Scope & Profile' },
     { num: 3, label: 'Nomination Form 1' },
     { num: 4, label: 'Document Proofs' },
@@ -530,7 +691,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
                 <ShieldCheck className="w-3.5 h-3.5 text-[#1D4ED8]" /> Instant Member Check — No Login or OTP Required
               </div>
               <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight mb-1.5">
-                Step 1: Contact &amp; Membership Verification
+                Step 1: Enter Contact Details
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                 Enter your registered Email Address and Phone Number. We will verify whether your account exists in our application and automatically pre-fill your nomination credentials.
@@ -553,7 +714,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
                     setEmailInput(e.target.value)
                     if (lookupFeedback) setLookupFeedback(null)
                   }}
-                  placeholder="e.g. harsh.vora@demo.unity.com"
+                  placeholder="e.g. yourname@peersglobal.com"
                   className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-[#1D4ED8] focus:border-[#1D4ED8] focus:outline-none transition-all shadow-xs"
                   required
                 />
@@ -630,35 +791,6 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
                   )}
                 </button>
               </div>
-
-              {/* Quick Fill Pills for Testing */}
-              <div className="pt-4 border-t border-slate-100">
-                <div className="text-[11px] uppercase font-bold tracking-wider text-slate-400 mb-2">
-                  Sample Registered Members (Database):
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    { name: 'Harsh Chauhan', email: 'harshchauhan9724@gmail.com', phone: '9724636800' },
-                    { name: 'Swati Kulkarni', email: 'swati.kulkarni@demo.unity.com', phone: '9800000018' },
-                    { name: 'Harsh Vora', email: 'harsh.vora@demo.unity.com', phone: '9800000011' },
-                    { name: 'Gaurav Mishra', email: 'gaurav.mishra@demo.unity.com', phone: '9800000021' },
-                    { name: 'Bhavna Mehta', email: 'bhavna.mehta@demo.unity.com', phone: '9800000078' },
-                  ].map((demo) => (
-                    <button
-                      key={demo.email}
-                      type="button"
-                      onClick={() => {
-                        setEmailInput(demo.email)
-                        setPhoneInput(demo.phone)
-                        setLookupFeedback(null)
-                      }}
-                      className="text-[11px] px-3 py-1.5 rounded-full bg-slate-100 hover:bg-blue-50 hover:text-[#1D4ED8] text-slate-600 transition-colors border border-slate-200"
-                    >
-                      {demo.name}
-                    </button>
-                  ))}
-                </div>
-              </div>
             </form>
           </div>
         )}
@@ -732,6 +864,63 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
                 <div className="text-xs font-bold uppercase tracking-wider text-[#1D4ED8] mb-4 flex items-center gap-1.5">
                   <User className="w-3.5 h-3.5" />
                   Executive Profile Snapshot
+                </div>
+
+                {/* Candidate Ballot Photo Uploader */}
+                <div className="mb-4 p-4 rounded-xl bg-white border border-slate-200/90 shadow-2xs flex flex-col sm:flex-row items-center gap-4">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-slate-100 border border-slate-200 overflow-hidden flex items-center justify-center shrink-0 shadow-inner">
+                    {profile.photoUrl ? (
+                      <img
+                        src={profile.photoUrl}
+                        alt={profile.fullName || 'Candidate Photo'}
+                        className="w-full h-full object-cover object-top"
+                      />
+                    ) : (
+                      <div className="flex flex-col items-center justify-center text-slate-400">
+                        <User className="w-7 h-7 text-slate-400" />
+                        <span className="text-[9px] uppercase font-bold mt-0.5 text-slate-400">No Photo</span>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="flex-1 text-center sm:text-left space-y-1">
+                    <div className="font-bold text-xs text-slate-900 flex items-center justify-center sm:justify-start gap-1.5 flex-wrap">
+                      <span>Official Candidate Ballot Photo</span>
+                      {!isExistingMember ? (
+                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200">
+                          Recommended for unverified nominee
+                        </span>
+                      ) : (
+                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+                          Verified member photo
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-[11px] text-slate-500 leading-relaxed">
+                      Upload your portrait headshot (JPG, PNG, WebP) to display on candidate cards and voter election ballots.
+                    </p>
+                    <div className="pt-1 flex items-center justify-center sm:justify-start gap-2.5">
+                      <label className="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#1D4ED8] hover:bg-[#1E40AF] text-white text-xs font-bold transition-colors shadow-2xs">
+                        <Upload className="w-3.5 h-3.5" />
+                        <span>{profile.photoUrl ? 'Change Photo' : 'Upload Candidate Photo'}</span>
+                        <input
+                          type="file"
+                          className="hidden"
+                          accept="image/*"
+                          onChange={handleCandidatePhotoUpload}
+                        />
+                      </label>
+                      {profile.photoUrl && (
+                        <button
+                          type="button"
+                          onClick={() => setProfile((p) => ({ ...p, photoUrl: '' }))}
+                          className="text-xs text-rose-600 hover:text-rose-700 font-semibold underline cursor-pointer"
+                        >
+                          Remove
+                        </button>
+                      )}
+                    </div>
+                  </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -823,7 +1012,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
                   Step 3: Leadership Questionnaire (Form 1)
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-600 font-normal">
-                  Please respond thoroughly. Your answers will be reviewed by the Scrutiny Board and Jurors.
+                  Please respond thoroughly. Your answers will be reviewed by the Scrutiny Board and the Jury.
                 </p>
               </div>
 
@@ -911,8 +1100,26 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
                   </div>
                   <div className="text-xs text-slate-500 mt-1">Accepted: PDF, PNG, JPG (Max 5MB)</div>
                   {uploadedFiles.kyc_id_proof && (
-                    <div className="text-xs text-emerald-600 font-semibold mt-1 flex items-center gap-1">
+                    <div className="text-xs text-emerald-600 font-semibold mt-1 flex items-center gap-1.5 flex-wrap">
                       <Check className="w-3.5 h-3.5" /> Uploaded: {uploadedFiles.kyc_id_proof.name}
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const doc = uploadedFiles.kyc_id_proof
+                          const url = doc?.previewUrl || uploadedDocUrls['kyc_id_proof'] || ''
+                          setPreviewModal({
+                            isOpen: true,
+                            title: doc?.name || 'KYC ID Proof',
+                            url,
+                            fileType: detectFileType(doc?.name, doc?.type, url),
+                            fileName: doc?.name,
+                            fileSize: doc?.size,
+                          })
+                        }}
+                        className="ml-1 text-[11px] font-bold text-[#1D4ED8] hover:underline inline-flex items-center gap-1 cursor-pointer"
+                      >
+                        <Eye className="w-3 h-3" /> Preview
+                      </button>
                     </div>
                   )}
                 </div>
@@ -938,8 +1145,26 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
                   </div>
                   <div className="text-xs text-slate-500 mt-1">Signed by an existing Circle Chair or Director.</div>
                   {uploadedFiles.recommendation_letter && (
-                    <div className="text-xs text-emerald-600 font-semibold mt-1 flex items-center gap-1">
+                    <div className="text-xs text-emerald-600 font-semibold mt-1 flex items-center gap-1.5 flex-wrap">
                       <Check className="w-3.5 h-3.5" /> Uploaded: {uploadedFiles.recommendation_letter.name}
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const doc = uploadedFiles.recommendation_letter
+                          const url = doc?.previewUrl || uploadedDocUrls['recommendation_letter'] || ''
+                          setPreviewModal({
+                            isOpen: true,
+                            title: doc?.name || 'Recommendation Letter',
+                            url,
+                            fileType: detectFileType(doc?.name, doc?.type, url),
+                            fileName: doc?.name,
+                            fileSize: doc?.size,
+                          })
+                        }}
+                        className="ml-1 text-[11px] font-bold text-[#1D4ED8] hover:underline inline-flex items-center gap-1 cursor-pointer"
+                      >
+                        <Eye className="w-3 h-3" /> Preview
+                      </button>
                     </div>
                   )}
                 </div>
@@ -965,8 +1190,26 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
                   </div>
                   <div className="text-xs text-slate-500 mt-1">Summary of your enterprise and community track record.</div>
                   {uploadedFiles.profile_pdf && (
-                    <div className="text-xs text-emerald-600 font-semibold mt-1 flex items-center gap-1">
+                    <div className="text-xs text-emerald-600 font-semibold mt-1 flex items-center gap-1.5 flex-wrap">
                       <Check className="w-3.5 h-3.5" /> Uploaded: {uploadedFiles.profile_pdf.name}
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const doc = uploadedFiles.profile_pdf
+                          const url = doc?.previewUrl || uploadedDocUrls['profile_pdf'] || ''
+                          setPreviewModal({
+                            isOpen: true,
+                            title: doc?.name || 'Company Profile Deck',
+                            url,
+                            fileType: detectFileType(doc?.name, doc?.type, url),
+                            fileName: doc?.name,
+                            fileSize: doc?.size,
+                          })
+                        }}
+                        className="ml-1 text-[11px] font-bold text-[#1D4ED8] hover:underline inline-flex items-center gap-1 cursor-pointer"
+                      >
+                        <Eye className="w-3 h-3" /> Preview
+                      </button>
                     </div>
                   )}
                 </div>
@@ -992,8 +1235,26 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
                   </div>
                   <div className="text-xs text-slate-500 mt-1">Detailed 12-month roadmap, chapter expansion plan, and peer service vision.</div>
                   {uploadedFiles.vision_statement && (
-                    <div className="text-xs text-emerald-600 font-semibold mt-1 flex items-center gap-1">
+                    <div className="text-xs text-emerald-600 font-semibold mt-1 flex items-center gap-1.5 flex-wrap">
                       <Check className="w-3.5 h-3.5" /> Uploaded: {uploadedFiles.vision_statement.name}
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const doc = uploadedFiles.vision_statement
+                          const url = doc?.previewUrl || uploadedDocUrls['vision_statement'] || ''
+                          setPreviewModal({
+                            isOpen: true,
+                            title: doc?.name || 'Vision Statement Document',
+                            url,
+                            fileType: detectFileType(doc?.name, doc?.type, url),
+                            fileName: doc?.name,
+                            fileSize: doc?.size,
+                          })
+                        }}
+                        className="ml-1 text-[11px] font-bold text-[#1D4ED8] hover:underline inline-flex items-center gap-1 cursor-pointer"
+                      >
+                        <Eye className="w-3 h-3" /> Preview
+                      </button>
                     </div>
                   )}
                 </div>
@@ -1050,10 +1311,23 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
               <div className="rounded-2xl bg-white border border-slate-200/90 shadow-sm overflow-hidden">
                 <div className="p-5 sm:p-6 bg-gradient-to-r from-slate-50 via-white to-blue-50/20 border-b border-slate-200/80">
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div>
-                      <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block">Nominee</span>
-                      <div className="font-bold text-sm text-slate-900 mt-1">{profile.fullName || '—'}</div>
-                      <div className="text-[11px] text-slate-500 mt-0.5 truncate">{profile.email || profile.mobile}</div>
+                    <div className="flex items-center gap-3">
+                      {profile.photoUrl ? (
+                        <img
+                          src={profile.photoUrl}
+                          alt={profile.fullName || 'Candidate Photo'}
+                          className="w-10 h-10 rounded-full object-cover border border-slate-200 shrink-0 shadow-2xs"
+                        />
+                      ) : (
+                        <div className="w-10 h-10 rounded-full bg-[#1D4ED8]/10 text-[#1D4ED8] font-bold flex items-center justify-center shrink-0 text-xs">
+                          {(profile.fullName || 'C')[0]?.toUpperCase()}
+                        </div>
+                      )}
+                      <div className="min-w-0">
+                        <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block">Nominee</span>
+                        <div className="font-bold text-sm text-slate-900 mt-0.5 truncate">{profile.fullName || '—'}</div>
+                        <div className="text-[11px] text-slate-500 mt-0.5 truncate">{profile.email || profile.mobile}</div>
+                      </div>
                     </div>
                     <div>
                       <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block">Target Role</span>
@@ -1125,12 +1399,38 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
                       </button>
                     </div>
 
-                    <div className="flex flex-wrap gap-2">
-                      {Object.entries(uploadedFiles).map(([k, doc]) => (
-                        <span key={k} className="px-3.5 py-1.5 rounded-xl bg-white text-slate-800 text-xs font-semibold border border-slate-200/90 shadow-2xs flex items-center gap-1.5">
-                          <Check className="w-3.5 h-3.5 text-emerald-600" /> {doc?.name}
-                        </span>
-                      ))}
+                    <div className="flex flex-wrap gap-2.5">
+                      {Object.entries(uploadedFiles).map(([k, doc]) => {
+                        const fileUrl = doc?.previewUrl || uploadedDocUrls[k] || ''
+                        const fileType = detectFileType(doc?.name || '', doc?.type, fileUrl)
+                        return (
+                          <button
+                            key={k}
+                            type="button"
+                            onClick={() => {
+                              setPreviewModal({
+                                isOpen: true,
+                                title: doc?.name || 'Uploaded Verification Document',
+                                url: fileUrl,
+                                fileType,
+                                fileName: doc?.name,
+                                fileSize: doc?.size,
+                              })
+                            }}
+                            className="group inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white hover:bg-blue-50/70 text-slate-800 hover:text-[#1D4ED8] text-xs font-semibold border border-slate-200 hover:border-[#1D4ED8]/50 shadow-xs hover:shadow-sm transition-all text-left cursor-pointer"
+                          >
+                            <div className="w-6 h-6 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center justify-center shrink-0 group-hover:bg-blue-100 group-hover:border-blue-300 transition-colors">
+                              <Check className="w-3.5 h-3.5 text-emerald-600 group-hover:text-[#1D4ED8]" />
+                            </div>
+                            <span className="truncate max-w-[180px] sm:max-w-[260px] font-medium text-slate-800 group-hover:text-slate-900">
+                              {doc?.name}
+                            </span>
+                            <span className="inline-flex items-center gap-1 text-[11px] font-bold text-[#1D4ED8] bg-blue-50 px-2 py-0.5 rounded-md border border-blue-200/60 group-hover:bg-[#1D4ED8] group-hover:text-white transition-all ml-1 shrink-0">
+                              <Eye className="w-3 h-3" /> Preview
+                            </span>
+                          </button>
+                        )
+                      })}
                       {Object.keys(uploadedFiles).length === 0 && (
                         <span className="text-xs text-slate-500 italic p-3 rounded-xl bg-slate-50 border border-slate-200/60 w-full block">
                           No custom files attached (Optional documentation skipped)
@@ -1302,6 +1602,197 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
           </div>
         )}
       </div>
+
+      {/* ---------------- DOCUMENT & MEDIA LIGHTBOX POPUP MODAL ---------------- */}
+      {previewModal?.isOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/75 backdrop-blur-sm animate-in fade-in duration-150"
+          onClick={() => setPreviewModal(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div
+            className="relative w-full max-w-4xl max-h-[92vh] bg-white rounded-2xl shadow-2xl border border-slate-200 flex flex-col overflow-hidden animate-in zoom-in-95 duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="px-5 py-3.5 bg-slate-50 border-b border-slate-200 flex items-center justify-between gap-3 shrink-0">
+              <div className="flex items-center gap-2.5 min-w-0">
+                <div className="w-8 h-8 rounded-lg bg-[#1D4ED8]/10 text-[#1D4ED8] flex items-center justify-center shrink-0">
+                  {previewModal.fileType === 'image' && <FileImage className="w-4 h-4" />}
+                  {previewModal.fileType === 'video' && <PlayCircle className="w-4 h-4" />}
+                  {previewModal.fileType === 'pdf' && <FileText className="w-4 h-4" />}
+                  {previewModal.fileType === 'other' && <FileCheck2 className="w-4 h-4" />}
+                </div>
+                <div className="min-w-0">
+                  <h3 className="text-sm font-bold text-slate-900 truncate">
+                    {previewModal.title || previewModal.fileName || 'Document Preview'}
+                  </h3>
+                  <p className="text-[11px] text-slate-500 capitalize">
+                    {previewModal.fileType} {previewModal.fileSize ? `· ${(previewModal.fileSize / 1024).toFixed(1)} KB` : ''} · Scrutiny Committee Verification
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 shrink-0">
+                {previewModal.url && (
+                  <a
+                    href={previewModal.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    download={previewModal.fileName}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors"
+                    title="Open full size in new tab"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5" />
+                    <span className="hidden sm:inline">Open in Tab</span>
+                  </a>
+                )}
+                <button
+                  type="button"
+                  onClick={() => setPreviewModal(null)}
+                  className="w-8 h-8 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-200 flex items-center justify-center transition-colors cursor-pointer"
+                  title="Close popup (Esc)"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Modal Body */}
+            <div className="p-4 sm:p-6 overflow-y-auto max-h-[calc(92vh-125px)] flex items-center justify-center bg-slate-100/60 min-h-[340px]">
+              {previewModal.fileType === 'image' && (
+                previewModal.url ? (
+                  <div className="relative max-w-full flex items-center justify-center">
+                    <img
+                      src={previewModal.url}
+                      alt={previewModal.title}
+                      className="max-h-[70vh] max-w-full rounded-xl object-contain shadow-md bg-white border border-slate-200"
+                    />
+                  </div>
+                ) : (
+                  <div className="text-center p-8 bg-white rounded-2xl border border-slate-200 shadow-xs max-w-md w-full">
+                    <div className="w-16 h-16 rounded-2xl bg-blue-50 text-[#1D4ED8] flex items-center justify-center mx-auto mb-4 border border-blue-100">
+                      <FileImage className="w-8 h-8" />
+                    </div>
+                    <h4 className="font-bold text-slate-900 text-sm">{previewModal.title || previewModal.fileName}</h4>
+                    <p className="text-xs text-slate-500 mt-1">Image document attached to candidate nomination filing.</p>
+                    <div className="mt-4 p-3 rounded-xl bg-slate-50 border border-slate-200/80 text-left text-xs space-y-1">
+                      <div className="flex justify-between">
+                        <span className="text-slate-500">Document Status:</span>
+                        <span className="font-bold text-emerald-600">Attached &amp; Verified</span>
+                      </div>
+                      {previewModal.fileSize && (
+                        <div className="flex justify-between">
+                          <span className="text-slate-500">File Size:</span>
+                          <span className="font-semibold text-slate-800">{(previewModal.fileSize / 1024).toFixed(1)} KB</span>
+                        </div>
+                      )}
+                      <div className="flex justify-between">
+                        <span className="text-slate-500">Target Committee:</span>
+                        <span className="font-semibold text-slate-800">Election Scrutiny Committee</span>
+                      </div>
+                    </div>
+                  </div>
+                )
+              )}
+
+              {previewModal.fileType === 'pdf' && (
+                previewModal.url ? (
+                  <iframe
+                    src={previewModal.url}
+                    title={previewModal.title}
+                    className="w-full h-[68vh] rounded-xl border border-slate-200 bg-white shadow-sm"
+                  />
+                ) : (
+                  <div className="text-center p-8 bg-white rounded-2xl border border-slate-200 shadow-xs max-w-md w-full">
+                    <div className="w-16 h-16 rounded-2xl bg-rose-50 text-[#E11D48] flex items-center justify-center mx-auto mb-4 border border-rose-100">
+                      <FileText className="w-8 h-8" />
+                    </div>
+                    <h4 className="font-bold text-slate-900 text-sm">{previewModal.title || previewModal.fileName}</h4>
+                    <p className="text-xs text-slate-500 mt-1">PDF Document attached to candidate nomination filing.</p>
+                    <div className="mt-4 p-3 rounded-xl bg-slate-50 border border-slate-200/80 text-left text-xs space-y-1">
+                      <div className="flex justify-between">
+                        <span className="text-slate-500">Document Status:</span>
+                        <span className="font-bold text-emerald-600">Attached &amp; Staged</span>
+                      </div>
+                      {previewModal.fileSize && (
+                        <div className="flex justify-between">
+                          <span className="text-slate-500">File Size:</span>
+                          <span className="font-semibold text-slate-800">{(previewModal.fileSize / 1024).toFixed(1)} KB</span>
+                        </div>
+                      )}
+                      <div className="flex justify-between">
+                        <span className="text-slate-500">Verification Scrutiny:</span>
+                        <span className="font-semibold text-slate-800">Pending Committee Review</span>
+                      </div>
+                    </div>
+                  </div>
+                )
+              )}
+
+              {previewModal.fileType === 'video' && (
+                <div className="w-full max-w-3xl aspect-video bg-black rounded-xl overflow-hidden shadow-lg flex items-center justify-center">
+                  {previewModal.url.includes('youtube.com') ||
+                  previewModal.url.includes('youtu.be') ||
+                  previewModal.url.includes('loom.com') ||
+                  previewModal.url.includes('vimeo.com') ? (
+                    <iframe
+                      src={getMediaEmbedUrl(previewModal.url)}
+                      title={previewModal.title}
+                      className="w-full h-full border-0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  ) : (
+                    <video
+                      src={previewModal.url}
+                      controls
+                      autoPlay
+                      className="w-full h-full object-contain"
+                    >
+                      Your browser does not support playing this video.
+                    </video>
+                  )}
+                </div>
+              )}
+
+              {previewModal.fileType === 'other' && (
+                <div className="text-center p-8 bg-white rounded-2xl border border-slate-200 shadow-xs max-w-md w-full">
+                  <div className="w-16 h-16 rounded-2xl bg-blue-50 text-[#1D4ED8] flex items-center justify-center mx-auto mb-4 border border-blue-100">
+                    <FileCheck2 className="w-8 h-8" />
+                  </div>
+                  <h4 className="font-bold text-slate-900 text-sm">{previewModal.fileName || previewModal.title}</h4>
+                  <p className="text-xs text-slate-500 mt-1">Verification proof attached for scrutiny committee review.</p>
+                  {previewModal.url && (
+                    <a
+                      href={previewModal.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 mt-4 rounded-xl bg-[#1D4ED8] text-white text-xs font-bold hover:bg-[#1e40af] transition-colors"
+                    >
+                      <Download className="w-4 h-4" /> Download / Open File
+                    </a>
+                  )}
+                </div>
+              )}
+            </div>
+
+            {/* Modal Footer */}
+            <div className="px-5 py-3 bg-white border-t border-slate-200 flex items-center justify-between text-xs text-slate-500 shrink-0">
+              <span>Press <kbd className="px-1.5 py-0.5 rounded bg-slate-100 border border-slate-200 text-slate-700 text-[10px] font-mono">Esc</kbd> to close</span>
+              <button
+                type="button"
+                onClick={() => setPreviewModal(null)}
+                className="px-4 py-1.5 rounded-lg bg-slate-900 text-white font-bold text-xs hover:bg-slate-800 transition-colors cursor-pointer"
+              >
+                Close Preview
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
+

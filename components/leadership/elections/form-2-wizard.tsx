@@ -73,137 +73,78 @@ export function Form2Wizard({
   const [draftSavedAt, setDraftSavedAt] = useState<string | null>(null)
   const [uploadingField, setUploadingField] = useState<string | null>(null)
 
-  // Section A: Business Credibility
+  // Section A: Business Credibility (Empty by default for nominee entry)
   const [secA, setSecA] = useState({
-    business_type: 'IT Services / Consulting',
-    year_founded: '2018',
-    annual_turnover_band: '₹1 Cr - ₹5 Cr',
-    team_size: '25',
-    achievements: '1. Scaled across 3 states\n2. Over 100 enterprise clients\n3. ISO 9001 certified',
+    business_type: '',
+    year_founded: '',
+    annual_turnover_band: '',
+    team_size: '',
+    achievements: '',
     registration_doc_url: '',
   })
 
   // Section B: Leadership Track Record
   const [secB, setSecB] = useState({
-    leadership_roles: 'VP of Business Development (ABC Corp, 4 yrs, 15 members led)',
-    largest_community: 'Tech Founders Gujarat - 450 founders, Co-founder & Convenor',
-    developed_leaders: '1. Rajesh Patel (now VP at FinTech)\n2. Priya Shah (Circle Lead)',
-    leadership_failure_learning: 'Expanded into retail too fast without regional heads; learned delegation and leadership benchmarking.',
+    leadership_roles: '',
+    largest_community: '',
+    developed_leaders: '',
+    leadership_failure_learning: '',
   })
 
   // Section C: Network Strength
   const [secC, setSecC] = useState({
-    associations: 'CII, TiE Ahmedabad, BNI Chapter President',
-    institutions_access: 'IIM Ahmedabad alumni network, HDFC corporate banking division',
-    sponsors_partners: 'TechVentures Capital, Reliance Retail regional logistics',
+    associations: '',
+    institutions_access: '',
+    sponsors_partners: '',
   })
 
   // Section D: Leadership Bench
   const minRequiredBench = candidateInfo.bench_requirement?.min_count || 7
   const targetRoleTitle = candidateInfo.bench_requirement?.target_role || 'Industry Directors'
 
+  // Starts with 1 clean empty nominee card
   const [benchMembers, setBenchMembers] = useState<Form2BenchMember[]>([
     {
-      name: 'Amit Shah',
-      mobile: '+91 9876543210',
-      city: 'Ahmedabad',
-      industry: 'Manufacturing',
-      relationship: 'Association Colleague',
+      name: '',
+      mobile: '',
+      city: '',
+      industry: '',
+      relationship: '',
       status: 'Committed',
-      proposed_role: 'Industry Director - Textiles',
-      timeline: '30',
-    },
-    {
-      name: 'Dr. Rahul Desai',
-      mobile: '+91 9822114455',
-      city: 'Surat',
-      industry: 'Healthcare & Pharma',
-      relationship: 'Business Partner',
-      status: 'Committed',
-      proposed_role: 'Industry Director - Healthcare',
-      timeline: '30',
-    },
-    {
-      name: 'Neha Mehta',
-      mobile: '+91 9909988776',
-      city: 'Vadodara',
-      industry: 'Chemicals & Specialty',
-      relationship: 'Chamber Member',
-      status: 'Spoken, interested',
-      proposed_role: 'Industry Director - Chemicals',
-      timeline: '90',
-    },
-    {
-      name: 'Vikram Parekh',
-      mobile: '+91 9825022334',
-      city: 'Rajkot',
-      industry: 'Engineering & Auto',
-      relationship: 'Founding Peer',
-      status: 'Committed',
-      proposed_role: 'Industry Director - Auto Ancillaries',
-      timeline: '30',
-    },
-    {
-      name: 'Sonal Trivedi',
-      mobile: '+91 9879011223',
-      city: 'Surat',
-      industry: 'Diamond & Luxury Gems',
-      relationship: 'Client & Mentor',
-      status: 'Spoken, interested',
-      proposed_role: 'Industry Director - Gems & Jewellery',
-      timeline: '90',
-    },
-    {
-      name: 'Harshil Joshi',
-      mobile: '+91 9824455667',
-      city: 'Ahmedabad',
-      industry: 'Real Estate & Infra',
-      relationship: 'Fellow Promoter',
-      status: 'Spoken, interested',
-      proposed_role: 'Industry Director - Real Estate',
-      timeline: '90',
-    },
-    {
-      name: 'Pooja Bhatt',
-      mobile: '+91 9724119900',
-      city: 'Surat',
-      industry: 'IT & Software SaaS',
-      relationship: 'Alumni Network',
-      status: 'Committed',
-      proposed_role: 'Industry Director - Technology & AI',
+      proposed_role: '',
       timeline: '30',
     },
   ])
 
-  const [benchDeclaration, setBenchDeclaration] = useState<boolean>(true)
+  const [benchDeclaration, setBenchDeclaration] = useState<boolean>(false)
 
   // Section E: 12-Month Plan
   const [secE, setSecE] = useState({
-    targets_6_12_months: '6 Months: 4 Circles, 12 IDs. 12 Months: 10 Circles, 30 IDs, 150 Peers.',
-    first_90_days: '1. Onboard 7 committed IDs\n2. Host 2 discovery conclaves\n3. Form Surat & Vadodara launch core teams',
-    funding_plan: 'Self-funded through consulting reserve and corporate sponsorship.',
-    biggest_risk: 'Candidate drop-off during onboarding. Mitigation: structured weekly peer reviews.',
+    targets_6_12_months: '',
+    first_90_days: '',
+    funding_plan: '',
+    biggest_risk: '',
   })
 
   // Section F: Commitment & Fit
   const [secF, setSecF] = useState({
-    hours_per_week: '10-12 hours / week (Tue & Sat availability)',
-    competing_commitments: 'Quarterly board meetings of family trust.',
-    why_peers_global: 'Alignment with collaborative ecosystem rather than purely transactional referral networks.',
-    role_understanding: 'An orchestrator who identifies, grooms, and empowers Industry Directors to run thriving Circles.',
-    performance_tenure_accepted: true,
+    hours_per_week: '',
+    competing_commitments: '',
+    why_peers_global: '',
+    role_understanding: '',
+    performance_tenure_accepted: false,
   })
 
   // Section G: References
   const [secG, setSecG] = useState({
-    ref_1_name: 'Dr. Sunil Mehta',
-    ref_1_relationship: 'Business Client & Mentor',
-    ref_1_mobile: '+91 9822001122',
-    ref_1_years: '6',
-    ref_2_name: 'Sunita Trivedi',
-    ref_2_relationship: 'Chamber Director',
-    ref_2_mobile: '+91 9822003344',
-    ref_2_years: '4',
+    ref_1_name: '',
+    ref_1_relationship: '',
+    ref_1_mobile: '',
+    ref_1_years: '',
+    ref_2_name: '',
+    ref_2_relationship: '',
+    ref_2_mobile: '',
+    ref_2_years: '',
   })
 
   // Section H: Documents
@@ -213,23 +154,29 @@ export function Form2Wizard({
     deck_url: '',
   })
 
-  // Restore draft from localStorage on mount
+  // Restore draft from localStorage on mount (purging any legacy mock drafts)
   useEffect(() => {
     const draftKey = `peers_form2_draft_${nominationId}`
     try {
       const saved = localStorage.getItem(draftKey)
       if (saved) {
         const parsed = JSON.parse(saved)
-        if (parsed.secA) setSecA(parsed.secA)
-        if (parsed.secB) setSecB(parsed.secB)
-        if (parsed.secC) setSecC(parsed.secC)
-        if (parsed.benchMembers) setBenchMembers(parsed.benchMembers)
-        if (parsed.benchDeclaration !== undefined) setBenchDeclaration(parsed.benchDeclaration)
-        if (parsed.secE) setSecE(parsed.secE)
-        if (parsed.secF) setSecF(parsed.secF)
-        if (parsed.secG) setSecG(parsed.secG)
-        if (parsed.secH) setSecH(parsed.secH)
-        setDraftSavedAt(parsed.savedAt || 'Restored')
+        // Purge legacy mock data if present
+        const hasLegacyDemo = parsed.benchMembers?.some((m: any) => m.name === 'Amit Shah' || m.name === 'Dr. Rahul Desai')
+        if (hasLegacyDemo) {
+          localStorage.removeItem(draftKey)
+        } else {
+          if (parsed.secA) setSecA(parsed.secA)
+          if (parsed.secB) setSecB(parsed.secB)
+          if (parsed.secC) setSecC(parsed.secC)
+          if (parsed.benchMembers && parsed.benchMembers.length > 0) setBenchMembers(parsed.benchMembers)
+          if (parsed.benchDeclaration !== undefined) setBenchDeclaration(parsed.benchDeclaration)
+          if (parsed.secE) setSecE(parsed.secE)
+          if (parsed.secF) setSecF(parsed.secF)
+          if (parsed.secG) setSecG(parsed.secG)
+          if (parsed.secH) setSecH(parsed.secH)
+          if (parsed.savedAt) setDraftSavedAt(parsed.savedAt)
+        }
       }
     } catch {
       // ignore
@@ -286,6 +233,15 @@ export function Form2Wizard({
         setIsVerified(true)
         setVerifySuccessMsg('Email verified successfully. Form 2 unlocked.')
         sessionStorage.setItem(`peers_form2_verified_${nominationId}`, clean)
+        if (res.data) {
+          setCandidateInfo((prev) => ({
+            ...prev,
+            candidate_name: res.data.candidate_name || prev.candidate_name,
+            email: res.data.email || clean,
+            mobile: res.data.mobile || prev.mobile,
+            city: res.data.city || prev.city,
+          }))
+        }
       } else {
         setVerifyError(res.message || 'Email mismatch: The entered email address does not match this nomination application.')
       }
@@ -721,13 +677,12 @@ export function Form2Wizard({
                 <button
                   key={step.id}
                   onClick={() => setActiveStep(step.id)}
-                  className={`flex flex-col text-left p-3 rounded-2xl border transition-all cursor-pointer ${
-                    isActive
+                  className={`flex flex-col text-left p-3 rounded-2xl border transition-all cursor-pointer ${isActive
                       ? 'bg-gradient-to-r from-blue-50/90 to-rose-50/40 border-[#1D4ED8] text-[#1D4ED8] shadow-xs ring-1 ring-blue-500/20 font-bold'
                       : isDone
-                      ? 'bg-white border-emerald-200 text-slate-700 hover:bg-slate-50'
-                      : 'bg-white border-slate-200 text-slate-400 hover:text-slate-600 hover:border-slate-300'
-                  }`}
+                        ? 'bg-white border-emerald-200 text-slate-700 hover:bg-slate-50'
+                        : 'bg-white border-slate-200 text-slate-400 hover:text-slate-600 hover:border-slate-300'
+                    }`}
                 >
                   <div className="flex items-center justify-between text-xs font-bold mb-1">
                     <span className={isActive ? 'text-[#1D4ED8]' : isDone ? 'text-emerald-600' : 'text-slate-400'}>
@@ -1081,11 +1036,10 @@ export function Form2Wizard({
 
                 {/* Counter status badge */}
                 <div
-                  className={`px-3.5 py-1.5 rounded-full border text-xs font-bold flex items-center gap-2 ${
-                    benchMembers.length >= minRequiredBench
+                  className={`px-3.5 py-1.5 rounded-full border text-xs font-bold flex items-center gap-2 ${benchMembers.length >= minRequiredBench
                       ? 'bg-emerald-50 border-emerald-200 text-emerald-700'
                       : 'bg-amber-50 border-amber-200 text-amber-800'
-                  }`}
+                    }`}
                 >
                   {benchMembers.length >= minRequiredBench ? (
                     <Check className="w-4 h-4 text-emerald-600" />
@@ -1127,13 +1081,12 @@ export function Form2Wizard({
                         </span>
                         {member.status && (
                           <span
-                            className={`text-xs px-2.5 py-0.5 rounded-full font-bold ${
-                              member.status === 'Committed'
+                            className={`text-xs px-2.5 py-0.5 rounded-full font-bold ${member.status === 'Committed'
                                 ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                                 : member.status === 'Spoken, interested'
-                                ? 'bg-blue-50 text-blue-700 border border-blue-200'
-                                : 'bg-slate-100 text-slate-600 border border-slate-200'
-                            }`}
+                                  ? 'bg-blue-50 text-blue-700 border border-blue-200'
+                                  : 'bg-slate-100 text-slate-600 border border-slate-200'
+                              }`}
                           >
                             {member.status}
                           </span>
@@ -1161,7 +1114,7 @@ export function Form2Wizard({
                           type="text"
                           value={member.name}
                           onChange={(e) => handleUpdateBenchMember(index, 'name', e.target.value)}
-                          placeholder="e.g. Amit Shah"
+                          placeholder="e.g. Full Name"
                           className="w-full px-3 py-2 rounded-xl bg-white border border-slate-300 text-slate-900 text-xs focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]/15 focus:border-[#1D4ED8] shadow-2xs"
                         />
                       </div>
@@ -1909,11 +1862,10 @@ export function Form2Wizard({
                           </p>
                         </div>
                         <span
-                          className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold ${
-                            m.status === 'Committed'
+                          className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold ${m.status === 'Committed'
                               ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                               : 'bg-blue-50 text-blue-700 border border-blue-200'
-                          }`}
+                            }`}
                         >
                           {m.status}
                         </span>
@@ -1968,16 +1920,43 @@ export function Form2Wizard({
                       <strong className="text-slate-900 font-bold block">{secG.ref_2_name} ({secG.ref_2_relationship})</strong>
                     </div>
                     <div>
-                      <span className="text-slate-500 text-xs block font-medium">Attached Proofs:</span>
-                      <span className="text-xs text-slate-800 font-semibold block">
-                        {secH.id_proof_url ? '✓ KYC ID Proof' : 'KYC ID Proof Pending'}
-                      </span>
-                      <span className="text-xs text-slate-800 font-semibold block">
-                        {secH.business_proof_url ? '✓ Business Proof' : 'Business Proof Pending'}
-                      </span>
-                      {secH.deck_url && (
-                        <span className="text-xs text-slate-800 font-semibold block">✓ Candidate Deck</span>
-                      )}
+                      <span className="text-slate-500 text-xs block font-medium mb-1">Attached Proofs:</span>
+                      <div className="space-y-1">
+                        {secH.id_proof_url ? (
+                          <a
+                            href={secH.id_proof_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 text-xs text-[#1D4ED8] hover:underline font-semibold"
+                          >
+                            <Check className="w-3.5 h-3.5 text-emerald-600" /> KYC ID Proof (View / Open)
+                          </a>
+                        ) : (
+                          <span className="text-xs text-slate-400 block">KYC ID Proof Pending</span>
+                        )}
+                        {secH.business_proof_url ? (
+                          <a
+                            href={secH.business_proof_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 text-xs text-[#1D4ED8] hover:underline font-semibold block"
+                          >
+                            <Check className="w-3.5 h-3.5 text-emerald-600" /> Business Proof (View / Open)
+                          </a>
+                        ) : (
+                          <span className="text-xs text-slate-400 block">Business Proof Pending</span>
+                        )}
+                        {secH.deck_url && (
+                          <a
+                            href={secH.deck_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 text-xs text-[#1D4ED8] hover:underline font-semibold block"
+                          >
+                            <Check className="w-3.5 h-3.5 text-emerald-600" /> Candidate Deck (View / Open)
+                          </a>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>

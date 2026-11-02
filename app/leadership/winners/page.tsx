@@ -73,15 +73,7 @@ export default async function GlobalWinnersPage() {
               >
                 Explore Active Campaigns
               </GalaxyButton>
-              <GalaxyButton
-                href="/leadership/votes/verify"
-                variant="gradient-white"
-                size="default"
-                className="text-xs sm:text-sm"
-              >
-                Verify a Ballot
-              </GalaxyButton>
-            </div>
+              </div>
           </div>
         </div>
 
