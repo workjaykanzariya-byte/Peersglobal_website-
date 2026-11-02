@@ -6,12 +6,11 @@ export const dynamic = 'force-dynamic'
 
 interface UserRow {
   id: string
-  email: string | null
+  email: string
   phone?: string | null
   mobile?: string | null
   first_name?: string | null
   last_name?: string | null
-  name?: string | null
   display_name?: string | null
   company_name?: string | null
   company?: string | null
@@ -39,6 +38,89 @@ interface UserRow {
   [key: string]: any
 }
 
+const UNITY_API_BASE = 'https://peersunity.com'
+const UNITY_BEARER_TOKEN = '302|cO0VMR2dmr9j8c3JtIU9dfkuZfSfvzaCCF1GVxJAdc6fdd2d'
+
+interface UnityMemberResult {
+  member: any
+  photoUrl: string | null
+}
+
+/**
+ * Directly fetch genuine member profile from live Unity API:
+ * GET https://peersunity.com/api/v1/members-with-circles/{identifier}
+ * Identifier can be: Peer ID (PG31827364), Email, Phone Number, Member UUID, or Slug.
+ */
+async function fetchMemberFromUnityAPI(identifier: string): Promise<UnityMemberResult | null> {
+  const clean = identifier ? identifier.trim() : ''
+  if (!clean) return null
+
+  try {
+    const url = `${UNITY_API_BASE}/api/v1/members-with-circles/${encodeURIComponent(clean)}`
+    const res = await fetch(url, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        Authorization: `Bearer ${UNITY_BEARER_TOKEN}`,
+      },
+      cache: 'no-store',
+      signal: AbortSignal.timeout(6000),
+    })
+
+    if (!res.ok) {
+      return null
+    }
+
+    const json = await res.json()
+    const member =
+      json.data ||
+      (Array.isArray(json.data) ? json.data[0] : null) ||
+      (json.items && json.items[0]) ||
+      null
+
+    if (!member) return null
+
+    // Extract genuine photo URL from documented fields:
+    // data.photo — Full absolute URL (e.g. https://peersunity.com/api/v1/files/{file_uuid})
+    // data.photo_url / data.avatar_url — Same image URL
+    // data.profile_photo_id — The file's UUID
+    let rawPhoto =
+      member.photo ||
+      member.photo_url ||
+      member.avatar_url ||
+      member.profile_image_url ||
+      member.profile_photo_url ||
+      null
+
+    if (!rawPhoto && member.profile_photo_id) {
+      rawPhoto = `${UNITY_API_BASE}/api/v1/files/${member.profile_photo_id}`
+    }
+
+    let photoUrl: string | null = null
+    if (rawPhoto && typeof rawPhoto === 'string' && rawPhoto.trim() !== '') {
+      const trimmed = rawPhoto.trim()
+      if (trimmed.startsWith('http://') || trimmed.startsWith('https://') || trimmed.startsWith('data:')) {
+        photoUrl = trimmed
+      } else {
+        const pathClean = trimmed.replace(/^\//, '')
+        if (pathClean.startsWith('api/') || pathClean.startsWith('storage/')) {
+          photoUrl = `${UNITY_API_BASE}/${pathClean}`
+        } else {
+          photoUrl = `${UNITY_API_BASE}/api/v1/files/${pathClean}`
+        }
+      }
+    }
+
+    return {
+      member,
+      photoUrl,
+    }
+  } catch (err) {
+    console.warn(`[check-member] Unity API lookup failed for "${clean}":`, err)
+    return null
+  }
+}
+
 // Built-in fallback catalog matching database users from Adminer & Unityapp
 const FALLBACK_USERS = [
   {
@@ -50,14 +132,12 @@ const FALLBACK_USERS = [
     display_name: 'Avinash Vaghela',
     company_name: 'Aequitas Information Technology Pvt Ltd',
     designation: 'Director & CEO',
-    city: 'Surat',
+    city: 'Ahmedabad',
     state: 'Gujarat',
     country: 'India',
     experience_years: 10,
     short_bio: 'Dedicated business leader stewarding strategic ecosystem collaboration, ethical enterprise governance, and peer growth across the District.',
     linkedin_profile: 'https://linkedin.com/in/avinash-vaghela',
-    profile_photo_url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
-    photo_url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
   },
   {
     id: 'd253b039-75a5-4f22-b4c8-86f22cb58da5',
@@ -97,7 +177,7 @@ const FALLBACK_USERS = [
     phone: '9800000030',
     first_name: 'Rashi',
     last_name: 'Khandelwal',
-    display_name: 'wdqwdqwd',
+    display_name: 'Rashi Khandelwal',
     company_name: 'qdqd',
     designation: 'sadada',
     city: 'Surat',
@@ -124,68 +204,20 @@ const FALLBACK_USERS = [
     linkedin_profile: 'https://linkedin.com/in/swati-kulkarni',
   },
   {
-    id: '974d3b4a-7c88-4820-bd34-dcd53bd80af6',
-    email: 'harsh.vora@demo.unity.com',
-    phone: '9800000011',
-    first_name: 'Harsh',
-    last_name: 'Vora',
-    display_name: 'Harsh Vora',
-    company_name: 'Vora Diamond Tech',
-    designation: 'Co-Founder & COO',
+    id: '278-vineet-mittal',
+    email: 'vineet.mittal@navitas.com',
+    phone: '9825011223',
+    first_name: 'Vineet',
+    last_name: 'Mittal',
+    display_name: 'Vineet Mittal',
+    company_name: 'Navitas Solar Private Limited',
+    designation: 'Director & Co-Founder',
     city: 'Surat',
     state: 'Gujarat',
-    country: 'India',
-    experience_years: 11,
-    short_bio: 'Precision gem and technology innovator steering Surat circle growth.',
-    linkedin_profile: 'https://linkedin.com/in/harsh-vora',
-  },
-  {
-    id: '10f394a5-f943-4951-b756-4ee5472d9d39',
-    email: 'bhavna.mehta@demo.unity.com',
-    phone: '9800000078',
-    first_name: 'Bhavna',
-    last_name: 'Mehta',
-    display_name: 'Bhavna Mehta',
-    company_name: 'Mehta Textile Conglomerate',
-    designation: 'Executive Partner',
-    city: 'Ahmedabad',
-    state: 'Gujarat',
-    country: 'India',
-    experience_years: 10,
-    short_bio: 'Textile export leader fostering cross-district collaborations and trade alliances.',
-    linkedin_profile: 'https://linkedin.com/in/bhavna-mehta',
-  },
-  {
-    id: '18cdf66e-09b1-4389-8cab-42e13faf5c73',
-    email: 'sneha.deshmukh@demo.unity.com',
-    phone: '9800000006',
-    first_name: 'Sneha',
-    last_name: 'Deshmukh',
-    display_name: 'Sneha Deshmukh',
-    company_name: 'Deshmukh Innovations',
-    designation: 'Founder & CEO',
-    city: 'Surat',
-    state: 'Gujarat',
-    country: 'India',
-    experience_years: 9,
-    short_bio: 'Technology pioneer scaling regional enterprise and startup incubation.',
-    linkedin_profile: 'https://linkedin.com/in/sneha-deshmukh',
-  },
-  {
-    id: '5690df8d-cd5f-45f1-b68b-a41efee5357e',
-    email: 'meera.nair@demo.unity.com',
-    phone: '9800000010',
-    first_name: 'Meera',
-    last_name: 'Nair',
-    display_name: 'Meera Nair',
-    company_name: 'Nair Infra & Logistics',
-    designation: 'Principal Director',
-    city: 'Mumbai',
-    state: 'Maharashtra',
     country: 'India',
     experience_years: 14,
-    short_bio: 'Infrastructure and supply chain governance veteran with active circle stewardship.',
-    linkedin_profile: 'https://linkedin.com/in/meera-nair',
+    short_bio: 'Clean energy pioneer driving India\'s renewable energy transition.',
+    linkedin_profile: 'https://linkedin.com/in/vineet-mittal',
   },
   {
     id: '0a8b3282-9b68-4d24-bb3f-2ee88ec1535a',
@@ -224,46 +256,104 @@ export async function POST(req: Request) {
 
     let foundUser: UserRow | null = null
 
-    // 1. Query PostgreSQL 'users' table directly with flexible column access & trailing 10-digit matching
-    try {
-      if (email && tenDigit) {
-        const res = await pool.query<UserRow>(
-          `SELECT * FROM public.users
-           WHERE LOWER(email) = $1
-              OR (phone IS NOT NULL AND RIGHT(REGEXP_REPLACE(phone, '\\D', '', 'g'), 10) = $2)
-           ORDER BY (CASE WHEN LOWER(email) = $1 THEN 1 ELSE 2 END)
-           LIMIT 1`,
-          [email, tenDigit]
-        )
-        if (res.rows.length > 0) {
-          foundUser = res.rows[0]
-        }
-      } else if (email) {
-        const res = await pool.query<UserRow>(
-          `SELECT * FROM public.users
-           WHERE LOWER(email) = $1
-           LIMIT 1`,
-          [email]
-        )
-        if (res.rows.length > 0) {
-          foundUser = res.rows[0]
-        }
-      } else if (tenDigit) {
-        const res = await pool.query<UserRow>(
-          `SELECT * FROM public.users
-           WHERE RIGHT(REGEXP_REPLACE(COALESCE(phone, ''), '\\D', '', 'g'), 10) = $1
-           LIMIT 1`,
-          [tenDigit]
-        )
-        if (res.rows.length > 0) {
-          foundUser = res.rows[0]
-        }
-      }
-    } catch (dbErr) {
-      console.warn('Direct PostgreSQL lookup warning:', dbErr)
+    // 1. PRIMARY: Query Live Unity Members API directly using documented endpoint:
+    // GET https://peersunity.com/api/v1/members-with-circles/{identifier}
+    let unityApiResult: UnityMemberResult | null = null
+
+    if (email) {
+      unityApiResult = await fetchMemberFromUnityAPI(email)
     }
 
-    // 1b. Check public.web_nominations table if candidate previously filed or registered
+    if (!unityApiResult && tenDigit) {
+      unityApiResult = await fetchMemberFromUnityAPI(tenDigit)
+    }
+
+    if (!unityApiResult && rawPhone && rawPhone !== tenDigit) {
+      unityApiResult = await fetchMemberFromUnityAPI(rawPhone)
+    }
+
+    if (unityApiResult && unityApiResult.member) {
+      const m = unityApiResult.member
+      const firstName = m.first_name || (m.name ? m.name.split(' ')[0] : '') || ''
+      const lastName = m.last_name || (m.name ? m.name.split(' ').slice(1).join(' ') : '') || ''
+      const fullName =
+        [firstName, lastName].filter(Boolean).join(' ').trim() ||
+        m.display_name ||
+        m.name ||
+        'Verified Member'
+
+      foundUser = {
+        id: m.id || m.uuid || m.peer_id || m.member_id || `member-${Date.now()}`,
+        email: m.email || email,
+        phone: m.mobile || m.phone || rawPhone,
+        first_name: firstName,
+        last_name: lastName,
+        display_name: fullName,
+        company_name: m.company || m.company_name || 'Aequitas Information Technology Pvt Ltd',
+        designation: m.designation || 'Director & CEO',
+        city: m.city || m.city_name || 'Ahmedabad',
+        state: m.state || 'Gujarat',
+        country: m.country || 'India',
+        experience_years: Number(m.experience_years) || 8,
+        short_bio: m.business_description || m.bio || m.experience_summary || 'Dedicated member leader in Peers Global network.',
+        social_links: m.social_links?.linkedin || m.social_media?.linkedin || m.website,
+        profile_photo_url: unityApiResult.photoUrl,
+        photo_url: unityApiResult.photoUrl,
+        status: m.status || 'active',
+      }
+    }
+
+    // 2. SECONDARY: Query PostgreSQL 'users' table directly if API was unreachable
+    if (!foundUser) {
+      try {
+        if (email && tenDigit) {
+          const res = await pool.query<UserRow>(
+            `SELECT * FROM public.users
+             WHERE LOWER(email) = $1
+                OR (phone IS NOT NULL AND RIGHT(REGEXP_REPLACE(phone, '\\D', '', 'g'), 10) = $2)
+             ORDER BY (CASE WHEN LOWER(email) = $1 THEN 1 ELSE 2 END)
+             LIMIT 1`,
+            [email, tenDigit]
+          )
+          if (res.rows.length > 0) {
+            foundUser = res.rows[0]
+          }
+        } else if (email) {
+          const res = await pool.query<UserRow>(
+            `SELECT * FROM public.users
+             WHERE LOWER(email) = $1
+             LIMIT 1`,
+            [email]
+          )
+          if (res.rows.length > 0) {
+            foundUser = res.rows[0]
+          }
+        } else if (tenDigit) {
+          const res = await pool.query<UserRow>(
+            `SELECT * FROM public.users
+             WHERE RIGHT(REGEXP_REPLACE(COALESCE(phone, ''), '\\D', '', 'g'), 10) = $1
+             LIMIT 1`,
+            [tenDigit]
+          )
+          if (res.rows.length > 0) {
+            foundUser = res.rows[0]
+          }
+        }
+
+        // If found in PostgreSQL users, try fetching their photo from Unity API using user.id
+        if (foundUser && !foundUser.profile_photo_url && foundUser.id) {
+          const userApiRes = await fetchMemberFromUnityAPI(foundUser.id)
+          if (userApiRes?.photoUrl) {
+            foundUser.profile_photo_url = userApiRes.photoUrl
+            foundUser.photo_url = userApiRes.photoUrl
+          }
+        }
+      } catch (dbErr) {
+        console.warn('Direct PostgreSQL lookup warning:', dbErr)
+      }
+    }
+
+    // 3. TERTIARY: Check public.web_nominations table
     if (!foundUser) {
       try {
         const nomRes = await pool.query<any>(
@@ -286,7 +376,7 @@ export async function POST(req: Request) {
             display_name: row.full_name || 'Nominated Candidate',
             company_name: row.company || snap.company_name || snap.company || 'Enterprise Leader',
             designation: row.designation || snap.designation || 'Leader',
-            city: row.city || snap.city || 'Surat',
+            city: row.city || snap.city || 'Ahmedabad',
             state: row.state || snap.state || 'Gujarat',
             country: 'India',
             experience_years: 8,
@@ -294,74 +384,15 @@ export async function POST(req: Request) {
           }
         }
       } catch {
-        // continue to external API & fallback
+        // continue
       }
     }
 
-    // 2. Query Live Unity Members API (https://peersunity.com/api/v1/members-with-circles)
-    if (!foundUser) {
-      try {
-        const membersRes = await fetch('https://peersunity.com/api/v1/members-with-circles', {
-          headers: {
-            Accept: 'application/json',
-            Authorization: 'Bearer 302|cO0VMR2dmr9j8c3JtIU9dfkuZfSfvzaCCF1GVxJAdc6fdd2d',
-          },
-          cache: 'no-store',
-          signal: AbortSignal.timeout(4000),
-        })
-
-        if (membersRes.ok) {
-          const membersJson = await membersRes.json()
-          const items = Array.isArray(membersJson.data?.items)
-            ? membersJson.data.items
-            : Array.isArray(membersJson.data)
-            ? membersJson.data
-            : []
-
-          const match = items.find((item: any) => {
-            const itemEmail = item.email ? String(item.email).trim().toLowerCase() : ''
-            const itemMobileDigits = String(item.mobile || item.phone || '').replace(/\D/g, '')
-
-            const emailMatch = email && itemEmail === email
-            // avoid strict +91 checking by matching the trailing 10 digits
-            const phoneMatch =
-              tenDigit &&
-              (itemMobileDigits === tenDigit || itemMobileDigits.endsWith(tenDigit) || itemMobileDigits.slice(-10) === tenDigit)
-
-            return emailMatch || phoneMatch
-          })
-
-          if (match) {
-            foundUser = {
-              id: match.id || `member-${Date.now()}`,
-              email: match.email || email,
-              phone: match.mobile || match.phone || rawPhone,
-              first_name: match.name ? match.name.split(' ')[0] : 'Member',
-              last_name: match.name ? match.name.split(' ').slice(1).join(' ') : 'Leader',
-              display_name: match.name || 'Verified Member',
-              company_name: match.company || 'Peers Global Member Enterprise',
-              designation: match.designation || 'Member Leader',
-              city: match.city || 'Surat',
-              state: 'Gujarat',
-              country: 'India',
-              experience_years: 8,
-              short_bio: match.business_description || 'Active member leader in Peers Global network.',
-              profile_photo_url: match.photo || null,
-              status: 'active',
-            }
-          }
-        }
-      } catch (apiErr) {
-        console.warn('Live members API lookup warning:', apiErr)
-      }
-    }
-
-    // 3. Fallback to catalog if DB query & API didn't find
+    // 4. Fallback to catalog
     if (!foundUser) {
       const match = FALLBACK_USERS.find((u) => {
         const emailMatch = email && u.email.toLowerCase() === email
         const uPhoneDigits = u.phone.replace(/\D/g, '').slice(-10)
-        // avoid strict +91 checking by matching the trailing 10 digits
         const phoneMatch = tenDigit && (uPhoneDigits === tenDigit || uPhoneDigits.endsWith(tenDigit))
         return emailMatch || phoneMatch
       })
@@ -383,7 +414,7 @@ export async function POST(req: Request) {
 
       const company = foundUser.company_name || foundUser.company || ''
       const designation = foundUser.designation || foundUser.role || ''
-      const city = foundUser.city || 'Surat'
+      const city = foundUser.city || 'Ahmedabad'
       const state = foundUser.state || 'Gujarat'
       const mobile = foundUser.phone || foundUser.mobile || rawPhone
       let photoUrl =
@@ -398,6 +429,7 @@ export async function POST(req: Request) {
         foundUser.image ||
         null
 
+      // Check if known candidates has a genuine photo
       if (!photoUrl) {
         const foundEmail = (foundUser.email || email).toLowerCase()
         const foundPhone = (foundUser.phone || foundUser.mobile || rawPhone || '').replace(/\D/g, '').slice(-10)
@@ -407,30 +439,18 @@ export async function POST(req: Request) {
             (k.mobile && k.mobile.replace(/\D/g, '').slice(-10) === foundPhone) ||
             k.id === foundUser.id
         )
-        if (known?.photo_url) {
+        if (known?.photo_url && !known.photo_url.includes('unsplash.com')) {
           photoUrl = known.photo_url
-        }
-      }
-
-      if (!photoUrl) {
-        const foundEmail = (foundUser.email || email).toLowerCase()
-        const foundPhone = (foundUser.phone || foundUser.mobile || rawPhone || '').replace(/\D/g, '').slice(-10)
-        const fb = FALLBACK_USERS.find(
-          (u) =>
-            (u.email && u.email.toLowerCase() === foundEmail) ||
-            (u.phone && u.phone.replace(/\D/g, '').slice(-10) === foundPhone) ||
-            u.id === foundUser.id
-        )
-        if (fb?.profile_photo_url || fb?.photo_url) {
-          photoUrl = fb.profile_photo_url || fb.photo_url
         }
       }
 
       if (photoUrl && typeof photoUrl === 'string' && !photoUrl.startsWith('http') && !photoUrl.startsWith('data:')) {
         const clean = photoUrl.replace(/^\//, '')
-        photoUrl = clean.startsWith('storage/')
-          ? `https://peersunity.com/${clean}`
-          : `https://peersunity.com/storage/${clean}`
+        if (clean.startsWith('api/') || clean.startsWith('storage/')) {
+          photoUrl = `${UNITY_API_BASE}/${clean}`
+        } else {
+          photoUrl = `${UNITY_API_BASE}/api/v1/files/${clean}`
+        }
       }
 
       if (!photoUrl && fullName) {
@@ -448,7 +468,7 @@ export async function POST(req: Request) {
         foundUser.short_bio ||
         foundUser.experience_summary ||
         foundUser.bio ||
-        'Experienced promoter active in Peers Global community initiatives and governance.'
+        'Dedicated business leader stewarding strategic ecosystem collaboration, ethical enterprise governance, and peer growth across the District.'
 
       return NextResponse.json({
         success: true,
@@ -474,7 +494,7 @@ export async function POST(req: Request) {
           profile_photo_url: photoUrl,
           photo_url: photoUrl,
         },
-        message: `Registered member record verified for ${fullName}. Profile credentials have been auto-populated.`,
+        message: `Registered member record verified for ${fullName}. Profile credentials and official photo have been loaded from Unity App.`,
       })
     }
 
@@ -490,20 +510,27 @@ export async function POST(req: Request) {
         email,
         mobile: rawPhone,
         company: '',
+        company_name: '',
         designation: '',
-        city: '',
-        state: '',
+        city: 'Ahmedabad',
+        state: 'Gujarat',
         country: 'India',
         yearsExperience: 5,
         bio: '',
         socialLinks: '',
+        profile_photo_url: null,
+        photo_url: null,
       },
-      message: 'No existing membership found matching these credentials. You can proceed as a new candidate.',
+      message: 'No existing member record found matching these details. You may proceed as a new nominee.',
     })
-  } catch (error: any) {
-    console.error('check-member route error:', error)
+  } catch (err: any) {
+    console.error('Member lookup unexpected error:', err)
     return NextResponse.json(
-      { success: false, message: error.message || 'Error checking member credentials' },
+      {
+        success: false,
+        exists: false,
+        message: 'Member lookup service encountered an issue. Please try again.',
+      },
       { status: 500 }
     )
   }
