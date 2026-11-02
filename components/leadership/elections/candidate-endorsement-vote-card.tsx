@@ -35,6 +35,16 @@ export function CandidateEndorsementVoteCard({
   onBackToRoster,
   showBackToggle = false,
 }: CandidateEndorsementVoteCardProps) {
+  // Resolved candidate photo from API or fallback avatar
+  const candidatePhoto =
+    candidate.photo_url ||
+    (candidate as any).profile_photo_url ||
+    (candidate as any).photo ||
+    (candidate as any).avatar ||
+    (candidate.full_name
+      ? `https://ui-avatars.com/api/?name=${encodeURIComponent(candidate.full_name)}&background=1D4ED8&color=fff&size=400&bold=true`
+      : null)
+
   // Form State
   const [fullName, setFullName] = useState('')
   const [email, setEmail] = useState('')
@@ -178,10 +188,15 @@ export function CandidateEndorsementVoteCard({
               {/* Circular Avatar with Ring — Real photo from API or candidate initials monogram */}
               <div className="relative shrink-0">
                 <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 border-slate-200 ring-4 ring-blue-500/15 shadow-md bg-slate-100 flex items-center justify-center">
-                  {candidate.photo_url ? (
+                  {candidatePhoto ? (
                     <img
-                      src={candidate.photo_url}
+                      src={candidatePhoto}
                       alt={candidate.full_name}
+                      onError={(e) => {
+                        if (candidate.full_name) {
+                          ;(e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(candidate.full_name)}&background=1D4ED8&color=fff&size=400&bold=true`
+                        }
+                      }}
                       className="w-full h-full object-cover object-top"
                     />
                   ) : (

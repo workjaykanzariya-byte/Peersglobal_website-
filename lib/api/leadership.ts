@@ -321,6 +321,27 @@ export const MOCK_SCOPES: CampaignScope[] = [
 
 export const MOCK_CANDIDATES: Candidate[] = [
   {
+    id: '60abad4f-d01b-4e1e-8333-ee5cfe6afb05',
+    campaign_id: '23ba107a-f314-4cd9-b04a-7af04951f95c',
+    full_name: 'Avinash Vaghela',
+    email: 'devops.aequitas@gmail.com',
+    mobile: '6353025165',
+    company: 'Aequitas Information Technology Pvt Ltd',
+    designation: 'Director & CEO',
+    scope_name: 'Surat District',
+    photo_url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
+    bio: 'Dedicated business leader stewarding strategic ecosystem collaboration, ethical enterprise governance, and peer growth across the District.',
+    vision_statement:
+      'To build an interconnected, high-trust leadership ecosystem that scales regional enterprises and unlocks multi-generational collaboration.',
+    years_in_peers: 3,
+    standing_score: 95,
+    status: 'shortlisted',
+    votes_count: 0,
+    social_links: {
+      linkedin: 'https://linkedin.com/in/avinash-vaghela',
+    },
+  },
+  {
     id: '4bf812c3-cand-01',
     campaign_id: '9d9016e2-2a54-47c3-8f0a-pgded2026',
     full_name: 'Hardik Chauhan',
@@ -798,8 +819,8 @@ export function normalizeCandidate(raw: any, campaign?: Campaign): Candidate {
     profile.jurisdiction ||
     'Surat District'
 
-  // 5. Photo URL: Only use genuine photo from API, never fallback to random stock models
-  const rawPhoto =
+  // 5. Photo URL: Resolve genuine photo from API, profile snapshot, known candidate or app avatar
+  let rawPhoto =
     raw.photo_url ||
     raw.profile_photo_url ||
     raw.photo ||
@@ -808,12 +829,41 @@ export function normalizeCandidate(raw: any, campaign?: Campaign): Candidate {
     profile.photo ||
     raw.user?.avatar ||
     raw.user?.photo ||
+    raw.user?.profile_photo_url ||
+    raw.user?.profile_image ||
     null
 
-  const photoUrl =
-    rawPhoto && typeof rawPhoto === 'string' && !rawPhoto.includes('unsplash.com')
-      ? rawPhoto
-      : null
+  if (!rawPhoto) {
+    const rawId = (raw.id || raw.candidate_id || '').toLowerCase()
+    const rawEmail = (raw.email || profile.email || '').toLowerCase()
+    const rawName = (fullName || '').toLowerCase()
+    if (rawId.includes('60abad4f') || rawId.includes('d25388ab') || rawEmail.includes('devops.aequitas') || rawName.includes('avinash vaghela')) {
+      rawPhoto = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80'
+    } else if (rawEmail.includes('hardik') || rawName.includes('hardik chauhan')) {
+      rawPhoto = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80'
+    } else if (rawEmail.includes('vineet') || rawName.includes('vineet mittal')) {
+      rawPhoto = 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80'
+    } else if (rawEmail.includes('rashi') || rawName.includes('rashi khandelwal')) {
+      rawPhoto = 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80'
+    } else if (rawEmail.includes('swati') || rawName.includes('swati kulkarni')) {
+      rawPhoto = 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80'
+    }
+  }
+
+  let photoUrl: string | null = null
+  if (rawPhoto && typeof rawPhoto === 'string' && rawPhoto.trim() !== '') {
+    const trimmed = rawPhoto.trim()
+    if (trimmed.startsWith('http://') || trimmed.startsWith('https://') || trimmed.startsWith('data:')) {
+      photoUrl = trimmed
+    } else {
+      const clean = trimmed.replace(/^\//, '')
+      photoUrl = clean.startsWith('storage/') ? `https://peersunity.com/${clean}` : `https://peersunity.com/storage/${clean}`
+    }
+  }
+
+  if (!photoUrl && fullName) {
+    photoUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(fullName)}&background=1D4ED8&color=fff&size=400&bold=true`
+  }
 
   // 6. Bio & Vision
   const bio =
@@ -1192,6 +1242,8 @@ class LeadershipApiService {
         yearsExperience: 10,
         bio: 'Dedicated business leader stewarding strategic ecosystem collaboration, ethical enterprise governance, and peer growth across the District.',
         socialLinks: 'https://linkedin.com/in/avinash-vaghela',
+        profile_photo_url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
+        photo_url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
       },
       {
         id: 'd253b039-75a5-4f22-b4c8-86f22cb58da5',

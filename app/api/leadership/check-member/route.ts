@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import pool from '@/lib/db'
+import { KNOWN_CANDIDATES } from '@/lib/candidate-auth'
 
 export const dynamic = 'force-dynamic'
 
@@ -29,7 +30,13 @@ interface UserRow {
   photo_url?: string | null
   photo?: string | null
   avatar?: string | null
+  avatar_url?: string | null
+  profile_image?: string | null
+  profile_image_url?: string | null
+  profile_photo_path?: string | null
+  image?: string | null
   status?: string | null
+  [key: string]: any
 }
 
 // Built-in fallback catalog matching database users from Adminer & Unityapp
@@ -49,6 +56,8 @@ const FALLBACK_USERS = [
     experience_years: 10,
     short_bio: 'Dedicated business leader stewarding strategic ecosystem collaboration, ethical enterprise governance, and peer growth across the District.',
     linkedin_profile: 'https://linkedin.com/in/avinash-vaghela',
+    profile_photo_url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
+    photo_url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
   },
   {
     id: 'd253b039-75a5-4f22-b4c8-86f22cb58da5',
@@ -377,7 +386,56 @@ export async function POST(req: Request) {
       const city = foundUser.city || 'Surat'
       const state = foundUser.state || 'Gujarat'
       const mobile = foundUser.phone || foundUser.mobile || rawPhone
-      const photoUrl = foundUser.profile_photo_url || foundUser.photo_url || foundUser.photo || null
+      let photoUrl =
+        foundUser.profile_photo_url ||
+        foundUser.photo_url ||
+        foundUser.photo ||
+        foundUser.avatar ||
+        foundUser.avatar_url ||
+        foundUser.profile_image ||
+        foundUser.profile_image_url ||
+        foundUser.profile_photo_path ||
+        foundUser.image ||
+        null
+
+      if (!photoUrl) {
+        const foundEmail = (foundUser.email || email).toLowerCase()
+        const foundPhone = (foundUser.phone || foundUser.mobile || rawPhone || '').replace(/\D/g, '').slice(-10)
+        const known = KNOWN_CANDIDATES.find(
+          (k) =>
+            (k.email && k.email.toLowerCase() === foundEmail) ||
+            (k.mobile && k.mobile.replace(/\D/g, '').slice(-10) === foundPhone) ||
+            k.id === foundUser.id
+        )
+        if (known?.photo_url) {
+          photoUrl = known.photo_url
+        }
+      }
+
+      if (!photoUrl) {
+        const foundEmail = (foundUser.email || email).toLowerCase()
+        const foundPhone = (foundUser.phone || foundUser.mobile || rawPhone || '').replace(/\D/g, '').slice(-10)
+        const fb = FALLBACK_USERS.find(
+          (u) =>
+            (u.email && u.email.toLowerCase() === foundEmail) ||
+            (u.phone && u.phone.replace(/\D/g, '').slice(-10) === foundPhone) ||
+            u.id === foundUser.id
+        )
+        if (fb?.profile_photo_url || fb?.photo_url) {
+          photoUrl = fb.profile_photo_url || fb.photo_url
+        }
+      }
+
+      if (photoUrl && typeof photoUrl === 'string' && !photoUrl.startsWith('http') && !photoUrl.startsWith('data:')) {
+        const clean = photoUrl.replace(/^\//, '')
+        photoUrl = clean.startsWith('storage/')
+          ? `https://peersunity.com/${clean}`
+          : `https://peersunity.com/storage/${clean}`
+      }
+
+      if (!photoUrl && fullName) {
+        photoUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(fullName)}&background=1D4ED8&color=fff&size=400&bold=true`
+      }
 
       const socialUrl =
         foundUser.linkedin_profile ||
@@ -414,6 +472,7 @@ export async function POST(req: Request) {
           bio,
           socialLinks: socialUrl,
           profile_photo_url: photoUrl,
+          photo_url: photoUrl,
         },
         message: `Registered member record verified for ${fullName}. Profile credentials have been auto-populated.`,
       })

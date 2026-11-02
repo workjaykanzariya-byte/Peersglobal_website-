@@ -248,8 +248,17 @@ export function VoteModal({
         {/* Selected Candidate Preview Banner */}
         <div className="flex items-center gap-3.5 p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 mb-6">
           <div className="w-12 h-12 rounded-xl overflow-hidden shrink-0 border border-blue-200 bg-slate-200">
-            {candidate.photo_url ? (
-              <img src={candidate.photo_url} alt={candidate.full_name} className="w-full h-full object-cover" />
+            {candidate.photo_url || (candidate as any).profile_photo_url ? (
+              <img
+                src={candidate.photo_url || (candidate as any).profile_photo_url}
+                alt={candidate.full_name}
+                onError={(e) => {
+                  if (candidate.full_name) {
+                    ;(e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(candidate.full_name)}&background=1D4ED8&color=fff&size=400&bold=true`
+                  }
+                }}
+                className="w-full h-full object-cover"
+              />
             ) : (
               <div className="w-full h-full flex items-center justify-center font-bold text-[#1D4ED8]">
                 {candidate.full_name.charAt(0)}
