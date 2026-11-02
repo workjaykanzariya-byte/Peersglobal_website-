@@ -7,7 +7,6 @@ export const dynamic = 'force-dynamic'
 interface UserRow {
   id: string
   email: string
-  peer_id?: string | null
   phone?: string | null
   mobile?: string | null
   first_name?: string | null
@@ -26,7 +25,6 @@ interface UserRow {
   experience_summary?: string | null
   linkedin_profile?: string | null
   social_links?: any
-  profile_photo_file_id?: string | null
   profile_photo_url?: string | null
   photo_url?: string | null
   photo?: string | null
@@ -44,64 +42,38 @@ const UNITY_API_BASE = 'https://peersunity.com'
 const UNITY_BEARER_TOKEN = '302|cO0VMR2dmr9j8c3JtIU9dfkuZfSfvzaCCF1GVxJAdc6fdd2d'
 
 /**
- * 1. Admin Peers API used by Admin Panel:
- * GET https://peersunity.com/api/v1/admin/peers?search={search}
+ * Normalizes any profile_photo_url format from database / API to full public image URL
  */
-async function fetchFromAdminPeersAPI(identifier: string): Promise<{ member: any; photoUrl: string | null } | null> {
-  const clean = identifier ? identifier.trim() : ''
-  if (!clean) return null
+export function normalizePhotoUrl(rawPhoto: string | null | undefined): string | null {
+  if (!rawPhoto || typeof rawPhoto !== 'string') return null
+  const trimmed = rawPhoto.trim()
+  if (!trimmed || trimmed.includes('unsplash.com')) return null
 
-  try {
-    const url = `${UNITY_API_BASE}/api/v1/admin/peers?search=${encodeURIComponent(clean)}`
-    const res = await fetch(url, {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-        Authorization: `Bearer ${UNITY_BEARER_TOKEN}`,
-      },
-      cache: 'no-store',
-      signal: AbortSignal.timeout(6000),
-    })
-
-    if (!res.ok) return null
-    const json = await res.json()
-    const items = json.data?.items || json.data?.data || json.data || (Array.isArray(json) ? json : [])
-
-    if (Array.isArray(items) && items.length > 0) {
-      const item = items[0]
-      let photoUrl: string | null = null
-
-      if (item.profile_photo_file_id) {
-        photoUrl = `${UNITY_API_BASE}/api/v1/files/${item.profile_photo_file_id}`
-      } else if (item.avatar_url) {
-        photoUrl = item.avatar_url
-      } else if (item.profile_photo_url) {
-        photoUrl = item.profile_photo_url
-      } else if (item.photo) {
-        photoUrl = item.photo
-      }
-
-      if (photoUrl && !photoUrl.startsWith('http') && !photoUrl.startsWith('data:')) {
-        const pathClean = photoUrl.replace(/^\//, '')
-        photoUrl = pathClean.startsWith('api/') || pathClean.startsWith('storage/')
-          ? `${UNITY_API_BASE}/${pathClean}`
-          : `${UNITY_API_BASE}/api/v1/files/${pathClean}`
-      }
-
-      return { member: item, photoUrl }
-    }
-    return null
-  } catch (err) {
-    console.warn(`[check-member] Admin peers API failed for "${clean}":`, err)
-    return null
+  if (trimmed.startsWith('http://') || trimmed.startsWith('https://') || trimmed.startsWith('data:')) {
+    return trimmed
   }
+
+  const clean = trimmed.replace(/^\//, '')
+  if (clean.startsWith('storage/')) {
+    return `${UNITY_API_BASE}/${clean}`
+  }
+  if (clean.startsWith('profile-photos/') || clean.startsWith('avatars/')) {
+    return `${UNITY_API_BASE}/storage/${clean}`
+  }
+  if (clean.startsWith('api/')) {
+    return `${UNITY_API_BASE}/${clean}`
+  }
+  // Check if it's a UUID (referencing files table: https://peersunity.com/api/v1/files/{file_id})
+  if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(clean)) {
+    return `${UNITY_API_BASE}/api/v1/files/${clean}`
+  }
+  return `${UNITY_API_BASE}/${clean}`
 }
 
 /**
- * 2. Members with circles API:
- * GET https://peersunity.com/api/v1/members-with-circles/{identifier}
+ * Fetch member photo from live Unity API by userId, email, or phone
  */
-async function fetchMemberFromUnityAPI(identifier: string): Promise<{ member: any; photoUrl: string | null } | null> {
+async function fetchPhotoFromUnityAPI(identifier: string): Promise<string | null> {
   const clean = identifier ? identifier.trim() : ''
   if (!clean) return null
 
@@ -114,51 +86,54 @@ async function fetchMemberFromUnityAPI(identifier: string): Promise<{ member: an
         Authorization: `Bearer ${UNITY_BEARER_TOKEN}`,
       },
       cache: 'no-store',
-      signal: AbortSignal.timeout(6000),
+      signal: AbortSignal.timeout(5000),
     })
 
-    if (!res.ok) return null
-    const json = await res.json()
-    const member =
-      json.data ||
-      (Array.isArray(json.data) ? json.data[0] : null) ||
-      (json.items && json.items[0]) ||
-      null
-
-    if (!member) return null
-
-    let photoUrl: string | null = null
-    if (member.profile_photo_file_id) {
-      photoUrl = `${UNITY_API_BASE}/api/v1/files/${member.profile_photo_file_id}`
-    } else if (member.photo) {
-      photoUrl = member.photo
-    } else if (member.avatar_url) {
-      photoUrl = member.avatar_url
-    } else if (member.profile_photo_url) {
-      photoUrl = member.profile_photo_url
-    } else if (member.profile_image_url) {
-      photoUrl = member.profile_image_url
+    if (res.ok) {
+      const json = await res.json()
+      const m = json.data || (Array.isArray(json.data) ? json.data[0] : null) || (json.items && json.items[0])
+      const raw = m?.photo || m?.photo_url || m?.profile_photo_url || m?.avatar_url
+      if (raw) {
+        return normalizePhotoUrl(raw)
+      }
     }
-
-    if (photoUrl && !photoUrl.startsWith('http') && !photoUrl.startsWith('data:')) {
-      const pathClean = photoUrl.replace(/^\//, '')
-      photoUrl = pathClean.startsWith('api/') || pathClean.startsWith('storage/')
-        ? `${UNITY_API_BASE}/${pathClean}`
-        : `${UNITY_API_BASE}/api/v1/files/${pathClean}`
-    }
-
-    return { member, photoUrl }
   } catch (err) {
-    console.warn(`[check-member] Members-with-circles API failed for "${clean}":`, err)
-    return null
+    console.warn(`[check-member] Unity API lookup error for "${clean}":`, err)
   }
+
+  // Also try admin peers search API
+  try {
+    const adminUrl = `${UNITY_API_BASE}/api/v1/admin/peers?search=${encodeURIComponent(clean)}`
+    const adminRes = await fetch(adminUrl, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        Authorization: `Bearer ${UNITY_BEARER_TOKEN}`,
+      },
+      cache: 'no-store',
+      signal: AbortSignal.timeout(5000),
+    })
+
+    if (adminRes.ok) {
+      const json = await adminRes.json()
+      const items = json.data?.items || json.data?.data || json.data || (Array.isArray(json) ? json : [])
+      if (Array.isArray(items) && items.length > 0) {
+        const item = items[0]
+        const raw = item.avatar_url || item.profile_photo_url || item.photo
+        if (raw) {
+          return normalizePhotoUrl(raw)
+        }
+      }
+    }
+  } catch {}
+
+  return null
 }
 
-// Built-in fallback catalog matching database users from Adminer & Unityapp
+// Built-in catalog matching database users
 const FALLBACK_USERS = [
   {
     id: 'd25388ab-4943-427c-bf2e-b8222c8d7fc5',
-    peer_id: 'PG31827364',
     email: 'devops.aequitas@gmail.com',
     phone: '6353025165',
     first_name: 'Avinash',
@@ -291,12 +266,11 @@ export async function POST(req: Request) {
     let foundUser: UserRow | null = null
     let resolvedPhotoUrl: string | null = null
 
-    // 1. Direct PostgreSQL check on local 'users' table
-    // Table: users
-    // Columns: id, peer_id, email, phone, first_name, last_name, profile_photo_file_id, profile_photo_url
+    // STEP 1: Verify valid peer from email & phone, and retrieve user_id from 'users' table
     try {
       const dbQuery = `
-        SELECT * FROM public.users
+        SELECT id, email, phone, first_name, last_name, display_name, company_name, designation, profile_photo_url, short_bio
+        FROM public.users
         WHERE LOWER(email) = $1
            OR (phone IS NOT NULL AND RIGHT(REGEXP_REPLACE(phone, '\\D', '', 'g'), 10) = $2)
         ORDER BY (CASE WHEN LOWER(email) = $1 THEN 1 ELSE 2 END)
@@ -306,97 +280,47 @@ export async function POST(req: Request) {
 
       if (res.rows.length > 0) {
         foundUser = res.rows[0]
-
-        // Resolve photo directly from profile_photo_file_id
-        if (foundUser.profile_photo_file_id) {
-          resolvedPhotoUrl = `${UNITY_API_BASE}/api/v1/files/${foundUser.profile_photo_file_id}`
-        } else if (foundUser.profile_photo_url) {
-          resolvedPhotoUrl = foundUser.profile_photo_url
-        }
-
-        // Also check if public.files table has a matching record for this user if still no photo
-        if (!resolvedPhotoUrl && foundUser.id) {
-          try {
-            const filesRes = await pool.query<{ id: string }>(
-              `SELECT id FROM public.files WHERE user_id = $1 OR entity_id = $1 ORDER BY created_at DESC LIMIT 1`,
-              [foundUser.id]
-            )
-            if (filesRes.rows.length > 0 && filesRes.rows[0].id) {
-              resolvedPhotoUrl = `${UNITY_API_BASE}/api/v1/files/${filesRes.rows[0].id}`
-            }
-          } catch {
-            // continue
-          }
-        }
       }
     } catch (dbErr) {
-      console.warn('[check-member] PostgreSQL users query warning:', dbErr)
+      console.warn('[check-member] Step 1 DB check warning:', dbErr)
     }
 
-    // 2. Query Live Admin Peers API (Used by Admin Panel) if photo or user is missing
-    if (!resolvedPhotoUrl) {
-      const searchTerms = [foundUser?.peer_id, email, tenDigit, foundUser?.id].filter(Boolean) as string[]
-      for (const term of searchTerms) {
-        const adminRes = await fetchFromAdminPeersAPI(term)
-        if (adminRes?.photoUrl) {
-          resolvedPhotoUrl = adminRes.photoUrl
-          if (!foundUser && adminRes.member) {
-            const m = adminRes.member
-            foundUser = {
-              id: m.id || m.uuid || m.peer_id || `member-${Date.now()}`,
-              peer_id: m.peer_id || m.member_id,
-              email: m.email || email,
-              phone: m.mobile || m.phone || rawPhone,
-              first_name: m.first_name || (m.name ? m.name.split(' ')[0] : 'Member'),
-              last_name: m.last_name || (m.name ? m.name.split(' ').slice(1).join(' ') : 'Leader'),
-              display_name: m.name || m.display_name,
-              company_name: m.company || m.company_name,
-              designation: m.designation,
-              city: m.city || m.city_name || 'Ahmedabad',
-              state: m.state || 'Gujarat',
-              country: m.country || 'India',
-              experience_years: Number(m.experience_years) || 8,
-              short_bio: m.business_description || m.bio,
-            }
+    // STEP 2: By user_id, retrieve profile_photo_url from 'users' table
+    if (foundUser && foundUser.id) {
+      // First check if profile_photo_url was already retrieved in Step 1
+      if (foundUser.profile_photo_url) {
+        resolvedPhotoUrl = normalizePhotoUrl(foundUser.profile_photo_url)
+      } else {
+        // Query profile_photo_url explicitly by user_id
+        try {
+          const photoRes = await pool.query<{ profile_photo_url: string | null }>(
+            `SELECT profile_photo_url FROM public.users WHERE id = $1 LIMIT 1`,
+            [foundUser.id]
+          )
+          if (photoRes.rows.length > 0 && photoRes.rows[0].profile_photo_url) {
+            resolvedPhotoUrl = normalizePhotoUrl(photoRes.rows[0].profile_photo_url)
           }
-          break
+        } catch (photoErr) {
+          console.warn('[check-member] Step 2 DB photo by user_id warning:', photoErr)
         }
+      }
+
+      // If database row didn't have photo, fetch from live Unity API by user_id
+      if (!resolvedPhotoUrl) {
+        resolvedPhotoUrl = await fetchPhotoFromUnityAPI(foundUser.id)
       }
     }
 
-    // 3. Query Members-with-circles API if still no photo
-    if (!resolvedPhotoUrl) {
-      const identifiers = [foundUser?.peer_id, email, tenDigit, rawPhone, foundUser?.id].filter(Boolean) as string[]
-      for (const idf of identifiers) {
-        const circleRes = await fetchMemberFromUnityAPI(idf)
-        if (circleRes?.photoUrl) {
-          resolvedPhotoUrl = circleRes.photoUrl
-          if (!foundUser && circleRes.member) {
-            const m = circleRes.member
-            foundUser = {
-              id: m.id || m.uuid || m.peer_id || `member-${Date.now()}`,
-              peer_id: m.peer_id || m.member_id,
-              email: m.email || email,
-              phone: m.mobile || m.phone || rawPhone,
-              first_name: m.first_name || (m.name ? m.name.split(' ')[0] : 'Member'),
-              last_name: m.last_name || (m.name ? m.name.split(' ').slice(1).join(' ') : 'Leader'),
-              display_name: m.name || m.display_name,
-              company_name: m.company || m.company_name,
-              designation: m.designation,
-              city: m.city || m.city_name || 'Ahmedabad',
-              state: m.state || 'Gujarat',
-              country: m.country || 'India',
-              experience_years: Number(m.experience_years) || 8,
-              short_bio: m.business_description || m.bio,
-            }
-          }
-          break
-        }
-      }
-    }
-
-    // 4. Fallback catalog matching database users
+    // STEP 3: If not found in local DB, check live Unity API directly by email or phone
     if (!foundUser) {
+      if (email) {
+        resolvedPhotoUrl = await fetchPhotoFromUnityAPI(email)
+      }
+      if (!resolvedPhotoUrl && tenDigit) {
+        resolvedPhotoUrl = await fetchPhotoFromUnityAPI(tenDigit)
+      }
+
+      // Check fallback catalog
       const match = FALLBACK_USERS.find((u) => {
         const emailMatch = email && u.email.toLowerCase() === email
         const uPhoneDigits = u.phone.replace(/\D/g, '').slice(-10)
@@ -406,10 +330,14 @@ export async function POST(req: Request) {
 
       if (match) {
         foundUser = match as any
+        // Check photo by fallback user's id
+        if (!resolvedPhotoUrl && foundUser?.id) {
+          resolvedPhotoUrl = await fetchPhotoFromUnityAPI(foundUser.id)
+        }
       }
     }
 
-    // Response formatting
+    // STEP 4: Format response
     if (foundUser) {
       const firstName = foundUser.first_name || (foundUser.name ? foundUser.name.split(' ')[0] : '') || ''
       const lastName = foundUser.last_name || (foundUser.name ? foundUser.name.split(' ').slice(1).join(' ') : '') || ''
@@ -424,21 +352,9 @@ export async function POST(req: Request) {
       const city = foundUser.city || 'Ahmedabad'
       const state = foundUser.state || 'Gujarat'
       const mobile = foundUser.phone || foundUser.mobile || rawPhone
+      const userId = foundUser.id || 'd25388ab-4943-427c-bf2e-b8222c8d7fc5'
 
-      let photoUrl = resolvedPhotoUrl || foundUser.profile_photo_url || foundUser.photo_url || foundUser.photo || null
-
-      if (!photoUrl && foundUser.profile_photo_file_id) {
-        photoUrl = `${UNITY_API_BASE}/api/v1/files/${foundUser.profile_photo_file_id}`
-      }
-
-      if (photoUrl && typeof photoUrl === 'string' && !photoUrl.startsWith('http') && !photoUrl.startsWith('data:')) {
-        const clean = photoUrl.replace(/^\//, '')
-        if (clean.startsWith('api/') || clean.startsWith('storage/')) {
-          photoUrl = `${UNITY_API_BASE}/${clean}`
-        } else {
-          photoUrl = `${UNITY_API_BASE}/api/v1/files/${clean}`
-        }
-      }
+      const photoUrl = resolvedPhotoUrl || normalizePhotoUrl(foundUser.profile_photo_url) || null
 
       const socialUrl =
         foundUser.linkedin_profile ||
@@ -457,12 +373,10 @@ export async function POST(req: Request) {
         success: true,
         exists: true,
         is_existing_member: true,
-        candidate_id: foundUser.id,
-        user_id: foundUser.id,
-        peer_id: foundUser.peer_id || 'PG31827364',
+        candidate_id: userId,
+        user_id: userId,
         profile: {
-          user_id: foundUser.id,
-          peer_id: foundUser.peer_id || 'PG31827364',
+          user_id: userId,
           fullName,
           full_name: fullName,
           email: foundUser.email || email,
@@ -479,7 +393,7 @@ export async function POST(req: Request) {
           profile_photo_url: photoUrl,
           photo_url: photoUrl,
         },
-        message: `Registered member record verified for ${fullName}. Profile credentials and official photo have been loaded from Unity App.`,
+        message: `Registered member record verified for ${fullName}. Profile credentials and official photo loaded from Unity App.`,
       })
     }
 
