@@ -623,7 +623,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
             className="brand-btn-primary bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 px-7 py-3 rounded-full text-xs font-semibold text-white shadow-md transition-all flex items-center gap-1.5"
           >
             <ShieldCheck className="w-3.5 h-3.5" />
-            <span>Track My Endorsement Votes</span>
+            <span>See Your Votes</span>
           </Link>
           <Link
             href={`/leadership/campaigns/${campaign.id}`}

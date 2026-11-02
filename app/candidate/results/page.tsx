@@ -35,7 +35,7 @@ export default async function CandidateDirectResultsPage({ searchParams }: PageP
             href="/candidate/votes"
             className="px-3.5 py-1.5 rounded-full bg-[#040F24] hover:bg-blue-900 text-white text-xs font-semibold transition-colors flex items-center gap-1.5 shadow-sm"
           >
-            <span>Candidate Votes &amp; Endorser Roster Portal (OTP) →</span>
+            <span>See Your Votes →</span>
           </Link>
         </div>
 

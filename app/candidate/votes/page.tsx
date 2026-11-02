@@ -1,14 +1,14 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ChevronLeft, ShieldCheck, Vote } from 'lucide-react'
+import { ChevronLeft } from 'lucide-react'
 import { CandidateVotesClient } from './candidate-votes-client'
 
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Candidate Private Votes Portal | Peers Global Leadership',
+  title: 'See Your Votes | Candidate Portal | Peers Global Leadership',
   description:
-    'Confidential candidate portal. Verify your nomination email to track verified endorsement votes cast in your support.',
+    'Candidate portal to check your verified votes and live endorsements.',
 }
 
 export default function CandidateVotesPage() {
@@ -29,7 +29,7 @@ export default function CandidateVotesPage() {
               Elections &amp; Campaigns
             </Link>
             <span>/</span>
-            <span className="text-slate-200 font-bold">Candidate Private Portal</span>
+            <span className="text-slate-200 font-bold">See Your Votes</span>
           </div>
 
           <div className="flex items-center gap-2">
@@ -37,11 +37,11 @@ export default function CandidateVotesPage() {
               href="/candidate/results"
               className="px-3 py-1 rounded-full bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-[11px] font-semibold text-slate-300 transition-colors"
             >
-              Aggregate Results View
+              All Results
             </Link>
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[11px] font-bold text-emerald-400">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              CONFIDENTIAL CANDIDATE ACCESS
+              CANDIDATE PORTAL
             </span>
           </div>
         </div>
