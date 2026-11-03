@@ -630,8 +630,8 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
             <span className="text-[11px] font-bold uppercase tracking-[0.12em] brand-gradient-text">
               Official Filing Record
             </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" /> Under Scrutiny
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-amber-50 text-amber-800 border border-amber-200">
+              <Clock className="w-3.5 h-3.5 text-amber-600" /> Under Review
             </span>
           </div>
 
@@ -653,14 +653,15 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
                 <div className="font-bold text-slate-900 text-sm mt-0.5">{campaign.role.name}</div>
               </div>
               <div>
-                <span className="text-slate-500 text-[11px] block font-medium">Jurisdiction:</span>
-                <div className="font-bold text-slate-900 text-sm mt-0.5">
-                  {defaultJurisdiction.name}
-                </div>
-              </div>
-              <div>
                 <span className="text-slate-500 text-[11px] block font-medium">Submission Date:</span>
                 <div className="font-bold text-slate-900 text-sm mt-0.5">{new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}</div>
+              </div>
+              <div>
+                <span className="text-slate-500 text-[11px] block font-medium">Status:</span>
+                <div className="font-bold text-amber-700 text-sm mt-0.5 flex items-center gap-1">
+                  <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                  Under Review
+                </div>
               </div>
             </div>
           </div>
