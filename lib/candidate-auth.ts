@@ -300,36 +300,20 @@ export async function fetchRemoteCandidates(): Promise<CandidateProfile[]> {
  * 4. public.web_votes table
  * 5. public.users table
  */
-export async function findCandidateByEmail(rawEmail: string): Promise<CandidateProfile | null> {
-  const cleanEmail = String(rawEmail || '').trim().toLowerCase()
-  if (!cleanEmail || !cleanEmail.includes('@')) return null
+export async function findCandidateByIdentifier(rawInput: string): Promise<CandidateProfile | null> {
+  const clean = String(rawInput || '').trim()
+  if (!clean) return null
+  const cleanLower = clean.toLowerCase()
 
-  // 1. Check live remote candidates from peersunity.com
-  try {
-    const remoteList = await fetchRemoteCandidates()
-    const match = remoteList.find((c) => c.email.toLowerCase() === cleanEmail)
-    if (match) {
-      return match
-    }
-  } catch (err) {
-    console.warn('remote candidate check note:', err)
-  }
-
-  // 2. Check known candidates catalog (includes Rashi Khandelwal, Vineet Mittal, Hardik Chauhan, etc.)
-  const knownMatch = KNOWN_CANDIDATES.find((k) => k.email.toLowerCase() === cleanEmail)
-  if (knownMatch) {
-    return knownMatch
-  }
-
-  // 2b. Check web_nominations table
+  // 1. Check web_nominations by application_number OR email
   try {
     const webNomRes = await pool.query(
       `SELECT id, campaign_id, scope_id, application_number, full_name, email, mobile, company, designation, city, state, status, form_data
        FROM public.web_nominations 
-       WHERE LOWER(email) = $1 
+       WHERE LOWER(application_number) = $1 OR LOWER(email) = $1
        ORDER BY created_at DESC 
        LIMIT 1`,
-      [cleanEmail]
+      [cleanLower]
     )
 
     if (webNomRes.rows.length > 0) {
@@ -338,7 +322,7 @@ export async function findCandidateByEmail(rawEmail: string): Promise<CandidateP
       return {
         id: row.id,
         full_name: row.full_name || snap.full_name || 'Nominated Candidate',
-        email: cleanEmail,
+        email: row.email || cleanLower,
         mobile: row.mobile || snap.mobile || '',
         company: row.company || snap.company_name || snap.company || 'Enterprise Leader',
         designation: row.designation || snap.designation || 'Nominee Leader',
@@ -353,16 +337,31 @@ export async function findCandidateByEmail(rawEmail: string): Promise<CandidateP
     // continue
   }
 
+  // 2. Check known candidates
+  const knownMatch = KNOWN_CANDIDATES.find((k) => k.email.toLowerCase() === cleanLower || k.id.toLowerCase() === cleanLower)
+  if (knownMatch) {
+    return knownMatch
+  }
 
+  // 3. Check live remote candidates
+  try {
+    const remoteList = await fetchRemoteCandidates()
+    const match = remoteList.find((c) => c.email.toLowerCase() === cleanLower || c.id.toLowerCase() === cleanLower)
+    if (match) {
+      return match
+    }
+  } catch (err) {
+    // continue
+  }
 
-  // 5. Check users table in PostgreSQL
+  // 4. Check users table
   try {
     const userRes = await pool.query(
       `SELECT id, email, phone, first_name, last_name, display_name, company_name, designation, city, state, profile_photo_url
        FROM public.users
        WHERE LOWER(email) = $1
        LIMIT 1`,
-      [cleanEmail]
+      [cleanLower]
     )
 
     if (userRes.rows.length > 0) {
@@ -371,7 +370,7 @@ export async function findCandidateByEmail(rawEmail: string): Promise<CandidateP
       return {
         id: u.id,
         full_name: fullName,
-        email: cleanEmail,
+        email: u.email,
         mobile: u.phone || '',
         company: u.company_name || 'Peers Global Member',
         designation: u.designation || 'Member Leader',
@@ -382,11 +381,13 @@ export async function findCandidateByEmail(rawEmail: string): Promise<CandidateP
         status: 'verified_member',
       }
     }
-  } catch (err) {
-    console.warn('candidate lookup from users warning:', err)
-  }
+  } catch (err) {}
 
   return null
+}
+
+export async function findCandidateByEmail(rawEmail: string): Promise<CandidateProfile | null> {
+  return findCandidateByIdentifier(rawEmail)
 }
 
 /**
