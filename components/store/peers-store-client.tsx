@@ -398,7 +398,7 @@ export function PeersStoreClient({
                           </span>
                           <div className="flex items-center gap-1.5 text-slate-950 font-bold text-base sm:text-[17px]">
                             <img
-                              src="/api/store?mode=coin-image"
+                              src="/images/peers-coin-gold.jpg"
                               alt="Peers Coin"
                               className="size-6 object-contain rounded-full shrink-0 shadow-2xs"
                             />
@@ -702,7 +702,7 @@ export function PeersStoreClient({
                 </span>
                 <div className="flex items-center gap-2 mt-0.5">
                   <img
-                    src="/api/store?mode=coin-image"
+                    src="/images/peers-coin-gold.jpg"
                     alt="Peers Coin"
                     className="size-6 object-contain rounded-full shadow-2xs shrink-0"
                   />
@@ -924,7 +924,7 @@ export function PeersStoreClient({
 
                 <div className="flex items-center gap-2 py-2 px-3 bg-amber-50/80 rounded-xl border border-amber-200/60 w-fit">
                   <img
-                    src="/api/store?mode=coin-image"
+                    src="/images/peers-coin-gold.jpg"
                     alt="Peers Coin"
                     className="size-6 object-contain rounded-full shadow-2xs"
                   />
@@ -1210,7 +1210,7 @@ function BuyInAppModal({
               </h4>
               <div className="mt-1.5 inline-flex items-center gap-1.5 rounded-full border border-amber-300/30 bg-amber-400/10 px-2.5 py-0.5 text-xs font-bold text-amber-200">
                 <img
-                  src="/api/store?mode=coin-image"
+                  src="/images/peers-coin-gold.jpg"
                   alt=""
                   className="size-4 object-contain rounded-full"
                 />

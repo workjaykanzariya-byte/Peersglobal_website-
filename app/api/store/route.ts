@@ -7,6 +7,8 @@ import {
   fetchStoreConfig,
 } from '@/lib/api/store'
 
+export const dynamic = 'force-dynamic'
+
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url)
   const mode = searchParams.get('mode') // 'categories' | 'featured' | 'search' | 'config' | 'products'
@@ -19,37 +21,6 @@ export async function GET(request: NextRequest) {
   if (mode === 'featured') {
     const data = await fetchFeaturedStoreProducts()
     return NextResponse.json({ success: true, data })
-  }
-
-  if (mode === 'coin-image') {
-    const fs = await import('fs')
-    const path = await import('path')
-    const possiblePaths = [
-      'C:\\Users\\Abc\\.gemini\\antigravity-ide\\brain\\d0bd9749-46f0-4c3e-8a12-f925e8f9424c\\.user_uploaded\\media_1791961053249.jpg',
-      'C:\\Users\\Abc\\.gemini\\antigravity-ide\\brain\\565f9187-1041-476a-8f10-9f8797258ee6\\.user_uploaded\\media_1791439643257.jpg',
-      path.join(process.cwd(), 'public', 'images', 'peers-coin-gold.jpg'),
-    ]
-
-    for (const p of possiblePaths) {
-      if (fs.existsSync(p)) {
-        const fileBuffer = fs.readFileSync(p)
-        // Also persist to public/images so it can be served statically in the future
-        try {
-          const publicDest = path.join(process.cwd(), 'public', 'images', 'peers-coin-gold.jpg')
-          if (!fs.existsSync(publicDest)) {
-            fs.writeFileSync(publicDest, fileBuffer)
-          }
-        } catch (e) {
-          // ignore write error
-        }
-        return new NextResponse(fileBuffer, {
-          headers: {
-            'Content-Type': 'image/jpeg',
-            'Cache-Control': 'public, max-age=31536000, immutable',
-          },
-        })
-      }
-    }
   }
 
   if (mode === 'config') {
