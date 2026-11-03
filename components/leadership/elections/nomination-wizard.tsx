@@ -1047,7 +1047,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
               <button
                 type="button"
                 onClick={() => setCurrentStep(1)}
-                className="py-2.5 px-5 rounded-full border border-slate-300 text-xs font-bold text-slate-600 flex items-center gap-1.5"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 font-semibold text-xs shadow-xs transition-all cursor-pointer"
               >
                 <ArrowLeft className="w-4 h-4" /> Back
               </button>
@@ -1122,7 +1122,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
               <button
                 type="button"
                 onClick={() => setCurrentStep(2)}
-                className="py-2.5 px-5 rounded-full border border-slate-300 text-xs font-bold text-slate-600 flex items-center gap-1.5"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 font-semibold text-xs shadow-xs transition-all cursor-pointer"
               >
                 <ArrowLeft className="w-4 h-4" /> Back
               </button>
@@ -1338,7 +1338,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
               <button
                 type="button"
                 onClick={() => setCurrentStep(3)}
-                className="py-2.5 px-5 rounded-full border border-slate-300 text-xs font-bold text-slate-600 flex items-center gap-1.5"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 font-semibold text-xs shadow-xs transition-all cursor-pointer"
               >
                 <ArrowLeft className="w-4 h-4" /> Back
               </button>
@@ -1640,7 +1640,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
               <button
                 type="button"
                 onClick={() => setCurrentStep(4)}
-                className="py-2.5 px-5 rounded-full border border-slate-300 text-xs font-bold text-slate-600 flex items-center gap-1.5"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 font-semibold text-xs shadow-xs transition-all cursor-pointer"
               >
                 <ArrowLeft className="w-4 h-4" /> Back
               </button>
