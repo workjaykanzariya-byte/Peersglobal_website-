@@ -1048,9 +1048,9 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
               <button
                 type="button"
                 onClick={() => setCurrentStep(1)}
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 font-semibold text-xs shadow-xs transition-all cursor-pointer"
+                className="px-5 py-2 rounded-full border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 text-xs font-semibold cursor-pointer transition shadow-xs"
               >
-                <ArrowLeft className="w-4 h-4" /> Back
+                Back
               </button>
               <button
                 type="button"
@@ -1123,9 +1123,9 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
               <button
                 type="button"
                 onClick={() => setCurrentStep(2)}
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 font-semibold text-xs shadow-xs transition-all cursor-pointer"
+                className="px-5 py-2 rounded-full border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 text-xs font-semibold cursor-pointer transition shadow-xs"
               >
-                <ArrowLeft className="w-4 h-4" /> Back
+                Back
               </button>
               <button
                 type="button"
@@ -1339,9 +1339,9 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
               <button
                 type="button"
                 onClick={() => setCurrentStep(3)}
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 font-semibold text-xs shadow-xs transition-all cursor-pointer"
+                className="px-5 py-2 rounded-full border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 text-xs font-semibold cursor-pointer transition shadow-xs"
               >
-                <ArrowLeft className="w-4 h-4" /> Back
+                Back
               </button>
               <button
                 type="button"
@@ -1641,9 +1641,9 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
               <button
                 type="button"
                 onClick={() => setCurrentStep(4)}
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 font-semibold text-xs shadow-xs transition-all cursor-pointer"
+                className="px-5 py-2 rounded-full border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 text-xs font-semibold cursor-pointer transition shadow-xs"
               >
-                <ArrowLeft className="w-4 h-4" /> Back
+                Back
               </button>
               <button
                 type="button"

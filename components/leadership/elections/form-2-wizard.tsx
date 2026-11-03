@@ -63,6 +63,13 @@ export function Form2Wizard({
   // 4: References & Document Proofs (Sec G & H)
   // 5: Review & Submit
   const [activeStep, setActiveStep] = useState<number>(1)
+
+  // Keep view smoothly at top when changing steps
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }, [activeStep])
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
   const [submissionResult, setSubmissionResult] = useState<{
@@ -521,7 +528,7 @@ export function Form2Wizard({
             </div>
 
             <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700 flex items-center justify-between">
-              <span className="text-slate-500 font-medium">Registered Email Hint:</span>
+              <span className="text-slate-500 font-medium">Registered Email:</span>
               <span className="font-mono font-bold brand-gradient-text">
                 {candidateInfo.masked_email}
               </span>
@@ -1263,10 +1270,9 @@ export function Form2Wizard({
               <button
                 type="button"
                 onClick={() => setActiveStep(1)}
-                className="px-5 py-2.5 rounded-full bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 text-xs font-bold flex items-center gap-2 cursor-pointer transition shadow-2xs"
+                className="px-5 py-2 rounded-full border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 text-xs font-semibold cursor-pointer transition shadow-xs"
               >
-                <ArrowLeft className="w-4 h-4" />
-                Back to Credibility
+                Back
               </button>
 
               <button
@@ -1474,10 +1480,9 @@ export function Form2Wizard({
               <button
                 type="button"
                 onClick={() => setActiveStep(2)}
-                className="px-5 py-2.5 rounded-full bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 text-xs font-bold flex items-center gap-2 cursor-pointer transition shadow-2xs"
+                className="px-5 py-2 rounded-full border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 text-xs font-semibold cursor-pointer transition shadow-xs"
               >
-                <ArrowLeft className="w-4 h-4" />
-                Back to Bench
+                Back
               </button>
 
               <button
@@ -1761,10 +1766,9 @@ export function Form2Wizard({
               <button
                 type="button"
                 onClick={() => setActiveStep(3)}
-                className="px-5 py-2.5 rounded-full bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 text-xs font-bold flex items-center gap-2 cursor-pointer transition shadow-2xs"
+                className="px-5 py-2 rounded-full border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 text-xs font-semibold cursor-pointer transition shadow-xs"
               >
-                <ArrowLeft className="w-4 h-4" />
-                Back to Roadmap
+                Back
               </button>
 
               <button
@@ -1978,8 +1982,7 @@ export function Form2Wizard({
                     onClick={() => setActiveStep(4)}
                     className="px-5 py-2.5 rounded-full bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 text-xs font-bold flex items-center gap-2 cursor-pointer transition shadow-2xs w-full sm:w-auto justify-center"
                   >
-                    <ArrowLeft className="w-4 h-4" />
-                    Back to Documents
+                    Back
                   </button>
 
                   <button
