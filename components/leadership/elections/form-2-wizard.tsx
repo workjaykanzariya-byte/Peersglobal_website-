@@ -521,7 +521,7 @@ export function Form2Wizard({
             </div>
 
             <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700 flex items-center justify-between">
-              <span className="text-slate-500 font-medium">Registered Email Hint:</span>
+              <span className="text-slate-500 font-medium">Registered Email:</span>
               <span className="font-mono font-bold brand-gradient-text">
                 {candidateInfo.masked_email}
               </span>
