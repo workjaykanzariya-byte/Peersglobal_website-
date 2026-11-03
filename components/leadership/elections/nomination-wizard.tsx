@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useMemo } from 'react'
 import Link from 'next/link'
 import {
   FileCheck2,
@@ -75,8 +75,59 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
     photoUrl: '',
   })
 
-  // Selected Scope
-  const [selectedScopeId, setSelectedScopeId] = useState<string>(scopes[0]?.id || '')
+  // Auto-resolved single assigned campaign jurisdiction from campaign data
+  const defaultJurisdiction = useMemo(() => {
+    // 1. Direct campaign fields if set by admin panel
+    const rawCamp = campaign as any
+    const campCity = rawCamp.city || rawCamp.target_city || rawCamp.district || rawCamp.target_district || rawCamp.scope_name || ''
+    const campState = rawCamp.state || rawCamp.target_state || ''
+
+    if (campCity) {
+      return {
+        id: scopes[0]?.id || 'scope-assigned',
+        name: campCity.includes('District') || campCity.includes('Circle') ? campCity : `${campCity} District`,
+        state: campState || 'Gujarat',
+        scope_type: 'District',
+      }
+    }
+
+    // 2. If single scope exists
+    if (scopes.length === 1) {
+      return {
+        id: scopes[0].id,
+        name: scopes[0].name,
+        state: scopes[0].state || campState || 'Gujarat',
+        scope_type: scopes[0].scope_type || 'District',
+      }
+    }
+
+    // 3. Match Surat from campaign scopes if available, or fallback to Surat District
+    const suratScope = scopes.find((s) => s.name === 'Surat' || s.city === 'Surat');
+    if (suratScope) {
+      return {
+        id: suratScope.id,
+        name: 'Surat District',
+        state: suratScope.state || 'Gujarat',
+        scope_type: 'District',
+      };
+    }
+
+    return {
+      id: '7f7ef7bf-15e4-4db1-a154-f3aec5c8a39d',
+      name: 'Surat District',
+      state: 'Gujarat',
+      scope_type: 'District',
+    };
+  }, [campaign, scopes])
+
+  // Selected Scope (auto-bound to campaign jurisdiction)
+  const [selectedScopeId, setSelectedScopeId] = useState<string>(() => defaultJurisdiction.id)
+
+  useEffect(() => {
+    if (defaultJurisdiction?.id && (!selectedScopeId || selectedScopeId !== defaultJurisdiction.id)) {
+      setSelectedScopeId(defaultJurisdiction.id)
+    }
+  }, [defaultJurisdiction])
 
   // Candidate ID & Uploaded Document URLs for Dev Staging API
   const [candidateId, setCandidateId] = useState<string>('0199c000-ca00-0000-8000-000000000001')
@@ -604,12 +655,12 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
               <div>
                 <span className="text-slate-500 text-[11px] block font-medium">Jurisdiction:</span>
                 <div className="font-bold text-slate-900 text-sm mt-0.5">
-                  {scopes.find((s) => s.id === selectedScopeId)?.name || 'Surat District'}
+                  {defaultJurisdiction.name}
                 </div>
               </div>
               <div>
                 <span className="text-slate-500 text-[11px] block font-medium">Submission Date:</span>
-                <div className="font-bold text-slate-900 text-sm mt-0.5">{new Date().toLocaleDateString('en-IN', { day: '2-digit', month: '2-digit', year: 'numeric' })}</div>
+                <div className="font-bold text-slate-900 text-sm mt-0.5">{new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}</div>
               </div>
             </div>
           </div>
@@ -832,37 +883,39 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
             </div>
 
             <div className="space-y-6">
-              {/* Scope Selector */}
+              {/* Jurisdiction Scope Display (Single campaign assigned jurisdiction) */}
               <div>
                 <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
-                  Select Geographical Jurisdiction Scope
+                  Geographical Jurisdiction Scope
                 </label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-                  {scopes.map((s) => (
-                    <label
-                      key={s.id}
-                      className={`p-4 rounded-2xl border cursor-pointer transition-all flex flex-col justify-between ${
-                        selectedScopeId === s.id
-                          ? 'bg-blue-50/80 border-[#1D4ED8] ring-2 ring-blue-500/20'
-                          : 'bg-white border-slate-200 hover:border-slate-300'
-                      }`}
-                    >
-                      <div className="flex items-start justify-between">
-                        <span className="font-bold text-sm text-slate-900">{s.name}</span>
-                        <input
-                          type="radio"
-                          name="scope"
-                          checked={selectedScopeId === s.id}
-                          onChange={() => setSelectedScopeId(s.id)}
-                          className="mt-1 text-[#1D4ED8]"
-                        />
+                <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50/90 via-slate-50 to-indigo-50/70 border border-blue-200/90 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-10 h-10 rounded-xl bg-blue-100 text-[#1D4ED8] flex items-center justify-center shrink-0 border border-blue-200">
+                      <MapPin className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="font-bold text-base text-slate-900 tracking-tight">
+                          {defaultJurisdiction.name}
+                        </span>
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-blue-100/70 border border-blue-200 text-[#1D4ED8] text-[10px] font-bold uppercase">
+                          Assigned Territory
+                        </span>
                       </div>
-                      <div className="text-[11px] text-slate-500 mt-2 flex items-center gap-1">
-                        <MapPin className="w-3 h-3 text-slate-400" />
-                        {s.state || 'National'}, {s.scope_type}
+                      <div className="text-xs text-slate-500 mt-0.5 flex items-center gap-1.5">
+                        <span>{defaultJurisdiction.state}</span>
+                        <span>•</span>
+                        <span className="capitalize">{defaultJurisdiction.scope_type} Scope</span>
+                        <span>•</span>
+                        <span>Campaign Specified Jurisdiction</span>
                       </div>
-                    </label>
-                  ))}
+                    </div>
+                  </div>
+
+                  <div className="text-xs text-slate-500 bg-white px-3 py-1.5 rounded-xl border border-slate-200/80 font-medium self-start sm:self-auto shrink-0 flex items-center gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                    <span>Auto-Assigned from Campaign</span>
+                  </div>
                 </div>
               </div>
 
@@ -1346,7 +1399,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
                     <div>
                       <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block">Jurisdiction</span>
                       <div className="font-bold text-sm text-slate-900 mt-1">
-                        {scopes.find((s) => s.id === selectedScopeId)?.name || 'Surat District'}
+                        {defaultJurisdiction.name}
                       </div>
                       <div className="text-[11px] text-slate-500 mt-0.5 capitalize">{campaign.scope_type || 'District'} Scope</div>
                     </div>
