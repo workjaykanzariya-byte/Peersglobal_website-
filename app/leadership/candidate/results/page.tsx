@@ -5,7 +5,7 @@ import { ResultsView } from '@/components/leadership/elections/results-view'
 
 export const metadata: Metadata = {
   title: 'Candidate Private Results Portal | Peers Global',
-  description: 'Confidential candidate live results tracking and ballot analytics.',
+  description: 'Confidential candidate live results tracking and voting analytics.',
 }
 
 interface PageProps {

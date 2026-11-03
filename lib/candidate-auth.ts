@@ -2,6 +2,7 @@ import pool from './db'
 
 export interface CandidateProfile {
   id: string
+  campaign_id?: string
   full_name: string
   email: string
   mobile?: string

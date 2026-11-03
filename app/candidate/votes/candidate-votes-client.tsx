@@ -589,7 +589,7 @@ export function CandidateVotesClient() {
                   <div className="flex flex-wrap items-center gap-2">
                     <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[11px] font-bold uppercase tracking-wider">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                      Verified Nominee Ballot
+                      Verified Nominee
                     </span>
                     <span className="text-xs text-slate-400 font-mono">
                       ID: {candidate.id}
@@ -719,7 +719,7 @@ export function CandidateVotesClient() {
                   Who Endorsed You ("From Whom")
                 </h2>
                 <p className="text-xs text-slate-400 mt-0.5">
-                  Complete profiles of verified peers and members who cast their ballot in your support.
+                  Complete profiles of verified peers and members who cast their vote in your support.
                 </p>
               </div>
 

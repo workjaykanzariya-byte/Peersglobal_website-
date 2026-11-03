@@ -21,7 +21,7 @@ export function PhaseStepper({ currentPhase }: PhaseStepperProps) {
     {
       key: ['voting_active', 'voting_closed'],
       label: '2. Public Voting',
-      desc: 'Verified OTP Ballot Casting',
+      desc: 'Verified OTP Vote Casting',
     },
     {
       key: ['jury_evaluation'],

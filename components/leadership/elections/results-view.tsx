@@ -68,7 +68,7 @@ export function ResultsView({ initialToken }: ResultsViewProps) {
           </div>
           <h1 className="font-semibold text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">Real-Time Vote Performance</h1>
           <p className="text-xs sm:text-sm text-slate-300 font-normal">
-            Secure tracking of verified member ballots cast in your jurisdiction.
+            Secure tracking of verified member votes cast in your jurisdiction.
           </p>
         </div>
 
@@ -109,7 +109,7 @@ export function ResultsView({ initialToken }: ResultsViewProps) {
 
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 text-xs font-semibold text-slate-700">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                Live Ballots Polling Active
+                Live Votes Polling Active
               </div>
             </div>
 
@@ -117,7 +117,7 @@ export function ResultsView({ initialToken }: ResultsViewProps) {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
               <div className="p-5 rounded-2xl bg-blue-50/70 border border-blue-200">
                 <div className="flex items-center justify-between text-[#1D4ED8] text-xs font-bold mb-2">
-                  <span>Verified Ballots Received</span>
+                  <span>Verified Votes Received</span>
                   <Vote className="w-4 h-4" />
                 </div>
                 <div className="font-semibold text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
