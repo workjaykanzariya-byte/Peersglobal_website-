@@ -234,8 +234,8 @@ export async function POST(req: Request) {
         foundUser.name ||
         'Verified Member'
 
-      const company = foundUser.company_name || foundUser.company || 'Aequitas Information Technology Pvt Ltd'
-      const designation = foundUser.designation || foundUser.role || 'Director & CEO'
+      const company = foundUser.company_name || foundUser.company || ''
+      const designation = foundUser.designation || foundUser.role || ''
       const city = foundUser.city || 'Ahmedabad'
       const state = foundUser.state || 'Gujarat'
       const mobile = foundUser.phone || foundUser.mobile || rawPhone

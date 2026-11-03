@@ -1148,6 +1148,7 @@ class LeadershipApiService {
   }
 
   // 2b. Direct Member Existence Check & Profile Auto-Fill (No OTP Required)
+  // 2b. Direct Member Existence Check & Profile Auto-Fill (Queries live database only)
   async checkMemberProfile(payload: {
     email?: string
     phone?: string
@@ -1182,7 +1183,6 @@ class LeadershipApiService {
     const cleanEmail = payload.email ? payload.email.trim().toLowerCase() : ''
     const cleanPhone = (payload.phone || payload.mobile || '').trim()
 
-    // 1. Try local Next.js API route
     try {
       const res = await fetch('/api/leadership/check-member', {
         method: 'POST',
@@ -1195,190 +1195,12 @@ class LeadershipApiService {
       })
       if (res.ok) {
         const json = await res.json()
-        if (json && json.success !== false && json.exists) {
+        if (json && typeof json.exists === 'boolean') {
           return json
         }
       }
-    } catch {
-      // continue to remote/fallback
-    }
-
-    // 2. Try remote dev staging backend
-    try {
-      const remoteRes = await this.requestWithFallback<any>('/public/nomination/check-member', {
-        method: 'POST',
-        body: JSON.stringify({
-          email: cleanEmail,
-          phone: cleanPhone,
-          campaign_id: payload.campaign_id,
-        }),
-      })
-      if (remoteRes.ok && remoteRes.rawResponse?.success) {
-        return remoteRes.rawResponse.data || remoteRes.rawResponse
-      }
-    } catch {
-      // fallback
-    }
-
-    // 3. Fallback catalog matching database 'users' table
-    const catalog = [
-      {
-        id: 'd25388ab-4943-427c-bf2e-b8222c8d7fc5',
-        email: 'devops.aequitas@gmail.com',
-        phone: '6353025165',
-        fullName: 'Avinash Vaghela',
-        company: 'Aequitas Information Technology Pvt Ltd',
-        designation: 'Director & CEO',
-        city: 'Surat',
-        yearsExperience: 10,
-        bio: 'Dedicated business leader stewarding strategic ecosystem collaboration, ethical enterprise governance, and peer growth across the District.',
-        socialLinks: 'https://linkedin.com/in/avinash-vaghela',
-      },
-      {
-        id: 'd253b039-75a5-4f22-b4c8-86f22cb58da5',
-        email: 'harshchauhan9724@gmail.com',
-        phone: '9724636800',
-        fullName: 'Harsh Chauhan',
-        company: 'BrandVerse Global Pvt Ltd',
-        designation: 'Founder',
-        city: 'Surat',
-        yearsExperience: 8,
-        bio: 'Founder at BrandVerse Global Pvt Ltd, building powerful brands that connect, influence, and grow globally.',
-        socialLinks: 'https://linkedin.com/in/harsh-chauhan',
-      },
-      {
-        id: '5eb3f0c2-5249-41a3-a718-d8ada8b083fd',
-        email: 'rashi.khandelwal@demo.unity.com',
-        phone: '9800000030',
-        fullName: 'Rashi Khandelwal',
-        company: 'qdqd',
-        designation: 'sadada',
-        city: 'Surat',
-        yearsExperience: 7,
-        bio: 'Dedicated business leader stewarding strategic ecosystem collaboration and enterprise governance.',
-        socialLinks: 'https://linkedin.com/in/rashi-khandelwal',
-      },
-      {
-        id: '08eaec34-342c-49b1-9489-62cb8291aeb2',
-        email: 'swati.kulkarni@demo.unity.com',
-        phone: '9800000018',
-        fullName: 'Swati Kulkarni',
-        company: 'Kulkarni Global Industries',
-        designation: 'Managing Director',
-        city: 'Surat',
-        yearsExperience: 12,
-        bio: 'Senior ecosystem promoter leading industrial innovation and women entrepreneurship.',
-        socialLinks: 'https://linkedin.com/in/swati-kulkarni',
-      },
-      {
-        id: '10f394a5-f943-4951-b756-4ee5472d9d39',
-        email: 'bhavna.mehta@demo.unity.com',
-        phone: '9800000078',
-        fullName: 'Bhavna Mehta',
-        company: 'Mehta Textile Conglomerate',
-        designation: 'Executive Partner',
-        city: 'Ahmedabad',
-        yearsExperience: 10,
-        bio: 'Textile export leader fostering cross-district collaborations and trade alliances.',
-        socialLinks: 'https://linkedin.com/in/bhavna-mehta',
-      },
-      {
-        id: '18cdf66e-09b1-4389-8cab-42e13faf5c73',
-        email: 'sneha.deshmukh@demo.unity.com',
-        phone: '9800000006',
-        fullName: 'Sneha Deshmukh',
-        company: 'Deshmukh Innovations',
-        designation: 'Founder & CEO',
-        city: 'Surat',
-        yearsExperience: 9,
-        bio: 'Technology pioneer scaling regional enterprise and startup incubation.',
-        socialLinks: 'https://linkedin.com/in/sneha-deshmukh',
-      },
-      {
-        id: '5690df8d-cd5f-45f1-b68b-a41efee5357e',
-        email: 'meera.nair@demo.unity.com',
-        phone: '9800000010',
-        fullName: 'Meera Nair',
-        company: 'Nair Infra & Logistics',
-        designation: 'Principal Director',
-        city: 'Mumbai',
-        yearsExperience: 14,
-        bio: 'Infrastructure and supply chain governance veteran with active circle stewardship.',
-        socialLinks: 'https://linkedin.com/in/meera-nair',
-      },
-      {
-        id: '974d3b4a-7c88-4820-bd34-dcd53bd80af6',
-        email: 'harsh.vora@demo.unity.com',
-        phone: '9800000011',
-        fullName: 'Harsh Vora',
-        company: 'Vora Diamond Tech',
-        designation: 'Co-Founder & COO',
-        city: 'Surat',
-        yearsExperience: 11,
-        bio: 'Precision gem and technology innovator steering Surat circle growth.',
-        socialLinks: 'https://linkedin.com/in/harsh-vora',
-      },
-      {
-        id: '0a8b3282-9b68-4d24-bb3f-2ee88ec1535a',
-        email: 'gaurav.mishra@demo.unity.com',
-        phone: '9800000021',
-        fullName: 'Gaurav Mishra',
-        company: 'Mishra Agro Global',
-        designation: 'Managing Director',
-        city: 'Ahmedabad',
-        yearsExperience: 15,
-        bio: 'Agri-business visionary dedicated to regional value chain acceleration.',
-        socialLinks: 'https://linkedin.com/in/gaurav-mishra',
-      },
-      {
-        id: '0199c000-ca00-0000-8000-000000000001',
-        email: 'hardik@peersglobal.com',
-        phone: '9558739086',
-        fullName: 'Hardik Chauhan',
-        company: 'Aequitas IT Solutions',
-        designation: 'Managing Director & Founder',
-        city: 'Surat',
-        yearsExperience: 8,
-        bio: 'Managing Director at Aequitas IT Solutions, championing Give-First leadership across Gujarat.',
-        socialLinks: 'https://linkedin.com/in/hardik-chauhan',
-      },
-    ]
-
-    const digits = cleanPhone.replace(/\D/g, '')
-    const tenDigits = digits.length >= 10 ? digits.slice(-10) : digits
-
-    const found = catalog.find((u) => {
-      const matchEmail = cleanEmail && u.email.toLowerCase() === cleanEmail
-      const uTenDigits = u.phone.replace(/\D/g, '').slice(-10)
-      const matchPhone = tenDigits && (uTenDigits === tenDigits || uTenDigits.endsWith(tenDigits))
-      return matchEmail || matchPhone
-    })
-
-    if (found) {
-      return {
-        success: true,
-        exists: true,
-        is_existing_member: true,
-        candidate_id: found.id,
-        user_id: found.id,
-        profile: {
-          user_id: found.id,
-          fullName: found.fullName,
-          full_name: found.fullName,
-          email: found.email,
-          mobile: found.phone,
-          company: found.company,
-          company_name: found.company,
-          designation: found.designation,
-          city: found.city,
-          state: 'Gujarat',
-          country: 'India',
-          yearsExperience: found.yearsExperience,
-          bio: found.bio,
-          socialLinks: found.socialLinks,
-        },
-        message: `Registered member record verified for ${found.fullName}. Profile credentials pre-filled automatically.`,
-      }
+    } catch (e) {
+      console.warn('check-member fetch note:', e)
     }
 
     return {
@@ -1734,6 +1556,7 @@ class LeadershipApiService {
   }
 
   // 2b. Direct Member Existence Check & Profile Auto-Fill (No OTP Required)
+  // 2b. Direct Member Existence Check & Profile Auto-Fill (Queries live database only)
   async checkMemberProfile(payload: {
     email?: string
     phone?: string
@@ -1768,7 +1591,6 @@ class LeadershipApiService {
     const cleanEmail = payload.email ? payload.email.trim().toLowerCase() : ''
     const cleanPhone = (payload.phone || payload.mobile || '').trim()
 
-    // 1. Try local Next.js API route
     try {
       const res = await fetch('/api/leadership/check-member', {
         method: 'POST',
@@ -1781,190 +1603,12 @@ class LeadershipApiService {
       })
       if (res.ok) {
         const json = await res.json()
-        if (json && json.success !== false && json.exists) {
+        if (json && typeof json.exists === 'boolean') {
           return json
         }
       }
-    } catch {
-      // continue to remote/fallback
-    }
-
-    // 2. Try remote dev staging backend
-    try {
-      const remoteRes = await this.requestWithFallback<any>('/public/nomination/check-member', {
-        method: 'POST',
-        body: JSON.stringify({
-          email: cleanEmail,
-          phone: cleanPhone,
-          campaign_id: payload.campaign_id,
-        }),
-      })
-      if (remoteRes.ok && remoteRes.rawResponse?.success) {
-        return remoteRes.rawResponse.data || remoteRes.rawResponse
-      }
-    } catch {
-      // fallback
-    }
-
-    // 3. Fallback catalog matching database 'users' table
-    const catalog = [
-      {
-        id: 'd25388ab-4943-427c-bf2e-b8222c8d7fc5',
-        email: 'devops.aequitas@gmail.com',
-        phone: '6353025165',
-        fullName: 'Avinash Vaghela',
-        company: 'Aequitas Information Technology Pvt Ltd',
-        designation: 'Director & CEO',
-        city: 'Surat',
-        yearsExperience: 10,
-        bio: 'Dedicated business leader stewarding strategic ecosystem collaboration, ethical enterprise governance, and peer growth across the District.',
-        socialLinks: 'https://linkedin.com/in/avinash-vaghela',
-      },
-      {
-        id: 'd253b039-75a5-4f22-b4c8-86f22cb58da5',
-        email: 'harshchauhan9724@gmail.com',
-        phone: '9724636800',
-        fullName: 'Harsh Chauhan',
-        company: 'BrandVerse Global Pvt Ltd',
-        designation: 'Founder',
-        city: 'Surat',
-        yearsExperience: 8,
-        bio: 'Founder at BrandVerse Global Pvt Ltd, building powerful brands that connect, influence, and grow globally.',
-        socialLinks: 'https://linkedin.com/in/harsh-chauhan',
-      },
-      {
-        id: '5eb3f0c2-5249-41a3-a718-d8ada8b083fd',
-        email: 'rashi.khandelwal@demo.unity.com',
-        phone: '9800000030',
-        fullName: 'Rashi Khandelwal',
-        company: 'qdqd',
-        designation: 'sadada',
-        city: 'Surat',
-        yearsExperience: 7,
-        bio: 'Dedicated business leader stewarding strategic ecosystem collaboration and enterprise governance.',
-        socialLinks: 'https://linkedin.com/in/rashi-khandelwal',
-      },
-      {
-        id: '08eaec34-342c-49b1-9489-62cb8291aeb2',
-        email: 'swati.kulkarni@demo.unity.com',
-        phone: '9800000018',
-        fullName: 'Swati Kulkarni',
-        company: 'Kulkarni Global Industries',
-        designation: 'Managing Director',
-        city: 'Surat',
-        yearsExperience: 12,
-        bio: 'Senior ecosystem promoter leading industrial innovation and women entrepreneurship.',
-        socialLinks: 'https://linkedin.com/in/swati-kulkarni',
-      },
-      {
-        id: '10f394a5-f943-4951-b756-4ee5472d9d39',
-        email: 'bhavna.mehta@demo.unity.com',
-        phone: '9800000078',
-        fullName: 'Bhavna Mehta',
-        company: 'Mehta Textile Conglomerate',
-        designation: 'Executive Partner',
-        city: 'Ahmedabad',
-        yearsExperience: 10,
-        bio: 'Textile export leader fostering cross-district collaborations and trade alliances.',
-        socialLinks: 'https://linkedin.com/in/bhavna-mehta',
-      },
-      {
-        id: '18cdf66e-09b1-4389-8cab-42e13faf5c73',
-        email: 'sneha.deshmukh@demo.unity.com',
-        phone: '9800000006',
-        fullName: 'Sneha Deshmukh',
-        company: 'Deshmukh Innovations',
-        designation: 'Founder & CEO',
-        city: 'Surat',
-        yearsExperience: 9,
-        bio: 'Technology pioneer scaling regional enterprise and startup incubation.',
-        socialLinks: 'https://linkedin.com/in/sneha-deshmukh',
-      },
-      {
-        id: '5690df8d-cd5f-45f1-b68b-a41efee5357e',
-        email: 'meera.nair@demo.unity.com',
-        phone: '9800000010',
-        fullName: 'Meera Nair',
-        company: 'Nair Infra & Logistics',
-        designation: 'Principal Director',
-        city: 'Mumbai',
-        yearsExperience: 14,
-        bio: 'Infrastructure and supply chain governance veteran with active circle stewardship.',
-        socialLinks: 'https://linkedin.com/in/meera-nair',
-      },
-      {
-        id: '974d3b4a-7c88-4820-bd34-dcd53bd80af6',
-        email: 'harsh.vora@demo.unity.com',
-        phone: '9800000011',
-        fullName: 'Harsh Vora',
-        company: 'Vora Diamond Tech',
-        designation: 'Co-Founder & COO',
-        city: 'Surat',
-        yearsExperience: 11,
-        bio: 'Precision gem and technology innovator steering Surat circle growth.',
-        socialLinks: 'https://linkedin.com/in/harsh-vora',
-      },
-      {
-        id: '0a8b3282-9b68-4d24-bb3f-2ee88ec1535a',
-        email: 'gaurav.mishra@demo.unity.com',
-        phone: '9800000021',
-        fullName: 'Gaurav Mishra',
-        company: 'Mishra Agro Global',
-        designation: 'Managing Director',
-        city: 'Ahmedabad',
-        yearsExperience: 15,
-        bio: 'Agri-business visionary dedicated to regional value chain acceleration.',
-        socialLinks: 'https://linkedin.com/in/gaurav-mishra',
-      },
-      {
-        id: '0199c000-ca00-0000-8000-000000000001',
-        email: 'hardik@peersglobal.com',
-        phone: '9558739086',
-        fullName: 'Hardik Chauhan',
-        company: 'Aequitas IT Solutions',
-        designation: 'Managing Director & Founder',
-        city: 'Surat',
-        yearsExperience: 8,
-        bio: 'Managing Director at Aequitas IT Solutions, championing Give-First leadership across Gujarat.',
-        socialLinks: 'https://linkedin.com/in/hardik-chauhan',
-      },
-    ]
-
-    const digits = cleanPhone.replace(/\D/g, '')
-    const tenDigits = digits.length >= 10 ? digits.slice(-10) : digits
-
-    const found = catalog.find((u) => {
-      const matchEmail = cleanEmail && u.email.toLowerCase() === cleanEmail
-      const uTenDigits = u.phone.replace(/\D/g, '').slice(-10)
-      const matchPhone = tenDigits && (uTenDigits === tenDigits || uTenDigits.endsWith(tenDigits))
-      return matchEmail || matchPhone
-    })
-
-    if (found) {
-      return {
-        success: true,
-        exists: true,
-        is_existing_member: true,
-        candidate_id: found.id,
-        user_id: found.id,
-        profile: {
-          user_id: found.id,
-          fullName: found.fullName,
-          full_name: found.fullName,
-          email: found.email,
-          mobile: found.phone,
-          company: found.company,
-          company_name: found.company,
-          designation: found.designation,
-          city: found.city,
-          state: 'Gujarat',
-          country: 'India',
-          yearsExperience: found.yearsExperience,
-          bio: found.bio,
-          socialLinks: found.socialLinks,
-        },
-        message: `Registered member record verified for ${found.fullName}. Profile credentials pre-filled automatically.`,
-      }
+    } catch (e) {
+      console.warn('check-member fetch note:', e)
     }
 
     return {
