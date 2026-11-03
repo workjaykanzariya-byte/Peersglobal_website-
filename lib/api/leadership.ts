@@ -1067,7 +1067,13 @@ class LeadershipApiService {
           ? res.rawResponse.data
           : []
         if (rawList.length > 0) {
-          const normalized = rawList.map((c: any) => normalizeCandidate(c))
+          // Sort candidates so the most recently submitted nomination appears first
+          const sorted = [...rawList].sort((a: any, b: any) => {
+            const timeA = new Date(a.created_at || a.updated_at || a.submitted_at || 0).getTime()
+            const timeB = new Date(b.created_at || b.updated_at || b.submitted_at || 0).getTime()
+            return timeB - timeA
+          })
+          const normalized = sorted.map((c: any) => normalizeCandidate(c))
           return { success: true, data: normalized, isLive: true }
         }
       }
