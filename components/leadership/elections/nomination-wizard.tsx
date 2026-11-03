@@ -101,13 +101,23 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
       }
     }
 
-    // 3. Fallback to primary official chapter jurisdiction (e.g. Surat District)
+    // 3. Match Surat from campaign scopes if available, or fallback to Surat District
+    const suratScope = scopes.find((s) => s.name === 'Surat' || s.city === 'Surat');
+    if (suratScope) {
+      return {
+        id: suratScope.id,
+        name: 'Surat District',
+        state: suratScope.state || 'Gujarat',
+        scope_type: 'District',
+      };
+    }
+
     return {
-      id: scopes[0]?.id || 'scope-assigned',
+      id: '7f7ef7bf-15e4-4db1-a154-f3aec5c8a39d',
       name: 'Surat District',
       state: 'Gujarat',
       scope_type: 'District',
-    }
+    };
   }, [campaign, scopes])
 
   // Selected Scope (auto-bound to campaign jurisdiction)
@@ -645,12 +655,12 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
               <div>
                 <span className="text-slate-500 text-[11px] block font-medium">Jurisdiction:</span>
                 <div className="font-bold text-slate-900 text-sm mt-0.5">
-                  {scopes.find((s) => s.id === selectedScopeId)?.name || 'Surat District'}
+                  {defaultJurisdiction.name}
                 </div>
               </div>
               <div>
                 <span className="text-slate-500 text-[11px] block font-medium">Submission Date:</span>
-                <div className="font-bold text-slate-900 text-sm mt-0.5">{new Date().toLocaleDateString('en-IN', { day: '2-digit', month: '2-digit', year: 'numeric' })}</div>
+                <div className="font-bold text-slate-900 text-sm mt-0.5">{new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}</div>
               </div>
             </div>
           </div>
@@ -1389,7 +1399,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
                     <div>
                       <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block">Jurisdiction</span>
                       <div className="font-bold text-sm text-slate-900 mt-1">
-                        {scopes.find((s) => s.id === selectedScopeId)?.name || 'Surat District'}
+                        {defaultJurisdiction.name}
                       </div>
                       <div className="text-[11px] text-slate-500 mt-0.5 capitalize">{campaign.scope_type || 'District'} Scope</div>
                     </div>
