@@ -374,22 +374,22 @@ export function CandidateVotesClient() {
                 </div>
 
                 {isPendingApproval ? (
-                  <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-200 text-xs flex items-start gap-3 animate-in fade-in duration-200 text-left">
-                    <div className="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="p-4 rounded-2xl bg-amber-50 border border-amber-300 text-slate-800 text-xs flex items-start gap-3 animate-in fade-in duration-200 text-left shadow-xs">
+                    <div className="w-8 h-8 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center shrink-0 mt-0.5 border border-amber-200">
                       <Clock className="w-4 h-4" />
                     </div>
                     <div className="space-y-1">
-                      <div className="font-bold text-amber-300 text-sm">Nomination Under Review</div>
-                      <p className="leading-relaxed text-slate-300">
+                      <div className="font-bold text-amber-900 text-sm">Nomination Under Review</div>
+                      <p className="leading-relaxed text-amber-950 font-medium">
                         {pendingMessage ||
                           'Your nomination is submitted. You will be able to see your votes once your nomination is approved.'}
                       </p>
                     </div>
                   </div>
                 ) : error ? (
-                  <div className="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs flex items-start gap-2.5 text-left">
-                    <AlertCircle className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
-                    <span className="leading-relaxed">{error}</span>
+                  <div className="p-3.5 rounded-xl bg-rose-50 border border-rose-200 text-rose-900 text-xs flex items-start gap-2.5 text-left shadow-xs">
+                    <AlertCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
+                    <span className="leading-relaxed font-medium">{error}</span>
                   </div>
                 ) : null}
 
@@ -457,50 +457,50 @@ export function CandidateVotesClient() {
                     setStep('email')
                     setError(null)
                   }}
-                  className="text-xs text-slate-400 hover:text-white flex items-center gap-1 transition-colors"
+                  className="text-xs text-slate-500 hover:text-slate-800 flex items-center gap-1 transition-colors font-medium"
                 >
                   <ArrowLeft className="w-3.5 h-3.5" />
                   Change email address
                 </button>
 
                 <div className="text-center space-y-2">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold tracking-wide uppercase">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold tracking-wide uppercase">
                     <Lock className="w-3.5 h-3.5" />
                     Verification
                   </div>
-                  <h2 className="text-2xl font-bold text-white tracking-tight">
+                  <h2 className="text-2xl font-bold text-slate-900 tracking-tight">
                     Enter Verification Code
                   </h2>
-                  <p className="text-xs text-slate-400 max-w-sm mx-auto leading-relaxed">
+                  <p className="text-xs text-slate-600 max-w-sm mx-auto leading-relaxed">
                     We sent a 6-digit verification code to{' '}
-                    <strong className="text-white font-mono">{emailInput}</strong>.
+                    <strong className="text-slate-900 font-mono">{emailInput}</strong>.
                   </p>
                 </div>
 
                 {/* Candidate preview snippet to confirm identity */}
                 {candidate && (
-                  <div className="p-3.5 rounded-2xl bg-gradient-to-r from-blue-950/40 to-slate-900 border border-blue-500/20 flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-blue-600/30 border border-blue-400/40 flex items-center justify-center font-bold text-sky-300 text-sm shrink-0">
+                  <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-blue-100 border border-blue-200 flex items-center justify-center font-bold text-blue-700 text-sm shrink-0">
                       {candidate.full_name.charAt(0)}
                     </div>
                     <div className="text-left overflow-hidden">
-                      <div className="text-sm font-semibold text-white truncate">
+                      <div className="text-sm font-semibold text-slate-900 truncate">
                         {candidate.full_name}
                       </div>
-                      <div className="text-[11px] text-slate-400 truncate">
+                      <div className="text-[11px] text-slate-500 truncate">
                         {candidate.designation} · {candidate.company}
                       </div>
                     </div>
-                    <span className="ml-auto text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 shrink-0">
+                    <span className="ml-auto text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 shrink-0">
                       Nominee
                     </span>
                   </div>
                 )}
 
                 {error && (
-                  <div className="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs flex items-start gap-2.5">
-                    <AlertCircle className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
-                    <span className="leading-relaxed">{error}</span>
+                  <div className="p-3.5 rounded-xl bg-rose-50 border border-rose-200 text-rose-900 text-xs flex items-start gap-2.5 shadow-xs">
+                    <AlertCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
+                    <span className="leading-relaxed font-medium">{error}</span>
                   </div>
                 )}
 
@@ -519,21 +519,21 @@ export function CandidateVotesClient() {
                         value={digit}
                         onChange={(e) => handleDigitChange(idx, e.target.value)}
                         onKeyDown={(e) => handleDigitKeyDown(idx, e)}
-                        className="w-11 h-13 sm:w-12 sm:h-14 text-center font-mono text-xl sm:text-2xl font-bold rounded-xl bg-slate-900 border border-slate-700 text-white focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all shadow-inner"
+                        className="w-11 h-13 sm:w-12 sm:h-14 text-center font-mono text-xl sm:text-2xl font-bold rounded-xl bg-white border border-slate-300 text-slate-900 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all shadow-xs"
                       />
                     ))}
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between text-xs text-slate-400">
+                <div className="flex items-center justify-between text-xs text-slate-600">
                   <span>Didn't receive code?</span>
                   {resendTimer > 0 ? (
-                    <span className="text-slate-500">Resend in {resendTimer}s</span>
+                    <span className="text-slate-400">Resend in {resendTimer}s</span>
                   ) : (
                     <button
                       type="button"
                       onClick={() => handleRequestOtp()}
-                      className="text-sky-400 hover:text-sky-300 font-semibold"
+                      className="text-[#1D4ED8] hover:underline font-semibold"
                     >
                       Resend Code
                     </button>
@@ -567,7 +567,7 @@ export function CandidateVotesClient() {
       {step === 'dashboard' && candidate && (
         <div className="max-w-5xl mx-auto space-y-6">
           {/* Executive Candidate Header */}
-          <div className="relative rounded-3xl bg-white border border-slate-200 p-6 sm:p-8 shadow-md backdrop-blur-xl overflow-hidden">
+          <div className="relative rounded-3xl bg-white border border-slate-200 p-6 sm:p-8 shadow-sm overflow-hidden">
             {/* Top signature gradient accent */}
             <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48]" />
 
@@ -577,21 +577,21 @@ export function CandidateVotesClient() {
                   <img
                     src={candidate.photo_url}
                     alt={candidate.full_name}
-                    className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl object-cover border-2 border-blue-500/40 shadow-lg shrink-0"
+                    className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl object-cover border-2 border-blue-500/30 shadow-md shrink-0"
                   />
                 ) : (
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-800 border-2 border-blue-400/40 text-white font-bold text-2xl flex items-center justify-center shadow-lg shrink-0">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-[#1D4ED8] to-indigo-700 border-2 border-blue-400/30 text-white font-bold text-2xl flex items-center justify-center shadow-md shrink-0">
                     {candidate.full_name.charAt(0)}
                   </div>
                 )}
 
                 <div className="space-y-1">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[11px] font-bold uppercase tracking-wider">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-bold uppercase tracking-wider">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                       Verified Nominee
                     </span>
-                    <span className="text-xs text-slate-400 font-mono">
+                    <span className="text-xs text-slate-500 font-mono">
                       ID: {candidate.id}
                     </span>
                   </div>
@@ -600,12 +600,12 @@ export function CandidateVotesClient() {
                     {candidate.full_name}
                   </h1>
 
-                  <p className="text-xs sm:text-sm text-slate-300">
-                    <strong className="text-white">{candidate.designation}</strong> · {candidate.company}
+                  <p className="text-xs sm:text-sm text-slate-600">
+                    <strong className="text-slate-900 font-semibold">{candidate.designation}</strong> · {candidate.company}
                   </p>
 
-                  <div className="text-[11px] text-slate-400 flex items-center gap-2 pt-0.5">
-                    <MapPin className="w-3.5 h-3.5 text-blue-400" />
+                  <div className="text-[11px] text-slate-500 flex items-center gap-2 pt-0.5">
+                    <MapPin className="w-3.5 h-3.5 text-[#1D4ED8]" />
                     <span>Territory: {candidate.scope_name || 'Surat District'}</span>
                     <span>•</span>
                     <span>Role: {candidate.role_title || 'District Executive Director'}</span>
@@ -619,9 +619,9 @@ export function CandidateVotesClient() {
                   <button
                     type="button"
                     onClick={handleCopyLink}
-                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/40 text-sky-300 text-xs font-semibold transition-colors shadow-sm"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-blue-50 hover:bg-blue-100 border border-blue-200 text-[#1D4ED8] text-xs font-semibold transition-colors shadow-xs"
                   >
-                    {copiedLink ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                    {copiedLink ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
                     <span>{copiedLink ? 'Link Copied!' : 'Copy Voting Link'}</span>
                   </button>
                 )}
@@ -630,16 +630,16 @@ export function CandidateVotesClient() {
                   type="button"
                   onClick={() => fetchMyVotes(sessionToken || '')}
                   disabled={isLoading}
-                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-slate-700 transition-colors"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold border border-slate-200 transition-colors"
                 >
-                  <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin text-sky-400' : ''}`} />
+                  <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin text-[#1D4ED8]' : ''}`} />
                   <span>Refresh</span>
                 </button>
 
                 <button
                   type="button"
                   onClick={handleLogout}
-                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-rose-950/40 hover:text-rose-300 text-slate-400 text-xs font-semibold border border-slate-700 hover:border-rose-500/40 transition-colors"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-rose-50 hover:text-rose-700 text-slate-600 text-xs font-semibold border border-slate-200 hover:border-rose-200 transition-colors"
                 >
                   <LogOut className="w-3.5 h-3.5" />
                   <span>Exit</span>
@@ -651,83 +651,83 @@ export function CandidateVotesClient() {
           {/* Key Metrics Cards (Strict Isolation) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {/* Total Votes */}
-            <div className="p-5 sm:p-6 rounded-2xl bg-[#030917]/90 border border-blue-500/30 shadow-lg relative overflow-hidden">
-              <div className="flex items-center justify-between text-xs font-bold text-sky-400 uppercase tracking-wider mb-2">
+            <div className="p-5 sm:p-6 rounded-2xl bg-white border border-blue-200 shadow-sm relative overflow-hidden">
+              <div className="flex items-center justify-between text-xs font-bold text-[#1D4ED8] uppercase tracking-wider mb-2">
                 <span>Votes Received</span>
-                <Vote className="w-4 h-4 text-blue-400" />
+                <Vote className="w-4 h-4 text-[#1D4ED8]" />
               </div>
-              <div className="font-mono text-3xl sm:text-4xl font-bold text-white tracking-tight">
+              <div className="font-mono text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
                 {summary?.total_votes ?? votes.length}
               </div>
-              <div className="text-[11px] text-slate-400 mt-1.5">
+              <div className="text-[11px] text-slate-500 mt-1.5">
                 Verified member endorsements strictly isolated to your candidacy
               </div>
             </div>
 
             {/* Unique Companies */}
-            <div className="p-5 sm:p-6 rounded-2xl bg-[#030917]/90 border border-slate-800 shadow-lg">
-              <div className="flex items-center justify-between text-xs font-bold text-indigo-400 uppercase tracking-wider mb-2">
+            <div className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+              <div className="flex items-center justify-between text-xs font-bold text-indigo-600 uppercase tracking-wider mb-2">
                 <span>Unique Businesses</span>
-                <Building2 className="w-4 h-4 text-indigo-400" />
+                <Building2 className="w-4 h-4 text-indigo-600" />
               </div>
-              <div className="font-mono text-3xl sm:text-4xl font-bold text-white tracking-tight">
+              <div className="font-mono text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
                 {summary?.unique_companies ?? 0}
               </div>
-              <div className="text-[11px] text-slate-400 mt-1.5">
+              <div className="text-[11px] text-slate-500 mt-1.5">
                 Distinct enterprise organizations endorsing your leadership
               </div>
             </div>
 
             {/* Geographic Spread */}
-            <div className="p-5 sm:p-6 rounded-2xl bg-[#030917]/90 border border-slate-800 shadow-lg">
-              <div className="flex items-center justify-between text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2">
+            <div className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+              <div className="flex items-center justify-between text-xs font-bold text-emerald-600 uppercase tracking-wider mb-2">
                 <span>Territory Cities</span>
-                <MapPin className="w-4 h-4 text-emerald-400" />
+                <MapPin className="w-4 h-4 text-emerald-600" />
               </div>
-              <div className="font-mono text-3xl sm:text-4xl font-bold text-white tracking-tight">
+              <div className="font-mono text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
                 {summary?.unique_cities ?? 0}
               </div>
-              <div className="text-[11px] text-slate-400 mt-1.5">
+              <div className="text-[11px] text-slate-500 mt-1.5">
                 {availableCities.join(', ') || 'District footprint'}
               </div>
             </div>
 
             {/* Candidate Privacy Guarantee */}
-            <div className="p-5 sm:p-6 rounded-2xl bg-[#030917]/90 border border-emerald-500/20 shadow-lg">
-              <div className="flex items-center justify-between text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2">
+            <div className="p-5 sm:p-6 rounded-2xl bg-white border border-emerald-200 shadow-sm">
+              <div className="flex items-center justify-between text-xs font-bold text-emerald-600 uppercase tracking-wider mb-2">
                 <span>Data Isolation</span>
-                <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                <ShieldCheck className="w-4 h-4 text-emerald-600" />
               </div>
-              <div className="text-sm font-bold text-emerald-300">
+              <div className="text-sm font-bold text-emerald-700">
                 100% Isolated
               </div>
-              <div className="text-[11px] text-slate-400 mt-1.5">
+              <div className="text-[11px] text-slate-500 mt-1.5">
                 Zero cross-candidate access. You see only endorsements for your profile.
               </div>
             </div>
           </div>
 
           {/* "Who Endorsed You" (From Whom) Endorsement Roster */}
-          <div className="rounded-3xl bg-[#030917]/95 border border-slate-800 p-6 sm:p-8 shadow-xl space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800/80 pb-5">
+          <div className="rounded-3xl bg-white border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-5">
               <div>
-                <div className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-400 uppercase tracking-wider mb-1">
+                <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1D4ED8] uppercase tracking-wider mb-1">
                   <Users className="w-3.5 h-3.5" />
                   Detailed Endorsement Roster
                 </div>
-                <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
                   Who Endorsed You ("From Whom")
                 </h2>
-                <p className="text-xs text-slate-400 mt-0.5">
+                <p className="text-xs text-slate-500 mt-0.5">
                   Complete profiles of verified peers and members who cast their vote in your support.
                 </p>
               </div>
 
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-700/80 text-xs font-semibold text-slate-700 self-start sm:self-auto">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 self-start sm:self-auto">
                 <span>Showing:</span>
-                <strong className="text-white font-mono">{filteredVotes.length}</strong>
+                <strong className="text-slate-900 font-mono">{filteredVotes.length}</strong>
                 <span>of</span>
-                <strong className="text-white font-mono">{votes.length}</strong>
+                <strong className="text-slate-900 font-mono">{votes.length}</strong>
                 <span>Total Votes</span>
               </div>
             </div>
@@ -735,7 +735,7 @@ export function CandidateVotesClient() {
             {/* Filter & Search Bar */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
               <div className="relative flex-1">
-                <Search className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
                 <input
                   type="text"
                   value={searchQuery}
@@ -751,8 +751,8 @@ export function CandidateVotesClient() {
                   type="button"
                   onClick={() => setSelectedCityFilter('ALL')}
                   className={`px-3 py-2 rounded-xl text-xs font-semibold transition-colors ${selectedCityFilter === 'ALL'
-                      ? 'bg-blue-600 text-white shadow-sm'
-                      : 'bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white border border-slate-800'
+                      ? 'bg-[#1D4ED8] text-white shadow-xs'
+                      : 'bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 border border-slate-200'
                     }`}
                 >
                   All ({votes.length})
@@ -764,8 +764,8 @@ export function CandidateVotesClient() {
                     type="button"
                     onClick={() => setSelectedCityFilter(city)}
                     className={`px-3 py-2 rounded-xl text-xs font-semibold transition-colors ${selectedCityFilter.toUpperCase() === city.toUpperCase()
-                        ? 'bg-blue-600 text-white shadow-sm'
-                        : 'bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white border border-slate-800'
+                        ? 'bg-[#1D4ED8] text-white shadow-xs'
+                        : 'bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 border border-slate-200'
                       }`}
                   >
                     {city} ({summary?.cities_breakdown[city] || 0})
@@ -780,12 +780,12 @@ export function CandidateVotesClient() {
                 {filteredVotes.map((vote, idx) => (
                   <div
                     key={vote.id || vote.vote_reference}
-                    className="p-5 sm:p-6 rounded-2xl bg-slate-900/70 hover:bg-slate-900/90 border border-slate-800/90 hover:border-slate-700 transition-all space-y-4 shadow-sm"
+                    className="p-5 sm:p-6 rounded-2xl bg-slate-50/70 hover:bg-slate-50 border border-slate-200 hover:border-slate-300 transition-all space-y-4 shadow-xs"
                   >
                     <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
                       <div className="flex items-start gap-3.5">
                         {/* Voter Avatar Initials */}
-                        <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-700 border border-blue-400/40 text-white font-bold text-sm flex items-center justify-center shrink-0 shadow-md">
+                        <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#1D4ED8] to-indigo-700 border border-blue-200 text-white font-bold text-sm flex items-center justify-center shrink-0 shadow-xs">
                           {vote.voter_name
                             .split(' ')
                             .map((p) => p[0])
@@ -795,37 +795,37 @@ export function CandidateVotesClient() {
 
                         <div className="space-y-0.5">
                           <div className="flex flex-wrap items-center gap-2">
-                            <h3 className="text-base font-bold text-white tracking-tight">
+                            <h3 className="text-base font-bold text-slate-900 tracking-tight">
                               {vote.voter_name}
                             </h3>
-                            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[10px] font-bold">
+                            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-bold">
                               <CheckCircle2 className="w-3 h-3" />
                               Verified Voter
                             </span>
                           </div>
 
-                          <div className="text-xs text-slate-300 font-medium">
+                          <div className="text-xs text-slate-600 font-medium">
                             {vote.voter_designation && <span>{vote.voter_designation}</span>}
                             {vote.voter_designation && vote.voter_company && <span> · </span>}
-                            {vote.voter_company && <strong className="text-white">{vote.voter_company}</strong>}
+                            {vote.voter_company && <strong className="text-slate-900 font-semibold">{vote.voter_company}</strong>}
                           </div>
 
-                          <div className="flex flex-wrap items-center gap-3 text-[11px] text-slate-400 pt-0.5">
+                          <div className="flex flex-wrap items-center gap-3 text-[11px] text-slate-500 pt-0.5">
                             {vote.voter_city && (
                               <span className="flex items-center gap-1">
-                                <MapPin className="w-3 h-3 text-sky-400" />
+                                <MapPin className="w-3 h-3 text-[#1D4ED8]" />
                                 {vote.voter_city}
                               </span>
                             )}
                             {vote.voter_email && (
                               <span className="flex items-center gap-1">
-                                <Mail className="w-3 h-3 text-slate-500" />
+                                <Mail className="w-3 h-3 text-slate-400" />
                                 {vote.voter_email}
                               </span>
                             )}
                             {vote.voter_phone && (
                               <span className="flex items-center gap-1">
-                                <Phone className="w-3 h-3 text-slate-500" />
+                                <Phone className="w-3 h-3 text-slate-400" />
                                 {vote.voter_phone}
                               </span>
                             )}
@@ -835,7 +835,7 @@ export function CandidateVotesClient() {
 
                       {/* Vote Reference & Time */}
                       <div className="text-left sm:text-right shrink-0 pt-1 sm:pt-0">
-                        <span className="font-mono text-[11px] px-2.5 py-1 rounded-md bg-slate-800 text-sky-300 border border-slate-700/80 font-bold block sm:inline-block">
+                        <span className="font-mono text-[11px] px-2.5 py-1 rounded-md bg-white text-[#1D4ED8] border border-slate-200 font-bold block sm:inline-block shadow-2xs">
                           {vote.vote_reference}
                         </span>
                         <div className="text-[11px] text-slate-500 mt-1 flex items-center sm:justify-end gap-1">
@@ -855,9 +855,9 @@ export function CandidateVotesClient() {
 
                     {/* Support Reason / Endorsement Quote */}
                     {vote.support_reason && (
-                      <div className="relative pl-4 sm:pl-5 pr-4 py-3 rounded-xl bg-[#040D21] border border-blue-900/30 text-xs sm:text-sm text-slate-200 italic leading-relaxed">
+                      <div className="relative pl-4 sm:pl-5 pr-4 py-3 rounded-xl bg-white border border-slate-200 text-xs sm:text-sm text-slate-700 italic leading-relaxed shadow-2xs">
                         <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#1D4ED8] to-[#E11D48] rounded-l-xl" />
-                        <Quote className="w-4 h-4 text-blue-400/50 inline-block mr-1.5 -mt-1 not-italic" />
+                        <Quote className="w-4 h-4 text-[#1D4ED8]/60 inline-block mr-1.5 -mt-1 not-italic" />
                         "{vote.support_reason}"
                       </div>
                     )}
@@ -865,10 +865,10 @@ export function CandidateVotesClient() {
                 ))}
               </div>
             ) : (
-              <div className="p-12 rounded-2xl bg-slate-900/40 border border-dashed border-slate-800 text-center space-y-3">
-                <Users className="w-10 h-10 text-slate-600 mx-auto" />
-                <h3 className="text-base font-bold text-white">No Endorsement Votes Found</h3>
-                <p className="text-xs text-slate-400 max-w-sm mx-auto">
+              <div className="p-12 rounded-2xl bg-slate-50 border border-dashed border-slate-200 text-center space-y-3">
+                <Users className="w-10 h-10 text-slate-400 mx-auto" />
+                <h3 className="text-base font-bold text-slate-800">No Endorsement Votes Found</h3>
+                <p className="text-xs text-slate-500 max-w-sm mx-auto">
                   {searchQuery || selectedCityFilter !== 'ALL'
                     ? 'No votes match your active search and city filters.'
                     : 'You have not received any endorsement votes yet. Share your direct voting link with your network!'}
@@ -877,7 +877,7 @@ export function CandidateVotesClient() {
                   <button
                     type="button"
                     onClick={handleCopyLink}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl brand-btn-primary bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-xs font-semibold text-white shadow-md transition-all mt-2"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl brand-btn-primary bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-xs font-semibold text-white shadow-sm transition-all mt-2 cursor-pointer"
                   >
                     <Copy className="w-3.5 h-3.5" />
                     <span>Copy My Voting Booth Link</span>
@@ -888,15 +888,15 @@ export function CandidateVotesClient() {
           </div>
 
           {/* Strict Data Isolation Guarantee Banner */}
-          <div className="p-5 rounded-2xl bg-gradient-to-r from-blue-950/40 via-slate-900 to-indigo-950/40 border border-blue-500/20 text-xs text-slate-300 leading-relaxed flex items-start gap-3">
-            <ShieldCheck className="w-5 h-5 text-sky-400 shrink-0 mt-0.5" />
+          <div className="p-5 rounded-2xl bg-blue-50/70 border border-blue-200 text-xs text-slate-700 leading-relaxed flex items-start gap-3">
+            <ShieldCheck className="w-5 h-5 text-[#1D4ED8] shrink-0 mt-0.5" />
             <div>
-              <strong className="text-white block mb-0.5">
+              <strong className="text-slate-900 block mb-0.5">
                 Peers Global Election Integrity &amp; Strict Data Isolation Policy
               </strong>
               <span>
                 This dashboard is cryptographically scoped to candidate{' '}
-                <strong className="text-white">{candidate.full_name}</strong>. In accordance with the Peers Global Charter, you can only view endorsements cast specifically for your candidacy. Voting rosters and records of competing candidates remain strictly isolated and inaccessible.
+                <strong className="text-slate-900">{candidate.full_name}</strong>. In accordance with the Peers Global Charter, you can only view endorsements cast specifically for your candidacy. Voting rosters and records of competing candidates remain strictly isolated and inaccessible.
               </span>
             </div>
           </div>
