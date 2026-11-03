@@ -373,11 +373,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
           email: cleanEmail,
           mobile: cleanPhone,
         }))
-        setLookupFeedback({
-          status: 'not_found',
-          message:
-            'No existing registered profile was found with these credentials in our database. You can proceed to complete your nomination profile and upload your candidate photo.',
-        })
+        setCurrentStep(2)
       }
     } catch (err: unknown) {
       setError((err as Error).message || 'Failed to verify membership credentials')
@@ -781,25 +777,6 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
                   <p className="text-[12px] text-emerald-700 leading-relaxed">
                     {lookupFeedback.company ? `${lookupFeedback.company} · ` : ''}Your membership standing is verified and all nomination details have been automatically filled. Advancing to profile review...
                   </p>
-                </div>
-              )}
-
-              {lookupFeedback?.status === 'not_found' && (
-                <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 space-y-3 transition-all">
-                  <div className="flex items-center gap-2 font-bold text-xs text-amber-800">
-                    <AlertCircle className="w-4 h-4 text-amber-600 shrink-0" />
-                    <span>No Existing Account Found</span>
-                  </div>
-                  <p className="text-[12px] text-amber-800/90 leading-relaxed">
-                    No active user matched this email and phone in our database. You can still apply as a new candidate and enter your details manually.
-                  </p>
-                  <button
-                    type="button"
-                    onClick={handleProceedAsNew}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs shadow-xs transition-colors"
-                  >
-                    Continue as New Applicant <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
                 </div>
               )}
 
