@@ -63,6 +63,13 @@ export function Form2Wizard({
   // 4: References & Document Proofs (Sec G & H)
   // 5: Review & Submit
   const [activeStep, setActiveStep] = useState<number>(1)
+
+  // Keep view smoothly at top when changing steps
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }, [activeStep])
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
   const [submissionResult, setSubmissionResult] = useState<{
