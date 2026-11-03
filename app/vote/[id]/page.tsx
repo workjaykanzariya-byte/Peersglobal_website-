@@ -82,7 +82,7 @@ export default async function DirectVotePage({ params }: PageProps) {
           </Link>
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[11px] font-bold text-emerald-400">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            OFFICIAL ELECTION BALLOT
+            OFFICIAL ELECTION VOTE
           </span>
         </div>
 

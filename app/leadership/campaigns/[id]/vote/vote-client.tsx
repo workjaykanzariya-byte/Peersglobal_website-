@@ -135,7 +135,7 @@ export function VoteClient({
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight text-slate-900 leading-tight">
-                Cast Your Ballot: <span className="brand-gradient-text">{campaign.name}</span>
+                Cast Your Vote: <span className="brand-gradient-text">{campaign.name}</span>
               </h1>
 
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
@@ -222,7 +222,7 @@ export function VoteClient({
                         }}
                         className="text-[11px] font-bold text-[#1D4ED8] hover:text-[#1E40AF] transition-colors inline-flex items-center gap-1 cursor-pointer"
                       >
-                        <span>View Official Ballot Poster</span>
+                        <span>View Official Campaign Poster</span>
                         <ArrowRight className="w-3 h-3" />
                       </button>
                     </div>

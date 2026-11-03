@@ -102,10 +102,8 @@ export function CandidateVotesClient() {
   useEffect(() => {
     try {
       const savedToken = localStorage.getItem('pg_candidate_session_token')
-      const savedEmail = localStorage.getItem('pg_candidate_session_email')
-      if (savedToken && savedEmail) {
+      if (savedToken) {
         setSessionToken(savedToken)
-        setEmailInput(savedEmail)
         fetchMyVotes(savedToken)
       }
     } catch { }
@@ -130,9 +128,9 @@ export function CandidateVotesClient() {
     setIsPendingApproval(false)
     setPendingMessage(null)
 
-    const emailToSend = (directEmail || emailInput).trim().toLowerCase()
-    if (!emailToSend || !emailToSend.includes('@')) {
-      setError('Please provide the valid email address you used during your nomination filing.')
+    const inputToSend = (directEmail || emailInput).trim()
+    if (!inputToSend) {
+      setError('Please provide your nomination email address or Application Reference ID.')
       return
     }
 
@@ -141,7 +139,7 @@ export function CandidateVotesClient() {
       const res = await fetch('/api/leadership/candidate/request-otp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: emailToSend }),
+        body: JSON.stringify({ identifier: inputToSend, email: inputToSend }),
       })
 
       const data = await res.json()
@@ -235,7 +233,7 @@ export function CandidateVotesClient() {
       const res = await fetch('/api/leadership/candidate/verify-otp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: emailInput, otp: fullOtp }),
+        body: JSON.stringify({ identifier: emailInput, email: emailInput, otp: fullOtp }),
       })
 
       const data = await res.json()
@@ -278,13 +276,24 @@ export function CandidateVotesClient() {
         setStep('dashboard')
       } else {
         // Token might have expired
-        localStorage.removeItem('pg_candidate_session_token')
+        try {
+          localStorage.removeItem('pg_candidate_session_token')
+          localStorage.removeItem('pg_candidate_session_email')
+        } catch { }
         setSessionToken(null)
+        setEmailInput('')
         setStep('email')
-        setError('Session expired. Please log in again with your nomination email.')
+        setError('Please enter your email to view your votes.')
       }
     } catch {
-      setError('Failed to fetch your votes data. Please try refreshing.')
+      try {
+        localStorage.removeItem('pg_candidate_session_token')
+        localStorage.removeItem('pg_candidate_session_email')
+      } catch { }
+      setSessionToken(null)
+      setEmailInput('')
+      setStep('email')
+      setError('Please enter your email to view your votes.')
     } finally {
       setIsLoading(false)
     }
@@ -344,7 +353,7 @@ export function CandidateVotesClient() {
       {/* ---------------- LOGIN & OTP VERIFICATION VIEW ---------------- */}
       {step !== 'dashboard' && (
         <div className="max-w-xl mx-auto">
-          <div className="relative rounded-3xl bg-[#030917]/95 border border-slate-800 p-7 sm:p-10 shadow-2xl backdrop-blur-xl overflow-hidden">
+          <div className="relative rounded-3xl bg-white border border-slate-200/90 p-7 sm:p-10 shadow-xl overflow-hidden">
             {/* Top signature gradient accent */}
             <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48]" />
 
@@ -354,13 +363,13 @@ export function CandidateVotesClient() {
                 <div className="text-center space-y-2">
                   <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-sky-400 text-xs font-bold tracking-wide uppercase">
                     <ShieldCheck className="w-3.5 h-3.5" />
-                    Nominated Candidate Portal
+                    Candidate Portal
                   </div>
-                  <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                    Access Your Endorsement Votes
+                  <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                    Track My Votes
                   </h1>
-                  <p className="text-xs sm:text-sm text-slate-400 max-w-md mx-auto leading-relaxed">
-                    Enter the email address you submitted during your nomination form. A 6-digit one-time passcode (OTP) will be dispatched to verify your identity.
+                  <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
+                    Enter your registered nomination email address to see your live votes and endorsements. We will send a 6-digit verification code to your email.
                   </p>
                 </div>
 
@@ -370,10 +379,10 @@ export function CandidateVotesClient() {
                       <Clock className="w-4 h-4" />
                     </div>
                     <div className="space-y-1">
-                      <div className="font-bold text-amber-300 text-sm">Nomination Application Received</div>
+                      <div className="font-bold text-amber-300 text-sm">Nomination Under Review</div>
                       <p className="leading-relaxed text-slate-300">
                         {pendingMessage ||
-                          'Your application is submitted. After approval you will get the access to open the voting section.'}
+                          'Your nomination is submitted. You will be able to see your votes once your nomination is approved.'}
                       </p>
                     </div>
                   </div>
@@ -385,14 +394,14 @@ export function CandidateVotesClient() {
                 ) : null}
 
                 <div className="space-y-2 text-left">
-                  <label className="text-xs font-semibold text-slate-300 flex items-center justify-between">
-                    <span>Nomination Email Address</span>
-                    <span className="text-[11px] text-slate-500">Official Nominee Email</span>
+                  <label className="text-xs font-semibold text-slate-700 flex items-center justify-between">
+                    <span>Email Address or Application Reference</span>
+                    <span className="text-[11px] text-slate-500">e.g. user@example.com or PG-2026-00008</span>
                   </label>
                   <div className="relative">
                     <Mail className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
                     <input
-                      type="email"
+                      type="text"
                       required
                       value={emailInput}
                       onChange={(e) => {
@@ -400,8 +409,9 @@ export function CandidateVotesClient() {
                         if (error) setError(null)
                         if (isPendingApproval) setIsPendingApproval(false)
                       }}
-                      placeholder="Enter your registered nomination email"
-                      className="w-full pl-10 pr-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700/80 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all font-mono"
+                      placeholder="Enter registered email or PG-2026-XXXXX"
+                      autoComplete="off"
+                      className="w-full pl-10 pr-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:bg-white text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all font-sans"
                     />
                   </div>
                 </div>
@@ -414,11 +424,11 @@ export function CandidateVotesClient() {
                   {isLoading ? (
                     <>
                       <RefreshCw className="w-4 h-4 animate-spin" />
-                      <span>Verifying Nomination Status...</span>
+                      <span>Sending Verification Code...</span>
                     </>
                   ) : (
                     <>
-                      <span>Send Verification Code (OTP)</span>
+                      <span>Send Verification Code</span>
                       <ArrowRight className="w-4 h-4" />
                     </>
                   )}
@@ -426,12 +436,12 @@ export function CandidateVotesClient() {
 
                 <div className="text-center pt-2">
                   <p className="text-[11px] text-slate-500">
-                    Not nominated yet?{' '}
+                    Not a candidate yet?{' '}
                     <Link
                       href="/leadership/campaigns"
                       className="text-sky-400 hover:underline font-medium"
                     >
-                      File your nomination application
+                      Apply for nomination
                     </Link>
                   </p>
                 </div>
@@ -456,13 +466,13 @@ export function CandidateVotesClient() {
                 <div className="text-center space-y-2">
                   <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold tracking-wide uppercase">
                     <Lock className="w-3.5 h-3.5" />
-                    OTP Verification
+                    Verification
                   </div>
                   <h2 className="text-2xl font-bold text-white tracking-tight">
-                    Enter 6-Digit Passcode
+                    Enter Verification Code
                   </h2>
                   <p className="text-xs text-slate-400 max-w-sm mx-auto leading-relaxed">
-                    We dispatched a verification code to{' '}
+                    We sent a 6-digit verification code to{' '}
                     <strong className="text-white font-mono">{emailInput}</strong>.
                   </p>
                 </div>
@@ -538,12 +548,12 @@ export function CandidateVotesClient() {
                   {isLoading ? (
                     <>
                       <RefreshCw className="w-4 h-4 animate-spin" />
-                      <span>Verifying &amp; Loading Endorsements...</span>
+                      <span>Verifying Code...</span>
                     </>
                   ) : (
                     <>
                       <CheckCircle2 className="w-4 h-4" />
-                      <span>Verify &amp; View My Vote Counts</span>
+                      <span>Verify &amp; Track My Votes</span>
                     </>
                   )}
                 </button>
@@ -557,7 +567,7 @@ export function CandidateVotesClient() {
       {step === 'dashboard' && candidate && (
         <div className="max-w-5xl mx-auto space-y-6">
           {/* Executive Candidate Header */}
-          <div className="relative rounded-3xl bg-[#030917]/95 border border-slate-800 p-6 sm:p-8 shadow-2xl backdrop-blur-xl overflow-hidden">
+          <div className="relative rounded-3xl bg-white border border-slate-200 p-6 sm:p-8 shadow-md backdrop-blur-xl overflow-hidden">
             {/* Top signature gradient accent */}
             <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48]" />
 
@@ -579,14 +589,14 @@ export function CandidateVotesClient() {
                   <div className="flex flex-wrap items-center gap-2">
                     <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[11px] font-bold uppercase tracking-wider">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                      Verified Nominee Ballot
+                      Verified Nominee
                     </span>
                     <span className="text-xs text-slate-400 font-mono">
                       ID: {candidate.id}
                     </span>
                   </div>
 
-                  <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                  <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
                     {candidate.full_name}
                   </h1>
 
@@ -709,11 +719,11 @@ export function CandidateVotesClient() {
                   Who Endorsed You ("From Whom")
                 </h2>
                 <p className="text-xs text-slate-400 mt-0.5">
-                  Complete profiles of verified peers and members who cast their ballot in your support.
+                  Complete profiles of verified peers and members who cast their vote in your support.
                 </p>
               </div>
 
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-700/80 text-xs font-semibold text-slate-300 self-start sm:self-auto">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-700/80 text-xs font-semibold text-slate-700 self-start sm:self-auto">
                 <span>Showing:</span>
                 <strong className="text-white font-mono">{filteredVotes.length}</strong>
                 <span>of</span>
@@ -731,7 +741,7 @@ export function CandidateVotesClient() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search voter by name, company, city, or reference..."
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900/90 border border-slate-700/80 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:bg-white text-xs focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
                 />
               </div>
 

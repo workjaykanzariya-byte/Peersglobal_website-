@@ -114,13 +114,6 @@ export function CampaignDetailClient({
                 View Official Winners
               </GalaxyButton>
             )}
-
-            <Link
-              href="/leadership/votes/verify"
-              className="px-4 py-2.5 rounded-full border border-slate-200 hover:bg-slate-50 text-slate-700 font-semibold text-xs flex items-center justify-center gap-1.5 transition-colors"
-            >
-              Verify Ballot
-            </Link>
           </div>
         </div>
 

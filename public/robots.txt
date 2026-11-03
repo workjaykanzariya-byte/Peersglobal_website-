@@ -5,3 +5,7 @@ Allow: /
 # Sitemaps
 Sitemap: https://peersglobal.com/sitemap.xml
 
+# Private candidate portals (no index)
+Disallow: /candidate/
+Disallow: /leadership/votes/
+Disallow: /leadership/candidate/

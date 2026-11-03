@@ -44,7 +44,13 @@ interface NominationWizardProps {
 }
 
 export function NominationWizard({ campaign, scopes, formTemplate }: NominationWizardProps) {
-  const [currentStep, setCurrentStep] = useState<number>(1)
+  const [currentStep, setCurrentStepState] = useState<number>(1)
+  const setCurrentStep = (stepOrFn: number | ((prev: number) => number)) => {
+    setCurrentStepState(stepOrFn)
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
   const [emailInput, setEmailInput] = useState('')
   const [phoneInput, setPhoneInput] = useState('')
   const [isExistingMember, setIsExistingMember] = useState(false)
@@ -367,11 +373,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
           email: cleanEmail,
           mobile: cleanPhone,
         }))
-        setLookupFeedback({
-          status: 'not_found',
-          message:
-            'No existing registered profile was found with these credentials in our database. You can proceed to complete your nomination profile and upload your candidate photo.',
-        })
+        setCurrentStep(2)
       }
     } catch (err: unknown) {
       setError((err as Error).message || 'Failed to verify membership credentials')
@@ -623,7 +625,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
             className="brand-btn-primary bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 px-7 py-3 rounded-full text-xs font-semibold text-white shadow-md transition-all flex items-center gap-1.5"
           >
             <ShieldCheck className="w-3.5 h-3.5" />
-            <span>Track My Endorsement Votes</span>
+            <span>Track My Votes</span>
           </Link>
           <Link
             href={`/leadership/campaigns/${campaign.id}`}
@@ -778,25 +780,6 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
                 </div>
               )}
 
-              {lookupFeedback?.status === 'not_found' && (
-                <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 space-y-3 transition-all">
-                  <div className="flex items-center gap-2 font-bold text-xs text-amber-800">
-                    <AlertCircle className="w-4 h-4 text-amber-600 shrink-0" />
-                    <span>No Existing Account Found</span>
-                  </div>
-                  <p className="text-[12px] text-amber-800/90 leading-relaxed">
-                    No active user matched this email and phone in our database. You can still apply as a new candidate and enter your details manually.
-                  </p>
-                  <button
-                    type="button"
-                    onClick={handleProceedAsNew}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs shadow-xs transition-colors"
-                  >
-                    Continue as New Applicant <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              )}
-
               {/* Action Button */}
               <div className="pt-2">
                 <button
@@ -890,7 +873,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
                   Executive Profile Snapshot
                 </div>
 
-                {/* Candidate Ballot Photo Uploader */}
+                {/* Candidate Photo Uploader */}
                 <div className="mb-4 p-4 rounded-xl bg-white border border-slate-200/90 shadow-2xs flex flex-col sm:flex-row items-center gap-4">
                   <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-slate-100 border border-slate-200 overflow-hidden flex items-center justify-center shrink-0 shadow-inner">
                     {profile.photoUrl ? (
@@ -909,7 +892,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
 
                   <div className="flex-1 text-center sm:text-left space-y-1">
                     <div className="font-bold text-xs text-slate-900 flex items-center justify-center sm:justify-start gap-1.5 flex-wrap">
-                      <span>Official Candidate Ballot Photo</span>
+                      <span>Official Candidate Profile Photo</span>
                       {isExistingMember ? (
                         <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
                           ✓ Loaded from Unity App
@@ -923,7 +906,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
                     <p className="text-[11px] text-slate-500 leading-relaxed">
                       {isExistingMember
                         ? 'Your official candidate photo was automatically loaded from your verified Peers Unity App profile. No upload required.'
-                        : 'Upload your portrait headshot (JPG, PNG, WebP) to display on candidate cards and voter election ballots.'}
+                        : 'Upload your portrait headshot (JPG, PNG, WebP) to display on candidate cards and voter election cards.'}
                     </p>
                     <div className="pt-1 flex items-center justify-center sm:justify-start gap-2.5">
                       <label className="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#1D4ED8] hover:bg-[#1E40AF] text-white text-xs font-bold transition-colors shadow-2xs">

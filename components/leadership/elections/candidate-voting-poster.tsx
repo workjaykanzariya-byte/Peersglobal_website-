@@ -61,7 +61,7 @@ export function CandidateVotingPoster({
       <div className="flex items-center justify-between gap-2 mb-4 px-2">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-[11px] font-bold text-[#1D4ED8]">
           <span className="w-2 h-2 rounded-full bg-[#1D4ED8] animate-pulse" />
-          <span>DIRECT CANDIDATE BALLOT</span>
+          <span>DIRECT CANDIDATE VOTE</span>
         </div>
 
         <div className="flex items-center gap-2">
@@ -123,7 +123,7 @@ export function CandidateVotingPoster({
             </div>
             <div className="text-[9px] font-bold text-emerald-700 flex items-center justify-end gap-1">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-              BALLOT ACTIVE
+              VOTING ACTIVE
             </div>
           </div>
         </div>
@@ -236,7 +236,7 @@ export function CandidateVotingPoster({
               </div>
               <div className="text-left">
                 <div className="text-[11px] font-bold text-slate-900 tracking-wide">
-                  OFFICIAL 2026 DIGITAL BALLOT
+                  OFFICIAL 2026 DIGITAL VOTE
                 </div>
                 <div className="text-[10px] text-slate-500 font-mono">
                   ID: #{candidate.id.slice(0, 8)}...{candidate.id.slice(-4)}

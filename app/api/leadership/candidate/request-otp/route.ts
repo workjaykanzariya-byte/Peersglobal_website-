@@ -1,22 +1,22 @@
 import { NextResponse } from 'next/server'
-import { findCandidateByEmail, generateAndSaveCandidateOtp } from '@/lib/candidate-auth'
+import { findCandidateByIdentifier, generateAndSaveCandidateOtp } from '@/lib/candidate-auth'
 
 export const dynamic = 'force-dynamic'
 
 export async function POST(req: Request) {
   try {
     const body = await req.json().catch(() => ({}))
-    const rawEmail = body.email ? String(body.email).trim().toLowerCase() : ''
+    const rawInput = body.identifier || body.email ? String(body.identifier || body.email).trim() : ''
 
-    if (!rawEmail || !rawEmail.includes('@')) {
+    if (!rawInput) {
       return NextResponse.json(
-        { success: false, message: 'Please enter a valid nomination email address.' },
+        { success: false, message: 'Please enter your registered email address or Application Reference ID.' },
         { status: 400 }
       )
     }
 
-    // 1. Verify candidate and check scrutiny approval status
-    const candidate = await findCandidateByEmail(rawEmail)
+    // 1. Verify candidate by application reference (e.g. PG-2026-00008) or email
+    const candidate = await findCandidateByIdentifier(rawInput)
     const isApproved =
       candidate &&
       ['approved', 'shortlisted'].includes(String(candidate.status || '').toLowerCase())
@@ -35,15 +35,17 @@ export async function POST(req: Request) {
       )
     }
 
-    // 2. Generate 6-digit OTP
-    const otpCode = await generateAndSaveCandidateOtp(rawEmail)
+    // 2. Generate 6-digit OTP using the candidate's canonical email
+    const candidateEmail = candidate.email.toLowerCase()
+    const otpCode = await generateAndSaveCandidateOtp(candidateEmail)
 
-    console.log(`[Candidate Portal OTP] Dispatched code ${otpCode} to candidate ${candidate.full_name} (${rawEmail})`)
+    console.log(`[Candidate Portal OTP] Dispatched code ${otpCode} to candidate ${candidate.full_name} (${candidateEmail})`)
 
     return NextResponse.json({
       success: true,
       is_nominee: true,
-      message: `A secure 6-digit OTP has been sent to ${rawEmail}.`,
+      resolved_email: candidateEmail,
+      message: `A secure 6-digit OTP has been sent to ${candidateEmail}.`,
       candidate: {
         id: candidate.id,
         full_name: candidate.full_name,

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import {
-  findCandidateByEmail,
+  findCandidateByIdentifier,
   verifyCandidateOtp,
   generateCandidateToken,
 } from '@/lib/candidate-auth'
@@ -10,12 +10,12 @@ export const dynamic = 'force-dynamic'
 export async function POST(req: Request) {
   try {
     const body = await req.json().catch(() => ({}))
-    const rawEmail = body.email ? String(body.email).trim().toLowerCase() : ''
+    const rawInput = body.identifier || body.email ? String(body.identifier || body.email).trim() : ''
     const rawOtp = body.otp ? String(body.otp).trim() : ''
 
-    if (!rawEmail || !rawEmail.includes('@')) {
+    if (!rawInput) {
       return NextResponse.json(
-        { success: false, message: 'Candidate email address is required.' },
+        { success: false, message: 'Candidate email or Application Reference ID is required.' },
         { status: 400 }
       )
     }
@@ -28,16 +28,17 @@ export async function POST(req: Request) {
     }
 
     // 1. Confirm candidate exists
-    const candidate = await findCandidateByEmail(rawEmail)
+    const candidate = await findCandidateByIdentifier(rawInput)
     if (!candidate) {
       return NextResponse.json(
-        { success: false, message: 'Nominated candidate profile not found for this email.' },
+        { success: false, message: 'Nominated candidate profile not found.' },
         { status: 404 }
       )
     }
 
-    // 2. Verify OTP
-    const verification = await verifyCandidateOtp(rawEmail, rawOtp)
+    // 2. Verify OTP against the candidate's canonical email
+    const candidateEmail = candidate.email.toLowerCase()
+    const verification = await verifyCandidateOtp(candidateEmail, rawOtp)
     if (!verification.verified) {
       return NextResponse.json(
         { success: false, message: verification.message },
