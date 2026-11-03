@@ -1263,10 +1263,9 @@ export function Form2Wizard({
               <button
                 type="button"
                 onClick={() => setActiveStep(1)}
-                className="px-5 py-2.5 rounded-full bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 text-xs font-bold flex items-center gap-2 cursor-pointer transition shadow-2xs"
+                className="px-5 py-2 rounded-full border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 text-xs font-semibold cursor-pointer transition shadow-xs"
               >
-                <ArrowLeft className="w-4 h-4" />
-                Back to Credibility
+                Back
               </button>
 
               <button
@@ -1474,10 +1473,9 @@ export function Form2Wizard({
               <button
                 type="button"
                 onClick={() => setActiveStep(2)}
-                className="px-5 py-2.5 rounded-full bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 text-xs font-bold flex items-center gap-2 cursor-pointer transition shadow-2xs"
+                className="px-5 py-2 rounded-full border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 text-xs font-semibold cursor-pointer transition shadow-xs"
               >
-                <ArrowLeft className="w-4 h-4" />
-                Back to Bench
+                Back
               </button>
 
               <button
@@ -1761,10 +1759,9 @@ export function Form2Wizard({
               <button
                 type="button"
                 onClick={() => setActiveStep(3)}
-                className="px-5 py-2.5 rounded-full bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 text-xs font-bold flex items-center gap-2 cursor-pointer transition shadow-2xs"
+                className="px-5 py-2 rounded-full border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 text-xs font-semibold cursor-pointer transition shadow-xs"
               >
-                <ArrowLeft className="w-4 h-4" />
-                Back to Roadmap
+                Back
               </button>
 
               <button
@@ -1978,8 +1975,7 @@ export function Form2Wizard({
                     onClick={() => setActiveStep(4)}
                     className="px-5 py-2.5 rounded-full bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 text-xs font-bold flex items-center gap-2 cursor-pointer transition shadow-2xs w-full sm:w-auto justify-center"
                   >
-                    <ArrowLeft className="w-4 h-4" />
-                    Back to Documents
+                    Back
                   </button>
 
                   <button
