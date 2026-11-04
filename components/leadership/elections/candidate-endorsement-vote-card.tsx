@@ -520,27 +520,6 @@ export function CandidateEndorsementVoteCard({
                   </div>
                 </div>
               </div>
-
-              <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-                <button
-                  type="button"
-                  onClick={handleCopyLink}
-                  className="px-5 py-2.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold border border-slate-300 transition-all flex items-center gap-1.5 shadow-2xs cursor-pointer"
-                >
-                  <Share2 className="w-3.5 h-3.5" />
-                  <span>Share Nominee Link</span>
-                </button>
-
-                {onBackToRoster && (
-                  <button
-                    type="button"
-                    onClick={onBackToRoster}
-                    className="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold shadow-md shadow-blue-500/15 transition-all cursor-pointer"
-                  >
-                    View All Candidates
-                  </button>
-                )}
-              </div>
             </div>
           )}
         </div>
