@@ -181,6 +181,8 @@ function GalleryFadingBox({
 
 export function PathwayCardsSection() {
   const [activeCard, setActiveCard] = useState(0)
+  const [canScrollLeft, setCanScrollLeft] = useState(false)
+  const [canScrollRight, setCanScrollRight] = useState(true)
   const [galleryPhotos, setGalleryPhotos] = useState<ApiGalleryPhoto[]>([])
   const [slideIndex0, setSlideIndex0] = useState(0)
   const [slideIndex1, setSlideIndex1] = useState(0)
@@ -280,10 +282,39 @@ export function PathwayCardsSection() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    const el = document.getElementById('track-stories')
+    if (!el) return
+
+    const checkScroll = () => {
+      const { scrollLeft, scrollWidth, clientWidth } = el
+      setCanScrollLeft(scrollLeft > 12)
+      setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 12)
+    }
+
+    checkScroll()
+    el.addEventListener('scroll', checkScroll, { passive: true })
+    window.addEventListener('resize', checkScroll, { passive: true })
+
+    return () => {
+      el.removeEventListener('scroll', checkScroll)
+      window.removeEventListener('resize', checkScroll)
+    }
+  }, [])
+
   const scrollTrack = (id: string, dir: number) => {
     const el = document.getElementById(id)
     if (el) {
-      el.scrollBy({ left: dir * el.clientWidth, behavior: 'smooth' })
+      const scrollStep = el.clientWidth < 768 ? Math.round(el.clientWidth * 0.85 + 14) : el.clientWidth
+      el.scrollBy({ left: dir * scrollStep, behavior: 'smooth' })
+      const check = () => {
+        const { scrollLeft, scrollWidth, clientWidth } = el
+        setCanScrollLeft(scrollLeft > 12)
+        setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 12)
+      }
+      setTimeout(check, 80)
+      setTimeout(check, 320)
+      setTimeout(check, 600)
     }
   }
 
@@ -553,7 +584,8 @@ export function PathwayCardsSection() {
           <div className="fd-pathway-cards__left">
             <div className="fd-pathway-cards__hero overflow-hidden relative rounded-2xl bg-slate-950 shadow-lg border border-slate-800/60 group">
               <video
-                className="w-full h-full object-cover rounded-2xl pointer-events-none"
+                className="w-full h-full object-cover object-[center_20%] rounded-2xl pointer-events-none"
+                style={{ objectPosition: 'center 20%' }}
                 src="/videos/year-inside-reel.mp4"
                 poster="/videos/year-inside-reel-poster.jpg"
                 autoPlay
@@ -785,8 +817,8 @@ export function PathwayCardsSection() {
             <div className="fd-pathway-cards__hero overflow-hidden relative rounded-2xl bg-slate-950 shadow-lg border border-slate-800/60 group">
               <video
                 className="w-full h-full object-cover rounded-2xl pointer-events-none"
-                src="/videos/why-choose-reel.mp4"
-                poster="/videos/why-choose-reel-poster.jpg"
+                src="/videos/peers-global-city-meet-1080p.mp4"
+                poster="/videos/peers-global-city-meet-poster.jpg"
                 autoPlay
                 muted
                 loop
@@ -794,7 +826,7 @@ export function PathwayCardsSection() {
                 preload="metadata"
                 disablePictureInPicture
               >
-                <source src="/videos/why-choose-reel.mp4" type="video/mp4" />
+                <source src="/videos/peers-global-city-meet-1080p.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
@@ -887,8 +919,8 @@ export function PathwayCardsSection() {
             <div className="fd-pathway-cards__hero overflow-hidden relative rounded-2xl bg-slate-950 shadow-lg border border-slate-800/60 group">
               <video
                 className="w-full h-full object-cover rounded-2xl pointer-events-none"
-                src="/videos/member-to-peer-reel.mp4"
-                poster="/videos/member-to-peer-reel-poster.jpg"
+                src="/videos/peers-global-community-1080p.mp4"
+                poster="/videos/peers-global-community-poster.jpg"
                 autoPlay
                 muted
                 loop
@@ -896,7 +928,7 @@ export function PathwayCardsSection() {
                 preload="metadata"
                 disablePictureInPicture
               >
-                <source src="/videos/member-to-peer-reel.mp4" type="video/mp4" />
+                <source src="/videos/peers-global-community-1080p.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
@@ -960,10 +992,10 @@ export function PathwayCardsSection() {
           </div>
           <div className="fd-pathway-cards__right">
             <div className="fd-pathway-cards__carousel">
-              <div className="fd-pathway-cards__track" id="track-stories" tabIndex={0} role="group" aria-label="Peers Global Real Collaborations">
-                <div className="fd-pathway-cards__page !grid-cols-1 md:!grid-cols-3 !gap-3.5">
+              <div className="fd-pathway-cards__track max-md:gap-3.5 max-md:pb-2" id="track-stories" tabIndex={0} role="group" aria-label="Peers Global Real Collaborations">
+                <div className="fd-pathway-cards__page max-md:contents md:!grid-cols-3 !gap-3.5">
                   {/* Card 1: Jignesh Shah & Rohit Mehta */}
-                  <div className="group relative rounded-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/10 hover:border-white/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/10 p-3.5 flex flex-col justify-between h-full">
+                  <div className="group relative rounded-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/10 hover:border-white/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/10 p-3.5 flex flex-col justify-between h-full max-md:w-[84vw] max-md:max-w-[310px] max-md:shrink-0 max-md:snap-start">
                     <div>
                       <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-3 border border-white/10 shadow-md">
                         <img src="/images/story_packaging_auto.jpg" alt="Jignesh Shah and Rohit Mehta" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
@@ -992,7 +1024,7 @@ export function PathwayCardsSection() {
                   </div>
 
                   {/* Card 2: Priya Desai & Karan Malhotra */}
-                  <div className="group relative rounded-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/10 hover:border-white/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/10 p-3.5 flex flex-col justify-between h-full">
+                  <div className="group relative rounded-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/10 hover:border-white/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/10 p-3.5 flex flex-col justify-between h-full max-md:w-[84vw] max-md:max-w-[310px] max-md:shrink-0 max-md:snap-start">
                     <div>
                       <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-3 border border-white/10 shadow-md">
                         <img src="/images/story_export_corridor.jpg" alt="Priya Desai and Karan Malhotra" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
@@ -1021,7 +1053,7 @@ export function PathwayCardsSection() {
                   </div>
 
                   {/* Card 3: Amit Trivedi & Sandeep Kulkarni */}
-                  <div className="group relative rounded-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/10 hover:border-white/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/10 p-3.5 flex flex-col justify-between h-full">
+                  <div className="group relative rounded-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/10 hover:border-white/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/10 p-3.5 flex flex-col justify-between h-full max-md:w-[84vw] max-md:max-w-[310px] max-md:shrink-0 max-md:snap-start">
                     <div>
                       <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-3 border border-white/10 shadow-md">
                         <img src="/images/story_chemical_review.jpg" alt="Amit Trivedi and Sandeep Kulkarni" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
@@ -1050,9 +1082,9 @@ export function PathwayCardsSection() {
                   </div>
                 </div>
 
-                <div className="fd-pathway-cards__page !grid-cols-1 md:!grid-cols-3 !gap-3.5">
+                <div className="fd-pathway-cards__page max-md:contents md:!grid-cols-3 !gap-3.5">
                   {/* Card 4: Neha Patel & Simran Kaur */}
-                  <div className="group relative rounded-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/10 hover:border-white/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/10 p-3.5 flex flex-col justify-between h-full">
+                  <div className="group relative rounded-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/10 hover:border-white/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/10 p-3.5 flex flex-col justify-between h-full max-md:w-[84vw] max-md:max-w-[310px] max-md:shrink-0 max-md:snap-start">
                     <div>
                       <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-3 border border-white/10 shadow-md">
                         <img src="/images/story-neha-simran.jpg" alt="Neha Patel and Simran Kaur" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
@@ -1081,7 +1113,7 @@ export function PathwayCardsSection() {
                   </div>
 
                   {/* Card 5: Nayan Shah & Vikramaditya Solanki */}
-                  <div className="group relative rounded-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/10 hover:border-white/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/10 p-3.5 flex flex-col justify-between h-full">
+                  <div className="group relative rounded-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/10 hover:border-white/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/10 p-3.5 flex flex-col justify-between h-full max-md:w-[84vw] max-md:max-w-[310px] max-md:shrink-0 max-md:snap-start">
                     <div>
                       <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-3 border border-white/10 shadow-md">
                         <img src="/images/story_procurement_syndicate.jpg" alt="Nayan Shah and Vikramaditya Solanki" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
@@ -1110,7 +1142,7 @@ export function PathwayCardsSection() {
                   </div>
 
                   {/* Card 6: Pradeep Joshi & Fatima Khan */}
-                  <div className="group relative rounded-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/10 hover:border-white/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/10 p-3.5 flex flex-col justify-between h-full">
+                  <div className="group relative rounded-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/10 hover:border-white/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/10 p-3.5 flex flex-col justify-between h-full max-md:w-[84vw] max-md:max-w-[310px] max-md:shrink-0 max-md:snap-start">
                     <div>
                       <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-3 border border-white/10 shadow-md">
                         <img src="/images/story_farmer_logistics.jpg" alt="Pradeep Joshi and Fatima Khan" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
@@ -1140,8 +1172,28 @@ export function PathwayCardsSection() {
                 </div>
               </div>
               <div className="fd-pathway-cards__nav">
-                <button className="fd-pathway-cards__navbtn" type="button" onClick={() => scrollTrack('track-stories', -1)} aria-label="Previous real collaboration stories"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M15.884 5.116a1.25 1.25 0 0 0-1.768 0l-6 6a1.25 1.25 0 0 0 0 1.768l6 6a1.25 1.25 0 0 0 1.768-1.768L10.768 12l5.116-5.116a1.25 1.25 0 0 0 0-1.768"></path></svg></button>
-                <button className="fd-pathway-cards__navbtn" type="button" onClick={() => scrollTrack('track-stories', 1)} aria-label="More real collaboration stories"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M9.884 5.116a1.25 1.25 0 1 0-1.768 1.768L13.232 12l-5.116 5.116a1.25 1.25 0 0 0 1.768 1.768l6-6a1.25 1.25 0 0 0 0-1.768z"></path></svg></button>
+                <button
+                  className="fd-pathway-cards__navbtn"
+                  type="button"
+                  onClick={() => scrollTrack('track-stories', -1)}
+                  disabled={!canScrollLeft}
+                  aria-hidden={!canScrollLeft}
+                  tabIndex={canScrollLeft ? 0 : -1}
+                  aria-label="Previous real collaboration stories"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M15.884 5.116a1.25 1.25 0 0 0-1.768 0l-6 6a1.25 1.25 0 0 0 0 1.768l6 6a1.25 1.25 0 0 0 1.768-1.768L10.768 12l5.116-5.116a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                </button>
+                <button
+                  className="fd-pathway-cards__navbtn"
+                  type="button"
+                  onClick={() => scrollTrack('track-stories', 1)}
+                  disabled={!canScrollRight}
+                  aria-hidden={!canScrollRight}
+                  tabIndex={canScrollRight ? 0 : -1}
+                  aria-label="More real collaboration stories"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M9.884 5.116a1.25 1.25 0 1 0-1.768 1.768L13.232 12l-5.116 5.116a1.25 1.25 0 0 0 1.768 1.768l6-6a1.25 1.25 0 0 0 0-1.768z"></path></svg>
+                </button>
               </div>
             </div>
           </div>
