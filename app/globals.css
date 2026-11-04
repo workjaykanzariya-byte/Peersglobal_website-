@@ -1689,12 +1689,23 @@ svg.lucide,
   stroke: #ffffff !important;
 }
 
-/* Exempt action buttons that have solid white icon needs */
+/* Exempt action buttons & containers that have solid white icon needs */
 a.rounded-full svg.lucide,
 button.rounded-full svg.lucide,
 .galaxy-btn svg.lucide,
 .galaxy-btn .galaxy-btn__icon svg.lucide,
-.btn-brand-solid svg {
+.btn-brand-solid svg,
+.btn-brand-gradient svg,
+.text-white svg.lucide,
+svg.lucide.text-white,
+[class*="text-white"] > svg.lucide,
+[class*="bg-[#1D4ED8]"] svg.lucide,
+[class*="bg-primary"] svg.lucide,
+[class*="bg-emerald-500"] svg.lucide,
+[class*="bg-emerald-600"] svg.lucide,
+.stroke-white,
+svg.stroke-white,
+svg.lucide.stroke-white {
   stroke: #ffffff !important;
   color: #ffffff !important;
 }

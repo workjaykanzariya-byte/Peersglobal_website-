@@ -1532,7 +1532,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
                             : 'bg-slate-100 text-slate-600'
                         }`}
                       >
-                        <ShieldCheck className="w-5 h-5" />
+                        <ShieldCheck className={`w-5 h-5 ${codeOfConductSigned ? '!stroke-white text-white' : ''}`} />
                       </div>
                       <div>
                         <h4 className="font-bold text-slate-900 text-sm sm:text-base tracking-tight leading-snug">
@@ -1613,7 +1613,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
                             : 'bg-white border-slate-300 hover:border-slate-400'
                         }`}
                       >
-                        {codeOfConductSigned && <Check className="w-3.5 h-3.5 stroke-[3]" />}
+                        {codeOfConductSigned && <Check className="w-3.5 h-3.5 stroke-[3] !stroke-white text-white" />}
                       </div>
 
                       <div className="space-y-0.5 select-none">
