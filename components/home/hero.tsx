@@ -76,7 +76,8 @@ export function HomeHero() {
             loop
             muted
             playsInline
-            preload="auto"
+            preload="metadata"
+            poster="/videos/homepage-hero-bg-poster.jpg"
             className="size-full object-cover object-center opacity-85"
           >
             <source src={videoUrl} type="video/mp4" />

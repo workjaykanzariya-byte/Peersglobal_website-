@@ -33,6 +33,7 @@ export function HubVideoHero({
         loop
         muted
         playsInline
+        preload="metadata"
         poster={poster}
         className="motion-reduce:hidden absolute inset-0 size-full object-cover opacity-70"
       >
