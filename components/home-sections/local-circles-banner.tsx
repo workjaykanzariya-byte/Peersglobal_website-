@@ -83,104 +83,104 @@ export function LocalCirclesBanner() {
         <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-36 md:w-48 bg-gradient-to-l from-white via-white/80 to-transparent z-20 pointer-events-none" />
 
         {/* Row 1: Left to Right Marquee */}
-        <div className="flex w-max items-center gap-4 sm:gap-5 animate-marquee-ltr hover:[animation-play-state:paused] will-change-transform">
-          {/* First loop of Row 1 */}
-          {BRAND_PARTNERS_ROW_1.map((brand, idx) => (
-            <div
-              key={`row1-a-${idx}-${brand.name}`}
-              className="group/card h-20 sm:h-22 min-w-[170px] sm:min-w-[200px] px-6 py-3 rounded-2xl bg-white border border-slate-200/80 shadow-[0_2px_10px_rgba(15,23,42,0.03)] hover:shadow-[0_10px_25px_rgba(15,23,42,0.08)] hover:border-blue-200 transition-all duration-300 flex items-center justify-center shrink-0"
-              title={brand.name}
-            >
-              <div className="relative h-10 sm:h-12 w-32 sm:w-36 flex items-center justify-center">
-                <Image
-                  src={brand.src}
-                  alt={brand.name}
-                  width={160}
-                  height={48}
-                  className="max-h-9 sm:max-h-11 w-auto max-w-[140px] sm:max-w-[160px] object-contain transition-transform duration-300 group-hover/card:scale-105"
-                  loading="lazy"
-                />
+          <div className="flex w-max items-center gap-4 sm:gap-5 animate-marquee-ltr will-change-transform">
+            {/* First loop of Row 1 */}
+            {BRAND_PARTNERS_ROW_1.map((brand, idx) => (
+              <div
+                key={`row1-a-${idx}-${brand.name}`}
+                className="group/card h-20 sm:h-22 min-w-[170px] sm:min-w-[200px] px-6 py-3 rounded-2xl bg-white border border-slate-200/80 shadow-[0_2px_10px_rgba(15,23,42,0.03)] hover:shadow-[0_10px_25px_rgba(15,23,42,0.08)] hover:border-blue-200 transition-all duration-300 flex items-center justify-center shrink-0"
+                title={brand.name}
+              >
+                <div className="relative h-10 sm:h-12 w-32 sm:w-36 flex items-center justify-center">
+                  <Image
+                    src={brand.src}
+                    alt={brand.name}
+                    width={160}
+                    height={48}
+                    className="max-h-9 sm:max-h-11 w-auto max-w-[140px] sm:max-w-[160px] object-contain transition-transform duration-300 group-hover/card:scale-105"
+                    loading="lazy"
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
 
-          {/* Duplicate loop of Row 1 for seamless infinite continuity */}
-          {BRAND_PARTNERS_ROW_1.map((brand, idx) => (
-            <div
-              key={`row1-b-${idx}-${brand.name}`}
-              className="group/card h-20 sm:h-22 min-w-[170px] sm:min-w-[200px] px-6 py-3 rounded-2xl bg-white border border-slate-200/80 shadow-[0_2px_10px_rgba(15,23,42,0.03)] hover:shadow-[0_10px_25px_rgba(15,23,42,0.08)] hover:border-blue-200 transition-all duration-300 flex items-center justify-center shrink-0"
-              title={brand.name}
-            >
-              <div className="relative h-10 sm:h-12 w-32 sm:w-36 flex items-center justify-center">
-                <Image
-                  src={brand.src}
-                  alt={brand.name}
-                  width={160}
-                  height={48}
-                  className="max-h-9 sm:max-h-11 w-auto max-w-[140px] sm:max-w-[160px] object-contain transition-transform duration-300 group-hover/card:scale-105"
-                  loading="lazy"
-                />
+            {/* Duplicate loop of Row 1 for seamless infinite continuity */}
+            {BRAND_PARTNERS_ROW_1.map((brand, idx) => (
+              <div
+                key={`row1-b-${idx}-${brand.name}`}
+                className="group/card h-20 sm:h-22 min-w-[170px] sm:min-w-[200px] px-6 py-3 rounded-2xl bg-white border border-slate-200/80 shadow-[0_2px_10px_rgba(15,23,42,0.03)] hover:shadow-[0_10px_25px_rgba(15,23,42,0.08)] hover:border-blue-200 transition-all duration-300 flex items-center justify-center shrink-0"
+                title={brand.name}
+              >
+                <div className="relative h-10 sm:h-12 w-32 sm:w-36 flex items-center justify-center">
+                  <Image
+                    src={brand.src}
+                    alt={brand.name}
+                    width={160}
+                    height={48}
+                    className="max-h-9 sm:max-h-11 w-auto max-w-[140px] sm:max-w-[160px] object-contain transition-transform duration-300 group-hover/card:scale-105"
+                    loading="lazy"
+                  />
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        {/* Row 2: Left to Right Marquee (slightly staggered speed for dynamic depth) */}
-        <div className="flex w-max items-center gap-4 sm:gap-5 animate-marquee-ltr-slower hover:[animation-play-state:paused] will-change-transform">
-          {/* First loop of Row 2 */}
-          {BRAND_PARTNERS_ROW_2.map((brand, idx) => (
-            <div
-              key={`row2-a-${idx}-${brand.name}`}
-              className="group/card h-20 sm:h-22 min-w-[170px] sm:min-w-[200px] px-6 py-3 rounded-2xl bg-white border border-slate-200/80 shadow-[0_2px_10px_rgba(15,23,42,0.03)] hover:shadow-[0_10px_25px_rgba(15,23,42,0.08)] hover:border-rose-200 transition-all duration-300 flex items-center justify-center shrink-0"
-              title={brand.name}
+          {/* Row 2: Left to Right Marquee (slightly staggered speed for dynamic depth) */}
+            <div className="flex w-max items-center gap-4 sm:gap-5 animate-marquee-ltr-slower will-change-transform">
+              {/* First loop of Row 2 */}
+              {BRAND_PARTNERS_ROW_2.map((brand, idx) => (
+                <div
+                  key={`row2-a-${idx}-${brand.name}`}
+                  className="group/card h-20 sm:h-22 min-w-[170px] sm:min-w-[200px] px-6 py-3 rounded-2xl bg-white border border-slate-200/80 shadow-[0_2px_10px_rgba(15,23,42,0.03)] hover:shadow-[0_10px_25px_rgba(15,23,42,0.08)] hover:border-rose-200 transition-all duration-300 flex items-center justify-center shrink-0"
+                  title={brand.name}
+                >
+                  <div className="relative h-10 sm:h-12 w-32 sm:w-36 flex items-center justify-center">
+                    <Image
+                      src={brand.src}
+                      alt={brand.name}
+                      width={160}
+                      height={48}
+                      className="max-h-9 sm:max-h-11 w-auto max-w-[140px] sm:max-w-[160px] object-contain transition-transform duration-300 group-hover/card:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              ))}
+
+              {/* Duplicate loop of Row 2 for seamless infinite continuity */}
+              {BRAND_PARTNERS_ROW_2.map((brand, idx) => (
+                <div
+                  key={`row2-b-${idx}-${brand.name}`}
+                  className="group/card h-20 sm:h-22 min-w-[170px] sm:min-w-[200px] px-6 py-3 rounded-2xl bg-white border border-slate-200/80 shadow-[0_2px_10px_rgba(15,23,42,0.03)] hover:shadow-[0_10px_25px_rgba(15,23,42,0.08)] hover:border-rose-200 transition-all duration-300 flex items-center justify-center shrink-0"
+                  title={brand.name}
+                >
+                  <div className="relative h-10 sm:h-12 w-32 sm:w-36 flex items-center justify-center">
+                    <Image
+                      src={brand.src}
+                      alt={brand.name}
+                      width={160}
+                      height={48}
+                      className="max-h-9 sm:max-h-11 w-auto max-w-[140px] sm:max-w-[160px] object-contain transition-transform duration-300 group-hover/card:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Bottom CTA Button */}
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 sm:mt-12 flex items-center justify-center">
+            <GalaxyButton
+              href="/partner"
+              size="default"
             >
-              <div className="relative h-10 sm:h-12 w-32 sm:w-36 flex items-center justify-center">
-                <Image
-                  src={brand.src}
-                  alt={brand.name}
-                  width={160}
-                  height={48}
-                  className="max-h-9 sm:max-h-11 w-auto max-w-[140px] sm:max-w-[160px] object-contain transition-transform duration-300 group-hover/card:scale-105"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          ))}
+              Partner With Peers Global
+            </GalaxyButton>
+          </div>
 
-          {/* Duplicate loop of Row 2 for seamless infinite continuity */}
-          {BRAND_PARTNERS_ROW_2.map((brand, idx) => (
-            <div
-              key={`row2-b-${idx}-${brand.name}`}
-              className="group/card h-20 sm:h-22 min-w-[170px] sm:min-w-[200px] px-6 py-3 rounded-2xl bg-white border border-slate-200/80 shadow-[0_2px_10px_rgba(15,23,42,0.03)] hover:shadow-[0_10px_25px_rgba(15,23,42,0.08)] hover:border-rose-200 transition-all duration-300 flex items-center justify-center shrink-0"
-              title={brand.name}
-            >
-              <div className="relative h-10 sm:h-12 w-32 sm:w-36 flex items-center justify-center">
-                <Image
-                  src={brand.src}
-                  alt={brand.name}
-                  width={160}
-                  height={48}
-                  className="max-h-9 sm:max-h-11 w-auto max-w-[140px] sm:max-w-[160px] object-contain transition-transform duration-300 group-hover/card:scale-105"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Bottom CTA Button */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 sm:mt-12 flex items-center justify-center">
-        <GalaxyButton
-          href="/partner"
-          size="default"
-        >
-          Partner With Peers Global
-        </GalaxyButton>
-      </div>
-
-      {/* High Performance Infinite Keyframe CSS: Left-To-Right Scrolling */}
-      <style jsx>{`
+          {/* High Performance Infinite Keyframe CSS: Left-To-Right Scrolling */}
+          <style jsx>{`
         @keyframes marqueeLtr {
           0% {
             transform: translate3d(-50%, 0, 0);
@@ -204,6 +204,6 @@ export function LocalCirclesBanner() {
           }
         }
       `}</style>
-    </section>
-  )
+        </section>
+        )
 }

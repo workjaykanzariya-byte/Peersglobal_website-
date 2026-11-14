@@ -78,120 +78,121 @@ const ROW_2_PILLARS: UniversePillar[] = [
 
 function PillarCard({ pillar }: { pillar: UniversePillar }) {
   return (
-    <article className="fd-meet-your-mentors__card">
-      <img
-        className="fd-meet-your-mentors__photo"
-        src={pillar.image}
-        alt={pillar.title}
-        width="282"
-        height="423"
-        loading="lazy"
-        decoding="async"
-      />
-      <span className="fd-meet-your-mentors__scrim"></span>
-      <h3 className="fd-meet-your-mentors__title">{pillar.title}</h3>
-      <p className="fd-meet-your-mentors__role">{pillar.role}</p>
-    </article>
-  )
+      <article className="fd-meet-your-mentors__card select-none">
+        <img
+          className="fd-meet-your-mentors__photo pointer-events-none select-none"
+          src={pillar.image}
+          alt={pillar.title}
+          width="282"
+          height="423"
+          loading="lazy"
+          decoding="async"
+          draggable={false}
+        />
+        <span className="fd-meet-your-mentors__scrim pointer-events-none"></span>
+        <h3 className="fd-meet-your-mentors__title pointer-events-none select-none">{pillar.title}</h3>
+        <p className="fd-meet-your-mentors__role pointer-events-none select-none">{pillar.role}</p>
+      </article>
+      )
 }
 
-export function MentorsSection() {
+      export function MentorsSection() {
   return (
-    <section className="fd-meet-your-mentors" id="universe" aria-label="Real People. Real Collaboration.">
-      <div className="fd-meet-your-mentors__head">
-        <h2 className="fd-meet-your-mentors__headline" data-fd-rise="80">
-          <span>Don&apos;t take our word for it.</span>{' '}
-          <span>Look at what happens between Peers.</span>
-        </h2>
+      <section className="fd-meet-your-mentors" id="universe" aria-label="Real People. Real Collaboration.">
+        <div className="fd-meet-your-mentors__head">
+          <h2 className="fd-meet-your-mentors__headline" data-fd-rise="80">
+            <span>Don&apos;t take our word for it.</span>{' '}
+            <span>Look at what happens between Peers.</span>
+          </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto mt-2 text-center">
-          <div className="bg-slate-50/80 rounded-xl p-3.5 border border-slate-100 shadow-sm">
-            <p className="text-xs uppercase tracking-wider font-semibold text-rose-600 mb-1">Peer Stories</p>
-            <p className="text-xs text-slate-600 leading-relaxed">Stories of entrepreneurs, their journeys and what they have experienced inside the community.</p>
-          </div>
-          <div className="bg-slate-50/80 rounded-xl p-3.5 border border-slate-100 shadow-sm">
-            <p className="text-xs uppercase tracking-wider font-semibold text-blue-600 mb-1">Collaboration Wins</p>
-            <p className="text-xs text-slate-600 leading-relaxed">Real examples of relationships becoming action.</p>
-          </div>
-          <div className="bg-slate-50/80 rounded-xl p-3.5 border border-slate-100 shadow-sm">
-            <p className="text-xs uppercase tracking-wider font-semibold text-amber-600 mb-1">In Their Own Words</p>
-            <p className="text-xs text-slate-600 leading-relaxed">The most credible voice of a community is often the voice of the people who experience it.</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto mt-2 text-center">
+            <div className="bg-slate-50/80 rounded-xl p-3.5 border border-slate-100 shadow-sm">
+              <p className="text-xs uppercase tracking-wider font-semibold text-rose-600 mb-1">Peer Stories</p>
+              <p className="text-xs text-slate-600 leading-relaxed">Stories of entrepreneurs, their journeys and what they have experienced inside the community.</p>
+            </div>
+            <div className="bg-slate-50/80 rounded-xl p-3.5 border border-slate-100 shadow-sm">
+              <p className="text-xs uppercase tracking-wider font-semibold text-blue-600 mb-1">Collaboration Wins</p>
+              <p className="text-xs text-slate-600 leading-relaxed">Real examples of relationships becoming action.</p>
+            </div>
+            <div className="bg-slate-50/80 rounded-xl p-3.5 border border-slate-100 shadow-sm">
+              <p className="text-xs uppercase tracking-wider font-semibold text-amber-600 mb-1">In Their Own Words</p>
+              <p className="text-xs text-slate-600 leading-relaxed">The most credible voice of a community is often the voice of the people who experience it.</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="fd-meet-your-mentors__carousel">
-        {/* Row 1 */}
-        <div className="fd-meet-your-mentors__row fd-meet-your-mentors__row--1">
-          <div
-            className="fd-meet-your-mentors__track fd-meet-your-mentors__track--1"
-            role="group"
-            aria-roledescription="carousel"
-            aria-label="Peers Global Universe pillars, row one"
+        <div className="fd-meet-your-mentors__carousel">
+          {/* Row 1 */}
+          <div className="fd-meet-your-mentors__row fd-meet-your-mentors__row--1">
+            <div
+              className="fd-meet-your-mentors__track fd-meet-your-mentors__track--1"
+              role="group"
+              aria-roledescription="carousel"
+              aria-label="Peers Global Universe pillars, row one"
+            >
+              {/* Set 1 */}
+              <div className="fd-meet-your-mentors__set">
+                {ROW_1_PILLARS.map((pillar) => (
+                  <PillarCard key={`r1-s1-${pillar.title}`} pillar={pillar} />
+                ))}
+              </div>
+              {/* Set 2 (for seamless loop) */}
+              <div className="fd-meet-your-mentors__set" aria-hidden="true">
+                {ROW_1_PILLARS.map((pillar) => (
+                  <PillarCard key={`r1-s2-${pillar.title}`} pillar={pillar} />
+                ))}
+              </div>
+              {/* Set 3 (buffer) */}
+              <div className="fd-meet-your-mentors__set" aria-hidden="true">
+                {ROW_1_PILLARS.map((pillar) => (
+                  <PillarCard key={`r1-s3-${pillar.title}`} pillar={pillar} />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Row 2 */}
+          <div className="fd-meet-your-mentors__row fd-meet-your-mentors__row--2">
+            <div
+              className="fd-meet-your-mentors__track fd-meet-your-mentors__track--2"
+              role="group"
+              aria-roledescription="carousel"
+              aria-label="Peers Global Universe pillars, row two"
+            >
+              {/* Set 1 */}
+              <div className="fd-meet-your-mentors__set">
+                {ROW_2_PILLARS.map((pillar) => (
+                  <PillarCard key={`r2-s1-${pillar.title}`} pillar={pillar} />
+                ))}
+              </div>
+              {/* Set 2 (for seamless loop) */}
+              <div className="fd-meet-your-mentors__set" aria-hidden="true">
+                {ROW_2_PILLARS.map((pillar) => (
+                  <PillarCard key={`r2-s2-${pillar.title}`} pillar={pillar} />
+                ))}
+              </div>
+              {/* Set 3 (buffer) */}
+              <div className="fd-meet-your-mentors__set" aria-hidden="true">
+                {ROW_2_PILLARS.map((pillar) => (
+                  <PillarCard key={`r2-s3-${pillar.title}`} pillar={pillar} />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="fd-meet-your-mentors__footer">
+          <p className="fd-meet-your-mentors__tagline !max-w-xl text-sm sm:text-base text-slate-600 italic">
+            &ldquo;Do not present testimonials merely as praise for PEERS GLOBAL. Present them as evidence of what becomes possible between people.&rdquo;
+          </p>
+          <GalaxyButton
+            href="/stories"
+            size="lg"
+            aria-label="Meet the Peers"
           >
-            {/* Set 1 */}
-            <div className="fd-meet-your-mentors__set">
-              {ROW_1_PILLARS.map((pillar) => (
-                <PillarCard key={`r1-s1-${pillar.title}`} pillar={pillar} />
-              ))}
-            </div>
-            {/* Set 2 (for seamless loop) */}
-            <div className="fd-meet-your-mentors__set" aria-hidden="true">
-              {ROW_1_PILLARS.map((pillar) => (
-                <PillarCard key={`r1-s2-${pillar.title}`} pillar={pillar} />
-              ))}
-            </div>
-            {/* Set 3 (buffer) */}
-            <div className="fd-meet-your-mentors__set" aria-hidden="true">
-              {ROW_1_PILLARS.map((pillar) => (
-                <PillarCard key={`r1-s3-${pillar.title}`} pillar={pillar} />
-              ))}
-            </div>
-          </div>
+            MEET THE PEERS
+          </GalaxyButton>
         </div>
-
-        {/* Row 2 */}
-        <div className="fd-meet-your-mentors__row fd-meet-your-mentors__row--2">
-          <div
-            className="fd-meet-your-mentors__track fd-meet-your-mentors__track--2"
-            role="group"
-            aria-roledescription="carousel"
-            aria-label="Peers Global Universe pillars, row two"
-          >
-            {/* Set 1 */}
-            <div className="fd-meet-your-mentors__set">
-              {ROW_2_PILLARS.map((pillar) => (
-                <PillarCard key={`r2-s1-${pillar.title}`} pillar={pillar} />
-              ))}
-            </div>
-            {/* Set 2 (for seamless loop) */}
-            <div className="fd-meet-your-mentors__set" aria-hidden="true">
-              {ROW_2_PILLARS.map((pillar) => (
-                <PillarCard key={`r2-s2-${pillar.title}`} pillar={pillar} />
-              ))}
-            </div>
-            {/* Set 3 (buffer) */}
-            <div className="fd-meet-your-mentors__set" aria-hidden="true">
-              {ROW_2_PILLARS.map((pillar) => (
-                <PillarCard key={`r2-s3-${pillar.title}`} pillar={pillar} />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="fd-meet-your-mentors__footer">
-        <p className="fd-meet-your-mentors__tagline !max-w-xl text-sm sm:text-base text-slate-600 italic">
-          &ldquo;Do not present testimonials merely as praise for PEERS GLOBAL. Present them as evidence of what becomes possible between people.&rdquo;
-        </p>
-        <GalaxyButton
-          href="/stories"
-          size="lg"
-          aria-label="Meet the Peers"
-        >
-          MEET THE PEERS
-        </GalaxyButton>
-      </div>
-    </section>
-  )
+      </section>
+      )
 }
