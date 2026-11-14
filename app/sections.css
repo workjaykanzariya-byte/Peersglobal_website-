@@ -1183,336 +1183,338 @@ p.body,
 .fd-how-it-works__carousel:hover .fd-how-it-works__track,
 .fd-how-it-works__carousel:focus-within .fd-how-it-works__track {
   animation-play-state: paused;
+  animation-play-state: running !important;
+}
 
-  .fd-how-it-works__carousel:focus-within .fd-how-it-works__track,
-  .fd-how-it-works__track {
-    animation-play-state: running !important;
+.fd-how-it-works__carousel:focus-within .fd-how-it-works__track,
+.fd-how-it-works__track {
+  animation-play-state: running !important;
+}
+
+.fd-how-it-works__set {
+  display: flex;
+  gap: var(--fd-hiw-gap);
+  padding-right: var(--fd-hiw-gap);
+  list-style: none;
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+@keyframes fd-hiw-scroll-ltr {
+  from {
+    transform: translate3d(-50%, 0, 0);
   }
 
-  .fd-how-it-works__set {
-    display: flex;
-    gap: var(--fd-hiw-gap);
-    padding-right: var(--fd-hiw-gap);
-    list-style: none;
-    margin: 0;
-    flex: 0 0 auto;
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fd-hiw-scroll-rtl {
+  from {
+    transform: translate3d(0, 0, 0);
   }
 
-  @keyframes fd-hiw-scroll-ltr {
-    from {
-      transform: translate3d(-50%, 0, 0);
-    }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
 
-    to {
-      transform: translate3d(0, 0, 0);
-    }
+.fd-how-it-works__card {
+  position: relative;
+  flex: 0 0 var(--fd-hiw-card);
+  width: var(--fd-hiw-card);
+  aspect-ratio: 2 / 3;
+  border-radius: 36px;
+  overflow: hidden;
+  container-type: inline-size;
+  color: var(--mv-white);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.09);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.fd-how-it-works__card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.16);
+}
+
+.fd-how-it-works__card--ink {
+  color: var(--mv-black)
+}
+
+.fd-how-it-works__card img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fd-how-it-works__copy {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: min(36px, 10cqw) min(28px, 8cqw) min(48px, 12cqw);
+  background: linear-gradient(180deg, rgba(2, 6, 23, 0.75) 0%, rgba(2, 6, 23, 0.45) 60%, transparent 100%);
+  z-index: 10;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  pointer-events: none;
+}
+
+.fd-how-it-works__kicker {
+  margin: 0;
+  font-size: min(16px, 4.8cqw);
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #60A5FA 0%, #A78BFA 50%, #F472B6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  drop-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.fd-how-it-works__label {
+  margin: min(6px, 1.6cqw) 0 0;
+  font-size: min(26px, 7cqw);
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F1F5F9 40%, #E2E8F0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: block;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.6);
+}
+
+.fd-how-it-works__copy--wide .fd-how-it-works__label {
+  margin-top: min(11px, 2.87cqw)
+}
+
+/* ---------- nav ---------- */
+.fd-how-it-works__nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 36px;
+  padding-bottom: 0;
+}
+
+.fd-how-it-works__bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 36px;
+  padding-bottom: 100px;
+  text-align: center;
+}
+
+.fd-how-it-works__bottom-text {
+  margin: 0;
+  font-size: clamp(15px, 1.25cqw, 17px);
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.fd-how-it-works__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.fd-how-it-works__store-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 22px;
+  background: #0f131a;
+  color: #ffffff !important;
+  border-radius: 14px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transition: all 0.25s ease;
+}
+
+.fd-how-it-works__store-btn:hover {
+  background: #1e293b;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  color: #ffffff !important;
+}
+
+.fd-how-it-works__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(29, 78, 216, 0.35), 0 2px 8px rgba(225, 29, 72, 0.25);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fd-how-it-works__arrow:hover:not(:disabled) {
+  background: linear-gradient(135deg, #1E40AF 0%, #BE123C 100%);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 24px rgba(29, 78, 216, 0.45), 0 4px 12px rgba(225, 29, 72, 0.35);
+  color: #ffffff;
+}
+
+.fd-how-it-works__arrow:active:not(:disabled) {
+  transform: translateY(0) scale(0.96);
+}
+
+.fd-how-it-works__arrow:focus-visible {
+  outline: 2px solid #1D4ED8;
+  outline-offset: 2px;
+}
+
+.fd-how-it-works__arrow svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+/* ---------- tablet ---------- */
+@container (max-width:1024px) {
+  .fd-how-it-works {
+    padding-top: 60px;
   }
 
-  @keyframes fd-hiw-scroll-rtl {
-    from {
-      transform: translate3d(0, 0, 0);
-    }
+  .fd-how-it-works__carousel {
+    --fd-hiw-gap: 20px;
+    --fd-hiw-card: clamp(260px, 34vw, 320px);
+    margin-top: 32px;
+  }
 
-    to {
-      transform: translate3d(-50%, 0, 0);
-    }
+  .fd-how-it-works__title {
+    margin-top: 16px;
+  }
+
+  .fd-how-it-works__nav {
+    margin-top: 32px;
+  }
+}
+
+/* ---------- mobile ---------- */
+@container (max-width:640px) {
+  .fd-how-it-works {
+    padding-top: 48px;
+  }
+
+  .fd-how-it-works__head {
+    padding: 0 20px;
+  }
+
+  .fd-how-it-works__carousel {
+    --fd-hiw-gap: 16px;
+    --fd-hiw-card: 250px;
+    margin-top: 24px;
   }
 
   .fd-how-it-works__card {
-    position: relative;
-    flex: 0 0 var(--fd-hiw-card);
-    width: var(--fd-hiw-card);
-    aspect-ratio: 2 / 3;
-    border-radius: 36px;
-    overflow: hidden;
-    container-type: inline-size;
-    color: var(--mv-white);
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.09);
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    border-radius: 24px;
   }
 
-  .fd-how-it-works__card:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.16);
-  }
-
-  .fd-how-it-works__card--ink {
-    color: var(--mv-black)
-  }
-
-  .fd-how-it-works__card img {
-    position: absolute;
-    inset: 0;
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .fd-how-it-works__copy {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    padding: min(36px, 10cqw) min(28px, 8cqw) min(48px, 12cqw);
-    background: linear-gradient(180deg, rgba(2, 6, 23, 0.75) 0%, rgba(2, 6, 23, 0.45) 60%, transparent 100%);
-    z-index: 10;
-    border-top-left-radius: inherit;
-    border-top-right-radius: inherit;
-    pointer-events: none;
-  }
-
-  .fd-how-it-works__kicker {
-    margin: 0;
-    font-size: min(16px, 4.8cqw);
-    line-height: 1.25;
-    font-weight: 700;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    background: linear-gradient(90deg, #60A5FA 0%, #A78BFA 50%, #F472B6 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-    display: inline-block;
-    drop-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-  }
-
-  .fd-how-it-works__label {
-    margin: min(6px, 1.6cqw) 0 0;
-    font-size: min(26px, 7cqw);
-    line-height: 1.2;
-    font-weight: 800;
-    letter-spacing: -0.01em;
-    background: linear-gradient(135deg, #FFFFFF 0%, #F1F5F9 40%, #E2E8F0 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-    display: block;
-    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.6);
-  }
-
-  .fd-how-it-works__copy--wide .fd-how-it-works__label {
-    margin-top: min(11px, 2.87cqw)
-  }
-
-  /* ---------- nav ---------- */
   .fd-how-it-works__nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    margin-top: 36px;
-    padding-bottom: 0;
+    margin-top: 24px;
   }
+}
 
-  .fd-how-it-works__bottom {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    margin-top: 36px;
-    padding-bottom: 100px;
-    text-align: center;
+@media (prefers-reduced-motion:reduce) {
+  .fd-how-it-works__track {
+    transition: none
   }
-
-  .fd-how-it-works__bottom-text {
-    margin: 0;
-    font-size: clamp(15px, 1.25cqw, 17px);
-    font-weight: 500;
-    color: #1e293b;
-  }
-
-  .fd-how-it-works__buttons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-
-  .fd-how-it-works__store-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 22px;
-    background: #0f131a;
-    color: #ffffff !important;
-    border-radius: 14px;
-    text-decoration: none;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-    transition: all 0.25s ease;
-  }
-
-  .fd-how-it-works__store-btn:hover {
-    background: #1e293b;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-    color: #ffffff !important;
-  }
-
-  .fd-how-it-works__arrow {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    padding: 12px;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background: linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%);
-    color: #ffffff;
-    box-shadow: 0 4px 16px rgba(29, 78, 216, 0.35), 0 2px 8px rgba(225, 29, 72, 0.25);
-    cursor: pointer;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .fd-how-it-works__arrow:hover:not(:disabled) {
-    background: linear-gradient(135deg, #1E40AF 0%, #BE123C 100%);
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 8px 24px rgba(29, 78, 216, 0.45), 0 4px 12px rgba(225, 29, 72, 0.35);
-    color: #ffffff;
-  }
-
-  .fd-how-it-works__arrow:active:not(:disabled) {
-    transform: translateY(0) scale(0.96);
-  }
-
-  .fd-how-it-works__arrow:focus-visible {
-    outline: 2px solid #1D4ED8;
-    outline-offset: 2px;
-  }
-
-  .fd-how-it-works__arrow svg {
-    display: block;
-    width: 24px;
-    height: 24px;
-    fill: currentColor;
-  }
-
-  /* ---------- tablet ---------- */
-  @container (max-width:1024px) {
-    .fd-how-it-works {
-      padding-top: 60px;
-    }
-
-    .fd-how-it-works__carousel {
-      --fd-hiw-gap: 20px;
-      --fd-hiw-card: clamp(260px, 34vw, 320px);
-      margin-top: 32px;
-    }
-
-    .fd-how-it-works__title {
-      margin-top: 16px;
-    }
-
-    .fd-how-it-works__nav {
-      margin-top: 32px;
-    }
-  }
-
-  /* ---------- mobile ---------- */
-  @container (max-width:640px) {
-    .fd-how-it-works {
-      padding-top: 48px;
-    }
-
-    .fd-how-it-works__head {
-      padding: 0 20px;
-    }
-
-    .fd-how-it-works__carousel {
-      --fd-hiw-gap: 16px;
-      --fd-hiw-card: 250px;
-      margin-top: 24px;
-    }
-
-    .fd-how-it-works__card {
-      border-radius: 24px;
-    }
-
-    .fd-how-it-works__nav {
-      margin-top: 24px;
-    }
-  }
-
-  @media (prefers-reduced-motion:reduce) {
-    .fd-how-it-works__track {
-      transition: none
-    }
-  }
+}
 
 
-  /* === EXTRACTED FROM scratch_style_16.css === */
+/* === EXTRACTED FROM scratch_style_16.css === */
 
-  .fd-pathway-hero {
-    --mv-white: #ffffff;
+.fd-pathway-hero {
+  --mv-white: #ffffff;
 
-    position: relative;
-    box-sizing: border-box;
-    width: 100%;
-    min-height: 520px;
-    display: flex;
-    align-items: flex-end;
-    overflow: hidden;
-    background-color: #0f131a;
-    font-family: 'Google Sans Flex', sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 520px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background-color: #0f131a;
+  font-family: 'Google Sans Flex', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
 
-  .fd-pathway-hero *,
-  .fd-pathway-hero *::before,
-  .fd-pathway-hero *::after {
-    box-sizing: border-box;
-  }
+.fd-pathway-hero *,
+.fd-pathway-hero *::before,
+.fd-pathway-hero *::after {
+  box-sizing: border-box;
+}
 
-  .fd-pathway-hero img,
-  .fd-pathway-hero video {
-    max-width: 100%;
-  }
+.fd-pathway-hero img,
+.fd-pathway-hero video {
+  max-width: 100%;
+}
 
-  /* Full-bleed looping background video */
-  .fd-pathway-hero__video {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-    border: 0;
-    pointer-events: none;
-  }
+/* Full-bleed looping background video */
+.fd-pathway-hero__video {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  border: 0;
+  pointer-events: none;
+}
 
-  /* Figma frame overlays: 24% black tint + bottom-up black gradient (transparent at 59.73%) */
-  .fd-pathway-hero::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    background:
-      linear-gradient(180deg, rgba(0, 0, 0, 0) 59.73%, rgba(0, 0, 0, 1) 100%),
-      rgba(0, 0, 0, 0.24);
-  }
+/* Figma frame overlays: 24% black tint + bottom-up black gradient (transparent at 59.73%) */
+.fd-pathway-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 59.73%, rgba(0, 0, 0, 1) 100%),
+    rgba(0, 0, 0, 0.24);
+}
 
-  .fd-pathway-hero__inner {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 40px 160px 0;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 96px;
-  }
+.fd-pathway-hero__inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 40px 160px 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 96px;
+}
 
-  .fd-pathway-hero__copy {
-    /* Figma 3794:49011 reserved a 470px CTA column (1120 content - 470 = 650), but the
+.fd-pathway-hero__copy {
+  /* Figma 3794:49011 reserved a 470px CTA column (1120 content - 470 = 650), but the
        button is `flex:0 0 auto` and renders at 166px, so ~208px of that column was only
        ever empty gap. The headline "One Life. Six Pathways to Transform It." needs 651px
        at 36px/600 — it was losing to 650 by a single pixel and orphaning "It." onto line
@@ -1521,52 +1523,134 @@ p.body,
        pinned right via space-between; below 1280 flex-shrink returns it to two lines.
        flex-shrink is enabled (basis stays `auto` so the mobile column layout, where
        flex-basis would size the HEIGHT, is unaffected). */
-    width: 730px;
-    max-width: 100%;
-    flex: 0 1 auto;
+  width: 730px;
+  max-width: 100%;
+  flex: 0 1 auto;
+}
+
+.fd-pathway-hero__eyebrow {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: #ffe4c7;
+}
+
+.fd-pathway-hero__headline {
+  margin: 8px 0 0;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 44px;
+  letter-spacing: 0;
+  color: var(--mv-white);
+}
+
+.fd-pathway-hero__body {
+  /* held at the original 650px so widening the column above does not stretch the
+       paragraph's line length — it already runs ~81ch, past the 45-75ch comfort range.
+       Inert below 1280, where the column shrinks under 650 on its own. */
+  max-width: 650px;
+  margin: 12px 0 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0;
+  color: #ebedef;
+}
+
+.fd-pathway-hero__cta {
+  /* the button must never be compressed; space-between pins it to the right edge */
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+/* MV Button — variant: solid, color: neutral, size: medium */
+.fd-pathway-hero__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0;
+  padding: 11px 24px;
+  border: 0;
+  border-radius: 100px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.fd-pathway-hero__btn--neutral {
+  background-image: linear-gradient(90deg, #1D4ED8 0%, #E11D48 100%);
+  color: #ffffff;
+}
+
+.fd-pathway-hero__btn--neutral:hover,
+.fd-pathway-hero__btn--neutral:focus-visible {
+  background-image: linear-gradient(90deg, #1D4ED8 0%, #E11D48 100%);
+  opacity: 0.92;
+  color: #ffffff;
+}
+
+/* Tablet — self-derived (no tablet frame in Figma) */
+@media (max-width: 1024px) {
+  .fd-pathway-hero__inner {
+    padding: 40px 40px 0;
+    gap: 40px;
+  }
+}
+
+/* Mobile — self-derived (no mobile frame in Figma) */
+@media (max-width: 640px) {
+
+  /* copy stacks above the button, so the scrim has to reach further up
+       to keep the same text contrast the desktop frame has */
+  .fd-pathway-hero::after {
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0) 38%, rgba(0, 0, 0, 1) 100%),
+      rgba(0, 0, 0, 0.24);
   }
 
-  .fd-pathway-hero__eyebrow {
-    margin: 0;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 18px;
-    letter-spacing: 0;
-    text-transform: uppercase;
-    color: #ffe4c7;
+  .fd-pathway-hero__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 64px 20px 40px;
+  }
+
+  .fd-pathway-hero__copy {
+    width: 100%;
   }
 
   .fd-pathway-hero__headline {
-    margin: 8px 0 0;
-    font-size: 36px;
-    font-weight: 600;
-    line-height: 44px;
-    letter-spacing: 0;
-    color: var(--mv-white);
+    font-size: 28px;
+    line-height: 34px;
   }
 
   .fd-pathway-hero__body {
-    /* held at the original 650px so widening the column above does not stretch the
-       paragraph's line length — it already runs ~81ch, past the 45-75ch comfort range.
-       Inert below 1280, where the column shrinks under 650 on its own. */
-    max-width: 650px;
-    margin: 12px 0 0;
+    /* was 15px — the only section body below the page's 16px mobile floor.
+         Desktop is 16px (Figma Body/Body), so mobile simply holds at 16. */
     font-size: 16px;
-    font-weight: 400;
     line-height: 22px;
-    letter-spacing: 0;
-    color: #ebedef;
   }
 
   .fd-pathway-hero__cta {
-    /* the button must never be compressed; space-between pins it to the right edge */
-    flex: 0 0 auto;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
+    width: 100%;
+    justify-content: flex-start;
   }
 
-  /* MV Button — variant: solid, color: neutral, size: medium */
   .fd-pathway-hero__btn {
     display: inline-flex;
     align-items: center;
@@ -1590,15 +1674,19 @@ p.body,
   }
 
   .fd-pathway-hero__btn--neutral {
-    background-image: linear-gradient(90deg, #1D4ED8 0%, #E11D48 100%);
-    color: #ffffff;
+    background-image: linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%) !important;
+    color: #ffffff !important;
+    font-weight: 600;
+    box-shadow: 0 4px 18px rgba(29, 78, 216, 0.4), 0 2px 10px rgba(225, 29, 72, 0.3);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .fd-pathway-hero__btn--neutral:hover,
   .fd-pathway-hero__btn--neutral:focus-visible {
-    background-image: linear-gradient(90deg, #1D4ED8 0%, #E11D48 100%);
-    opacity: 0.92;
-    color: #ffffff;
+    background-image: linear-gradient(135deg, #1E40AF 0%, #BE123C 100%) !important;
+    box-shadow: 0 8px 25px rgba(225, 29, 72, 0.45), 0 4px 14px rgba(29, 78, 216, 0.4);
+    transform: translateY(-2px);
+    color: #ffffff !important;
   }
 
   /* Tablet — self-derived (no tablet frame in Figma) */
@@ -1650,783 +1738,697 @@ p.body,
     }
 
     .fd-pathway-hero__btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-family: 'Google Sans Flex', sans-serif;
-      font-size: 14px;
-      font-weight: 500;
-      line-height: 18px;
-      letter-spacing: 0;
-      padding: 11px 24px;
-      border: 0;
-      border-radius: 100px;
-      cursor: pointer;
-      text-align: center;
-      text-decoration: none;
-      white-space: nowrap;
-      transition:
-        background-color 0.2s ease,
-        color 0.2s ease;
-    }
-
-    .fd-pathway-hero__btn--neutral {
-      background-image: linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%) !important;
-      color: #ffffff !important;
-      font-weight: 600;
-      box-shadow: 0 4px 18px rgba(29, 78, 216, 0.4), 0 2px 10px rgba(225, 29, 72, 0.3);
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .fd-pathway-hero__btn--neutral:hover,
-    .fd-pathway-hero__btn--neutral:focus-visible {
-      background-image: linear-gradient(135deg, #1E40AF 0%, #BE123C 100%) !important;
-      box-shadow: 0 8px 25px rgba(225, 29, 72, 0.45), 0 4px 14px rgba(29, 78, 216, 0.4);
-      transform: translateY(-2px);
-      color: #ffffff !important;
-    }
-
-    /* Tablet — self-derived (no tablet frame in Figma) */
-    @media (max-width: 1024px) {
-      .fd-pathway-hero__inner {
-        padding: 40px 40px 0;
-        gap: 40px;
-      }
-    }
-
-    /* Mobile — self-derived (no mobile frame in Figma) */
-    @media (max-width: 640px) {
-
-      /* copy stacks above the button, so the scrim has to reach further up
-       to keep the same text contrast the desktop frame has */
-      .fd-pathway-hero::after {
-        background:
-          linear-gradient(180deg, rgba(0, 0, 0, 0) 38%, rgba(0, 0, 0, 1) 100%),
-          rgba(0, 0, 0, 0.24);
-      }
-
-      .fd-pathway-hero__inner {
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-end;
-        gap: 24px;
-        padding: 64px 20px 40px;
-      }
-
-      .fd-pathway-hero__copy {
-        width: 100%;
-      }
-
-      .fd-pathway-hero__headline {
-        font-size: 28px;
-        line-height: 34px;
-      }
-
-      .fd-pathway-hero__body {
-        /* was 15px — the only section body below the page's 16px mobile floor.
-         Desktop is 16px (Figma Body/Body), so mobile simply holds at 16. */
-        font-size: 16px;
-        line-height: 22px;
-      }
-
-      .fd-pathway-hero__cta {
-        width: 100%;
-        justify-content: flex-start;
-      }
-
-      .fd-pathway-hero__btn {
-        min-height: 44px;
-        padding: 13px 24px;
-      }
+      min-height: 44px;
+      padding: 13px 24px;
     }
   }
+}
 
 
-  /* === EXTRACTED FROM scratch_style_17.css === */
+/* === EXTRACTED FROM scratch_style_17.css === */
 
-  /* ============================================================================
+/* ============================================================================
    Pathway cards — Figma xBou6ShJQ7SlhBywnpV6HC / node 3309:4809
    ("Stories" child 3310:7040 is a separate native StoryWidget — NOT built here)
    ========================================================================== */
-  .fd-pathway-cards {
-    --mv-white: #ffffff;
-    --mv-grey-300: #ced1d7;
-    --mv-black: #0f131a;
-    font-family: 'Google Sans Flex', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    position: relative;
-    background: linear-gradient(90deg, #06112c 0%, #13071f 50%, #260513 100%);
-    padding: 64px max(24px, calc((100% - 1200px) / 2)) 128px;
-    container-type: inline-size;
-  }
+.fd-pathway-cards {
+  --mv-white: #ffffff;
+  --mv-grey-300: #ced1d7;
+  --mv-black: #0f131a;
+  font-family: 'Google Sans Flex', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  background: linear-gradient(90deg, #06112c 0%, #13071f 50%, #260513 100%);
+  padding: 64px max(24px, calc((100% - 1200px) / 2)) 128px;
+  container-type: inline-size;
+}
 
-  .fd-pathway-cards *,
-  .fd-pathway-cards *::before,
-  .fd-pathway-cards *::after {
-    box-sizing: border-box
-  }
+.fd-pathway-cards *,
+.fd-pathway-cards *::before,
+.fd-pathway-cards *::after {
+  box-sizing: border-box
+}
 
-  .fd-pathway-cards img {
-    max-width: 100%
-  }
+.fd-pathway-cards img {
+  max-width: 100%
+}
 
-  .fd-pathway-cards__defs {
-    position: absolute;
-    width: 0;
-    height: 0;
-    overflow: hidden
-  }
+.fd-pathway-cards__defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden
+}
 
+.fd-pathway-cards__inner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- block shell with Mindvalley-style Stacking Cards Scroll Effect ---- */
+.fd-pathway-cards__block {
+  display: flex;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--pw-from);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.45), 0 24px 64px rgba(0, 0, 0, 0.55);
+}
+
+@media (min-width: 1025px) {
   .fd-pathway-cards__inner {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
+    gap: 0;
+    padding-bottom: 80px;
   }
 
-  /* ---- block shell with Mindvalley-style Stacking Cards Scroll Effect ---- */
   .fd-pathway-cards__block {
-    display: flex;
-    border-radius: 20px;
-    overflow: hidden;
-    background: var(--pw-from);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.45), 0 24px 64px rgba(0, 0, 0, 0.55);
+    position: sticky;
+    top: calc(90px + var(--card-index, 0) * 20px);
+    margin-bottom: 96px;
+    z-index: calc(10 + var(--card-index, 0));
+    transform-origin: center top;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
   }
 
-  @media (min-width: 1025px) {
-    .fd-pathway-cards__inner {
-      gap: 0;
-      padding-bottom: 80px;
-    }
-
-    .fd-pathway-cards__block {
-      position: sticky;
-      top: calc(90px + var(--card-index, 0) * 20px);
-      margin-bottom: 96px;
-      z-index: calc(10 + var(--card-index, 0));
-      transform-origin: center top;
-      transition: box-shadow 0.3s ease, border-color 0.3s ease;
-    }
-
-    .fd-pathway-cards__block:last-child {
-      margin-bottom: 0;
-    }
-
-    .fd-pathway-cards__block:nth-of-type(1) {
-      --card-index: 0;
-    }
-
-    .fd-pathway-cards__block:nth-of-type(2) {
-      --card-index: 1;
-    }
-
-    .fd-pathway-cards__block:nth-of-type(3) {
-      --card-index: 2;
-    }
-
-    .fd-pathway-cards__block:nth-of-type(4) {
-      --card-index: 3;
-    }
-
-    .fd-pathway-cards__block:nth-of-type(5) {
-      --card-index: 4;
-    }
-
-    .fd-pathway-cards__block:nth-of-type(6) {
-      --card-index: 5;
-    }
+  .fd-pathway-cards__block:last-child {
+    margin-bottom: 0;
   }
 
-  @media (max-width: 1024px) {
-    .fd-pathway-cards__inner {
-      gap: 24px;
-      padding-bottom: 0;
-    }
+  .fd-pathway-cards__block:nth-of-type(1) {
+    --card-index: 0;
+  }
 
-    .fd-pathway-cards__block {
-      position: static;
-      margin-bottom: 0;
-    }
+  .fd-pathway-cards__block:nth-of-type(2) {
+    --card-index: 1;
+  }
+
+  .fd-pathway-cards__block:nth-of-type(3) {
+    --card-index: 2;
+  }
+
+  .fd-pathway-cards__block:nth-of-type(4) {
+    --card-index: 3;
+  }
+
+  .fd-pathway-cards__block:nth-of-type(5) {
+    --card-index: 4;
+  }
+
+  .fd-pathway-cards__block:nth-of-type(6) {
+    --card-index: 5;
+  }
+}
+
+@media (max-width: 1024px) {
+  .fd-pathway-cards__inner {
+    gap: 24px;
+    padding-bottom: 0;
+  }
+
+  .fd-pathway-cards__block {
+    position: static;
+    margin-bottom: 0;
+  }
+}
+
+.fd-pathway-cards__left {
+  flex: 0 0 42.41667%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 36px 28px;
+  background: transparent;
+}
+
+.fd-pathway-cards__right {
+  flex: 0 0 57.58333%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 28px;
+  background: transparent;
+}
+
+/* ---- per-pathway palettes ---- */
+.fd-pathway-cards__block--mind {
+  --pw-from: #071739;
+  --pw-to: #071739;
+  --pw-eyebrow: #92cdfe;
+}
+
+.fd-pathway-cards__block--entrepreneur {
+  --pw-from: #0f0131;
+  --pw-to: #0f0131;
+  --pw-eyebrow: #adceff;
+}
+
+.fd-pathway-cards__block--authority {
+  --pw-from: #311905;
+  --pw-to: #311905;
+  --pw-eyebrow: #fbe149;
+}
+
+.fd-pathway-cards__block--connection {
+  --pw-from: #300d18;
+  --pw-to: #300d18;
+  --pw-eyebrow: #edb4cf;
+}
+
+.fd-pathway-cards__block--body {
+  --pw-from: #051f18;
+  --pw-to: #051f18;
+  --pw-eyebrow: #7dd8b1;
+}
+
+.fd-pathway-cards__block--mystic {
+  --pw-from: #1c0131;
+  --pw-to: #1c0131;
+  --pw-eyebrow: #d8adff;
+}
+
+.fd-pathway-cards__block--mystic .fd-pathway-cards__right {
+  justify-content: flex-start;
+  padding-top: 36px;
+}
+
+/* ---- left column ---- */
+.fd-pathway-cards__hero {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 461 / 259.3125;
+  object-fit: cover;
+  border-radius: 16px
+}
+
+.fd-pathway-cards__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%
+}
+
+.fd-pathway-cards__text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%
+}
+
+.fd-pathway-cards__head {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%
+}
+
+.fd-pathway-cards__eyebrow {
+  margin: 0;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  letter-spacing: 0.46px;
+  text-transform: uppercase;
+  color: var(--pw-eyebrow)
+}
+
+.fd-pathway-cards__title {
+  margin: 0;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 40px;
+  letter-spacing: 0.15px;
+  text-wrap: balance;
+  color: #ffffff
+}
+
+@media (max-width:640px) {
+  .fd-pathway-cards__title {
+    font-size: 26px;
+    line-height: 34px
+  }
+}
+
+.fd-pathway-cards__desc {
+  margin: 0;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: 0.26px;
+  color: rgba(255, 255, 255, 0.92)
+}
+
+.fd-pathway-cards__desc--lead {
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 16.5px;
+  line-height: 25px
+}
+
+.fd-pathway-cards__desc--sub {
+  font-size: 14.5px;
+  line-height: 23px;
+  color: #cbd5e1
+}
+
+.fd-pathway-cards__subhead {
+  margin: 0;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 22px;
+  letter-spacing: 0.2px;
+  color: #ffffff
+}
+
+.fd-pathway-cards__quote {
+  margin: 0;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 14.5px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 22px;
+  letter-spacing: 0.2px;
+  color: rgba(255, 255, 255, 0.85)
+}
+
+.fd-pathway-cards__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  width: 100%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.fd-pathway-cards__list::-webkit-scrollbar {
+  display: none;
+}
+
+.fd-pathway-cards__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 14.5px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0.2px;
+  color: rgba(255, 255, 255, 0.9)
+}
+
+.fd-pathway-cards__item strong {
+  font-weight: 600;
+  color: #ffffff
+}
+
+.fd-pathway-cards__check {
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  display: block
+}
+
+.fd-pathway-cards__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: 0.2px;
+  padding: 12px 28px;
+  border-radius: 100px;
+  border: 0;
+  background-image: linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%) !important;
+  color: #ffffff !important;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(29, 78, 216, 0.4), 0 2px 8px rgba(225, 29, 72, 0.3);
+  transition: all .25s cubic-bezier(0.16, 1, 0.3, 1)
+}
+
+.fd-pathway-cards__btn:hover {
+  background-image: linear-gradient(135deg, #1E40AF 0%, #BE123C 100%) !important;
+  box-shadow: 0 8px 24px rgba(225, 29, 72, 0.45), 0 4px 12px rgba(29, 78, 216, 0.4);
+  transform: translateY(-2px);
+  color: #ffffff !important;
+}
+
+.fd-pathway-cards__btn--secondary {
+  background-image: none !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+.fd-pathway-cards__btn--secondary:hover {
+  background-image: none !important;
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1) !important;
+}
+
+/* ---- right column: paginated 3x4 program grid ---- */
+.fd-pathway-cards__carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  min-width: 0
+}
+
+.fd-pathway-cards__track {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none
+}
+
+.fd-pathway-cards__track::-webkit-scrollbar {
+  display: none
+}
+
+.fd-pathway-cards__page {
+  flex: 0 0 100%;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px 12px;
+  align-content: center;
+  scroll-snap-align: start;
+}
+
+.fd-pathway-cards__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 0;
+  gap: 3px;
+}
+
+.fd-pathway-cards__media {
+  display: grid;
+  grid-template-columns: 1fr 0.38fr;
+  gap: 4px;
+  aspect-ratio: 2.2 / 1;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 2px;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.fd-pathway-cards__media--single {
+  display: block !important;
+  aspect-ratio: 16 / 10 !important;
+  border-radius: 10px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  margin-bottom: 4px;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.fd-pathway-cards__cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.fd-pathway-cards__face {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+
+.fd-pathway-cards__card:hover .fd-pathway-cards__cover {
+  transform: scale(1.04);
+}
+
+.fd-pathway-cards__prog {
+  margin: 0;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.1px;
+  text-align: center;
+  color: var(--mv-white);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.fd-pathway-cards__auth {
+  margin: 0;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 10.5px;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0.15px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.65);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* TODO placeholder — asset genuinely missing; identical box, clearly marked */
+.fd-pathway-cards__ph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 7px;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: .08em;
+  color: rgba(255, 255, 255, .55);
+  background: repeating-linear-gradient(45deg, rgba(255, 255, 255, .12) 0 5px, rgba(255, 255, 255, .04) 5px 10px);
+  outline: 1px dashed rgba(255, 255, 255, .28);
+  outline-offset: -1px;
+}
+
+/* ---- carousel nav: translucent rounded buttons matching Mindvalley ---- */
+.fd-pathway-cards__nav {
+  display: flex;
+  gap: 12px;
+  flex: 0 0 auto;
+  margin-top: 14px;
+}
+
+.fd-pathway-cards__navbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(29, 78, 216, 0.35), 0 2px 8px rgba(225, 29, 72, 0.25);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.fd-pathway-cards__navbtn:hover:not([disabled]) {
+  background: linear-gradient(135deg, #1E40AF 0%, #BE123C 100%);
+  transform: translateY(-2px) scale(1.08);
+  box-shadow: 0 8px 24px rgba(29, 78, 216, 0.45), 0 4px 12px rgba(225, 29, 72, 0.35);
+  color: #ffffff;
+}
+
+.fd-pathway-cards__navbtn:active:not([disabled]) {
+  transform: translateY(0) scale(0.96);
+}
+
+.fd-pathway-cards__navbtn:focus-visible {
+  outline: 2px solid #1D4ED8;
+  outline-offset: 2px;
+}
+
+.fd-pathway-cards__navbtn svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+  fill: currentColor;
+}
+
+/* end-stop state, applied by the carousel script only (no-JS render is unchanged) */
+.fd-pathway-cards__navbtn[disabled] {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  cursor: default;
+  transform: none;
+  box-shadow: none;
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .fd-pathway-cards__track {
+    scroll-behavior: auto
+  }
+}
+
+/* ---- responsive: SELF-DERIVED (Figma has desktop-1440 only) ---- */
+@media (max-width:1024px) {
+  .fd-pathway-cards {
+    padding: 48px 24px 80px
+  }
+
+  .fd-pathway-cards__block {
+    flex-direction: column
+  }
+
+  .fd-pathway-cards__left,
+  .fd-pathway-cards__right {
+    flex: 1 1 auto;
+    width: 100%
   }
 
   .fd-pathway-cards__left {
-    flex: 0 0 42.41667%;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 36px 28px;
-    background: transparent;
+    padding: 32px 24px;
+    gap: 20px
   }
 
   .fd-pathway-cards__right {
-    flex: 0 0 57.58333%;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 32px 28px;
-    background: transparent;
-  }
-
-  /* ---- per-pathway palettes ---- */
-  .fd-pathway-cards__block--mind {
-    --pw-from: #071739;
-    --pw-to: #071739;
-    --pw-eyebrow: #92cdfe;
-  }
-
-  .fd-pathway-cards__block--entrepreneur {
-    --pw-from: #0f0131;
-    --pw-to: #0f0131;
-    --pw-eyebrow: #adceff;
-  }
-
-  .fd-pathway-cards__block--authority {
-    --pw-from: #311905;
-    --pw-to: #311905;
-    --pw-eyebrow: #fbe149;
-  }
-
-  .fd-pathway-cards__block--connection {
-    --pw-from: #300d18;
-    --pw-to: #300d18;
-    --pw-eyebrow: #edb4cf;
-  }
-
-  .fd-pathway-cards__block--body {
-    --pw-from: #051f18;
-    --pw-to: #051f18;
-    --pw-eyebrow: #7dd8b1;
-  }
-
-  .fd-pathway-cards__block--mystic {
-    --pw-from: #1c0131;
-    --pw-to: #1c0131;
-    --pw-eyebrow: #d8adff;
-  }
-
-  .fd-pathway-cards__block--mystic .fd-pathway-cards__right {
-    justify-content: flex-start;
-    padding-top: 36px;
-  }
-
-  /* ---- left column ---- */
-  .fd-pathway-cards__hero {
-    display: block;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 461 / 259.3125;
-    object-fit: cover;
-    border-radius: 16px
-  }
-
-  .fd-pathway-cards__body {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-    width: 100%
-  }
-
-  .fd-pathway-cards__text {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: 100%
-  }
-
-  .fd-pathway-cards__head {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 100%
-  }
-
-  .fd-pathway-cards__eyebrow {
-    margin: 0;
-    font-family: 'Google Sans Flex', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 22px;
-    letter-spacing: 0.46px;
-    text-transform: uppercase;
-    color: var(--pw-eyebrow)
+    padding: 0 24px 32px;
+    justify-content: flex-start
   }
 
   .fd-pathway-cards__title {
-    margin: 0;
-    font-family: 'Google Sans Flex', sans-serif;
-    font-size: 32px;
-    font-weight: 600;
-    line-height: 40px;
-    letter-spacing: 0.15px;
-    text-wrap: balance;
-    color: #ffffff
+    font-size: clamp(24px, 3.6cqw, 30px);
+    line-height: 1.16
+  }
+}
+
+@media (max-width:640px) {
+  .fd-pathway-cards {
+    padding: 40px 16px 64px
   }
 
-  @media (max-width:640px) {
-    .fd-pathway-cards__title {
-      font-size: 26px;
-      line-height: 34px
-    }
+  .fd-pathway-cards__inner {
+    gap: 16px
   }
 
-  .fd-pathway-cards__desc {
-    margin: 0;
-    font-family: 'Google Sans Flex', sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 25px;
-    letter-spacing: 0.26px;
-    color: rgba(255, 255, 255, 0.92)
+  .fd-pathway-cards__block {
+    border-radius: 12px
   }
 
-  .fd-pathway-cards__desc--lead {
-    font-weight: 500;
-    color: #ffffff;
-    font-size: 16.5px;
-    line-height: 25px
+  .fd-pathway-cards__left {
+    padding: 20px 16px;
+    gap: 16px
   }
 
-  .fd-pathway-cards__desc--sub {
-    font-size: 14.5px;
-    line-height: 23px;
-    color: #cbd5e1
+  .fd-pathway-cards__right {
+    padding: 24px 16px 24px
   }
 
-  .fd-pathway-cards__subhead {
-    margin: 0;
-    font-family: 'Google Sans Flex', sans-serif;
+  .fd-pathway-cards__hero {
+    border-radius: 12px
+  }
+
+  .fd-pathway-cards__desc,
+  .fd-pathway-cards__item {
     font-size: 15px;
-    font-weight: 600;
-    line-height: 22px;
-    letter-spacing: 0.2px;
-    color: #ffffff
-  }
-
-  .fd-pathway-cards__quote {
-    margin: 0;
-    font-family: 'Google Sans Flex', sans-serif;
-    font-size: 14.5px;
-    font-weight: 400;
-    font-style: italic;
-    line-height: 22px;
-    letter-spacing: 0.2px;
-    color: rgba(255, 255, 255, 0.85)
-  }
-
-  .fd-pathway-cards__list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-    width: 100%;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-
-  .fd-pathway-cards__list::-webkit-scrollbar {
-    display: none;
+    line-height: 21px
   }
 
   .fd-pathway-cards__item {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    font-family: 'Google Sans Flex', sans-serif;
-    font-size: 14.5px;
-    font-weight: 400;
-    line-height: 22px;
-    letter-spacing: 0.2px;
-    color: rgba(255, 255, 255, 0.9)
-  }
-
-  .fd-pathway-cards__item strong {
-    font-weight: 600;
-    color: #ffffff
-  }
-
-  .fd-pathway-cards__check {
-    flex: 0 0 20px;
-    width: 20px;
-    height: 20px;
-    margin-top: 1px;
-    display: block
+    align-items: flex-start
   }
 
   .fd-pathway-cards__btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    font-family: 'Google Sans Flex', sans-serif;
-    font-size: 14.5px;
-    font-weight: 600;
-    line-height: 18px;
-    letter-spacing: 0.2px;
-    padding: 12px 28px;
-    border-radius: 100px;
-    border: 0;
-    background-image: linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%) !important;
-    color: #ffffff !important;
-    text-decoration: none;
-    cursor: pointer;
-    white-space: nowrap;
-    box-shadow: 0 4px 16px rgba(29, 78, 216, 0.4), 0 2px 8px rgba(225, 29, 72, 0.3);
-    transition: all .25s cubic-bezier(0.16, 1, 0.3, 1)
-  }
-
-  .fd-pathway-cards__btn:hover {
-    background-image: linear-gradient(135deg, #1E40AF 0%, #BE123C 100%) !important;
-    box-shadow: 0 8px 24px rgba(225, 29, 72, 0.45), 0 4px 12px rgba(29, 78, 216, 0.4);
-    transform: translateY(-2px);
-    color: #ffffff !important;
-  }
-
-  .fd-pathway-cards__btn--secondary {
-    background-image: none !important;
-    background-color: rgba(255, 255, 255, 0.1) !important;
-    border: 1px solid rgba(255, 255, 255, 0.28) !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
-  }
-
-  .fd-pathway-cards__btn--secondary:hover {
-    background-image: none !important;
-    background-color: rgba(255, 255, 255, 0.2) !important;
-    border-color: rgba(255, 255, 255, 0.5) !important;
-    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1) !important;
-  }
-
-  /* ---- right column: paginated 3x4 program grid ---- */
-  .fd-pathway-cards__carousel {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
     width: 100%;
-    min-width: 0
+    padding: 13px 24px;
+    min-height: 44px
   }
 
   .fd-pathway-cards__track {
-    display: flex;
-    width: 100%;
-    min-width: 0;
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-    -ms-overflow-style: none
-  }
-
-  .fd-pathway-cards__track::-webkit-scrollbar {
-    display: none
+    gap: 14px;
+    padding-bottom: 8px;
+    scroll-padding: 0 4px;
+    -webkit-overflow-scrolling: touch;
   }
 
   .fd-pathway-cards__page {
-    flex: 0 0 100%;
-    min-width: 0;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 14px 12px;
-    align-content: center;
-    scroll-snap-align: start;
-  }
-
-  .fd-pathway-cards__card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    min-width: 0;
-    gap: 3px;
-  }
-
-  .fd-pathway-cards__media {
-    display: grid;
-    grid-template-columns: 1fr 0.38fr;
-    gap: 4px;
-    aspect-ratio: 2.2 / 1;
-    width: 100%;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 2px;
-    background: rgba(0, 0, 0, 0.25);
-  }
-
-  .fd-pathway-cards__media--single {
-    display: block !important;
-    aspect-ratio: 16 / 10 !important;
-    border-radius: 10px !important;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-    margin-bottom: 4px;
-    background: rgba(0, 0, 0, 0.35);
-  }
-
-  .fd-pathway-cards__cover {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 6px;
-    display: block;
-    transition: transform 0.3s ease;
-  }
-
-  .fd-pathway-cards__face {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 6px;
-    display: block;
-  }
-
-  .fd-pathway-cards__card:hover .fd-pathway-cards__cover {
-    transform: scale(1.04);
+    display: contents !important;
   }
 
   .fd-pathway-cards__prog {
-    margin: 0;
-    font-family: 'Google Sans Flex', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 16px;
-    letter-spacing: 0.1px;
-    text-align: center;
-    color: var(--mv-white);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
+    font-size: 13px;
+    line-height: 18px;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-overflow: clip
   }
 
   .fd-pathway-cards__auth {
-    margin: 0;
-    font-family: 'Google Sans Flex', sans-serif;
-    font-size: 10.5px;
-    font-weight: 400;
-    line-height: 14px;
-    letter-spacing: 0.15px;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.65);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
-  }
-
-  /* TODO placeholder — asset genuinely missing; identical box, clearly marked */
-  .fd-pathway-cards__ph {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 7px;
-    font-weight: 500;
-    line-height: 1.25;
-    letter-spacing: .08em;
-    color: rgba(255, 255, 255, .55);
-    background: repeating-linear-gradient(45deg, rgba(255, 255, 255, .12) 0 5px, rgba(255, 255, 255, .04) 5px 10px);
-    outline: 1px dashed rgba(255, 255, 255, .28);
-    outline-offset: -1px;
-  }
-
-  /* ---- carousel nav: translucent rounded buttons matching Mindvalley ---- */
-  .fd-pathway-cards__nav {
-    display: flex;
-    gap: 12px;
-    flex: 0 0 auto;
-    margin-top: 14px;
+    font-size: 12px;
+    line-height: 16px;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-overflow: clip
   }
 
   .fd-pathway-cards__navbtn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 38px;
-    height: 38px;
-    padding: 8px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    color: #ffffff;
-    box-shadow: 0 4px 16px rgba(29, 78, 216, 0.35), 0 2px 8px rgba(225, 29, 72, 0.25);
-    cursor: pointer;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    margin: 0;
-    -webkit-appearance: none;
-    appearance: none;
-  }
-
-  .fd-pathway-cards__navbtn:hover:not([disabled]) {
-    background: linear-gradient(135deg, #1E40AF 0%, #BE123C 100%);
-    transform: translateY(-2px) scale(1.08);
-    box-shadow: 0 8px 24px rgba(29, 78, 216, 0.45), 0 4px 12px rgba(225, 29, 72, 0.35);
-    color: #ffffff;
-  }
-
-  .fd-pathway-cards__navbtn:active:not([disabled]) {
-    transform: translateY(0) scale(0.96);
-  }
-
-  .fd-pathway-cards__navbtn:focus-visible {
-    outline: 2px solid #1D4ED8;
-    outline-offset: 2px;
+    width: 44px;
+    height: 44px;
+    padding: 12px
   }
 
   .fd-pathway-cards__navbtn svg {
     width: 20px;
-    height: 20px;
-    display: block;
-    fill: currentColor;
+    height: 20px
   }
-
-  /* end-stop state, applied by the carousel script only (no-JS render is unchanged) */
-  .fd-pathway-cards__navbtn[disabled] {
-    opacity: 0 !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-    cursor: default;
-    transform: none;
-    box-shadow: none;
-  }
-
-  @media (prefers-reduced-motion:reduce) {
-    .fd-pathway-cards__track {
-      scroll-behavior: auto
-    }
-  }
-
-  /* ---- responsive: SELF-DERIVED (Figma has desktop-1440 only) ---- */
-  @media (max-width:1024px) {
-    .fd-pathway-cards {
-      padding: 48px 24px 80px
-    }
-
-    .fd-pathway-cards__block {
-      flex-direction: column
-    }
-
-    .fd-pathway-cards__left,
-    .fd-pathway-cards__right {
-      flex: 1 1 auto;
-      width: 100%
-    }
-
-    .fd-pathway-cards__left {
-      padding: 32px 24px;
-      gap: 20px
-    }
-
-    .fd-pathway-cards__right {
-      padding: 0 24px 32px;
-      justify-content: flex-start
-    }
-
-    .fd-pathway-cards__title {
-      font-size: clamp(24px, 3.6cqw, 30px);
-      line-height: 1.16
-    }
-  }
-
-  @media (max-width:640px) {
-    .fd-pathway-cards {
-      padding: 40px 16px 64px
-    }
-
-    .fd-pathway-cards__inner {
-      gap: 16px
-    }
-
-    .fd-pathway-cards__block {
-      border-radius: 12px
-    }
-
-    .fd-pathway-cards__left {
-      padding: 20px 16px;
-      gap: 16px
-    }
-
-    .fd-pathway-cards__right {
-      padding: 24px 16px 24px
-    }
-
-    .fd-pathway-cards__hero {
-      border-radius: 12px
-    }
-
-    .fd-pathway-cards__desc,
-    .fd-pathway-cards__item {
-      font-size: 15px;
-      line-height: 21px
-    }
-
-    .fd-pathway-cards__item {
-      align-items: flex-start
-    }
-
-    .fd-pathway-cards__btn {
-      width: 100%;
-      padding: 13px 24px;
-      min-height: 44px
-    }
-
-    .fd-pathway-cards__track {
-      gap: 14px;
-      padding-bottom: 8px;
-      scroll-padding: 0 4px;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .fd-pathway-cards__page {
-      display: contents !important;
-    }
-
-    .fd-pathway-cards__prog {
-      font-size: 13px;
-      line-height: 18px;
-      white-space: normal;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
-      text-overflow: clip
-    }
-
-    .fd-pathway-cards__auth {
-      font-size: 12px;
-      line-height: 16px;
-      white-space: normal;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
-      text-overflow: clip
-    }
-
-    .fd-pathway-cards__navbtn {
-      width: 44px;
-      height: 44px;
-      padding: 12px
-    }
-
-    .fd-pathway-cards__navbtn svg {
-      width: 20px;
-      height: 20px
-    }
-  }
+}
 
 
-  /* === EXTRACTED FROM scratch_style_18.css === */
+/* === EXTRACTED FROM scratch_style_18.css === */
 
-  /* ---------------- pathway card stack: sticky deck (variant A + recede) ----------------
+/* ---------------- pathway card stack: sticky deck (variant A + recede) ----------------
    The 6 cards are flex children of a 4220px .fd-pathway-cards__inner, and that tall
    parent is what gives sticky its travel. Do NOT wrap each card in a per-card slot:
    that confines it to its own 651px box and kills the pin entirely.
@@ -2440,64 +2442,64 @@ p.body,
    does not finish before the card is fully covered, which is fine — it is hidden by
    then. What matters is that it is imperceptible while the card is the active one
    and visibly sinking during the hand-off. */
-  @keyframes fd-pw-sink {
-    to {
-      transform: scale(.90);
-      filter: brightness(.45);
-    }
+@keyframes fd-pw-sink {
+  to {
+    transform: scale(.90);
+    filter: brightness(.45);
+  }
+}
+
+@media (min-width:1025px) and (min-height:780px) {
+  .fd-pathway-cards__block {
+    position: sticky;
+    top: 100px;
+    transform-origin: top center;
+    box-shadow: 0 -6px 40px rgba(0, 0, 0, .18);
   }
 
-  @media (min-width:1025px) and (min-height:780px) {
-    .fd-pathway-cards__block {
-      position: sticky;
-      top: 100px;
-      transform-origin: top center;
-      box-shadow: 0 -6px 40px rgba(0, 0, 0, .18);
-    }
-
-    /* lit top edge — the real separation cue on a near-black ground, where a dark
+  /* lit top edge — the real separation cue on a near-black ground, where a dark
      shadow has almost no headroom to darken into. Clipped by the block's own
      overflow:hidden so it follows the 16px radius. */
-    .fd-pathway-cards__block::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto 0;
-      height: 1px;
-      background: rgba(255, 255, 255, .14);
-      z-index: 2;
-      pointer-events: none;
-    }
+  .fd-pathway-cards__block::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 1px;
+    background: rgba(255, 255, 255, .14);
+    z-index: 2;
+    pointer-events: none;
   }
+}
 
-  @supports (animation-timeline:view()) {
-    @media (min-width:1025px) and (min-height:780px) {
-      .fd-pathway-cards__block {
-        animation: fd-pw-sink linear both;
-        animation-timeline: view();
-        animation-range: contain 0% contain 100%;
-      }
-    }
-  }
-
-  /* Reduced motion: no pin, no sink — the plain stacked layout. */
-  @media (min-width:1025px) and (min-height:780px) and (prefers-reduced-motion:reduce) {
+@supports (animation-timeline:view()) {
+  @media (min-width:1025px) and (min-height:780px) {
     .fd-pathway-cards__block {
-      position: static;
-      animation: none;
-      transform: none;
-      filter: none;
-      box-shadow: none;
-    }
-
-    .fd-pathway-cards__block::before {
-      display: none;
+      animation: fd-pw-sink linear both;
+      animation-timeline: view();
+      animation-range: contain 0% contain 100%;
     }
   }
+}
+
+/* Reduced motion: no pin, no sink — the plain stacked layout. */
+@media (min-width:1025px) and (min-height:780px) and (prefers-reduced-motion:reduce) {
+  .fd-pathway-cards__block {
+    position: static;
+    animation: none;
+    transform: none;
+    filter: none;
+    box-shadow: none;
+  }
+
+  .fd-pathway-cards__block::before {
+    display: none;
+  }
+}
 
 
-  /* === EXTRACTED FROM scratch_style_19.css === */
+/* === EXTRACTED FROM scratch_style_19.css === */
 
-  /* ---------------- per-pathway background wash ----------------
+/* ---------------- per-pathway background wash ----------------
    As the deck locks, the section behind it takes on the active pathway's own
    --pw-from tone (the dark end its card gradient starts from, luminance <0.014,
    16.5:1+ against white, so legibility is unchanged) instead of sitting on the
@@ -2516,72 +2518,96 @@ p.body,
    simply "the newest card that has faded in", which depends only on ordering, not
    on viewport-sensitive percentages — and the last card keeps its wash until the
    section ends instead of dropping to black while still pinned. */
-  @keyframes fd-pw-wash {
-    0% {
-      opacity: 0
-    }
-
-    12% {
-      opacity: 0
-    }
-
-    26% {
-      opacity: 1
-    }
-
-    50% {
-      opacity: 1
-    }
-
-    66% {
-      opacity: 0
-    }
-
-    100% {
-      opacity: 0
-    }
+@keyframes fd-pw-wash {
+  0% {
+    opacity: 0
   }
 
-  @keyframes fd-pw-washout {
-    0% {
-      opacity: 0
-    }
-
-    30% {
-      opacity: 0
-    }
-
-    70% {
-      opacity: 1
-    }
-
-    100% {
-      opacity: 1
-    }
+  12% {
+    opacity: 0
   }
 
-  @keyframes fd-pw-wash-last {
-    0% {
-      opacity: 0
-    }
+  26% {
+    opacity: 1
+  }
 
-    12% {
-      opacity: 0
-    }
+  50% {
+    opacity: 1
+  }
 
-    26% {
-      opacity: 1
-    }
+  66% {
+    opacity: 0
+  }
 
-    100% {
-      opacity: 1
-    }
+  100% {
+    opacity: 0
+  }
+}
+
+@keyframes fd-pw-washout {
+  0% {
+    opacity: 0
+  }
+
+  30% {
+    opacity: 0
+  }
+
+  70% {
+    opacity: 1
+  }
+
+  100% {
+    opacity: 1
+  }
+}
+
+@keyframes fd-pw-wash-last {
+  0% {
+    opacity: 0
+  }
+
+  12% {
+    opacity: 0
+  }
+
+  26% {
+    opacity: 1
+  }
+
+  100% {
+    opacity: 1
+  }
+}
+
+.fd-pathway-cards__tint {
+  display: block;
+  position: absolute;
+  inset: 0;
+  overflow: clip;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 65% 55% at 15% 30%, rgba(29, 78, 216, 0.42) 0%, transparent 68%),
+    radial-gradient(ellipse 65% 55% at 85% 70%, rgba(225, 29, 72, 0.38) 0%, transparent 68%),
+    linear-gradient(90deg, #06112c 0%, #13071f 50%, #260513 100%);
+}
+
+@media (min-width:1025px) {
+  .fd-pathway-cards {
+    position: relative;
+    timeline-scope: --pw1, --pw2, --pw3, --pw4, --pw5, --pw6;
+    view-timeline-name: --pwsec;
   }
 
   .fd-pathway-cards__tint {
     display: block;
-    position: absolute;
-    inset: 0;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    margin-bottom: -100vh;
     overflow: clip;
     z-index: 0;
     pointer-events: none;
@@ -2591,1959 +2617,1940 @@ p.body,
       linear-gradient(90deg, #06112c 0%, #13071f 50%, #260513 100%);
   }
 
-  @media (min-width:1025px) {
-    .fd-pathway-cards {
-      position: relative;
-      timeline-scope: --pw1, --pw2, --pw3, --pw4, --pw5, --pw6;
-      view-timeline-name: --pwsec;
-    }
-
-    .fd-pathway-cards__tint {
-      display: block;
-      position: sticky;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      margin-bottom: -100vh;
-      overflow: clip;
-      z-index: 0;
-      pointer-events: none;
-      background:
-        radial-gradient(ellipse 65% 55% at 15% 30%, rgba(29, 78, 216, 0.42) 0%, transparent 68%),
-        radial-gradient(ellipse 65% 55% at 85% 70%, rgba(225, 29, 72, 0.38) 0%, transparent 68%),
-        linear-gradient(90deg, #06112c 0%, #13071f 50%, #260513 100%);
-    }
-
-    .fd-pathway-cards__inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    .fd-pathway-cards__wash {
-      display: none !important;
-    }
-
-    .fd-pathway-cards__block--mind {
-      view-timeline-name: --pw1;
-    }
-
-    .fd-pathway-cards__block--entrepreneur {
-      view-timeline-name: --pw2;
-    }
-
-    .fd-pathway-cards__block--authority {
-      view-timeline-name: --pw3;
-    }
-
-    .fd-pathway-cards__block--connection {
-      view-timeline-name: --pw4;
-    }
-
-    .fd-pathway-cards__block--body {
-      view-timeline-name: --pw5;
-    }
-
-    .fd-pathway-cards__block--mystic {
-      view-timeline-name: --pw6;
-    }
+  .fd-pathway-cards__inner {
+    position: relative;
+    z-index: 1;
   }
 
-  @supports (animation-timeline:view()) {
-    @media (min-width:1025px) and (min-height:780px) {
-      .fd-pathway-cards__wash--1 {
-        animation: fd-pw-wash linear both;
-        animation-timeline: --pw1;
-        animation-range: contain 0% contain 100%;
-      }
-
-      .fd-pathway-cards__wash--2 {
-        animation: fd-pw-wash linear both;
-        animation-timeline: --pw2;
-        animation-range: contain 0% contain 100%;
-      }
-
-      .fd-pathway-cards__wash--3 {
-        animation: fd-pw-wash linear both;
-        animation-timeline: --pw3;
-        animation-range: contain 0% contain 100%;
-      }
-
-      .fd-pathway-cards__wash--4 {
-        animation: fd-pw-wash linear both;
-        animation-timeline: --pw4;
-        animation-range: contain 0% contain 100%;
-      }
-
-      .fd-pathway-cards__wash--5 {
-        animation: fd-pw-wash linear both;
-        animation-timeline: --pw5;
-        animation-range: contain 0% contain 100%;
-      }
-
-      .fd-pathway-cards__wash--6 {
-        animation: fd-pw-wash-last linear both;
-        animation-timeline: --pw6;
-        animation-range: contain 0% contain 100%;
-      }
-
-      .fd-pathway-cards__wash--out {
-        animation: fd-pw-washout linear both;
-        animation-timeline: --pwsec;
-        animation-range: exit 0% exit 100%;
-      }
-    }
+  .fd-pathway-cards__wash {
+    display: none !important;
   }
 
-  /* Reduced motion: no scroll-linked colour change at all. */
-  @media (prefers-reduced-motion:reduce) {
-    .fd-pathway-cards__tint {
-      display: none;
-    }
+  .fd-pathway-cards__block--mind {
+    view-timeline-name: --pw1;
   }
 
+  .fd-pathway-cards__block--entrepreneur {
+    view-timeline-name: --pw2;
+  }
 
-  /* ============================================================================
+  .fd-pathway-cards__block--authority {
+    view-timeline-name: --pw3;
+  }
+
+  .fd-pathway-cards__block--connection {
+    view-timeline-name: --pw4;
+  }
+
+  .fd-pathway-cards__block--body {
+    view-timeline-name: --pw5;
+  }
+
+  .fd-pathway-cards__block--mystic {
+    view-timeline-name: --pw6;
+  }
+}
+
+@supports (animation-timeline:view()) {
+  @media (min-width:1025px) and (min-height:780px) {
+    .fd-pathway-cards__wash--1 {
+      animation: fd-pw-wash linear both;
+      animation-timeline: --pw1;
+      animation-range: contain 0% contain 100%;
+    }
+
+    .fd-pathway-cards__wash--2 {
+      animation: fd-pw-wash linear both;
+      animation-timeline: --pw2;
+      animation-range: contain 0% contain 100%;
+    }
+
+    .fd-pathway-cards__wash--3 {
+      animation: fd-pw-wash linear both;
+      animation-timeline: --pw3;
+      animation-range: contain 0% contain 100%;
+    }
+
+    .fd-pathway-cards__wash--4 {
+      animation: fd-pw-wash linear both;
+      animation-timeline: --pw4;
+      animation-range: contain 0% contain 100%;
+    }
+
+    .fd-pathway-cards__wash--5 {
+      animation: fd-pw-wash linear both;
+      animation-timeline: --pw5;
+      animation-range: contain 0% contain 100%;
+    }
+
+    .fd-pathway-cards__wash--6 {
+      animation: fd-pw-wash-last linear both;
+      animation-timeline: --pw6;
+      animation-range: contain 0% contain 100%;
+    }
+
+    .fd-pathway-cards__wash--out {
+      animation: fd-pw-washout linear both;
+      animation-timeline: --pwsec;
+      animation-range: exit 0% exit 100%;
+    }
+  }
+}
+
+/* Reduced motion: no scroll-linked colour change at all. */
+@media (prefers-reduced-motion:reduce) {
+  .fd-pathway-cards__tint {
+    display: none;
+  }
+}
+
+
+/* ============================================================================
    110+ World-Class Quests Section — fd-world-class-quest
    ========================================================================== */
+.fd-world-class-quest {
+  --mv-white: #ffffff;
+  --mv-grey-300: #ced1d7;
+  --wcq-gold: #e2cea0;
+  --wcq-surface: #fcfaf5;
+  --wcq-media-w: min(100cqw, 1200px);
+  position: relative;
+  container-type: inline-size;
+  width: 100%;
+  padding: 80px 120px 0;
+  background: var(--wcq-surface);
+  overflow: hidden;
+  font-family: 'Google Sans Flex', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.fd-world-class-quest,
+.fd-world-class-quest * {
+  box-sizing: border-box;
+}
+
+.fd-world-class-quest img,
+.fd-world-class-quest video {
+  max-width: 100%;
+}
+
+.fd-world-class-quest__bg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: calc(0.13034 * var(--wcq-media-w));
+  pointer-events: none;
+  background:
+    radial-gradient(62.292% 114.716% at 67.604% -34.634%,
+      rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, .21) 50%, rgba(0, 0, 0, .2005) 75%, rgba(0, 0, 0, 0) 100%),
+    radial-gradient(93.854% 74.468% at -58.229% 65.012%,
+      rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .587) 25%, rgba(0, 0, 0, .4695) 50%, rgba(0, 0, 0, .2585) 75%, rgba(0, 0, 0, 0) 100%),
+    radial-gradient(41.667% 189.125% at -47.639% -30.142%,
+      rgba(0, 0, 0, .3) 0%, rgba(0, 0, 0, .175) 25%, rgba(0, 0, 0, .05) 50%, rgba(0, 0, 0, .025) 75%, rgba(0, 0, 0, 0) 100%),
+    radial-gradient(107.465% 160.52% at 90.139% 149.468%,
+      rgba(255, 244, 215, .916) 0%, rgba(255, 244, 215, .713) 25%, rgba(255, 244, 215, .4135) 50%, rgba(255, 244, 215, .2475) 75%, rgba(255, 244, 215, 0) 100%),
+    radial-gradient(148.229% 174.764% at 53.229% 109.338%,
+      rgba(157, 118, 50, .634) 0%, rgba(157, 118, 50, .7365) 25%, rgba(157, 118, 50, .8545) 50%, rgba(157, 118, 50, .3715) 75%, rgba(157, 118, 50, 0) 100%),
+    rgb(1, 4, 9);
+}
+
+.fd-world-class-quest__inner {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.fd-world-class-quest__titles {
+  width: 100%;
+  max-width: 689px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.fd-world-class-quest__eyebrow {
+  margin: 0;
+  font-size: 20px;
+  line-height: 25.04px;
+  font-weight: 600;
+  letter-spacing: .2px;
+  color: var(--wcq-gold);
+}
+
+.fd-world-class-quest__headline {
+  margin: 0;
+  font-size: 36px;
+  line-height: 44px;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--mv-white);
+}
+
+.fd-world-class-quest__body {
+  margin: 0;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--mv-grey-300);
+}
+
+.fd-world-class-quest__player-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.22);
+  aspect-ratio: 16 / 9;
+  background-color: #010409;
+}
+
+@media (max-width: 1024px) {
   .fd-world-class-quest {
-    --mv-white: #ffffff;
-    --mv-grey-300: #ced1d7;
-    --wcq-gold: #e2cea0;
-    --wcq-surface: #fcfaf5;
-    --wcq-media-w: min(100cqw, 1200px);
-    position: relative;
-    container-type: inline-size;
-    width: 100%;
-    padding: 80px 120px 0;
-    background: var(--wcq-surface);
-    overflow: hidden;
-    font-family: 'Google Sans Flex', sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  .fd-world-class-quest,
-  .fd-world-class-quest * {
-    box-sizing: border-box;
-  }
-
-  .fd-world-class-quest img,
-  .fd-world-class-quest video {
-    max-width: 100%;
-  }
-
-  .fd-world-class-quest__bg {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: calc(0.13034 * var(--wcq-media-w));
-    pointer-events: none;
-    background:
-      radial-gradient(62.292% 114.716% at 67.604% -34.634%,
-        rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, .21) 50%, rgba(0, 0, 0, .2005) 75%, rgba(0, 0, 0, 0) 100%),
-      radial-gradient(93.854% 74.468% at -58.229% 65.012%,
-        rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .587) 25%, rgba(0, 0, 0, .4695) 50%, rgba(0, 0, 0, .2585) 75%, rgba(0, 0, 0, 0) 100%),
-      radial-gradient(41.667% 189.125% at -47.639% -30.142%,
-        rgba(0, 0, 0, .3) 0%, rgba(0, 0, 0, .175) 25%, rgba(0, 0, 0, .05) 50%, rgba(0, 0, 0, .025) 75%, rgba(0, 0, 0, 0) 100%),
-      radial-gradient(107.465% 160.52% at 90.139% 149.468%,
-        rgba(255, 244, 215, .916) 0%, rgba(255, 244, 215, .713) 25%, rgba(255, 244, 215, .4135) 50%, rgba(255, 244, 215, .2475) 75%, rgba(255, 244, 215, 0) 100%),
-      radial-gradient(148.229% 174.764% at 53.229% 109.338%,
-        rgba(157, 118, 50, .634) 0%, rgba(157, 118, 50, .7365) 25%, rgba(157, 118, 50, .8545) 50%, rgba(157, 118, 50, .3715) 75%, rgba(157, 118, 50, 0) 100%),
-      rgb(1, 4, 9);
+    padding: 64px 40px 0;
   }
 
   .fd-world-class-quest__inner {
-    position: relative;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-  }
-
-  .fd-world-class-quest__titles {
-    width: 100%;
-    max-width: 689px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .fd-world-class-quest__eyebrow {
-    margin: 0;
-    font-size: 20px;
-    line-height: 25.04px;
-    font-weight: 600;
-    letter-spacing: .2px;
-    color: var(--wcq-gold);
+    gap: 32px;
+    margin-bottom: 32px;
   }
 
   .fd-world-class-quest__headline {
-    margin: 0;
-    font-size: 36px;
-    line-height: 44px;
-    font-weight: 600;
-    letter-spacing: 0;
-    color: var(--mv-white);
+    font-size: 32px;
+    line-height: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .fd-world-class-quest {
+    padding: 48px 20px 0;
+  }
+
+  .fd-world-class-quest__inner {
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .fd-world-class-quest__titles {
+    gap: 14px;
+  }
+
+  .fd-world-class-quest__eyebrow {
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: .16px;
+  }
+
+  .fd-world-class-quest__headline {
+    font-size: 28px;
+    line-height: 34px;
   }
 
   .fd-world-class-quest__body {
-    margin: 0;
-    font-size: 18px;
-    line-height: 24px;
-    font-weight: 400;
-    letter-spacing: 0;
-    color: var(--mv-grey-300);
+    font-size: 16px;
+    line-height: 22px;
   }
+}
 
-  .fd-world-class-quest__player-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.22);
-    aspect-ratio: 16 / 9;
-    background-color: #010409;
-  }
-
-  @media (max-width: 1024px) {
-    .fd-world-class-quest {
-      padding: 64px 40px 0;
-    }
-
-    .fd-world-class-quest__inner {
-      gap: 32px;
-      margin-bottom: 32px;
-    }
-
-    .fd-world-class-quest__headline {
-      font-size: 32px;
-      line-height: 40px;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .fd-world-class-quest {
-      padding: 48px 20px 0;
-    }
-
-    .fd-world-class-quest__inner {
-      gap: 24px;
-      margin-bottom: 24px;
-    }
-
-    .fd-world-class-quest__titles {
-      gap: 14px;
-    }
-
-    .fd-world-class-quest__eyebrow {
-      font-size: 16px;
-      line-height: 20px;
-      letter-spacing: .16px;
-    }
-
-    .fd-world-class-quest__headline {
-      font-size: 28px;
-      line-height: 34px;
-    }
-
-    .fd-world-class-quest__body {
-      font-size: 16px;
-      line-height: 22px;
-    }
-  }
-
-  /* === MEET YOUR MENTORS SECTION === */
-  .fd-meet-your-mentors {
-    /* MV tokens actually used */
-    --mv-white: #ffffff;
-    --mv-black: #0f131a;
-    /* headline ink + card scrim */
-    --mv-grey-600: #292d38;
-    /* eyebrow + lede */
-    /* section-local (one-off Figma values) */
-    --fd-mym-cream: #fcfaf5;
-    /* section bg top stop — no MV token matches */
-    --fd-mym-card-w: 282px;
-    --fd-mym-card-h: 423px;
-    --fd-mym-gap: 16px;
-    container-type: inline-size;
-    box-sizing: border-box;
-    /* Full-bleed: the Figma frame for this section is 1854 wide (vs the 1440 page), so the
+/* === MEET YOUR MENTORS SECTION === */
+.fd-meet-your-mentors {
+  /* MV tokens actually used */
+  --mv-white: #ffffff;
+  --mv-black: #0f131a;
+  /* headline ink + card scrim */
+  --mv-grey-600: #292d38;
+  /* eyebrow + lede */
+  /* section-local (one-off Figma values) */
+  --fd-mym-cream: #fcfaf5;
+  /* section bg top stop — no MV token matches */
+  --fd-mym-card-w: 282px;
+  --fd-mym-card-h: 423px;
+  --fd-mym-gap: 16px;
+  container-type: inline-size;
+  box-sizing: border-box;
+  /* Full-bleed: the Figma frame for this section is 1854 wide (vs the 1440 page), so the
      marquee rows are meant to run past the page column. NO max-width here — the section
      spans 100% of its host column and the header block below is what holds the 1200
      content measure. Width stays 100% of the host column — never a viewport unit (§1). */
+  width: 100%;
+  margin: 0 auto;
+  padding: 128px 0;
+  background: linear-gradient(180deg, var(--fd-mym-cream) 0%, var(--mv-white) 100%);
+  font-family: 'Google Sans Flex', sans-serif;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.fd-meet-your-mentors * {
+  box-sizing: border-box
+}
+
+.fd-meet-your-mentors img {
+  max-width: 100%
+}
+
+.fd-meet-your-mentors__sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden
+}
+
+/* ---------- header (Figma 3309:6967 — vertical stack, 20px gaps) ---------- */
+.fd-meet-your-mentors__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.fd-meet-your-mentors__eyebrow {
+  margin: 0;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  letter-spacing: 0.46px;
+  text-transform: uppercase;
+  color: #E11D48;
+  text-align: center;
+}
+
+.fd-meet-your-mentors__headline {
+  margin: 0;
+  font-family: 'Google Sans Flex', sans-serif;
+  max-width: 880px;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 44px;
+  letter-spacing: 0.15px;
+  color: #0f131a;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.fd-meet-your-mentors__lede {
+  margin: 0;
+  font-family: 'Google Sans Flex', sans-serif;
+  max-width: 792px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0.26px;
+  color: #4b5563;
+  text-align: center;
+}
+
+/* Figma centres headline line 1 including its trailing space (the source string is
+   "100+ Teachers. " + newline), which pulls the ink 4px left of the box centre — that
+   is what the &nbsp; reproduces. The lede's line break is Figma's too; it is dropped
+   below 1024px so the copy reflows. */
+.fd-meet-your-mentors__wbr {
+  display: inline
+}
+
+/* ---------- carousel (Figma 3309:6993 — two rows, 16px apart) ---------- */
+.fd-meet-your-mentors__carousel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--fd-mym-gap);
+  margin-top: 40px;
+}
+
+.fd-meet-your-mentors__row {
+  position: relative;
+  height: var(--fd-mym-card-h);
+  overflow: hidden;
+}
+
+.fd-meet-your-mentors__track {
+  display: flex;
+  gap: var(--fd-mym-gap);
+  width: max-content;
+  will-change: transform;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* Figma: Row1 starts at page x -207, Row2 at -127 (80px stagger, Row2 padding) */
+.fd-meet-your-mentors__track--1 {
+  margin-left: -207px;
+  animation-name: fd-mym-scroll-left;
+  animation-duration: 44.7s;
+}
+
+.fd-meet-your-mentors__track--2 {
+  margin-left: -127px;
+  animation-name: fd-mym-scroll-right;
+  animation-duration: 44.7s;
+}
+
+.fd-meet-your-mentors__row:hover .fd-meet-your-mentors__track,
+.fd-meet-your-mentors__row:focus-within .fd-meet-your-mentors__track {
+
+  .fd-meet-your-mentors__row:focus-within .fd-meet-your-mentors__track,
+  .fd-meet-your-mentors__track {
+    animation-play-state: running !important;
+  }
+
+  animation-play-state: paused .fd-meet-your-mentors__row:focus-within .fd-meet-your-mentors__track,
+  .fd-meet-your-mentors__track {
+    animation-play-state: running !important;
+  }
+
+  /* Each track holds THREE identical sets of 6 unique universe pillars. (6 x 298 = 1788px per row, both at 40px/s => 44.7s) */
+  .fd-meet-your-mentors__set {
+    display: flex;
+    gap: var(--fd-mym-gap);
+  }
+
+  @keyframes fd-mym-scroll-left {
+    from {
+      transform: translate3d(0, 0, 0)
+    }
+
+    to {
+      transform: translate3d(-1788px, 0, 0)
+    }
+  }
+
+  @keyframes fd-mym-scroll-right {
+    from {
+      transform: translate3d(-1788px, 0, 0)
+    }
+
+    to {
+      transform: translate3d(0, 0, 0)
+    }
+  }
+
+  .fd-meet-your-mentors__badge {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 2px;
+  }
+
+  .fd-meet-your-mentors__title {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: -0.01em;
+    color: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  }
+
+  /* ---------- card (Figma Assets/Trainer Card — 282x423, r16) ---------- */
+  .fd-meet-your-mentors__card {
+    position: relative;
+    flex: 0 0 auto;
+    width: var(--fd-mym-card-w);
+    height: var(--fd-mym-card-h);
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--mv-black);
+    /* Bottom-anchored stack: the wordmark -> role gap is now STRUCTURAL (8px),
+     not derived from each wordmark Figma absolute position. Previously those
+     positions made the gap vary 4.0-52.9px across the 14 mentors. Photo and
+     scrim stay absolutely positioned, so they are unaffected by this context. */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    padding: 0 16px 20px;
+    box-sizing: border-box;
+  }
+
+  .fd-meet-your-mentors__photo {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Gradient Overlay: bottom 230px with smooth transition for high text readability */
+  .fd-meet-your-mentors__scrim {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 230px;
+    background: linear-gradient(180deg, rgba(15, 19, 26, 0) 0%, rgba(15, 19, 26, 0.6) 45%, rgba(15, 19, 26, 0.95) 100%);
+  }
+
+  .fd-meet-your-mentors__wm {
+    /* Static flex item: centred by the card align-items, and vertically placed by
+     the card gap. Replaces 14 hardcoded left/bottom pairs. */
+    position: relative;
+    z-index: 1;
+    flex: 0 0 auto;
+    display: block;
+    color: var(--mv-white);
+    fill: currentColor;
+  }
+
+  .fd-meet-your-mentors__wm--monty-moran {
+    width: 162.07px;
+    height: 80.83px
+  }
+
+  .fd-meet-your-mentors__wm--tim-storey {
+    width: 227.39px;
+    height: 74.88px
+  }
+
+  .fd-meet-your-mentors__wm--maye-musk {
+    width: 220px;
+    height: 104.95px
+  }
+
+  .fd-meet-your-mentors__wm--vishen {
+    width: 220px;
+    height: 36.46px
+  }
+
+  .fd-meet-your-mentors__wm--marisa-peer {
+    width: 205px;
+    height: 74.28px
+  }
+
+  .fd-meet-your-mentors__wm--naveen-jain {
+    width: 209px;
+    height: 75.83px
+  }
+
+  .fd-meet-your-mentors__wm--paul-mckenna {
+    width: 227.67px;
+    height: 69.2px
+  }
+
+  .fd-meet-your-mentors__wm--regan-hillyer-lg {
+    width: 220px;
+    height: 114.5px
+  }
+
+  .fd-meet-your-mentors__wm--michael-beckwith {
+    width: 231px;
+    height: 83.13px
+  }
+
+  .fd-meet-your-mentors__wm--kwame-christian {
+    width: 220px;
+    height: 93.44px
+  }
+
+  .fd-meet-your-mentors__wm--keith-ferrazzi {
+    width: 233px;
+    height: 67.13px
+  }
+
+  .fd-meet-your-mentors__wm--jim-kwik {
+    width: 235px;
+    height: 43.77px
+  }
+
+  .fd-meet-your-mentors__wm--nir-eyal {
+    width: 169px;
+    height: 73.74px
+  }
+
+  .fd-meet-your-mentors__wm--ken-honda {
+    width: 160px;
+    height: 94.08px
+  }
+
+  .fd-meet-your-mentors__role {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    margin: 0;
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0.1px;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  }
+
+  /* ---------- footer CTA ---------- */
+  .fd-meet-your-mentors__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-top: 48px;
+    text-align: center;
+    padding: 0 24px;
+  }
+
+  .fd-meet-your-mentors__tagline {
+    margin: 0;
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    letter-spacing: 0.2px;
+    color: #0f131a;
+    text-align: center;
+  }
+
+  .fd-meet-your-mentors__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    padding: 13px 32px;
+    border-radius: 100px;
+    border: 0;
+    background-image: linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%) !important;
+    color: #ffffff !important;
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: 0 4px 16px rgba(29, 78, 216, 0.4), 0 2px 8px rgba(225, 29, 72, 0.3);
+    transition: all .25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .fd-meet-your-mentors__btn:hover {
+    background-image: linear-gradient(135deg, #1E40AF 0%, #BE123C 100%) !important;
+    box-shadow: 0 8px 24px rgba(225, 29, 72, 0.45), 0 4px 12px rgba(29, 78, 216, 0.4);
+    transform: translateY(-2px);
+    color: #ffffff !important;
+  }
+
+  /* ---------- responsive (self-derived — no tablet/mobile Figma frame) ---------- */
+  @media (max-width:1024px) {
+    .fd-meet-your-mentors {
+      padding: 96px 0
+    }
+
+    .fd-meet-your-mentors__wbr {
+      display: none
+    }
+
+    .fd-meet-your-mentors__headline {
+      font-size: clamp(28px, 3.6cqw, 36px);
+      line-height: 1.222
+    }
+
+    .fd-meet-your-mentors__lede {
+      font-size: clamp(16px, 1.9cqw, 18px);
+      line-height: 1.333
+    }
+  }
+
+  @media (max-width:640px) {
+    .fd-meet-your-mentors {
+      padding: 64px 0
+    }
+
+    .fd-meet-your-mentors__head {
+      gap: 16px;
+      padding: 0 24px
+    }
+
+    .fd-meet-your-mentors__eyebrow {
+      font-size: 16px;
+      line-height: 20px
+    }
+
+    .fd-meet-your-mentors__headline {
+      font-size: clamp(24px, 7.2cqw, 36px)
+    }
+
+    .fd-meet-your-mentors__lede {
+      font-size: 16px;
+      line-height: 22px
+    }
+
+    .fd-meet-your-mentors__carousel {
+      margin-top: 32px
+    }
+
+    .fd-meet-your-mentors__track--1 {
+      margin-left: -96px
+    }
+
+    .fd-meet-your-mentors__track--2 {
+      margin-left: -32px
+    }
+  }
+
+  @media (prefers-reduced-motion:reduce) {
+    .fd-meet-your-mentors__track {
+      animation: none
+    }
+  }
+
+
+  /* === CASE STUDIES SECTION === */
+  .fd-case-studies {
+    --mv-brand: #7a12d4;
+    --mv-black: #0f131a;
+    --mv-white: #ffffff;
+    --mv-grey-600: #292d38;
+    container-type: inline-size;
+    box-sizing: border-box;
+    /* Full-bleed: the collage band runs edge-to-edge to the browser at any width, so there is
+     NO max-width here — the section spans 100% of its host column and the copy wrapper below
+     holds the 384px Figma content measure. (No 100vw — contract §1.) */
     width: 100%;
     margin: 0 auto;
-    padding: 128px 0;
-    background: linear-gradient(180deg, var(--fd-mym-cream) 0%, var(--mv-white) 100%);
+    padding: 0 0 128px;
+    background: var(--mv-white);
     font-family: 'Google Sans Flex', sans-serif;
     overflow: hidden;
     -webkit-font-smoothing: antialiased;
   }
 
-  .fd-meet-your-mentors * {
+  .fd-case-studies *,
+  .fd-case-studies *::before,
+  .fd-case-studies *::after {
     box-sizing: border-box
   }
 
-  .fd-meet-your-mentors img {
+  .fd-case-studies img {
     max-width: 100%
   }
 
-  .fd-meet-your-mentors__sprite {
-    position: absolute;
-    width: 0;
-    height: 0;
-    overflow: hidden
-  }
-
-  /* ---------- header (Figma 3309:6967 — vertical stack, 20px gaps) ---------- */
-  .fd-meet-your-mentors__head {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  .fd-meet-your-mentors__eyebrow {
-    margin: 0;
-    font-family: 'Google Sans Flex', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 22px;
-    letter-spacing: 0.46px;
-    text-transform: uppercase;
-    color: #E11D48;
-    text-align: center;
-  }
-
-  .fd-meet-your-mentors__headline {
-    margin: 0;
-    font-family: 'Google Sans Flex', sans-serif;
-    max-width: 880px;
-    font-size: 36px;
-    font-weight: 600;
-    line-height: 44px;
-    letter-spacing: 0.15px;
-    color: #0f131a;
-    text-align: center;
-    text-wrap: balance;
-  }
-
-  .fd-meet-your-mentors__lede {
-    margin: 0;
-    font-family: 'Google Sans Flex', sans-serif;
-    max-width: 792px;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 26px;
-    letter-spacing: 0.26px;
-    color: #4b5563;
-    text-align: center;
-  }
-
-  /* Figma centres headline line 1 including its trailing space (the source string is
-   "100+ Teachers. " + newline), which pulls the ink 4px left of the box centre — that
-   is what the &nbsp; reproduces. The lede's line break is Figma's too; it is dropped
-   below 1024px so the copy reflows. */
-  .fd-meet-your-mentors__wbr {
-    display: inline
-  }
-
-  /* ---------- carousel (Figma 3309:6993 — two rows, 16px apart) ---------- */
-  .fd-meet-your-mentors__carousel {
-    display: flex;
-    flex-direction: column;
-    gap: var(--fd-mym-gap);
-    margin-top: 40px;
-  }
-
-  .fd-meet-your-mentors__row {
+  /* ---- collage band: flattened Figma "Stories Collage" frame, 1440x802 ---- */
+  .fd-case-studies__band {
     position: relative;
-    height: var(--fd-mym-card-h);
-    overflow: hidden;
-  }
-
-  .fd-meet-your-mentors__track {
+    height: 802px;
     display: flex;
-    gap: var(--fd-mym-gap);
-    width: max-content;
-    will-change: transform;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    align-items: center;
+    justify-content: center;
   }
 
-  /* Figma: Row1 starts at page x -207, Row2 at -127 (80px stagger, Row2 padding) */
-  .fd-meet-your-mentors__track--1 {
-    margin-left: -207px;
-    animation-name: fd-mym-scroll-left;
-    animation-duration: 44.7s;
-  }
-
-  .fd-meet-your-mentors__track--2 {
-    margin-left: -127px;
-    animation-name: fd-mym-scroll-right;
-    animation-duration: 44.7s;
-  }
-
-  .fd-meet-your-mentors__row:hover .fd-meet-your-mentors__track,
-  .fd-meet-your-mentors__row:focus-within .fd-meet-your-mentors__track {
-
-    animation-play-state: paused .fd-meet-your-mentors__row:focus-within .fd-meet-your-mentors__track,
-    .fd-meet-your-mentors__track {
-      animation-play-state: running !important;
-    }
-
-    /* Each track holds THREE identical sets of 6 unique universe pillars. (6 x 298 = 1788px per row, both at 40px/s => 44.7s) */
-    .fd-meet-your-mentors__set {
-      display: flex;
-      gap: var(--fd-mym-gap);
-    }
-
-    @keyframes fd-mym-scroll-left {
-      from {
-        transform: translate3d(0, 0, 0)
-      }
-
-      to {
-        transform: translate3d(-1788px, 0, 0)
-      }
-    }
-
-    @keyframes fd-mym-scroll-right {
-      from {
-        transform: translate3d(-1788px, 0, 0)
-      }
-
-      to {
-        transform: translate3d(0, 0, 0)
-      }
-    }
-
-    .fd-meet-your-mentors__badge {
-      position: relative;
-      z-index: 1;
-      display: inline-flex;
-      align-items: center;
-      padding: 4px 12px;
-      border-radius: 9999px;
-      background: rgba(255, 255, 255, 0.16);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      font-family: 'Google Sans Flex', sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #ffffff;
-      margin-bottom: 2px;
-    }
-
-    .fd-meet-your-mentors__title {
-      position: relative;
-      z-index: 1;
-      margin: 0;
-      font-family: 'Google Sans Flex', sans-serif;
-      font-size: 24px;
-      font-weight: 700;
-      line-height: 30px;
-      letter-spacing: -0.01em;
-      color: #ffffff;
-      text-align: center;
-      text-transform: uppercase;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
-    }
-
-    /* ---------- card (Figma Assets/Trainer Card — 282x423, r16) ---------- */
-    .fd-meet-your-mentors__card {
-      position: relative;
-      flex: 0 0 auto;
-      width: var(--fd-mym-card-w);
-      height: var(--fd-mym-card-h);
-      border-radius: 16px;
-      overflow: hidden;
-      background: var(--mv-black);
-      /* Bottom-anchored stack: the wordmark -> role gap is now STRUCTURAL (8px),
-     not derived from each wordmark Figma absolute position. Previously those
-     positions made the gap vary 4.0-52.9px across the 14 mentors. Photo and
-     scrim stay absolutely positioned, so they are unaffected by this context. */
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 8px;
-      padding: 0 16px 20px;
-      box-sizing: border-box;
-    }
-
-    .fd-meet-your-mentors__photo {
-      position: absolute;
-      inset: 0;
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* Gradient Overlay: bottom 230px with smooth transition for high text readability */
-    .fd-meet-your-mentors__scrim {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 230px;
-      background: linear-gradient(180deg, rgba(15, 19, 26, 0) 0%, rgba(15, 19, 26, 0.6) 45%, rgba(15, 19, 26, 0.95) 100%);
-    }
-
-    .fd-meet-your-mentors__wm {
-      /* Static flex item: centred by the card align-items, and vertically placed by
-     the card gap. Replaces 14 hardcoded left/bottom pairs. */
-      position: relative;
-      z-index: 1;
-      flex: 0 0 auto;
-      display: block;
-      color: var(--mv-white);
-      fill: currentColor;
-    }
-
-    .fd-meet-your-mentors__wm--monty-moran {
-      width: 162.07px;
-      height: 80.83px
-    }
-
-    .fd-meet-your-mentors__wm--tim-storey {
-      width: 227.39px;
-      height: 74.88px
-    }
-
-    .fd-meet-your-mentors__wm--maye-musk {
-      width: 220px;
-      height: 104.95px
-    }
-
-    .fd-meet-your-mentors__wm--vishen {
-      width: 220px;
-      height: 36.46px
-    }
-
-    .fd-meet-your-mentors__wm--marisa-peer {
-      width: 205px;
-      height: 74.28px
-    }
-
-    .fd-meet-your-mentors__wm--naveen-jain {
-      width: 209px;
-      height: 75.83px
-    }
-
-    .fd-meet-your-mentors__wm--paul-mckenna {
-      width: 227.67px;
-      height: 69.2px
-    }
-
-    .fd-meet-your-mentors__wm--regan-hillyer-lg {
-      width: 220px;
-      height: 114.5px
-    }
-
-    .fd-meet-your-mentors__wm--michael-beckwith {
-      width: 231px;
-      height: 83.13px
-    }
-
-    .fd-meet-your-mentors__wm--kwame-christian {
-      width: 220px;
-      height: 93.44px
-    }
-
-    .fd-meet-your-mentors__wm--keith-ferrazzi {
-      width: 233px;
-      height: 67.13px
-    }
-
-    .fd-meet-your-mentors__wm--jim-kwik {
-      width: 235px;
-      height: 43.77px
-    }
-
-    .fd-meet-your-mentors__wm--nir-eyal {
-      width: 169px;
-      height: 73.74px
-    }
-
-    .fd-meet-your-mentors__wm--ken-honda {
-      width: 160px;
-      height: 94.08px
-    }
-
-    .fd-meet-your-mentors__role {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      margin: 0;
-      font-family: 'Google Sans Flex', sans-serif;
-      font-size: 13px;
-      font-weight: 400;
-      line-height: 18px;
-      letter-spacing: 0.1px;
-      color: rgba(255, 255, 255, 0.9);
-      text-align: center;
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
-    }
-
-    /* ---------- footer CTA ---------- */
-    .fd-meet-your-mentors__footer {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-      margin-top: 48px;
-      text-align: center;
-      padding: 0 24px;
-    }
-
-    .fd-meet-your-mentors__tagline {
-      margin: 0;
-      font-family: 'Google Sans Flex', sans-serif;
-      font-size: 20px;
-      font-weight: 600;
-      line-height: 28px;
-      letter-spacing: 0.2px;
-      color: #0f131a;
-      text-align: center;
-    }
-
-    .fd-meet-your-mentors__btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-family: 'Google Sans Flex', sans-serif;
-      font-size: 15px;
-      font-weight: 600;
-      line-height: 20px;
-      letter-spacing: 0.2px;
-      padding: 13px 32px;
-      border-radius: 100px;
-      border: 0;
-      background-image: linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%) !important;
-      color: #ffffff !important;
-      text-decoration: none;
-      cursor: pointer;
-      white-space: nowrap;
-      box-shadow: 0 4px 16px rgba(29, 78, 216, 0.4), 0 2px 8px rgba(225, 29, 72, 0.3);
-      transition: all .25s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .fd-meet-your-mentors__btn:hover {
-      background-image: linear-gradient(135deg, #1E40AF 0%, #BE123C 100%) !important;
-      box-shadow: 0 8px 24px rgba(225, 29, 72, 0.45), 0 4px 12px rgba(29, 78, 216, 0.4);
-      transform: translateY(-2px);
-      color: #ffffff !important;
-    }
-
-    /* ---------- responsive (self-derived — no tablet/mobile Figma frame) ---------- */
-    @media (max-width:1024px) {
-      .fd-meet-your-mentors {
-        padding: 96px 0
-      }
-
-      .fd-meet-your-mentors__wbr {
-        display: none
-      }
-
-      .fd-meet-your-mentors__headline {
-        font-size: clamp(28px, 3.6cqw, 36px);
-        line-height: 1.222
-      }
-
-      .fd-meet-your-mentors__lede {
-        font-size: clamp(16px, 1.9cqw, 18px);
-        line-height: 1.333
-      }
-    }
-
-    @media (max-width:640px) {
-      .fd-meet-your-mentors {
-        padding: 64px 0
-      }
-
-      .fd-meet-your-mentors__head {
-        gap: 16px;
-        padding: 0 24px
-      }
-
-      .fd-meet-your-mentors__eyebrow {
-        font-size: 16px;
-        line-height: 20px
-      }
-
-      .fd-meet-your-mentors__headline {
-        font-size: clamp(24px, 7.2cqw, 36px)
-      }
-
-      .fd-meet-your-mentors__lede {
-        font-size: 16px;
-        line-height: 22px
-      }
-
-      .fd-meet-your-mentors__carousel {
-        margin-top: 32px
-      }
-
-      .fd-meet-your-mentors__track--1 {
-        margin-left: -96px
-      }
-
-      .fd-meet-your-mentors__track--2 {
-        margin-left: -32px
-      }
-    }
-
-    @media (prefers-reduced-motion:reduce) {
-      .fd-meet-your-mentors__track {
-        animation: none
-      }
-    }
-
-
-    /* === CASE STUDIES SECTION === */
-    .fd-case-studies {
-      --mv-brand: #7a12d4;
-      --mv-black: #0f131a;
-      --mv-white: #ffffff;
-      --mv-grey-600: #292d38;
-      container-type: inline-size;
-      box-sizing: border-box;
-      /* Full-bleed: the collage band runs edge-to-edge to the browser at any width, so there is
-     NO max-width here — the section spans 100% of its host column and the copy wrapper below
-     holds the 384px Figma content measure. (No 100vw — contract §1.) */
-      width: 100%;
-      margin: 0 auto;
-      padding: 0 0 128px;
-      background: var(--mv-white);
-      font-family: 'Google Sans Flex', sans-serif;
-      overflow: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .fd-case-studies *,
-    .fd-case-studies *::before,
-    .fd-case-studies *::after {
-      box-sizing: border-box
-    }
-
-    .fd-case-studies img {
-      max-width: 100%
-    }
-
-    /* ---- collage band: flattened Figma "Stories Collage" frame, 1440x802 ---- */
-    .fd-case-studies__band {
-      position: relative;
-      height: 802px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .fd-case-studies__band::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: url("https://a.storyblok.com/f/312081/98796add48/case_casestudy-background.webp");
-      background-repeat: no-repeat;
-      background-position: center top;
-      /* CROP, never stretch. The webp is the flattened 2880x1604 "Stories Collage" frame = a
+  .fd-case-studies__band::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("https://a.storyblok.com/f/312081/98796add48/case_casestudy-background.webp");
+    background-repeat: no-repeat;
+    background-position: center top;
+    /* CROP, never stretch. The webp is the flattened 2880x1604 "Stories Collage" frame = a
      1440x802 band at 1:1. `cover` keeps that aspect exactly: for any band width \u003C=1440 it
      resolves to 1440x802 (identical to the old explicit size — the sides crop inward, as the
      Figma frame itself does via clipsContent); above 1440 it scales up proportionally off the
      width so the collage still reaches both edges, cropping the bottom. Faces never squash. */
-      background-size: cover;
-      pointer-events: none;
+    background-size: cover;
+    pointer-events: none;
+  }
+
+  /* ---- centre wrapper (Figma "Wrapper": 384w, vertical, gap 24, centred) ---- */
+  .fd-case-studies__wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+    max-width: 384px;
+  }
+
+  .fd-case-studies__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+  }
+
+  .fd-case-studies__stat {
+    margin: 0;
+    font-size: 72px;
+    font-weight: 600;
+    line-height: 80px;
+    letter-spacing: -0.25px;
+    text-align: center;
+    color: var(--mv-black);
+  }
+
+  .fd-case-studies__subtitle {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 0;
+    text-align: center;
+    color: var(--mv-grey-600);
+  }
+
+  .fd-case-studies__body {
+    margin: 0;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0;
+    text-align: center;
+    color: var(--mv-grey-600);
+  }
+
+  .fd-case-studies__link {
+    color: var(--mv-brand);
+    text-decoration: none;
+  }
+
+  .fd-case-studies__link:hover {
+    text-decoration: underline
+  }
+
+  /* ---- CTA (Figma "Neutral Button" / size Large) ---- */
+  .fd-case-studies__cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .fd-case-studies__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 48px;
+    padding: 14px 24px;
+    border: 0;
+    border-radius: 100px;
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color .2s ease, opacity .2s ease;
+  }
+
+  .fd-case-studies__btn--neutral {
+    background-image: linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%) !important;
+    color: #ffffff !important;
+    font-weight: 600;
+    box-shadow: 0 4px 18px rgba(29, 78, 216, 0.4), 0 2px 10px rgba(225, 29, 72, 0.3);
+    transition: all .25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .fd-case-studies__btn--neutral:hover {
+    background-image: linear-gradient(135deg, #1E40AF 0%, #BE123C 100%) !important;
+    box-shadow: 0 8px 26px rgba(225, 29, 72, 0.45), 0 4px 14px rgba(29, 78, 216, 0.4);
+    transform: translateY(-2px);
+    color: #ffffff !important;
+  }
+
+  /* ---- tablet: collage crops inward, centre gutter preserved (self-derived) ---- */
+  @media (max-width:1024px) {
+    .fd-case-studies {
+      padding-bottom: 96px
     }
 
-    /* ---- centre wrapper (Figma "Wrapper": 384w, vertical, gap 24, centred) ---- */
-    .fd-case-studies__wrapper {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 24px;
-      width: 100%;
-      max-width: 384px;
+    .fd-case-studies__band {
+      padding: 0 24px
     }
+  }
 
-    .fd-case-studies__title {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      width: 100%;
-    }
-
-    .fd-case-studies__stat {
-      margin: 0;
-      font-size: 72px;
-      font-weight: 600;
-      line-height: 80px;
-      letter-spacing: -0.25px;
-      text-align: center;
-      color: var(--mv-black);
-    }
-
-    .fd-case-studies__subtitle {
-      margin: 0;
-      font-size: 24px;
-      font-weight: 500;
-      line-height: 30px;
-      letter-spacing: 0;
-      text-align: center;
-      color: var(--mv-grey-600);
-    }
-
-    .fd-case-studies__body {
-      margin: 0;
-      width: 100%;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 24px;
-      letter-spacing: 0;
-      text-align: center;
-      color: var(--mv-grey-600);
-    }
-
-    .fd-case-studies__link {
-      color: var(--mv-brand);
-      text-decoration: none;
-    }
-
-    .fd-case-studies__link:hover {
-      text-decoration: underline
-    }
-
-    /* ---- CTA (Figma "Neutral Button" / size Large) ---- */
-    .fd-case-studies__cta {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-    }
-
-    .fd-case-studies__btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      min-height: 48px;
-      padding: 14px 24px;
-      border: 0;
-      border-radius: 100px;
-      font-family: 'Google Sans Flex', sans-serif;
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 20px;
-      letter-spacing: 0.2px;
-      text-align: center;
-      text-decoration: none;
-      cursor: pointer;
-      transition: background-color .2s ease, opacity .2s ease;
-    }
-
-    .fd-case-studies__btn--neutral {
-      background-image: linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%) !important;
-      color: #ffffff !important;
-      font-weight: 600;
-      box-shadow: 0 4px 18px rgba(29, 78, 216, 0.4), 0 2px 10px rgba(225, 29, 72, 0.3);
-      transition: all .25s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .fd-case-studies__btn--neutral:hover {
-      background-image: linear-gradient(135deg, #1E40AF 0%, #BE123C 100%) !important;
-      box-shadow: 0 8px 26px rgba(225, 29, 72, 0.45), 0 4px 14px rgba(29, 78, 216, 0.4);
-      transform: translateY(-2px);
-      color: #ffffff !important;
-    }
-
-    /* ---- tablet: collage crops inward, centre gutter preserved (self-derived) ---- */
-    @media (max-width:1024px) {
-      .fd-case-studies {
-        padding-bottom: 96px
-      }
-
-      .fd-case-studies__band {
-        padding: 0 24px
-      }
-    }
-
-    /* ---- mobile: collage reflows to a full-width strip, copy stacks beneath ---- */
-    /* Mobile-only collage image. Desktop keeps the 1440x802 background band on
+  /* ---- mobile: collage reflows to a full-width strip, copy stacks beneath ---- */
+  /* Mobile-only collage image. Desktop keeps the 1440x802 background band on
    .fd-case-studies__band::before; this \u003Cimg> is inert above 640px. */
-    .fd-case-studies__mobile {
-      display: none
+  .fd-case-studies__mobile {
+    display: none
+  }
+
+  @media (max-width:640px) {
+    .fd-case-studies {
+      padding-bottom: 64px
     }
 
-    @media (max-width:640px) {
-      .fd-case-studies {
-        padding-bottom: 64px
-      }
-
-      /* body copy was left at the desktop 18/24 here, 2px above every other section's
+    /* body copy was left at the desktop 18/24 here, 2px above every other section's
      mobile body; brought onto the page's 16/22 mobile step */
-      .fd-case-studies__body {
-        font-size: 16px;
-        line-height: 22px
-      }
+    .fd-case-studies__body {
+      font-size: 16px;
+      line-height: 22px
+    }
 
-      /* Mobile swaps the desktop background band for a purpose-made collage image
+    /* Mobile swaps the desktop background band for a purpose-made collage image
      (mvcom_hp_stories_mobile.webp, 1125x694) STACKED ABOVE the copy.
      Why: the desktop artwork is a wide band whose centre is deliberately empty
      so the stat/copy can sit inside it. At mobile widths that composition has no
      good answer - crop it enough to keep the copy clear and the faces get pushed
      off-screen; keep the faces and the copy lands on top of them. A separately
      authored portrait-dense image avoids the trade-off entirely. */
-      .fd-case-studies__band {
-        display: block;
-        height: auto;
-        padding: 0;
-      }
-
-      .fd-case-studies__band::before {
-        display: none
-      }
-
-      .fd-case-studies__mobile {
-        display: block;
-        width: 100%;
-        height: auto;
-      }
-
-      .fd-case-studies__wrapper {
-        margin: 8px auto 0;
-        padding: 0 24px;
-        max-width: 432px;
-      }
-
-      .fd-case-studies__stat {
-        font-size: clamp(44px, 14cqw, 72px);
-        line-height: 1.111;
-      }
-
-      .fd-case-studies__subtitle {
-        font-size: clamp(20px, 5.4cqw, 24px);
-        line-height: 1.25;
-      }
+    .fd-case-studies__band {
+      display: block;
+      height: auto;
+      padding: 0;
     }
 
+    .fd-case-studies__band::before {
+      display: none
+    }
 
-    /* === MEDITATIONS SECTION === */
-    .fd-med-menu {
-      position: relative;
+    .fd-case-studies__mobile {
+      display: block;
       width: 100%;
-      box-sizing: border-box;
-      padding: 128px 0;
-      /* clips the full-bleed rows at the viewport edge */
-      overflow: hidden;
-      /* Figma frame fill (3824:58169) — this section's own full ramp */
-      background: linear-gradient(180deg, #F8F9FE 0%, #CADEFC 100%);
-      font-family: 'Google Sans Flex', sans-serif;
-      -webkit-font-smoothing: antialiased;
-      text-align: center;
+      height: auto;
     }
 
-    .fd-med-menu *,
-    .fd-med-menu *::before,
-    .fd-med-menu *::after {
-      box-sizing: border-box
+    .fd-case-studies__wrapper {
+      margin: 8px auto 0;
+      padding: 0 24px;
+      max-width: 432px;
     }
 
-    /* ---------- copy: 1200 box, text capped at Figma's 792 ---------- */
+    .fd-case-studies__stat {
+      font-size: clamp(44px, 14cqw, 72px);
+      line-height: 1.111;
+    }
+
+    .fd-case-studies__subtitle {
+      font-size: clamp(20px, 5.4cqw, 24px);
+      line-height: 1.25;
+    }
+  }
+
+
+  /* === MEDITATIONS SECTION === */
+  .fd-med-menu {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 128px 0;
+    /* clips the full-bleed rows at the viewport edge */
+    overflow: hidden;
+    /* Figma frame fill (3824:58169) — this section's own full ramp */
+    background: linear-gradient(180deg, #F8F9FE 0%, #CADEFC 100%);
+    font-family: 'Google Sans Flex', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+  }
+
+  .fd-med-menu *,
+  .fd-med-menu *::before,
+  .fd-med-menu *::after {
+    box-sizing: border-box
+  }
+
+  /* ---------- copy: 1200 box, text capped at Figma's 792 ---------- */
+  .fd-med-menu__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* 40px bottom = the Figma Main Box bottom padding, i.e. the copy -> rows gap */
+    padding: 0 120px 40px;
+  }
+
+  .fd-med-menu__eyebrow {
+    margin: 0;
+    color: #E11D48;
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    letter-spacing: .46px;
+    text-transform: uppercase;
+  }
+
+  .fd-med-menu__headline {
+    max-width: 820px;
+    margin: 16px auto 0;
+    color: #0F131A;
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 44px;
+    letter-spacing: .15px;
+    text-wrap: balance;
+  }
+
+  .fd-med-menu__body {
+    max-width: 840px;
+    margin: 16px auto 0;
+    color: #4B5563;
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: .2px;
+  }
+
+  .fd-med-menu__subbody {
+    max-width: 840px;
+    margin: 12px auto 0;
+    color: #0F131A;
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 25px;
+    letter-spacing: .15px;
+  }
+
+  .fd-med-menu__cta {
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  /* MV Button — variant: filled, color: neutral (black), size: large */
+  .fd-med-menu__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 14px 28px;
+    border: 0;
+    border-radius: 100px;
+    background-image: linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%) !important;
+    color: #ffffff !important;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: .2px;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    box-shadow: 0 4px 18px rgba(29, 78, 216, 0.4), 0 2px 10px rgba(225, 29, 72, 0.3);
+    transition: all .25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .fd-med-menu__btn:hover {
+    background-image: linear-gradient(135deg, #1E40AF 0%, #BE123C 100%) !important;
+    box-shadow: 0 8px 26px rgba(225, 29, 72, 0.45), 0 4px 14px rgba(29, 78, 216, 0.4);
+    transform: translateY(-2px);
+    color: #ffffff !important;
+  }
+
+  .fd-med-menu__btn--secondary {
+    background-image: none !important;
+    background-color: rgba(29, 78, 216, 0.08) !important;
+    color: #1D4ED8 !important;
+    border: 1.5px solid rgba(29, 78, 216, 0.3) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+  }
+
+  .fd-med-menu__btn--secondary:hover {
+    background-image: none !important;
+    background-color: rgba(29, 78, 216, 0.15) !important;
+    border-color: #1D4ED8 !important;
+    color: #1E40AF !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(29, 78, 216, 0.15) !important;
+  }
+
+  .fd-med-menu__btn:focus-visible {
+    outline: 2px solid #1D4ED8;
+    outline-offset: 2px
+  }
+
+  /* ---------- full-bleed marquee ---------- */
+  .fd-med-menu__rows {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+    overflow: hidden;
+  }
+
+  .fd-med-menu__row {
+    display: flex;
+    width: max-content;
+  }
+
+  .fd-med-menu__strip {
+    display: flex;
+    gap: 19px;
+    /* keeps the inter-tile rhythm across the seam between copies */
+    padding-right: 19px;
+    flex: 0 0 auto;
+  }
+
+  .fd-med-menu__strip img {
+    display: block;
+    width: 125.15px;
+    height: 125.15px;
+    border-radius: 16px;
+    object-fit: cover;
+    flex: 0 0 auto;
+  }
+
+  @media (prefers-reduced-motion:no-preference) {
+    .fd-med-menu__row {
+      animation: fd-med-menu-left 60s linear infinite
+    }
+
+    .fd-med-menu__row--rev {
+      animation: fd-med-menu-right 75s linear infinite
+    }
+
+    .fd-med-menu__row--alt {
+      animation-duration: 50s
+    }
+
+    @keyframes fd-med-menu-left {
+      from {
+        transform: translateX(0)
+      }
+
+      to {
+        transform: translateX(-25%)
+      }
+    }
+
+    @keyframes fd-med-menu-right {
+      from {
+        transform: translateX(-25%)
+      }
+
+      to {
+        transform: translateX(0)
+      }
+    }
+  }
+
+  /* ---------- responsive (self-derived: no tablet/mobile Figma frames) ---------- */
+  @media (max-width:1024px) {
+    .fd-med-menu {
+      padding: 80px 0
+    }
+
     .fd-med-menu__inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      /* 40px bottom = the Figma Main Box bottom padding, i.e. the copy -> rows gap */
-      padding: 0 120px 40px;
+      padding: 0 40px 40px
+    }
+  }
+
+  @media (max-width:640px) {
+    .fd-med-menu {
+      padding: 56px 0
+    }
+
+    .fd-med-menu__inner {
+      padding: 0 20px 28px
     }
 
     .fd-med-menu__eyebrow {
-      margin: 0;
-      color: #E11D48;
-      font-family: 'Google Sans Flex', sans-serif;
       font-size: 16px;
-      font-weight: 600;
-      line-height: 22px;
-      letter-spacing: .46px;
-      text-transform: uppercase;
+      line-height: 20px
     }
 
     .fd-med-menu__headline {
-      max-width: 820px;
-      margin: 16px auto 0;
-      color: #0F131A;
-      font-family: 'Google Sans Flex', sans-serif;
-      font-size: 36px;
-      font-weight: 600;
-      line-height: 44px;
-      letter-spacing: .15px;
-      text-wrap: balance;
+      font-size: 28px;
+      line-height: 34px;
+      margin-top: 16px
     }
 
     .fd-med-menu__body {
-      max-width: 840px;
-      margin: 16px auto 0;
-      color: #4B5563;
-      font-family: 'Google Sans Flex', sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 26px;
-      letter-spacing: .2px;
-    }
-
-    .fd-med-menu__subbody {
-      max-width: 840px;
-      margin: 12px auto 0;
-      color: #0F131A;
-      font-family: 'Google Sans Flex', sans-serif;
-      font-size: 17px;
-      font-weight: 600;
-      line-height: 25px;
-      letter-spacing: .15px;
+      font-size: 16px;
+      line-height: 22px;
+      margin-top: 16px
     }
 
     .fd-med-menu__cta {
-      margin-top: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 16px;
+      margin-top: 20px
     }
 
-    /* MV Button — variant: filled, color: neutral (black), size: large */
-    .fd-med-menu__btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 14px 28px;
-      border: 0;
-      border-radius: 100px;
-      background-image: linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%) !important;
-      color: #ffffff !important;
-      font-family: inherit;
-      font-size: 15px;
-      font-weight: 600;
-      line-height: 20px;
-      letter-spacing: .2px;
-      text-align: center;
-      text-decoration: none;
-      white-space: nowrap;
-      cursor: pointer;
-      box-shadow: 0 4px 18px rgba(29, 78, 216, 0.4), 0 2px 10px rgba(225, 29, 72, 0.3);
-      transition: all .25s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .fd-med-menu__btn:hover {
-      background-image: linear-gradient(135deg, #1E40AF 0%, #BE123C 100%) !important;
-      box-shadow: 0 8px 26px rgba(225, 29, 72, 0.45), 0 4px 14px rgba(29, 78, 216, 0.4);
-      transform: translateY(-2px);
-      color: #ffffff !important;
-    }
-
-    .fd-med-menu__btn--secondary {
-      background-image: none !important;
-      background-color: rgba(29, 78, 216, 0.08) !important;
-      color: #1D4ED8 !important;
-      border: 1.5px solid rgba(29, 78, 216, 0.3) !important;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
-    }
-
-    .fd-med-menu__btn--secondary:hover {
-      background-image: none !important;
-      background-color: rgba(29, 78, 216, 0.15) !important;
-      border-color: #1D4ED8 !important;
-      color: #1E40AF !important;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 14px rgba(29, 78, 216, 0.15) !important;
-    }
-
-    .fd-med-menu__btn:focus-visible {
-      outline: 2px solid #1D4ED8;
-      outline-offset: 2px
-    }
-
-    /* ---------- full-bleed marquee ---------- */
     .fd-med-menu__rows {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 19px;
-      overflow: hidden;
-    }
-
-    .fd-med-menu__row {
-      display: flex;
-      width: max-content;
+      gap: 12px
     }
 
     .fd-med-menu__strip {
-      display: flex;
-      gap: 19px;
-      /* keeps the inter-tile rhythm across the seam between copies */
-      padding-right: 19px;
-      flex: 0 0 auto;
+      gap: 12px;
+      padding-right: 12px
     }
 
     .fd-med-menu__strip img {
-      display: block;
-      width: 125.15px;
-      height: 125.15px;
-      border-radius: 16px;
-      object-fit: cover;
-      flex: 0 0 auto;
+      width: 96px;
+      height: 96px;
+      border-radius: 12px
     }
+  }
 
-    @media (prefers-reduced-motion:no-preference) {
-      .fd-med-menu__row {
-        animation: fd-med-menu-left 60s linear infinite
-      }
-
-      .fd-med-menu__row--rev {
-        animation: fd-med-menu-right 75s linear infinite
-      }
-
-      .fd-med-menu__row--alt {
-        animation-duration: 50s
-      }
-
-      @keyframes fd-med-menu-left {
-        from {
-          transform: translateX(0)
-        }
-
-        to {
-          transform: translateX(-25%)
-        }
-      }
-
-      @keyframes fd-med-menu-right {
-        from {
-          transform: translateX(-25%)
-        }
-
-        to {
-          transform: translateX(0)
-        }
-      }
-    }
-
-    /* ---------- responsive (self-derived: no tablet/mobile Figma frames) ---------- */
-    @media (max-width:1024px) {
-      .fd-med-menu {
-        padding: 80px 0
-      }
-
-      .fd-med-menu__inner {
-        padding: 0 40px 40px
-      }
-    }
-
-    @media (max-width:640px) {
-      .fd-med-menu {
-        padding: 56px 0
-      }
-
-      .fd-med-menu__inner {
-        padding: 0 20px 28px
-      }
-
-      .fd-med-menu__eyebrow {
-        font-size: 16px;
-        line-height: 20px
-      }
-
-      .fd-med-menu__headline {
-        font-size: 28px;
-        line-height: 34px;
-        margin-top: 16px
-      }
-
-      .fd-med-menu__body {
-        font-size: 16px;
-        line-height: 22px;
-        margin-top: 16px
-      }
-
-      .fd-med-menu__cta {
-        margin-top: 20px
-      }
-
-      .fd-med-menu__rows {
-        gap: 12px
-      }
-
-      .fd-med-menu__strip {
-        gap: 12px;
-        padding-right: 12px
-      }
-
-      .fd-med-menu__strip img {
-        width: 96px;
-        height: 96px;
-        border-radius: 12px
-      }
-    }
-
-    /* ==========================================================================
+  /* ==========================================================================
    PATHWAY CARDS SCROLL ANIMATION (STICKY DECK & SCROLL-LINKED SCALE/OPACITY)
    ========================================================================== */
-    @media (min-width: 1024px) {
-      .fd-pathway-cards__inner {
-        position: relative;
-      }
-
-      .fd-pathway-cards__block {
-        position: sticky;
-        top: 96px;
-        margin-bottom: 32px;
-        box-shadow: 0 -10px 32px rgba(0, 0, 0, 0.45), 0 16px 40px rgba(0, 0, 0, 0.3);
-        will-change: transform, opacity;
-      }
-
-      .fd-pathway-cards__block--mind {
-        z-index: 10;
-      }
-
-      .fd-pathway-cards__block--entrepreneur {
-        z-index: 20;
-      }
-
-      .fd-pathway-cards__block--authority {
-        z-index: 30;
-      }
-
-      .fd-pathway-cards__block--connection {
-        z-index: 40;
-      }
-
-      .fd-pathway-cards__block--body {
-        z-index: 50;
-      }
-
-      .fd-pathway-cards__block--mystic {
-        z-index: 60;
-      }
+  @media (min-width: 1024px) {
+    .fd-pathway-cards__inner {
+      position: relative;
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      .fd-pathway-cards__block {
-        opacity: 1 !important;
-        transform: none !important;
-        transition: none !important;
-      }
+    .fd-pathway-cards__block {
+      position: sticky;
+      top: 96px;
+      margin-bottom: 32px;
+      box-shadow: 0 -10px 32px rgba(0, 0, 0, 0.45), 0 16px 40px rgba(0, 0, 0, 0.3);
+      will-change: transform, opacity;
     }
 
-    /* ==========================================================================
+    .fd-pathway-cards__block--mind {
+      z-index: 10;
+    }
+
+    .fd-pathway-cards__block--entrepreneur {
+      z-index: 20;
+    }
+
+    .fd-pathway-cards__block--authority {
+      z-index: 30;
+    }
+
+    .fd-pathway-cards__block--connection {
+      z-index: 40;
+    }
+
+    .fd-pathway-cards__block--body {
+      z-index: 50;
+    }
+
+    .fd-pathway-cards__block--mystic {
+      z-index: 60;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fd-pathway-cards__block {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+
+  /* ==========================================================================
    Animated SVG Border Tracing
    Starts top-left -> goes right -> down -> left -> up -> vanishes at top-left
    Runs strictly once per hover/focus
    ========================================================================== */
-    @keyframes traceBorderLoop {
-      0% {
-        stroke-dashoffset: 0;
-      }
-
-      100% {
-        stroke-dashoffset: calc(-1 * var(--card-p, 1040px));
-      }
+  @keyframes traceBorderLoop {
+    0% {
+      stroke-dashoffset: 0;
     }
 
-    @keyframes traceBorderOnce {
-      0% {
-        stroke-dashoffset: 0;
-        opacity: 0;
-      }
-
-      3% {
-        opacity: 1;
-      }
-
-      97% {
-        opacity: 1;
-      }
-
-      100% {
-        stroke-dashoffset: calc(-1 * var(--card-p, 1040px));
-        opacity: 0;
-      }
+    100% {
+      stroke-dashoffset: calc(-1 * var(--card-p, 1040px));
     }
+  }
 
-    .animated-glow-card {
-      position: relative;
-      border-radius: 1.5rem;
-      background: transparent;
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      overflow: visible;
-      z-index: 1;
-      cursor: pointer;
-      outline: none;
-    }
-
-    .animated-border-svg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 1.5rem;
-      pointer-events: none;
-      z-index: 20;
-      overflow: visible;
-    }
-
-    .animated-border-path {
-      fill: none;
-      stroke: url('#cardGradientStroke');
-      stroke-width: 3px;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      vector-effect: non-scaling-stroke;
-      stroke-dasharray: var(--card-dash, 280px) var(--card-gap, 760px);
+  @keyframes traceBorderOnce {
+    0% {
       stroke-dashoffset: 0;
       opacity: 0;
-      transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      filter: drop-shadow(0 0 6px rgba(29, 78, 216, 0.65)) drop-shadow(0 0 12px rgba(225, 29, 72, 0.55));
     }
 
-    .animated-border-path-2 {
-      stroke: url('#cardGradientStroke2');
-    }
-
-    .animated-border-path-3 {
-      stroke: url('#cardGradientStroke3');
-    }
-
-    .animated-glow-card:hover,
-    .animated-glow-card:focus-within,
-    .animated-glow-card:focus {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 36px -6px rgba(29, 78, 216, 0.20), 0 8px 18px -4px rgba(225, 29, 72, 0.16);
-    }
-
-    .animated-glow-card:hover .animated-border-path,
-    .animated-glow-card:focus-within .animated-border-path,
-    .animated-glow-card:focus .animated-border-path,
-    .animated-glow-card:hover .animated-border-path-2,
-    .animated-glow-card:focus-within .animated-border-path-2,
-    .animated-glow-card:focus .animated-border-path-2,
-    .animated-glow-card:hover .animated-border-path-3,
-    .animated-glow-card:focus-within .animated-border-path-3,
-    .animated-glow-card:focus .animated-border-path-3 {
+    3% {
       opacity: 1;
-      animation: traceBorderLoop 3s linear infinite;
     }
 
-    .animated-glow-card>div {
-      position: relative;
-      z-index: 1;
-      height: 100%;
-      width: 100%;
-      background: #ffffff;
-      border: 1px solid rgba(226, 232, 240, 0.85);
-      border-radius: 1.5rem;
+    97% {
+      opacity: 1;
     }
 
-    /* ==========================================================================
+    100% {
+      stroke-dashoffset: calc(-1 * var(--card-p, 1040px));
+      opacity: 0;
+    }
+  }
+
+  .animated-glow-card {
+    position: relative;
+    border-radius: 1.5rem;
+    background: transparent;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: visible;
+    z-index: 1;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .animated-border-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 1.5rem;
+    pointer-events: none;
+    z-index: 20;
+    overflow: visible;
+  }
+
+  .animated-border-path {
+    fill: none;
+    stroke: url('#cardGradientStroke');
+    stroke-width: 3px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+    stroke-dasharray: var(--card-dash, 280px) var(--card-gap, 760px);
+    stroke-dashoffset: 0;
+    opacity: 0;
+    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    filter: drop-shadow(0 0 6px rgba(29, 78, 216, 0.65)) drop-shadow(0 0 12px rgba(225, 29, 72, 0.55));
+  }
+
+  .animated-border-path-2 {
+    stroke: url('#cardGradientStroke2');
+  }
+
+  .animated-border-path-3 {
+    stroke: url('#cardGradientStroke3');
+  }
+
+  .animated-glow-card:hover,
+  .animated-glow-card:focus-within,
+  .animated-glow-card:focus {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px -6px rgba(29, 78, 216, 0.20), 0 8px 18px -4px rgba(225, 29, 72, 0.16);
+  }
+
+  .animated-glow-card:hover .animated-border-path,
+  .animated-glow-card:focus-within .animated-border-path,
+  .animated-glow-card:focus .animated-border-path,
+  .animated-glow-card:hover .animated-border-path-2,
+  .animated-glow-card:focus-within .animated-border-path-2,
+  .animated-glow-card:focus .animated-border-path-2,
+  .animated-glow-card:hover .animated-border-path-3,
+  .animated-glow-card:focus-within .animated-border-path-3,
+  .animated-glow-card:focus .animated-border-path-3 {
+    opacity: 1;
+    animation: traceBorderLoop 3s linear infinite;
+  }
+
+  .animated-glow-card>div {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.85);
+    border-radius: 1.5rem;
+  }
+
+  /* ==========================================================================
    Animated Button Border Tracing (Same to Same as Card Border Animation)
    ========================================================================== */
-    .animated-glow-btn {
-      position: relative;
-      border-radius: 9999px;
-      overflow: hidden;
-      z-index: 1;
-      cursor: pointer;
-      outline: none;
-    }
+  .animated-glow-btn {
+    position: relative;
+    border-radius: 9999px;
+    overflow: hidden;
+    z-index: 1;
+    cursor: pointer;
+    outline: none;
+  }
 
-    .animated-btn-border-svg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 9999px;
-      pointer-events: none;
-      z-index: 2;
-      overflow: visible;
-    }
+  .animated-btn-border-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 9999px;
+    pointer-events: none;
+    z-index: 2;
+    overflow: visible;
+  }
 
-    .animated-btn-border-path {
-      fill: none;
-      stroke: url('#btnGradientStroke');
-      stroke-width: 2.5px;
-      stroke-linecap: round;
-      vector-effect: non-scaling-stroke;
-      pathLength: 1000;
-      stroke-dasharray: 220 1000;
+  .animated-btn-border-path {
+    fill: none;
+    stroke: url('#btnGradientStroke');
+    stroke-width: 2.5px;
+    stroke-linecap: round;
+    vector-effect: non-scaling-stroke;
+    pathLength: 1000;
+    stroke-dasharray: 220 1000;
+    stroke-dashoffset: 220;
+    opacity: 0;
+  }
+
+  .animated-glow-btn:hover,
+  .animated-glow-btn:focus-within,
+  .animated-glow-btn:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -4px rgba(29, 78, 216, 0.30), 0 4px 12px -2px rgba(225, 29, 72, 0.20);
+  }
+
+  @keyframes traceBtnBorderOnce {
+    0% {
       stroke-dashoffset: 220;
       opacity: 0;
     }
 
-    .animated-glow-btn:hover,
-    .animated-glow-btn:focus-within,
-    .animated-glow-btn:focus {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px -4px rgba(29, 78, 216, 0.30), 0 4px 12px -2px rgba(225, 29, 72, 0.20);
+    4% {
+      opacity: 1;
     }
 
-    @keyframes traceBtnBorderOnce {
-      0% {
-        stroke-dashoffset: 220;
-        opacity: 0;
-      }
-
-      4% {
-        opacity: 1;
-      }
-
-      96% {
-        opacity: 1;
-      }
-
-      100% {
-        stroke-dashoffset: -1000;
-        opacity: 0;
-      }
+    96% {
+      opacity: 1;
     }
 
-    .animated-glow-btn:hover .animated-btn-border-path,
-    .animated-glow-btn:focus-within .animated-btn-border-path,
-    .animated-glow-btn:focus .animated-btn-border-path {
-      animation: traceBtnBorderOnce 1.4s linear 0.1s 1 forwards;
+    100% {
+      stroke-dashoffset: -1000;
+      opacity: 0;
     }
+  }
 
-    /* Brand Gradient Text Utility matching Flutter LinearGradient(colors: [#1D4ED8, #E11D48]) */
-    .brand-gradient-text {
-      background: linear-gradient(90deg, #1D4ED8 0%, #E11D48 100%) !important;
-      -webkit-background-clip: text !important;
-      -webkit-text-fill-color: transparent !important;
-      background-clip: text !important;
-      color: transparent !important;
-      display: inline-block;
-    }
+  .animated-glow-btn:hover .animated-btn-border-path,
+  .animated-glow-btn:focus-within .animated-btn-border-path,
+  .animated-glow-btn:focus .animated-btn-border-path {
+    animation: traceBtnBorderOnce 1.4s linear 0.1s 1 forwards;
+  }
 
-    /* ==========================================================================
+  /* Brand Gradient Text Utility matching Flutter LinearGradient(colors: [#1D4ED8, #E11D48]) */
+  .brand-gradient-text {
+    background: linear-gradient(90deg, #1D4ED8 0%, #E11D48 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    color: transparent !important;
+    display: inline-block;
+  }
+
+  /* ==========================================================================
    1 MILLION MISSION — CUSTOM IMPACT CARDS (Distinctive Animation & Effects)
    ========================================================================== */
-    @keyframes missionPulseAura {
+  @keyframes missionPulseAura {
 
-      0%,
-      100% {
-        box-shadow: 0 4px 20px -2px rgba(29, 78, 216, 0.08), 0 2px 10px -2px rgba(225, 29, 72, 0.06);
-        border-color: rgba(226, 232, 240, 0.9);
-      }
-
-      50% {
-        box-shadow: 0 12px 30px -4px rgba(225, 29, 72, 0.18), 0 6px 18px -2px rgba(99, 102, 241, 0.16);
-        border-color: rgba(225, 29, 72, 0.35);
-      }
+    0%,
+    100% {
+      box-shadow: 0 4px 20px -2px rgba(29, 78, 216, 0.08), 0 2px 10px -2px rgba(225, 29, 72, 0.06);
+      border-color: rgba(226, 232, 240, 0.9);
     }
 
-    @keyframes missionShimmerGleam {
-      0% {
-        transform: translateX(-120%) rotate(25deg);
-        opacity: 0;
-      }
-
-      20% {
-        opacity: 0.6;
-      }
-
-      60% {
-        opacity: 0.8;
-      }
-
-      100% {
-        transform: translateX(220%) rotate(25deg);
-        opacity: 0;
-      }
+    50% {
+      box-shadow: 0 12px 30px -4px rgba(225, 29, 72, 0.18), 0 6px 18px -2px rgba(99, 102, 241, 0.16);
+      border-color: rgba(225, 29, 72, 0.35);
     }
+  }
 
-    @keyframes missionBeaconRing {
-      0% {
-        transform: scale(0.92);
-        opacity: 0.8;
-      }
-
-      70% {
-        transform: scale(1.4);
-        opacity: 0;
-      }
-
-      100% {
-        transform: scale(1.4);
-        opacity: 0;
-      }
-    }
-
-    @keyframes missionCounterFloat {
-
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-4px);
-      }
-    }
-
-    .mission-impact-card {
-      position: relative;
-      border-radius: 1.25rem;
-      background: #ffffff;
-      border: 1px solid rgba(226, 232, 240, 0.9);
-      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
-      transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    /* Subtle ambient backdrop aura that wakes on hover */
-    .mission-impact-card::before {
-      content: '';
-      position: absolute;
-      inset: -1px;
-      border-radius: 1.25rem;
-      padding: 1.5px;
-      background: linear-gradient(135deg, rgba(29, 78, 216, 0.15) 0%, rgba(99, 102, 241, 0.2) 50%, rgba(225, 29, 72, 0.2) 100%);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
-      opacity: 0.4;
-      transition: opacity 0.4s ease;
-    }
-
-    /* Diagonal glass light-gleam streak */
-    .mission-impact-card::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(90deg,
-          transparent 0%,
-          rgba(255, 255, 255, 0.02) 40%,
-          rgba(255, 255, 255, 0.65) 50%,
-          rgba(255, 255, 255, 0.02) 60%,
-          transparent 100%);
+  @keyframes missionShimmerGleam {
+    0% {
       transform: translateX(-120%) rotate(25deg);
-      pointer-events: none;
-      z-index: 10;
-    }
-
-    .mission-impact-card:hover {
-      transform: translateY(-8px) scale(1.015);
-      border-color: transparent;
-      box-shadow: 0 24px 44px -8px rgba(29, 78, 216, 0.16), 0 12px 24px -6px rgba(225, 29, 72, 0.18);
-    }
-
-    .mission-impact-card:hover::before {
-      opacity: 1;
-      background: linear-gradient(135deg, #1D4ED8 0%, #6366F1 50%, #E11D48 100%);
-    }
-
-    .mission-impact-card:hover::after {
-      animation: missionShimmerGleam 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
-    /* Feature 1: Multiplier Glow Variant */
-    .mission-impact-card--1:hover {
-      box-shadow: 0 22px 42px -6px rgba(29, 78, 216, 0.24), 0 10px 20px -4px rgba(37, 99, 235, 0.16);
-    }
-
-    /* Feature 2: 1M Centerpiece Hero Highlight */
-    .mission-impact-card--hero {
-      border-color: rgba(225, 29, 72, 0.28);
-      background: linear-gradient(180deg, #ffffff 0%, #FFF5F7 100%);
-    }
-
-    .mission-impact-card--hero:hover {
-      box-shadow: 0 24px 48px -6px rgba(225, 29, 72, 0.26), 0 12px 26px -4px rgba(244, 63, 94, 0.18);
-    }
-
-    /* Feature 3: Action Variant */
-    .mission-impact-card--3:hover {
-      box-shadow: 0 22px 42px -6px rgba(79, 70, 229, 0.24), 0 10px 20px -4px rgba(99, 102, 241, 0.16);
-    }
-
-    /* Animated Corner Accent Badge */
-    .mission-beacon-badge {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .mission-beacon-ring {
-      position: absolute;
-      inset: -3px;
-      border-radius: inherit;
-      border: 2px solid currentColor;
       opacity: 0;
-      pointer-events: none;
     }
 
-    .mission-impact-card:hover .mission-beacon-ring {
-      animation: missionBeaconRing 1.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+    20% {
+      opacity: 0.6;
     }
 
-    .mission-stat-pill {
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    60% {
+      opacity: 0.8;
     }
 
-    .mission-impact-card:hover .mission-stat-pill {
-      animation: missionCounterFloat 2s ease-in-out infinite;
+    100% {
+      transform: translateX(220%) rotate(25deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes missionBeaconRing {
+    0% {
+      transform: scale(0.92);
+      opacity: 0.8;
     }
 
-    /* ==========================================================================
+    70% {
+      transform: scale(1.4);
+      opacity: 0;
+    }
+
+    100% {
+      transform: scale(1.4);
+      opacity: 0;
+    }
+  }
+
+  @keyframes missionCounterFloat {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-4px);
+    }
+  }
+
+  .mission-impact-card {
+    position: relative;
+    border-radius: 1.25rem;
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+    transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* Subtle ambient backdrop aura that wakes on hover */
+  .mission-impact-card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 1.25rem;
+    padding: 1.5px;
+    background: linear-gradient(135deg, rgba(29, 78, 216, 0.15) 0%, rgba(99, 102, 241, 0.2) 50%, rgba(225, 29, 72, 0.2) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.4;
+    transition: opacity 0.4s ease;
+  }
+
+  /* Diagonal glass light-gleam streak */
+  .mission-impact-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.02) 40%,
+        rgba(255, 255, 255, 0.65) 50%,
+        rgba(255, 255, 255, 0.02) 60%,
+        transparent 100%);
+    transform: translateX(-120%) rotate(25deg);
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .mission-impact-card:hover {
+    transform: translateY(-8px) scale(1.015);
+    border-color: transparent;
+    box-shadow: 0 24px 44px -8px rgba(29, 78, 216, 0.16), 0 12px 24px -6px rgba(225, 29, 72, 0.18);
+  }
+
+  .mission-impact-card:hover::before {
+    opacity: 1;
+    background: linear-gradient(135deg, #1D4ED8 0%, #6366F1 50%, #E11D48 100%);
+  }
+
+  .mission-impact-card:hover::after {
+    animation: missionShimmerGleam 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Feature 1: Multiplier Glow Variant */
+  .mission-impact-card--1:hover {
+    box-shadow: 0 22px 42px -6px rgba(29, 78, 216, 0.24), 0 10px 20px -4px rgba(37, 99, 235, 0.16);
+  }
+
+  /* Feature 2: 1M Centerpiece Hero Highlight */
+  .mission-impact-card--hero {
+    border-color: rgba(225, 29, 72, 0.28);
+    background: linear-gradient(180deg, #ffffff 0%, #FFF5F7 100%);
+  }
+
+  .mission-impact-card--hero:hover {
+    box-shadow: 0 24px 48px -6px rgba(225, 29, 72, 0.26), 0 12px 26px -4px rgba(244, 63, 94, 0.18);
+  }
+
+  /* Feature 3: Action Variant */
+  .mission-impact-card--3:hover {
+    box-shadow: 0 22px 42px -6px rgba(79, 70, 229, 0.24), 0 10px 20px -4px rgba(99, 102, 241, 0.16);
+  }
+
+  /* Animated Corner Accent Badge */
+  .mission-beacon-badge {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mission-beacon-ring {
+    position: absolute;
+    inset: -3px;
+    border-radius: inherit;
+    border: 2px solid currentColor;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .mission-impact-card:hover .mission-beacon-ring {
+    animation: missionBeaconRing 1.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  .mission-stat-pill {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .mission-impact-card:hover .mission-stat-pill {
+    animation: missionCounterFloat 2s ease-in-out infinite;
+  }
+
+  /* ==========================================================================
    PREMIUM AFTER-EFFECTS TRANSITIONS FOR PATHWAY GALLERY SLIDESHOWS
    ========================================================================== */
 
-    @keyframes fdGalleryKenBurns {
-      0% {
-        transform: scale(1.0);
-      }
-
-      50% {
-        transform: scale(1.035) translate(0.3%, -0.3%);
-      }
-
-      100% {
-        transform: scale(1.0);
-      }
+  @keyframes fdGalleryKenBurns {
+    0% {
+      transform: scale(1.0);
     }
 
-    .fd-gallery-kenburns {
-      animation: fdGalleryKenBurns 12s ease-in-out infinite alternate;
-      will-change: transform;
+    50% {
+      transform: scale(1.035) translate(0.3%, -0.3%);
     }
 
-    @keyframes fdLightSweep {
-      0% {
-        transform: translateX(-120%) skewX(-20deg);
-        opacity: 0;
-      }
+    100% {
+      transform: scale(1.0);
+    }
+  }
 
-      20% {
-        opacity: 0.9;
-      }
+  .fd-gallery-kenburns {
+    animation: fdGalleryKenBurns 12s ease-in-out infinite alternate;
+    will-change: transform;
+  }
 
-      80% {
-        opacity: 0.7;
-      }
-
-      100% {
-        transform: translateX(220%) skewX(-20deg);
-        opacity: 0;
-      }
+  @keyframes fdLightSweep {
+    0% {
+      transform: translateX(-120%) skewX(-20deg);
+      opacity: 0;
     }
 
-    .fd-gallery-sweep {
-      animation: fdLightSweep 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      will-change: transform, opacity;
+    20% {
+      opacity: 0.9;
     }
 
-    @keyframes fdBloomPulse {
-      0% {
-        opacity: 0;
-        transform: scale(0.85);
-      }
-
-      35% {
-        opacity: 0.55;
-        transform: scale(1.1);
-      }
-
-      100% {
-        opacity: 0;
-        transform: scale(1.28);
-      }
+    80% {
+      opacity: 0.7;
     }
 
-    .fd-gallery-bloom {
-      animation: fdBloomPulse 0.9s ease-out forwards;
-      will-change: transform, opacity;
+    100% {
+      transform: translateX(220%) skewX(-20deg);
+      opacity: 0;
+    }
+  }
+
+  .fd-gallery-sweep {
+    animation: fdLightSweep 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: transform, opacity;
+  }
+
+  @keyframes fdBloomPulse {
+    0% {
+      opacity: 0;
+      transform: scale(0.85);
     }
 
-    @keyframes fdCurtainWipe {
-      0% {
-        clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
-        opacity: 0.4;
-        transform: scale(1.05);
-      }
-
-      100% {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-        opacity: 1;
-        transform: scale(1.0);
-      }
+    35% {
+      opacity: 0.55;
+      transform: scale(1.1);
     }
 
-    .fd-gallery-curtain-in {
-      animation: fdCurtainWipe 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      will-change: clip-path, opacity, transform;
+    100% {
+      opacity: 0;
+      transform: scale(1.28);
+    }
+  }
+
+  .fd-gallery-bloom {
+    animation: fdBloomPulse 0.9s ease-out forwards;
+    will-change: transform, opacity;
+  }
+
+  @keyframes fdCurtainWipe {
+    0% {
+      clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+      opacity: 0.4;
+      transform: scale(1.05);
     }
 
-    /* ==========================================================================
+    100% {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      opacity: 1;
+      transform: scale(1.0);
+    }
+  }
+
+  .fd-gallery-curtain-in {
+    animation: fdCurtainWipe 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: clip-path, opacity, transform;
+  }
+
+  /* ==========================================================================
    AFTER-EFFECTS MOTION GRAPHICS TRANSITIONS
    ========================================================================== */
 
-    /* 1. Zoom-Bloom */
-    @keyframes aeZoomBloomIn {
-      0% {
-        transform: scale(1.15);
-        opacity: 0;
-        filter: blur(4px) brightness(1.2);
-      }
-
-      100% {
-        transform: scale(1.0);
-        opacity: 1;
-        filter: blur(0px) brightness(1.0);
-      }
+  /* 1. Zoom-Bloom */
+  @keyframes aeZoomBloomIn {
+    0% {
+      transform: scale(1.15);
+      opacity: 0;
+      filter: blur(4px) brightness(1.2);
     }
 
-    @keyframes aeZoomBloomOut {
-      0% {
-        transform: scale(1.0);
-        opacity: 1;
-        filter: blur(0px);
-      }
+    100% {
+      transform: scale(1.0);
+      opacity: 1;
+      filter: blur(0px) brightness(1.0);
+    }
+  }
 
-      100% {
-        transform: scale(0.95);
-        opacity: 0;
-        filter: blur(3px);
-      }
+  @keyframes aeZoomBloomOut {
+    0% {
+      transform: scale(1.0);
+      opacity: 1;
+      filter: blur(0px);
     }
 
-    .ae-in-zoom-bloom {
-      animation: aeZoomBloomIn 0.82s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      will-change: transform, opacity, filter;
+    100% {
+      transform: scale(0.95);
+      opacity: 0;
+      filter: blur(3px);
+    }
+  }
+
+  .ae-in-zoom-bloom {
+    animation: aeZoomBloomIn 0.82s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: transform, opacity, filter;
+  }
+
+  .ae-out-zoom-bloom {
+    animation: aeZoomBloomOut 0.82s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: transform, opacity, filter;
+  }
+
+  /* 2. Parallax-Glide */
+  @keyframes aeGlideInNext {
+    0% {
+      transform: translateX(28%) scale(1.04);
+      opacity: 0;
     }
 
-    .ae-out-zoom-bloom {
-      animation: aeZoomBloomOut 0.82s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      will-change: transform, opacity, filter;
+    100% {
+      transform: translateX(0) scale(1.0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes aeGlideOutNext {
+    0% {
+      transform: translateX(0) scale(1.0);
+      opacity: 1;
     }
 
-    /* 2. Parallax-Glide */
-    @keyframes aeGlideInNext {
-      0% {
-        transform: translateX(28%) scale(1.04);
-        opacity: 0;
-      }
+    100% {
+      transform: translateX(-18%) scale(0.96);
+      opacity: 0;
+    }
+  }
 
-      100% {
-        transform: translateX(0) scale(1.0);
-        opacity: 1;
-      }
+  @keyframes aeGlideInPrev {
+    0% {
+      transform: translateX(-28%) scale(1.04);
+      opacity: 0;
     }
 
-    @keyframes aeGlideOutNext {
-      0% {
-        transform: translateX(0) scale(1.0);
-        opacity: 1;
-      }
+    100% {
+      transform: translateX(0) scale(1.0);
+      opacity: 1;
+    }
+  }
 
-      100% {
-        transform: translateX(-18%) scale(0.96);
-        opacity: 0;
-      }
+  @keyframes aeGlideOutPrev {
+    0% {
+      transform: translateX(0) scale(1.0);
+      opacity: 1;
     }
 
-    @keyframes aeGlideInPrev {
-      0% {
-        transform: translateX(-28%) scale(1.04);
-        opacity: 0;
-      }
+    100% {
+      transform: translateX(18%) scale(0.96);
+      opacity: 0;
+    }
+  }
 
-      100% {
-        transform: translateX(0) scale(1.0);
-        opacity: 1;
-      }
+  .ae-in-glide-next {
+    animation: aeGlideInNext 0.78s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: transform, opacity;
+  }
+
+  .ae-out-glide-next {
+    animation: aeGlideOutNext 0.78s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: transform, opacity;
+  }
+
+  .ae-in-glide-prev {
+    animation: aeGlideInPrev 0.78s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: transform, opacity;
+  }
+
+  .ae-out-glide-prev {
+    animation: aeGlideOutPrev 0.78s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: transform, opacity;
+  }
+
+  /* 3. Diagonal-Curtain */
+  @keyframes aeCurtainOut {
+    0% {
+      opacity: 1;
+      transform: scale(1.0);
     }
 
-    @keyframes aeGlideOutPrev {
-      0% {
-        transform: translateX(0) scale(1.0);
-        opacity: 1;
-      }
+    100% {
+      opacity: 0;
+      transform: scale(0.97);
+    }
+  }
 
-      100% {
-        transform: translateX(18%) scale(0.96);
-        opacity: 0;
-      }
+  .ae-out-curtain {
+    animation: aeCurtainOut 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: opacity, transform;
+  }
+
+  /* 4. Vertical-Lift */
+  @keyframes aeLiftInNext {
+    0% {
+      transform: translateY(22%) scale(1.03);
+      opacity: 0;
     }
 
-    .ae-in-glide-next {
-      animation: aeGlideInNext 0.78s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      will-change: transform, opacity;
+    100% {
+      transform: translateY(0) scale(1.0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes aeLiftOutNext {
+    0% {
+      transform: translateY(0) scale(1.0);
+      opacity: 1;
     }
 
-    .ae-out-glide-next {
-      animation: aeGlideOutNext 0.78s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      will-change: transform, opacity;
+    100% {
+      transform: translateY(-14%) scale(0.97);
+      opacity: 0;
+    }
+  }
+
+  @keyframes aeLiftInPrev {
+    0% {
+      transform: translateY(-22%) scale(1.03);
+      opacity: 0;
     }
 
-    .ae-in-glide-prev {
-      animation: aeGlideInPrev 0.78s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      will-change: transform, opacity;
+    100% {
+      transform: translateY(0) scale(1.0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes aeLiftOutPrev {
+    0% {
+      transform: translateY(0) scale(1.0);
+      opacity: 1;
     }
 
-    .ae-out-glide-prev {
-      animation: aeGlideOutPrev 0.78s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      will-change: transform, opacity;
+    100% {
+      transform: translateY(14%) scale(0.97);
+      opacity: 0;
+    }
+  }
+
+  .ae-in-lift-next {
+    animation: aeLiftInNext 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: transform, opacity;
+  }
+
+  .ae-out-lift-next {
+    animation: aeLiftOutNext 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: transform, opacity;
+  }
+
+  .ae-in-lift-prev {
+    animation: aeLiftInPrev 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: transform, opacity;
+  }
+
+  .ae-out-lift-prev {
+    animation: aeLiftOutPrev 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: transform, opacity;
+  }
+
+  /* 5. Aperture-Focus (Cinematic Rack-Focus) */
+  @keyframes aeApertureIn {
+    0% {
+      filter: blur(14px) brightness(1.3);
+      transform: scale(1.08);
+      opacity: 0;
     }
 
-    /* 3. Diagonal-Curtain */
-    @keyframes aeCurtainOut {
-      0% {
-        opacity: 1;
-        transform: scale(1.0);
-      }
-
-      100% {
-        opacity: 0;
-        transform: scale(0.97);
-      }
+    40% {
+      opacity: 1;
     }
 
-    .ae-out-curtain {
-      animation: aeCurtainOut 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      will-change: opacity, transform;
+    100% {
+      filter: blur(0px) brightness(1.0);
+      transform: scale(1.0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes aeApertureOut {
+    0% {
+      filter: blur(0px);
+      opacity: 1;
+      transform: scale(1.0);
     }
 
-    /* 4. Vertical-Lift */
-    @keyframes aeLiftInNext {
-      0% {
-        transform: translateY(22%) scale(1.03);
-        opacity: 0;
-      }
-
-      100% {
-        transform: translateY(0) scale(1.0);
-        opacity: 1;
-      }
+    100% {
+      filter: blur(8px);
+      opacity: 0;
+      transform: scale(0.98);
     }
+  }
 
-    @keyframes aeLiftOutNext {
-      0% {
-        transform: translateY(0) scale(1.0);
-        opacity: 1;
-      }
+  .ae-in-aperture {
+    animation: aeApertureIn 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: filter, transform, opacity;
+  }
 
-      100% {
-        transform: translateY(-14%) scale(0.97);
-        opacity: 0;
-      }
-    }
-
-    @keyframes aeLiftInPrev {
-      0% {
-        transform: translateY(-22%) scale(1.03);
-        opacity: 0;
-      }
-
-      100% {
-        transform: translateY(0) scale(1.0);
-        opacity: 1;
-      }
-    }
-
-    @keyframes aeLiftOutPrev {
-      0% {
-        transform: translateY(0) scale(1.0);
-        opacity: 1;
-      }
-
-      100% {
-        transform: translateY(14%) scale(0.97);
-        opacity: 0;
-      }
-    }
-
-    .ae-in-lift-next {
-      animation: aeLiftInNext 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      will-change: transform, opacity;
-    }
-
-    .ae-out-lift-next {
-      animation: aeLiftOutNext 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      will-change: transform, opacity;
-    }
-
-    .ae-in-lift-prev {
-      animation: aeLiftInPrev 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      will-change: transform, opacity;
-    }
-
-    .ae-out-lift-prev {
-      animation: aeLiftOutPrev 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      will-change: transform, opacity;
-    }
-
-    /* 5. Aperture-Focus (Cinematic Rack-Focus) */
-    @keyframes aeApertureIn {
-      0% {
-        filter: blur(14px) brightness(1.3);
-        transform: scale(1.08);
-        opacity: 0;
-      }
-
-      40% {
-        opacity: 1;
-      }
-
-      100% {
-        filter: blur(0px) brightness(1.0);
-        transform: scale(1.0);
-        opacity: 1;
-      }
-    }
-
-    @keyframes aeApertureOut {
-      0% {
-        filter: blur(0px);
-        opacity: 1;
-        transform: scale(1.0);
-      }
-
-      100% {
-        filter: blur(8px);
-        opacity: 0;
-        transform: scale(0.98);
-      }
-    }
-
-    .ae-in-aperture {
-      animation: aeApertureIn 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      will-change: filter, transform, opacity;
-    }
-
-    .ae-out-aperture {
-      animation: aeApertureOut 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      will-change: filter, transform, opacity;
-    }
+  .ae-out-aperture {
+    animation: aeApertureOut 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: filter, transform, opacity;
+  }
