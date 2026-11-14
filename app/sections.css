@@ -1181,11 +1181,6 @@ p.body,
 }
 
 .fd-how-it-works__carousel:hover .fd-how-it-works__track,
-.fd-how-it-works__carousel:focus-within .fd-how-it-works__track {
-  animation-play-state: paused;
-  animation-play-state: running !important;
-}
-
 .fd-how-it-works__carousel:focus-within .fd-how-it-works__track,
 .fd-how-it-works__track {
   animation-play-state: running !important;
@@ -2997,17 +2992,10 @@ p.body,
 }
 
 .fd-meet-your-mentors__row:hover .fd-meet-your-mentors__track,
-.fd-meet-your-mentors__row:focus-within .fd-meet-your-mentors__track {
-
-  .fd-meet-your-mentors__row:focus-within .fd-meet-your-mentors__track,
-  .fd-meet-your-mentors__track {
-    animation-play-state: running !important;
-  }
-
-  animation-play-state: paused .fd-meet-your-mentors__row:focus-within .fd-meet-your-mentors__track,
-  .fd-meet-your-mentors__track {
-    animation-play-state: running !important;
-  }
+.fd-meet-your-mentors__row:focus-within .fd-meet-your-mentors__track,
+.fd-meet-your-mentors__track {
+  animation-play-state: running !important;
+}
 
   /* Each track holds THREE identical sets of 6 unique universe pillars. (6 x 298 = 1788px per row, both at 40px/s => 44.7s) */
   .fd-meet-your-mentors__set {
