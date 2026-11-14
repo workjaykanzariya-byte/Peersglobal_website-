@@ -16,6 +16,7 @@ export function HeroSection() {
         loop
         playsInline
         preload="metadata"
+        poster="/videos/homepage-hero-bg-poster.jpg"
         aria-hidden="true"
         tabIndex={-1}
         src="/videos/homepage-hero-bg.mp4"
