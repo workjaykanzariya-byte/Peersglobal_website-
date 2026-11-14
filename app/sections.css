@@ -1906,6 +1906,11 @@ p.body,
   --pw-eyebrow: #d8adff;
 }
 
+.fd-pathway-cards__block--mystic .fd-pathway-cards__right {
+  justify-content: flex-start;
+  padding-top: 36px;
+}
+
 /* ---- left column ---- */
 .fd-pathway-cards__hero {
   display: block;
@@ -2281,7 +2286,9 @@ p.body,
 
 /* end-stop state, applied by the carousel script only (no-JS render is unchanged) */
 .fd-pathway-cards__navbtn[disabled] {
-  opacity: 0.35;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
   cursor: default;
   transform: none;
   box-shadow: none;
@@ -2367,8 +2374,15 @@ p.body,
     min-height: 44px
   }
 
+  .fd-pathway-cards__track {
+    gap: 14px;
+    padding-bottom: 8px;
+    scroll-padding: 0 4px;
+    -webkit-overflow-scrolling: touch;
+  }
+
   .fd-pathway-cards__page {
-    grid-template-columns: repeat(2, minmax(0, 1fr))
+    display: contents !important;
   }
 
   .fd-pathway-cards__prog {

@@ -17,13 +17,15 @@ export default function WhyPage() {
       {/* 1. Hero */}
       <section className="relative overflow-hidden bg-gradient-to-b from-[#0b1b3a] via-[#122347] to-[#0b1b3a] text-white pt-20 pb-20 border-b border-[var(--border)]">
         <div className="absolute -top-24 -left-24 size-96 rounded-full bg-primary/20 blur-3xl pointer-events-none" />
-        <div className="absolute top-10 right-10 size-80 rounded-full bg-[#D4AF37]/15 blur-3xl pointer-events-none" />
+        <div className="absolute top-10 right-10 size-80 rounded-full bg-rose-500/15 blur-3xl pointer-events-none" />
 
         <div className="shell relative z-10 flex flex-col gap-6 max-w-4xl mx-auto text-center">
-          <Eyebrow tone="gold">COLLABORATION OVER NETWORKING</Eyebrow>
+          <div className="flex justify-center">
+            <Eyebrow tone="primary">COLLABORATION OVER NETWORKING</Eyebrow>
+          </div>
           <h1 className="display text-3xl sm:text-5xl lg:text-6xl font-semibold text-white tracking-tight leading-snug">
             Collaboration is not a soft skill.<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-[#D4AF37] to-amber-400">
+            <span className="brand-gradient-text">
               It is a growth strategy.
             </span>
           </h1>
@@ -31,7 +33,7 @@ export default function WhyPage() {
             Most entrepreneurs are told to build a network. Very few are shown how to build a circle. The difference decides how fast you grow.
           </p>
           <div className="flex flex-wrap gap-4 justify-center pt-4">
-            <Cta href="https://peersunity.com/circles" target="_blank" rel="noopener noreferrer" variant="gold" size="lg">Find Your Circle</Cta>
+            <Cta href="https://peersunity.com/circles" target="_blank" rel="noopener noreferrer" variant="primary" size="lg">Find Your Circle</Cta>
             <Cta href="https://peersunity.com/events" target="_blank" rel="noopener noreferrer" variant="onDark" size="lg">Visit a Meeting as a Guest</Cta>
           </div>
         </div>
