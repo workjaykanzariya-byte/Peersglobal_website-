@@ -1587,14 +1587,11 @@ class LeadershipApiService {
       // fallback
     }
 
-    // Fallback simulation
-    const simulatedAppNo = `PG-2026-${Math.floor(1000 + Math.random() * 9000)}`
     return {
-      success: true,
-      message: 'Nomination recorded.',
-      application_number: simulatedAppNo,
-      status: 'submitted',
-      id: `cand-${Date.now()}`,
+      success: false,
+      message: 'Unable to submit nomination to the server. Please check your connection and try again.',
+      application_number: '',
+      status: 'failed',
     }
   }
 
