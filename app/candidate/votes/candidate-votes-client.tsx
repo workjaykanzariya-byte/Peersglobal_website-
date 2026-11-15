@@ -161,7 +161,7 @@ export function CandidateVotesClient() {
       }
 
       setCandidate(data.candidate)
-      setEmailInput(emailToSend)
+      setEmailInput(inputToSend)
       setSuccessMsg(data.message)
       setStep('otp')
       setResendTimer(60)
