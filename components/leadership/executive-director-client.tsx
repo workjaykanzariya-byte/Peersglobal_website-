@@ -300,12 +300,12 @@ export function ExecutiveDirectorClient() {
 
               <div className="pt-2 flex flex-wrap items-center gap-3.5">
                 <GalaxyButton
-                  href="/contact?intent=leadership"
+                  href="/leadership/nominate?role=ded"
                   variant="white-gradient"
                   size="default"
                   className="font-bold uppercase tracking-wider"
                 >
-                  Apply to Lead
+                  Become Executive Director
                 </GalaxyButton>
                 <GalaxyButton
                   href="https://unity.peersglobal.com"
@@ -973,12 +973,12 @@ export function ExecutiveDirectorClient() {
 
               <div className="flex flex-wrap items-center gap-3.5 pt-1">
                 <GalaxyButton
-                  href="/contact?intent=leadership"
+                  href="/leadership/nominate?role=ded"
                   variant="primary"
                   size="default"
                   className="font-bold uppercase tracking-wider"
                 >
-                  Apply to Lead
+                  Become Executive Director
                 </GalaxyButton>
               </div>
             </div>

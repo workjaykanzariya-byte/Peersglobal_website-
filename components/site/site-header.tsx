@@ -4,7 +4,7 @@
 import * as React from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { ChevronDown, Menu, X, ArrowRight, Download } from 'lucide-react'
+import { ChevronDown, Menu, X, ArrowRight, Download, Award } from 'lucide-react'
 import { Logo } from '@/components/site/logo'
 import { HEADER_NAV, SITE, NavItem } from '@/lib/data/site'
 import { cn } from '@/lib/utils'
@@ -301,7 +301,18 @@ export function SiteHeader() {
           </nav>
 
           {/* Right Side Actions: DESKTOP ONLY DOWNLOAD BUTTON & MOBILE MENU BUTTON */}
-          <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
+          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+            {/* BECOME A LEADER CTA: Desktop */}
+            <div className="hidden lg:inline-flex items-center">
+              <Link
+                href="/leadership/nominate"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white shadow-sm hover:shadow-md hover:brightness-110 active:scale-[0.98] transition-all"
+              >
+                <Award className="w-3.5 h-3.5" />
+                <span>Become a Leader</span>
+              </Link>
+            </div>
+
             {/* DOWNLOAD PEERSUNITY: Desktop only (lg:), hidden on mobile view */}
             <div className="hidden lg:inline-flex items-center">
               <GalaxyButton
@@ -377,6 +388,15 @@ export function SiteHeader() {
           <div>
             {/* Top Action CTAs inside Drawer */}
             <div className="mb-6 flex flex-col gap-3 pb-5 border-b border-slate-100">
+              <Link
+                href="/leadership/nominate"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-bold bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white shadow hover:brightness-105 active:scale-[0.98] transition-all"
+              >
+                <Award className="w-4 h-4" />
+                <span>BECOME A LEADER</span>
+              </Link>
+
               <GalaxyButton
                 href={smartAppUrl}
                 onClick={(e: any) => {

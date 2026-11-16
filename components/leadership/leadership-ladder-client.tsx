@@ -276,12 +276,12 @@ export function LeadershipLadderClient() {
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-3.5">
                 <GalaxyButton
-                  href="/leadership/apply"
+                  href="/leadership/nominate"
                   variant="white-gradient"
                   size="default"
                   className="font-bold uppercase tracking-wider"
                 >
-                  Apply to Lead
+                  Become a Leader
                 </GalaxyButton>
 
                 <GalaxyButton
@@ -889,11 +889,11 @@ export function LeadershipLadderClient() {
 
             <div className="flex flex-wrap items-center gap-4 pt-3">
               <GalaxyButton
-                href="/leadership/apply"
+                href="/leadership/nominate"
                 size="default"
                 className="font-bold uppercase tracking-wider"
               >
-                Apply to Lead
+                Become a Leader
               </GalaxyButton>
             </div>
           </div>

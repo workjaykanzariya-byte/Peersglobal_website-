@@ -329,11 +329,11 @@ export function CircleDirectorClient() {
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-3.5">
                 <GalaxyButton
-                  href="/contact?intent=leadership"
+                  href="/leadership/nominate?role=circle_director"
                   size="default"
                   className="font-bold uppercase tracking-wider"
                 >
-                  Apply to Lead
+                  Become Circle Director
                 </GalaxyButton>
               </div>
             </div>
@@ -1057,12 +1057,12 @@ export function CircleDirectorClient() {
 
             <div className="flex flex-wrap items-center gap-4 pt-3">
               <GalaxyButton
-                href="/contact?intent=leadership"
+                href="/leadership/nominate?role=circle_director"
                 variant="primary"
                 size="default"
                 className="font-bold uppercase tracking-wider"
               >
-                Apply to Lead
+                Become Circle Director
               </GalaxyButton>
             </div>
           </div>

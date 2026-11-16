@@ -320,11 +320,11 @@ export function CircleFounderClient() {
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-3.5">
                 <GalaxyButton
-                  href="/start-a-circle"
+                  href="/leadership/nominate?role=circle_founder"
                   size="default"
                   className="font-bold uppercase tracking-wider"
                 >
-                  Apply to Found a Circle
+                  Become Circle Founder
                 </GalaxyButton>
 
                 <GalaxyButton
@@ -1175,12 +1175,12 @@ export function CircleFounderClient() {
 
             <div className="flex flex-wrap items-center gap-4 pt-3">
               <GalaxyButton
-                href="/start-a-circle"
+                href="/leadership/nominate?role=circle_founder"
                 variant="primary"
                 size="default"
                 className="font-bold uppercase tracking-wider"
               >
-                Apply to Found a Circle
+                Become Circle Founder
               </GalaxyButton>
             </div>
           </div>

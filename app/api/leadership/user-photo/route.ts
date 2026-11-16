@@ -6,7 +6,7 @@ export const dynamic = 'force-dynamic'
 const UNITY_API_BASE = 'https://peersunity.com'
 const UNITY_BEARER_TOKEN = '302|cO0VMR2dmr9j8c3JtIU9dfkuZfSfvzaCCF1GVxJAdc6fdd2d'
 
-export function normalizePhotoUrl(rawPhoto: string | null | undefined): string | null {
+function normalizePhotoUrl(rawPhoto: string | null | undefined): string | null {
   if (!rawPhoto || typeof rawPhoto !== 'string') return null
   const trimmed = rawPhoto.trim()
   if (!trimmed) return null

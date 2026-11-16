@@ -288,11 +288,11 @@ export function IndustryDirectorClient() {
 
               <div className="pt-2 flex flex-wrap items-center gap-3.5">
                 <GalaxyButton
-                  href="/contact?intent=leadership"
+                  href="/leadership/nominate?role=industry_director"
                   size="default"
                   className="font-bold uppercase tracking-wider"
                 >
-                  Apply to Lead
+                  Become Industry Director
                 </GalaxyButton>
                 <GalaxyButton
                   href="https://unity.peersglobal.com"
@@ -969,12 +969,12 @@ export function IndustryDirectorClient() {
 
               <div className="flex flex-wrap items-center gap-3.5 pt-1">
                 <GalaxyButton
-                  href="/contact?intent=leadership"
+                  href="/leadership/nominate?role=industry_director"
                   variant="primary"
                   size="default"
                   className="font-bold uppercase tracking-wider"
                 >
-                  Apply to Lead
+                  Become Industry Director
                 </GalaxyButton>
               </div>
             </div>
