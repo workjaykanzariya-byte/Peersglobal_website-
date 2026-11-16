@@ -100,54 +100,72 @@ export async function POST(req: Request) {
     let liveApplicationNumber = applicationNumber
     let liveNominationId = candidateId
 
-    // 1. Submit to Live Production Backend API: POST https://peersunity.com/api/v1/leadership/public/campaigns/{id}/nominate
+    // 1. Submit to Live Production Backend API
+    // PRIMARY ENDPOINT for Admin Panel: POST https://peersunity.com/api/v1/leadership/public/nominations
     try {
-      const livePayload = {
+      const documentsList = documents || [
+        id_file ? { document_type: 'id_proof', file_url: id_file, original_name: id_file } : null,
+        letter_file ? { document_type: 'recommendation_letter', file_url: letter_file, original_name: letter_file } : null,
+        deck_file ? { document_type: 'company_profile', file_url: deck_file, original_name: deck_file } : null,
+        manifesto_file ? { document_type: 'manifesto', file_url: manifesto_file, original_name: manifesto_file } : null,
+      ].filter(Boolean)
+
+      const primaryPayload = {
         campaign_id: activeCampaignId,
-        candidate_id: profile?.user_id || '0199c000-cand-0000-8000-000000000001',
+        candidate_id: profile?.user_id || undefined,
         scope_id: scope_id || null,
         full_name: cleanFullName,
         email: cleanEmail,
         mobile: cleanMobile,
+        phone: cleanMobile,
+        company: cleanCompany,
         company_name: cleanCompany,
         designation: cleanDesignation,
+        applied_role: cleanRole,
+        role: cleanRole,
+        city: cleanCity,
+        form_type: 'main_form_1',
         profile: fullProfileSnapshot,
         answers: fullFormData,
-        documents: documents || [
-          id_file ? { document_type: 'id_proof', file_url: id_file, original_name: id_file } : null,
-          letter_file ? { document_type: 'recommendation_letter', file_url: letter_file, original_name: letter_file } : null,
-          deck_file ? { document_type: 'company_profile', file_url: deck_file, original_name: deck_file } : null,
-          manifesto_file ? { document_type: 'manifesto', file_url: manifesto_file, original_name: manifesto_file } : null,
-        ].filter(Boolean),
+        documents: documentsList,
         declarations: {
           dec_code_of_conduct: true,
           dec_no_solicitation: true,
           dec_governance_neutrality: true,
         },
-        form_type: 'main_form_1',
       }
 
-      const liveRes = await fetch(`${UNITY_API_BASE}/api/v1/leadership/public/campaigns/${activeCampaignId}/nominate`, {
+      const resPrimary = await fetch(`${UNITY_API_BASE}/api/v1/leadership/public/nominations`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
         },
-        body: JSON.stringify(livePayload),
+        body: JSON.stringify(primaryPayload),
       })
 
-      if (liveRes.ok) {
-        const liveJson = await liveRes.json()
-        if (liveJson && (liveJson.success || liveJson.data)) {
-          const resData = liveJson.data || {}
-          if (resData.application_number || liveJson.application_number) {
-            liveApplicationNumber = resData.application_number || liveJson.application_number
+      if (resPrimary.ok) {
+        const jsonPrimary = await resPrimary.json()
+        if (jsonPrimary && (jsonPrimary.success || jsonPrimary.data)) {
+          const resData = jsonPrimary.data || {}
+          if (resData.application_number || jsonPrimary.application_number) {
+            liveApplicationNumber = resData.application_number || jsonPrimary.application_number
           }
-          if (resData.id || resData.nomination_id || liveJson.id) {
-            liveNominationId = resData.id || resData.nomination_id || liveJson.id
+          if (resData.id || resData.nomination_id || jsonPrimary.id) {
+            liveNominationId = resData.id || resData.nomination_id || jsonPrimary.id
           }
         }
       }
+
+      // Secondary sync to campaign nominations endpoint
+      await fetch(`${UNITY_API_BASE}/api/v1/leadership/public/campaigns/${activeCampaignId}/nominate`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(primaryPayload),
+      }).catch(() => {})
     } catch (err) {
       console.warn('Note on production nominate API call:', err)
     }
