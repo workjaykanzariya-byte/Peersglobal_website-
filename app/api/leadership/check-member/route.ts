@@ -74,6 +74,36 @@ export async function POST(req: Request) {
           const p = liveJson.profile || liveJson.data
           const resolvedPhoto = normalizePhotoUrl(p.photo_url || p.profile_photo_url || p.photo)
 
+          // Prevent cross-pollination: if user sent an email, and the returned profile has a different email,
+          // do NOT overwrite user with a different person's identity.
+          const memberEmail = p.email ? String(p.email).trim().toLowerCase() : ''
+          if (email && memberEmail && email !== memberEmail) {
+            return NextResponse.json({
+              success: true,
+              exists: false,
+              is_existing_member: false,
+              can_continue_as_new_nominee: true,
+              profile: {
+                fullName: '',
+                full_name: '',
+                email,
+                mobile: rawPhone,
+                company: '',
+                company_name: '',
+                designation: '',
+                city: 'Surat',
+                state: 'Gujarat',
+                country: 'India',
+                yearsExperience: 5,
+                bio: '',
+                socialLinks: '',
+                profile_photo_url: null,
+                photo_url: null,
+              },
+              message: 'Email and phone belong to different accounts. Please proceed with manual entry.',
+            })
+          }
+
           return NextResponse.json({
             success: true,
             exists: true,

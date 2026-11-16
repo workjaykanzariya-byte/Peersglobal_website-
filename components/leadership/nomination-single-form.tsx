@@ -91,6 +91,7 @@ export function NominationSingleForm() {
   const [mobile, setMobile] = useState('')
   const [isCheckingMember, setIsCheckingMember] = useState(false)
   const [memberFound, setMemberFound] = useState<boolean | null>(null)
+  const userModifiedFields = useRef<Set<string>>(new Set())
 
   const [name, setName] = useState('')
   const [company, setCompany] = useState('')
@@ -260,53 +261,82 @@ export function NominationSingleForm() {
     }
   }
 
-  // Live Member Lookup (Triggered on typing 10-digit mobile or valid email)
-  const checkMember = async (inputEmail: string, inputMobile: string) => {
-    const cleanE = inputEmail.trim().toLowerCase()
-    const cleanM = inputMobile.trim().replace(/\D/g, '')
+  // Live Member Lookup (Debounced 500ms after user pauses typing in email or mobile)
+  useEffect(() => {
+    const cleanE = email.trim().toLowerCase()
+    const cleanM = mobile.trim().replace(/\D/g, '')
 
-    // Only check if we have either a valid looking email or at least 10 digits
     const hasValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanE)
     const hasValidMobile = cleanM.length >= 10
 
-    if (!hasValidEmail && !hasValidMobile) return
-
-    setIsCheckingMember(true)
-    try {
-      const res = await fetch('/api/leadership/check-member', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: cleanE, mobile: inputMobile, campaign_id: campaignId }),
-      })
-      if (res.ok) {
-        const json = await res.json()
-        if (json.exists && json.profile) {
-          const p = json.profile
-          setMemberFound(true)
-          if (p.fullName || p.full_name) setName(p.fullName || p.full_name)
-          const fetchedMobile = p.mobile || p.phone || p.mobile_number || p.phone_number
-          if (fetchedMobile) setMobile(fetchedMobile)
-          if (p.email && !email) setEmail(p.email)
-          if (p.company || p.company_name) setCompany(p.company || p.company_name)
-          if (p.designation) setDesignation(p.designation)
-          if (p.city) setSelectedCity(p.city)
-          if (p.profile_photo_url || p.photo_url) setPhotoUrl(p.profile_photo_url || p.photo_url)
-          if (p.bio) setBio(p.bio)
-          if (p.socialLinks) setLinkedin(p.socialLinks)
-          if (p.yearsExperience) {
-            const calculatedSince = String(new Date().getFullYear() - Number(p.yearsExperience))
-            setSince(calculatedSince)
-          }
-        } else {
-          setMemberFound(false)
-        }
-      }
-    } catch (e) {
-      console.warn('Member lookup note:', e)
-    } finally {
-      setIsCheckingMember(false)
+    if (!hasValidEmail && !hasValidMobile) {
+      setMemberFound(null)
+      return
     }
-  }
+
+    const timer = setTimeout(async () => {
+      setIsCheckingMember(true)
+      try {
+        const queryBody: Record<string, string> = { campaign_id: campaignId }
+        if (hasValidEmail) queryBody.email = cleanE
+        if (hasValidMobile) queryBody.mobile = mobile.trim()
+
+        const res = await fetch('/api/leadership/check-member', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(queryBody),
+        })
+
+        if (res.ok) {
+          const json = await res.json()
+          if (json.exists && json.profile) {
+            const p = json.profile
+            setMemberFound(true)
+            if (!userModifiedFields.current.has('name') && (p.fullName || p.full_name)) {
+              setName(p.fullName || p.full_name)
+            }
+            const fetchedMobile = p.mobile || p.phone || p.mobile_number || p.phone_number
+            if (!userModifiedFields.current.has('mobile') && fetchedMobile && !mobile) {
+              setMobile(fetchedMobile)
+            }
+            if (!userModifiedFields.current.has('email') && p.email && !email) {
+              setEmail(p.email)
+            }
+            if (!userModifiedFields.current.has('company') && (p.company || p.company_name)) {
+              setCompany(p.company || p.company_name)
+            }
+            if (!userModifiedFields.current.has('designation') && p.designation) {
+              setDesignation(p.designation)
+            }
+            if (!userModifiedFields.current.has('city') && p.city) {
+              setSelectedCity(p.city)
+            }
+            if (!userModifiedFields.current.has('photo') && (p.profile_photo_url || p.photo_url)) {
+              setPhotoUrl(p.profile_photo_url || p.photo_url)
+            }
+            if (!userModifiedFields.current.has('bio') && p.bio) {
+              setBio(p.bio)
+            }
+            if (!userModifiedFields.current.has('linkedin') && p.socialLinks) {
+              setLinkedin(p.socialLinks)
+            }
+            if (!userModifiedFields.current.has('since') && p.yearsExperience) {
+              const calculatedSince = String(new Date().getFullYear() - Number(p.yearsExperience))
+              setSince(calculatedSince)
+            }
+          } else {
+            setMemberFound(false)
+          }
+        }
+      } catch (e) {
+        console.warn('Member lookup note:', e)
+      } finally {
+        setIsCheckingMember(false)
+      }
+    }, 500)
+
+    return () => clearTimeout(timer)
+  }, [email, mobile, campaignId])
 
   // Derived Validations (Matching Main.dc.html logic)
   const trim = (v: string) => (v || '').trim()
@@ -433,6 +463,9 @@ export function NominationSingleForm() {
         })
         setSubmitted(true)
         setConfirming(false)
+        if (typeof window !== 'undefined') {
+          window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+        }
       } else {
         setSubmitError(data.message || 'Submission failed. Please check your connection and try again.')
         setConfirming(false)
@@ -445,37 +478,17 @@ export function NominationSingleForm() {
     }
   }
 
-  // Prototype Helper: Fill sample data for rapid testing
-  const handleFillSample = () => {
-    setEmail('hardik@peersglobal.com')
-    setMobile('+91 95587 39086')
-    setName('Hardik Parmar')
-    setCompany('Aequitas IT Solutions')
-    setDesignation('Managing Director')
-    setSelectedRoleKey('ded')
-    setSelectedCity('Surat')
-    setSince('2021')
-    setBio('Serial entrepreneur running an enterprise IT firm in Surat, active in Peers Global since 2021.')
-    setRolesHeld([
-      { role: 'Circle Vice Chair', org: 'Peers Global', years: '2024–2025' },
-      { role: '', org: '', years: '' },
-      { role: '', org: '', years: '' },
-    ])
-    setRoleCount(1)
-    setNoRole(false)
-    setGoals([
-      'Hold 4 executive networking summits and grow high-trust member attendance by 25%.',
-      'Launch a monthly mentoring cohort for emerging founders, onboarding 20 peer pairs.',
-      'Establish a transparent quarterly ledger so every member sees concrete chapter ROI.',
-    ])
-    setHours('15')
-    setIdFile('aadhaar-card-verified.pdf · 1.2 MB')
-    setAgree(true)
-    setTouched(true)
-  }
+  // Scroll to top when submission succeeds so confirmation card is visible at the top
+  useEffect(() => {
+    if (submitted && typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+    }
+  }, [submitted])
 
   // Start Over Handler
   const handleStartOver = () => {
+    userModifiedFields.current.clear()
+    setMemberFound(null)
     setEmail('')
     setMobile('')
     setName('')
@@ -513,25 +526,6 @@ export function NominationSingleForm() {
 
   return (
     <div className="min-h-screen bg-[#F3F5FA] font-sans text-[#0F172A] flex flex-col antialiased">
-      {/* Top Prototype / Quick Controls Bar */}
-      <div className="bg-[#0F172A] text-[#E2E8F0] px-4 py-2.5 flex flex-wrap gap-3 items-center justify-center text-sm border-b border-slate-800">
-        <span className="text-slate-300">Fast Application Mode:</span>
-        <button
-          type="button"
-          onClick={handleFillSample}
-          className="h-8 px-3.5 rounded-lg border border-slate-600 hover:border-slate-400 bg-transparent text-white text-xs font-semibold hover:bg-slate-800 transition-colors"
-        >
-          Fill sample answers
-        </button>
-        <button
-          type="button"
-          onClick={handleStartOver}
-          className="h-8 px-3.5 rounded-lg border border-slate-600 hover:border-slate-400 bg-transparent text-white text-xs font-semibold hover:bg-slate-800 transition-colors"
-        >
-          Start over
-        </button>
-      </div>
-
       <div className="w-full max-w-[760px] mx-auto px-4 py-8 sm:py-12 flex flex-col gap-6 flex-1">
         {/* ========================================================================= */}
         {/* SUCCESS VIEW (Matching Main.dc.html exactly)                               */}
@@ -853,12 +847,12 @@ export function NominationSingleForm() {
                   </label>
                   <input
                     type="email"
-                    placeholder="e.g. hardik@peersglobal.com"
+                    placeholder="e.g. name@company.com"
                     value={email}
                     onChange={(e) => {
                       setEmail(e.target.value)
+                      userModifiedFields.current.add('email')
                       setTouched(true)
-                      checkMember(e.target.value, mobile)
                     }}
                     className="w-full h-11 px-3.5 bg-white border border-[#8190A7] rounded-xl text-sm text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]"
                   />
@@ -873,8 +867,8 @@ export function NominationSingleForm() {
                     value={mobile}
                     onChange={(e) => {
                       setMobile(e.target.value)
+                      userModifiedFields.current.add('mobile')
                       setTouched(true)
-                      checkMember(email, e.target.value)
                     }}
                     className="w-full h-11 px-3.5 bg-white border border-[#8190A7] rounded-xl text-sm text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]"
                   />
@@ -911,7 +905,10 @@ export function NominationSingleForm() {
                     {photoUrl && (
                       <button
                         type="button"
-                        onClick={() => setPhotoUrl(null)}
+                        onClick={() => {
+                          setPhotoUrl(null)
+                          userModifiedFields.current.add('photo')
+                        }}
                         className="h-8 px-3 rounded-lg border border-red-200 text-xs font-semibold text-red-600 hover:bg-red-50"
                       >
                         Remove
@@ -922,7 +919,10 @@ export function NominationSingleForm() {
                     ref={photoInputRef}
                     type="file"
                     accept="image/*"
-                    onChange={handlePhotoUpload}
+                    onChange={(e) => {
+                      userModifiedFields.current.add('photo')
+                      handlePhotoUpload(e)
+                    }}
                     className="hidden"
                   />
                 </div>
@@ -940,9 +940,10 @@ export function NominationSingleForm() {
                     value={name}
                     onChange={(e) => {
                       setName(e.target.value)
+                      userModifiedFields.current.add('name')
                       setTouched(true)
                     }}
-                    placeholder="e.g. Hardik Parmar"
+                    placeholder="e.g. Full Name"
                     className="h-12 px-3.5 bg-white border border-[#8190A7] rounded-xl text-base text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]"
                   />
                 </div>
@@ -957,9 +958,10 @@ export function NominationSingleForm() {
                     value={company}
                     onChange={(e) => {
                       setCompany(e.target.value)
+                      userModifiedFields.current.add('company')
                       setTouched(true)
                     }}
-                    placeholder="e.g. Aequitas IT Solutions"
+                    placeholder="e.g. Acme Corporation"
                     className="h-12 px-3.5 bg-white border border-[#8190A7] rounded-xl text-base text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]"
                   />
                 </div>
@@ -974,6 +976,7 @@ export function NominationSingleForm() {
                     value={designation}
                     onChange={(e) => {
                       setDesignation(e.target.value)
+                      userModifiedFields.current.add('designation')
                       setTouched(true)
                     }}
                     placeholder="e.g. Managing Director & CEO"
@@ -991,6 +994,7 @@ export function NominationSingleForm() {
                     value={linkedin}
                     onChange={(e) => {
                       setLinkedin(e.target.value)
+                      userModifiedFields.current.add('linkedin')
                       setTouched(true)
                     }}
                     placeholder="https://linkedin.com/in/your-name"
@@ -1014,9 +1018,10 @@ export function NominationSingleForm() {
                   value={bio}
                   onChange={(e) => {
                     setBio(e.target.value)
+                    userModifiedFields.current.add('bio')
                     setTouched(true)
                   }}
-                  placeholder="e.g. I run a manufacturing enterprise in Surat and have been active in Peers Global since 2021."
+                  placeholder="e.g. Dedicated business leader championing ecosystem collaboration across the District."
                   className="p-3.5 bg-white border border-[#8190A7] rounded-xl text-base text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8] resize-y"
                 />
               </div>
