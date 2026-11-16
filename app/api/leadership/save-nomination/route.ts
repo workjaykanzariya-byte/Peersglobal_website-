@@ -184,6 +184,17 @@ export async function POST(req: Request) {
             liveNominationId = resData.id || resData.nomination_id || jsonPrimary.id
           }
         }
+      } else {
+        const errJson = await resPrimary.json().catch(() => ({}))
+        console.error('[save-nomination] Primary backend error:', resPrimary.status, errJson)
+        return NextResponse.json(
+          {
+            success: false,
+            message: errJson.message || `Backend nomination rejected with status ${resPrimary.status}. Please check your inputs and try again.`,
+            errors: errJson.errors || null,
+          },
+          { status: resPrimary.status }
+        )
       }
 
       // Secondary sync to campaign nominations endpoint
