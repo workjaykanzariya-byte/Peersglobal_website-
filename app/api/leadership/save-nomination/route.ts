@@ -52,8 +52,27 @@ export async function POST(req: Request) {
     const candidateId = `cand-${Date.now()}`
     const activeCampaignId = campaign_id || '23ba107a-f314-4cd9-b04a-7af04951f95c'
 
+    const sanitizedGoals = Array.isArray(goals)
+      ? goals.map((g) => String(g || '').trim()).filter(Boolean)
+      : []
+
+    const sanitizedRoles = Array.isArray(leadership_roles)
+      ? leadership_roles
+          .filter((r) => r && (r.role || r.org || r.years))
+          .map((r) => ({
+            role: String(r.role || '').trim(),
+            org: String(r.org || '').trim(),
+            years: String(r.years || '').trim(),
+          }))
+      : []
+
+    const cleanTimeCommitment = time_commitment
+      ? String(time_commitment).includes('hour')
+        ? String(time_commitment)
+        : `${time_commitment} hours a week`
+      : '5-8 hours a week'
+
     const fullProfileSnapshot = {
-      ...profile,
       full_name: cleanFullName,
       email: cleanEmail,
       mobile: cleanMobile,
@@ -61,40 +80,25 @@ export async function POST(req: Request) {
       designation: cleanDesignation,
       city: cleanCity,
       applied_role: cleanRole,
-      applied_role_name: cleanRoleName,
-      belonging_type,
-      belonging_id,
-      belonging_name,
-      since,
-      leadership_roles,
-      goals,
-      time_commitment,
-      video_url,
-      manifesto_file,
-      id_file,
-      letter_file,
-      deck_file,
+      since: String(since || '').trim(),
+      time_commitment: cleanTimeCommitment,
+      video_url: String(video_url || '').trim(),
+      goals: sanitizedGoals,
+      leadership_roles: sanitizedRoles,
+      photo_url: profile?.photo_url || null,
+      bio: profile?.bio || '',
+      linkedin: profile?.linkedin || '',
     }
 
     const fullFormData = {
       applied_role: cleanRole,
-      applied_role_name: cleanRoleName,
-      belonging_type,
-      belonging_id,
-      belonging_name,
-      city_id,
       city_name: cleanCity,
-      since,
-      leadership_roles: leadership_roles || [],
-      goals: goals || [],
-      time_commitment,
-      video_url,
-      declarations: declarations || {
-        dec_truthful_information: true,
-        dec_no_solicitation: true,
-        dec_code_of_conduct: true,
-      },
-      answers: answers || {},
+      city: cleanCity,
+      since: String(since || '').trim(),
+      time_commitment: cleanTimeCommitment,
+      video_url: String(video_url || '').trim(),
+      goals: sanitizedGoals,
+      leadership_roles: sanitizedRoles,
     }
 
     let liveApplicationNumber = applicationNumber
@@ -103,28 +107,53 @@ export async function POST(req: Request) {
     // 1. Submit to Live Production Backend API
     // PRIMARY ENDPOINT for Admin Panel: POST https://peersunity.com/api/v1/leadership/public/nominations
     try {
-      const documentsList = documents || [
-        id_file ? { document_type: 'id_proof', file_url: id_file, original_name: id_file } : null,
-        letter_file ? { document_type: 'recommendation_letter', file_url: letter_file, original_name: letter_file } : null,
-        deck_file ? { document_type: 'company_profile', file_url: deck_file, original_name: deck_file } : null,
-        manifesto_file ? { document_type: 'manifesto', file_url: manifesto_file, original_name: manifesto_file } : null,
-      ].filter(Boolean)
+      const documentsList = (Array.isArray(documents) && documents.length > 0)
+        ? documents
+        : [
+            id_file
+              ? {
+                  document_type: 'id_proof',
+                  file_url: typeof id_file === 'string' && id_file.startsWith('http') ? id_file : `https://peersunity.com/storage/nominations/${cleanEmail.replace(/[^a-z0-9]/g, '_')}_id.pdf`,
+                  original_name: typeof id_file === 'string' ? id_file.split(' · ')[0] : 'id_proof.pdf',
+                }
+              : null,
+            letter_file
+              ? {
+                  document_type: 'recommendation_letter',
+                  file_url: typeof letter_file === 'string' && letter_file.startsWith('http') ? letter_file : `https://peersunity.com/storage/nominations/${cleanEmail.replace(/[^a-z0-9]/g, '_')}_letter.pdf`,
+                  original_name: typeof letter_file === 'string' ? letter_file.split(' · ')[0] : 'recommendation_letter.pdf',
+                }
+              : null,
+            deck_file
+              ? {
+                  document_type: 'company_profile',
+                  file_url: typeof deck_file === 'string' && deck_file.startsWith('http') ? deck_file : `https://peersunity.com/storage/nominations/${cleanEmail.replace(/[^a-z0-9]/g, '_')}_deck.pdf`,
+                  original_name: typeof deck_file === 'string' ? deck_file.split(' · ')[0] : 'company_profile.pdf',
+                }
+              : null,
+            manifesto_file
+              ? {
+                  document_type: 'manifesto',
+                  file_url: typeof manifesto_file === 'string' && manifesto_file.startsWith('http') ? manifesto_file : `https://peersunity.com/storage/nominations/${cleanEmail.replace(/[^a-z0-9]/g, '_')}_manifesto.pdf`,
+                  original_name: typeof manifesto_file === 'string' ? manifesto_file.split(' · ')[0] : 'leadership_manifesto.pdf',
+                }
+              : null,
+          ].filter(Boolean)
 
       const primaryPayload = {
         campaign_id: activeCampaignId,
-        candidate_id: profile?.user_id || undefined,
         scope_id: scope_id || null,
+        form_type: 'main_form_1',
         full_name: cleanFullName,
         email: cleanEmail,
         mobile: cleanMobile,
         phone: cleanMobile,
-        company: cleanCompany,
         company_name: cleanCompany,
+        company: cleanCompany,
         designation: cleanDesignation,
         applied_role: cleanRole,
         role: cleanRole,
         city: cleanCity,
-        form_type: 'main_form_1',
         profile: fullProfileSnapshot,
         answers: fullFormData,
         documents: documentsList,

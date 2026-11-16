@@ -65,7 +65,17 @@ const nextConfig = {
         permanent: false,
       },
       {
-        source: '/leadership/campaigns/:path*',
+        source: '/leadership/campaigns/:id/nominate',
+        destination: '/leadership/nominate',
+        permanent: false,
+      },
+      {
+        source: '/leadership/campaigns/:id/form-2',
+        destination: '/leadership/nominate',
+        permanent: false,
+      },
+      {
+        source: '/leadership/campaigns/:id/winners',
         destination: '/leadership/nominate',
         permanent: false,
       },
