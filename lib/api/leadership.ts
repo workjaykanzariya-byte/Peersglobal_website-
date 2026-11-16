@@ -1099,6 +1099,11 @@ class LeadershipApiService {
         if (found) return found
       }
 
+      const profileRes = await this.requestWithFallback<any>(`/public/campaigns/${campaignId}/candidates/${candidateId}`)
+      if (profileRes.ok && (profileRes.data?.data || profileRes.data)) {
+        return normalizeCandidate(profileRes.data?.data || profileRes.data)
+      }
+
       const singleRes = await this.requestWithFallback<any>(`/public/nominations/${candidateId}`)
       if (singleRes.ok && singleRes.data) {
         return normalizeCandidate(singleRes.data)
