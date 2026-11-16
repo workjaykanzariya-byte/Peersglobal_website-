@@ -13,7 +13,6 @@ import {
   Sparkles,
   ArrowRight,
   UserCheck,
-  Clock,
   ShieldCheck,
   HelpCircle,
   ExternalLink,
@@ -613,23 +612,11 @@ export function NominationSingleForm() {
                 </span>
               </div>
               <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#0F172A] leading-tight">
-                Nominate yourself for {currentRole.short_name}
+                Apply for Leadership
               </h1>
               <p className="text-base text-slate-600">
                 National Leadership Selection 2026 · {selectedCity || 'All Cities'}
               </p>
-
-              {/* Time & Autosave Banner */}
-              <div className="flex flex-wrap gap-3 items-center justify-between mt-2 p-3.5 bg-white border border-[#DDE3EE] rounded-xl text-sm">
-                <span className="inline-flex items-center gap-2 text-slate-700">
-                  <Clock className="w-4 h-4 text-slate-500" />
-                  Takes about 8 minutes. Your answers save automatically.
-                </span>
-                <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#047857]">
-                  <Check className="w-3.5 h-3.5 stroke-[3]" />
-                  {touched ? 'Saved just now' : 'Autosave is on'}
-                </span>
-              </div>
             </header>
 
             {/* Error Banner */}
@@ -677,11 +664,18 @@ export function NominationSingleForm() {
                     className="w-full h-12 px-3.5 pr-10 bg-white border border-[#8190A7] rounded-xl text-sm font-semibold text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8] transition-all cursor-pointer appearance-none"
                   >
                     <option value="">-- Choose Target Leadership Role --</option>
-                    {roles.map((r) => (
-                      <option key={r.key} value={r.key}>
-                        {r.name} ({r.short_name})
-                      </option>
-                    ))}
+                    {roles.map((r) => {
+                      const label = r.name.includes(`(${r.short_name})`)
+                        ? r.name
+                        : r.short_name && r.short_name !== r.name
+                          ? `${r.name} (${r.short_name})`
+                          : r.name
+                      return (
+                        <option key={r.key} value={r.key}>
+                          {label}
+                        </option>
+                      )
+                    })}
                   </select>
                   <ChevronDown className="w-4 h-4 text-slate-500 absolute right-3.5 top-4 pointer-events-none" />
                 </div>
