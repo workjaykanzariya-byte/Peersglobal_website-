@@ -57,6 +57,25 @@ const nextConfig = {
       },
     ]
   },
+  async redirects() {
+    return [
+      {
+        source: '/leadership/campaigns',
+        destination: '/leadership/nominate',
+        permanent: false,
+      },
+      {
+        source: '/leadership/campaigns/:path*',
+        destination: '/leadership/nominate',
+        permanent: false,
+      },
+      {
+        source: '/leadership/elections',
+        destination: '/leadership/nominate',
+        permanent: false,
+      },
+    ]
+  },
   turbopack: {
     root: process.cwd(),
   },

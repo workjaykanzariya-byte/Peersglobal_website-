@@ -91,7 +91,6 @@ export function NominationSingleForm() {
   const [mobile, setMobile] = useState('')
   const [isCheckingMember, setIsCheckingMember] = useState(false)
   const [memberFound, setMemberFound] = useState<boolean | null>(null)
-  const [memberMessage, setMemberMessage] = useState('')
 
   const [name, setName] = useState('')
   const [company, setCompany] = useState('')
@@ -284,8 +283,10 @@ export function NominationSingleForm() {
         if (json.exists && json.profile) {
           const p = json.profile
           setMemberFound(true)
-          setMemberMessage(`Welcome back, ${p.fullName || p.full_name}! Details loaded from your Peers profile.`)
           if (p.fullName || p.full_name) setName(p.fullName || p.full_name)
+          const fetchedMobile = p.mobile || p.phone || p.mobile_number || p.phone_number
+          if (fetchedMobile) setMobile(fetchedMobile)
+          if (p.email && !email) setEmail(p.email)
           if (p.company || p.company_name) setCompany(p.company || p.company_name)
           if (p.designation) setDesignation(p.designation)
           if (p.city) setSelectedCity(p.city)
@@ -298,7 +299,6 @@ export function NominationSingleForm() {
           }
         } else {
           setMemberFound(false)
-          setMemberMessage('New applicant detected. Please enter your profile details below.')
         }
       }
     } catch (e) {
@@ -575,7 +575,7 @@ export function NominationSingleForm() {
                   <span className="font-semibold text-slate-800">{currentRole.short_name}</span>
                 </div>
                 <div>
-                  <span className="text-slate-500 block">City Jurisdiction:</span>
+                  <span className="text-slate-500 block">City:</span>
                   <span className="font-semibold text-slate-800">{selectedCity}</span>
                 </div>
                 <div>
@@ -622,7 +622,7 @@ export function NominationSingleForm() {
                 Nominate yourself for {currentRole.short_name}
               </h1>
               <p className="text-base text-slate-600">
-                National Leadership Selection 2026 · {selectedCity || 'All Jurisdictions'}
+                National Leadership Selection 2026 · {selectedCity || 'All Cities'}
               </p>
 
               {/* Time & Autosave Banner */}
@@ -663,7 +663,7 @@ export function NominationSingleForm() {
                 <div>
                   <h2 className="text-xl font-bold text-[#0F172A]">Choose your leadership role</h2>
                   <p className="text-xs text-slate-500 mt-0.5">
-                    Select the role you wish to apply for, along with its specific jurisdiction or belonging.
+                    Select the role you wish to apply for, along with its specific city or belonging.
                   </p>
                 </div>
                 <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-[#E3EAFD] text-[#1E3A8A]">
@@ -671,32 +671,27 @@ export function NominationSingleForm() {
                 </span>
               </div>
 
-              {/* 10 Allowed Roles Selection Grid */}
-              <div className="space-y-2">
-                <label className="text-sm font-semibold text-slate-800">
+              {/* Target Leadership Position: Dropdown Layout */}
+              <div className="flex flex-col gap-1.5">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-600">
                   Target Leadership Position <span className="text-red-500">*</span>
                 </label>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2">
-                  {roles.map((r) => {
-                    const isSelected = selectedRoleKey === r.key
-                    return (
-                      <button
-                        key={r.key}
-                        type="button"
-                        onClick={() => handleRoleSelect(r.key)}
-                        className={`p-3 rounded-xl border text-left flex flex-col justify-between transition-all ${
-                          isSelected
-                            ? 'border-[#1D4ED8] bg-[#EFF6FF] text-[#1D4ED8] shadow-sm ring-1 ring-[#1D4ED8]'
-                            : 'border-[#DDE3EE] bg-white text-slate-700 hover:border-slate-400 hover:bg-slate-50'
-                        }`}
-                      >
-                        <span className="font-bold text-sm leading-tight">{r.short_name}</span>
-                        <span className="text-[10px] text-slate-500 mt-1 line-clamp-1">{r.category}</span>
-                      </button>
-                    )
-                  })}
+                <div className="relative">
+                  <select
+                    value={selectedRoleKey}
+                    onChange={(e) => handleRoleSelect(e.target.value)}
+                    className="w-full h-12 px-3.5 pr-10 bg-white border border-[#8190A7] rounded-xl text-sm font-semibold text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8] transition-all cursor-pointer appearance-none"
+                  >
+                    <option value="">-- Choose Target Leadership Role --</option>
+                    {roles.map((r) => (
+                      <option key={r.key} value={r.key}>
+                        {r.name} ({r.short_name})
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDown className="w-4 h-4 text-slate-500 absolute right-3.5 top-4 pointer-events-none" />
                 </div>
-                <p className="text-xs text-slate-500 mt-1 italic">{currentRole.description}</p>
+                <p className="text-xs text-slate-500 mt-0.5 italic">{currentRole.description}</p>
               </div>
 
               {/* Dynamic Belonging Selector Based on Selected Role */}
@@ -785,7 +780,7 @@ export function NominationSingleForm() {
                 {/* City Selection from cities table (11,273 cities searchable) */}
                 <div className="flex flex-col gap-1.5 relative">
                   <label className="text-xs font-bold uppercase tracking-wider text-slate-600">
-                    City Jurisdiction <span className="text-red-500">*</span>
+                    City <span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
                     <input
@@ -850,64 +845,40 @@ export function NominationSingleForm() {
                 </span>
               </div>
 
-              {/* Verification & Auto-fill Lookup Callout */}
-              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl flex flex-col gap-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1.5">
-                    <UserCheck className="w-4 h-4 text-[#1D4ED8]" />
-                    Peers Global Member Verification
-                  </span>
-                  {isCheckingMember && (
-                    <span className="text-xs text-[#1D4ED8] animate-pulse">Checking membership database...</span>
-                  )}
+              {/* Email & Mobile Number (Auto-fills member details silently in the background) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-xs font-semibold text-slate-700 block mb-1">
+                    Email Address <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="e.g. hardik@peersglobal.com"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value)
+                      setTouched(true)
+                      checkMember(e.target.value, mobile)
+                    }}
+                    className="w-full h-11 px-3.5 bg-white border border-[#8190A7] rounded-xl text-sm text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]"
+                  />
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div>
-                    <label className="text-xs font-semibold text-slate-700 block mb-1">
-                      Email Address <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="email"
-                      placeholder="e.g. hardik@peersglobal.com"
-                      value={email}
-                      onChange={(e) => {
-                        setEmail(e.target.value)
-                        setTouched(true)
-                        checkMember(e.target.value, mobile)
-                      }}
-                      className="w-full h-11 px-3.5 bg-white border border-[#8190A7] rounded-xl text-sm text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]"
-                    />
-                  </div>
-                  <div>
-                    <label className="text-xs font-semibold text-slate-700 block mb-1">
-                      Mobile Number <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="tel"
-                      placeholder="e.g. +91 95587 39086"
-                      value={mobile}
-                      onChange={(e) => {
-                        setMobile(e.target.value)
-                        setTouched(true)
-                        checkMember(email, e.target.value)
-                      }}
-                      className="w-full h-11 px-3.5 bg-white border border-[#8190A7] rounded-xl text-sm text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]"
-                    />
-                  </div>
+                <div>
+                  <label className="text-xs font-semibold text-slate-700 block mb-1">
+                    Mobile Number <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    placeholder="e.g. +91 95587 39086"
+                    value={mobile}
+                    onChange={(e) => {
+                      setMobile(e.target.value)
+                      setTouched(true)
+                      checkMember(email, e.target.value)
+                    }}
+                    className="w-full h-11 px-3.5 bg-white border border-[#8190A7] rounded-xl text-sm text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]"
+                  />
                 </div>
-
-                {memberMessage && (
-                  <div
-                    className={`text-xs p-2.5 rounded-lg flex items-center gap-2 ${
-                      memberFound
-                        ? 'bg-emerald-50 text-emerald-800 border border-emerald-200 font-semibold'
-                        : 'bg-blue-50 text-blue-800 border border-blue-200'
-                    }`}
-                  >
-                    {memberFound ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <HelpCircle className="w-3.5 h-3.5" />}
-                    <span>{memberMessage}</span>
-                  </div>
-                )}
               </div>
 
               {/* Candidate Card Preview / Photo Picker */}

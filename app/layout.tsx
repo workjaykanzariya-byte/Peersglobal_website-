@@ -4,7 +4,6 @@ import localFont from 'next/font/local'
 import { DesignProvider, DesignScript } from '@/components/design/design-provider'
 import { DesignSwitcher } from '@/components/design/design-switcher'
 import { SiteShell } from '@/components/site/site-shell'
-import { PageLoader } from '@/components/site/page-loader'
 import './globals.css'
 
 const googleSansFlex = localFont({
@@ -80,7 +79,6 @@ export default function RootLayout({
         <DesignScript />
       </head>
       <body className="antialiased">
-        <PageLoader />
         <DesignProvider>
           <a
             href="#main"
