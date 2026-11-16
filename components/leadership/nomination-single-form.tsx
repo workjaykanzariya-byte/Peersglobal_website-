@@ -17,6 +17,7 @@ import {
   HelpCircle,
   ExternalLink,
   RotateCcw,
+  X,
 } from 'lucide-react'
 
 export interface LeadershipRoleOption {
@@ -1351,13 +1352,30 @@ export function NominationSingleForm() {
                         {manifestoFile ? `✓ ${manifestoFile}` : 'PDF format up to 5 MB.'}
                       </span>
                     </div>
-                    <button
-                      type="button"
-                      onClick={() => manifestoInputRef.current?.click()}
-                      className="h-9 px-3 rounded-lg border border-[#8190A7] bg-white text-xs font-semibold text-slate-800 hover:bg-slate-50 shrink-0"
-                    >
-                      {manifestoFile ? 'Replace file' : 'Choose file'}
-                    </button>
+                    <div className="flex items-center gap-2 shrink-0">
+                      <button
+                        type="button"
+                        onClick={() => manifestoInputRef.current?.click()}
+                        className="h-9 px-3 rounded-lg border border-[#8190A7] bg-white text-xs font-semibold text-slate-800 hover:bg-slate-50"
+                      >
+                        {manifestoFile ? 'Replace file' : 'Choose file'}
+                      </button>
+                      {manifestoFile && (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setManifestoFile('')
+                            if (manifestoInputRef.current) manifestoInputRef.current.value = ''
+                            setTouched(true)
+                          }}
+                          className="h-9 px-2.5 rounded-lg border border-rose-200 bg-rose-50 text-xs font-semibold text-rose-700 hover:bg-rose-100 flex items-center gap-1"
+                          title="Clear / Deselect file"
+                        >
+                          <X className="w-3.5 h-3.5 text-rose-600" />
+                          Clear
+                        </button>
+                      )}
+                    </div>
                     <input
                       ref={manifestoInputRef}
                       type="file"
@@ -1412,14 +1430,31 @@ export function NominationSingleForm() {
                   </span>
                   {idFile && <span className="text-xs font-bold text-[#047857] mt-1">✓ {idFile}</span>}
                 </div>
-                <button
-                  type="button"
-                  onClick={() => idInputRef.current?.click()}
-                  className="h-11 px-4 rounded-xl border border-[#8190A7] bg-white text-slate-900 font-semibold text-xs inline-flex items-center gap-2 hover:bg-slate-50 shadow-sm"
-                >
-                  <UploadCloud className="w-4 h-4 text-slate-700" />
-                  {idFile ? 'Replace file' : 'Choose file'}
-                </button>
+                <div className="flex items-center gap-2 shrink-0">
+                  <button
+                    type="button"
+                    onClick={() => idInputRef.current?.click()}
+                    className="h-11 px-4 rounded-xl border border-[#8190A7] bg-white text-slate-900 font-semibold text-xs inline-flex items-center gap-2 hover:bg-slate-50 shadow-sm"
+                  >
+                    <UploadCloud className="w-4 h-4 text-slate-700" />
+                    {idFile ? 'Replace file' : 'Choose file'}
+                  </button>
+                  {idFile && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIdFile('')
+                        if (idInputRef.current) idInputRef.current.value = ''
+                        setTouched(true)
+                      }}
+                      className="h-11 px-3 rounded-xl border border-rose-200 bg-rose-50 text-rose-700 font-semibold text-xs inline-flex items-center gap-1.5 hover:bg-rose-100 shadow-sm"
+                      title="Clear / Deselect file"
+                    >
+                      <X className="w-4 h-4 text-rose-600" />
+                      Clear
+                    </button>
+                  )}
+                </div>
                 <input
                   ref={idInputRef}
                   type="file"
@@ -1443,14 +1478,31 @@ export function NominationSingleForm() {
                   </span>
                   {letterFile && <span className="text-xs font-bold text-[#047857] mt-1">✓ {letterFile}</span>}
                 </div>
-                <button
-                  type="button"
-                  onClick={() => letterInputRef.current?.click()}
-                  className="h-11 px-4 rounded-xl border border-[#8190A7] bg-white text-slate-900 font-semibold text-xs inline-flex items-center gap-2 hover:bg-slate-50 shadow-sm"
-                >
-                  <UploadCloud className="w-4 h-4 text-slate-700" />
-                  {letterFile ? 'Replace file' : 'Choose file'}
-                </button>
+                <div className="flex items-center gap-2 shrink-0">
+                  <button
+                    type="button"
+                    onClick={() => letterInputRef.current?.click()}
+                    className="h-11 px-4 rounded-xl border border-[#8190A7] bg-white text-slate-900 font-semibold text-xs inline-flex items-center gap-2 hover:bg-slate-50 shadow-sm"
+                  >
+                    <UploadCloud className="w-4 h-4 text-slate-700" />
+                    {letterFile ? 'Replace file' : 'Choose file'}
+                  </button>
+                  {letterFile && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setLetterFile('')
+                        if (letterInputRef.current) letterInputRef.current.value = ''
+                        setTouched(true)
+                      }}
+                      className="h-11 px-3 rounded-xl border border-rose-200 bg-rose-50 text-rose-700 font-semibold text-xs inline-flex items-center gap-1.5 hover:bg-rose-100 shadow-sm"
+                      title="Clear / Deselect file"
+                    >
+                      <X className="w-4 h-4 text-rose-600" />
+                      Clear
+                    </button>
+                  )}
+                </div>
                 <input
                   ref={letterInputRef}
                   type="file"
@@ -1474,14 +1526,31 @@ export function NominationSingleForm() {
                   </span>
                   {deckFile && <span className="text-xs font-bold text-[#047857] mt-1">✓ {deckFile}</span>}
                 </div>
-                <button
-                  type="button"
-                  onClick={() => deckInputRef.current?.click()}
-                  className="h-11 px-4 rounded-xl border border-[#8190A7] bg-white text-slate-900 font-semibold text-xs inline-flex items-center gap-2 hover:bg-slate-50 shadow-sm"
-                >
-                  <UploadCloud className="w-4 h-4 text-slate-700" />
-                  {deckFile ? 'Replace file' : 'Choose file'}
-                </button>
+                <div className="flex items-center gap-2 shrink-0">
+                  <button
+                    type="button"
+                    onClick={() => deckInputRef.current?.click()}
+                    className="h-11 px-4 rounded-xl border border-[#8190A7] bg-white text-slate-900 font-semibold text-xs inline-flex items-center gap-2 hover:bg-slate-50 shadow-sm"
+                  >
+                    <UploadCloud className="w-4 h-4 text-slate-700" />
+                    {deckFile ? 'Replace file' : 'Choose file'}
+                  </button>
+                  {deckFile && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setDeckFile('')
+                        if (deckInputRef.current) deckInputRef.current.value = ''
+                        setTouched(true)
+                      }}
+                      className="h-11 px-3 rounded-xl border border-rose-200 bg-rose-50 text-rose-700 font-semibold text-xs inline-flex items-center gap-1.5 hover:bg-rose-100 shadow-sm"
+                      title="Clear / Deselect file"
+                    >
+                      <X className="w-4 h-4 text-rose-600" />
+                      Clear
+                    </button>
+                  )}
+                </div>
                 <input
                   ref={deckInputRef}
                   type="file"

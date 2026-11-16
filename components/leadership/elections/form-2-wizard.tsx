@@ -489,7 +489,7 @@ export function Form2Wizard({
               Nominee Authentication Gate
             </div>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-              Form 2: <span className="brand-gradient-text">Jury Evaluation Data</span>
+              <span className="brand-gradient-text">Jury Evaluation Form</span>
             </h1>
             <p className="text-sm text-slate-600">
               Exclusive submission portal for shortlisted leadership nominees.
@@ -594,7 +594,7 @@ export function Form2Wizard({
                   </>
                 ) : (
                   <>
-                    Verify &amp; Unlock Form 2
+                    Verify &amp; Unlock Evaluation Form
                     <ArrowRight className="w-4 h-4" />
                   </>
                 )}
@@ -648,7 +648,7 @@ export function Form2Wizard({
                 </span>
               </div>
               <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                Form 2: <span className="brand-gradient-text">Jury Evaluation Data Form</span>
+                <span className="brand-gradient-text">Jury Evaluation Form</span>
               </h1>
               <p className="text-xs sm:text-sm text-slate-600">
                 {candidateInfo.campaign_name} • Candidate:{' '}
