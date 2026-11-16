@@ -468,57 +468,112 @@ export function CandidateEndorsementVoteCard({
           ) : (
             /* ================= SUCCESS RECEIPT STATE ================= */
             <div className="pt-4 pb-2 text-center space-y-6">
-              <div className="w-16 h-16 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center mx-auto shadow-xs">
-                <CheckCircle2 className="w-8 h-8" />
+              {/* Prominent Green Success Checkmark Icon */}
+              <div className="w-20 h-20 rounded-full bg-emerald-50 border-2 border-emerald-500/30 text-emerald-600 flex items-center justify-center mx-auto shadow-md">
+                <CheckCircle2 className="w-10 h-10 text-emerald-600 stroke-[2.2]" />
               </div>
 
-              <div>
+              <div className="space-y-1.5">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
                   Vote Successfully Recorded!
                 </h2>
-                <p className="text-xs sm:text-sm text-slate-600 mt-1.5 max-w-md mx-auto leading-relaxed">
-                  Thank you, <strong className="text-slate-900">{receipt.voterName}</strong>. Your endorsement for <strong className="text-slate-900">{candidate.full_name}</strong> has been sealed and logged in the election audit ledger.
+                <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
+                  Thank you, <strong className="text-slate-900">{receipt.voterName}</strong>. Your verified endorsement for <strong className="text-slate-900">{candidate.full_name}</strong> has been officially confirmed and logged.
                 </p>
               </div>
 
-              {/* Official Ballot Record Box */}
-              <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 text-left space-y-3">
-                <div className="flex items-center justify-between border-b border-slate-200 pb-2.5">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
+              {/* Clean Official Vote Receipt Card (No Technical Reference Codes) */}
+              <div className="p-5 sm:p-6 rounded-2xl bg-slate-50/90 border border-slate-200/90 text-left space-y-4 shadow-xs">
+                <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-slate-600">
                     OFFICIAL VOTE RECEIPT
                   </span>
-                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
-                    <ShieldCheck className="w-3 h-3 text-emerald-600" /> VERIFIED
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">
+                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" /> Verified
                   </span>
                 </div>
 
-                <div className="space-y-1 text-xs font-mono">
-                  <div className="text-slate-500 text-[10px] uppercase font-bold">Reference ID:</div>
-                  <div className="text-sm sm:text-base font-extrabold brand-gradient-text tracking-wide">
-                    {receipt.reference}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-slate-700">
+                  <div className="p-3 rounded-xl bg-white border border-slate-200/80">
+                    <span className="text-slate-400 text-[10px] uppercase font-bold tracking-wider block mb-0.5">
+                      Nominee Name
+                    </span>
+                    <span className="font-extrabold text-sm text-slate-900 block truncate">
+                      {candidate.full_name}
+                    </span>
                   </div>
-                </div>
 
-                <div className="grid grid-cols-2 gap-2 text-xs pt-2 border-t border-slate-200 text-slate-600">
-                  <div>
-                    <span className="text-slate-500 text-[10px] block font-medium">Nominee:</span>
-                    <span className="font-bold text-slate-900">{candidate.full_name}</span>
+                  <div className="p-3 rounded-xl bg-white border border-slate-200/80">
+                    <span className="text-slate-400 text-[10px] uppercase font-bold tracking-wider block mb-0.5">
+                      Position &amp; Role
+                    </span>
+                    <span className="font-extrabold text-sm text-slate-900 block truncate">
+                      {categoryName}
+                    </span>
                   </div>
-                  <div>
-                    <span className="text-slate-500 text-[10px] block font-medium">Role:</span>
-                    <span className="font-bold text-slate-900">{categoryName}</span>
+
+                  <div className="p-3 rounded-xl bg-white border border-slate-200/80">
+                    <span className="text-slate-400 text-[10px] uppercase font-bold tracking-wider block mb-0.5">
+                      Nominee City
+                    </span>
+                    <span className="font-extrabold text-sm text-slate-900 block truncate">
+                      {(candidate as any).city || candidate.scope_name || 'Surat'}
+                    </span>
                   </div>
-                  <div>
-                    <span className="text-slate-500 text-[10px] block font-medium">Voter City:</span>
-                    <span className="font-bold text-slate-900">{city || 'Gujarat'}</span>
-                  </div>
-                  <div>
-                    <span className="text-slate-500 text-[10px] block font-medium">Timestamp:</span>
-                    <span className="font-bold text-slate-900">
-                      {new Date(receipt.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+
+                  <div className="p-3 rounded-xl bg-white border border-slate-200/80">
+                    <span className="text-slate-400 text-[10px] uppercase font-bold tracking-wider block mb-0.5">
+                      Voter Name &amp; City
+                    </span>
+                    <span className="font-extrabold text-sm text-slate-900 block truncate">
+                      {receipt.voterName} ({city || 'Surat'})
                     </span>
                   </div>
                 </div>
+
+                <div className="pt-2 border-t border-slate-200/80 flex items-center justify-between text-xs text-slate-500">
+                  <span className="font-medium text-[11px]">Recorded At</span>
+                  <span className="font-bold text-slate-800 text-[11px]">
+                    {new Date(receipt.timestamp).toLocaleDateString('en-IN', {
+                      day: 'numeric',
+                      month: 'short',
+                      year: 'numeric',
+                    })}
+                    {' · '}
+                    {new Date(receipt.timestamp).toLocaleTimeString([], {
+                      hour: '2-digit',
+                      minute: '2-digit',
+                    })}
+                  </span>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                <button
+                  type="button"
+                  onClick={handleCopyLink}
+                  className="flex-1 py-3 px-5 rounded-full border border-slate-300 bg-white hover:bg-slate-50 text-slate-800 font-bold text-xs transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-xs"
+                >
+                  {copiedLink ? (
+                    <>
+                      <Check className="w-4 h-4 text-emerald-600" />
+                      <span>Voting Link Copied!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Share2 className="w-4 h-4 text-slate-600" />
+                      <span>Share Candidate Voting Link</span>
+                    </>
+                  )}
+                </button>
+
+                <Link
+                  href="/leadership/nominate"
+                  className="py-3 px-6 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white font-bold text-xs hover:opacity-95 transition-opacity flex items-center justify-center gap-1.5 shadow-md shadow-blue-500/15"
+                >
+                  <span>Apply for Leadership</span>
+                </Link>
               </div>
             </div>
           )}

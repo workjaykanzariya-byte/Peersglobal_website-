@@ -524,30 +524,23 @@ export function VoteModal({
               </div>
 
               <div className="space-y-2.5 text-xs">
-                <div>
-                  <div className="text-slate-400 text-[10px]">Vote Reference ID:</div>
-                  <div className="flex items-center justify-between gap-2 font-mono text-emerald-300 text-xs bg-slate-950 p-2.5 rounded-xl mt-1 border border-slate-800">
-                    <span className="truncate">{voteReceipt.reference}</span>
-                    <button
-                      type="button"
-                      onClick={copyReceipt}
-                      className="p-1 rounded hover:bg-slate-800 text-slate-300 hover:text-white transition-colors shrink-0"
-                      title="Copy reference"
-                    >
-                      {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-                    </button>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-2 pt-1 text-[11px]">
+                <div className="grid grid-cols-2 gap-2 text-xs">
                   <div>
-                    <span className="text-slate-400">Campaign:</span>
-                    <div className="font-semibold text-slate-200 truncate">{campaign.name}</div>
+                    <span className="text-slate-400 text-[10px] block">Nominee:</span>
+                    <div className="font-semibold text-slate-100 truncate">{candidate.full_name}</div>
                   </div>
                   <div>
-                    <span className="text-slate-400">Timestamp:</span>
-                    <div className="font-semibold text-slate-200">
-                      {new Date(voteReceipt.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
+                    <span className="text-slate-400 text-[10px] block">Role:</span>
+                    <div className="font-semibold text-slate-100 truncate">{campaign.role.name}</div>
+                  </div>
+                  <div>
+                    <span className="text-slate-400 text-[10px] block">City:</span>
+                    <div className="font-semibold text-slate-100 truncate">{candidate.scope_name || 'Surat'}</div>
+                  </div>
+                  <div>
+                    <span className="text-slate-400 text-[10px] block">Timestamp:</span>
+                    <div className="font-semibold text-slate-100">
+                      {new Date(voteReceipt.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                     </div>
                   </div>
                 </div>
