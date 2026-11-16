@@ -376,13 +376,21 @@ export function ApplyToLeadClient() {
                 </div>
 
                 <div className="pt-2 flex flex-wrap items-center gap-3.5">
+                  <Link
+                    href="/leadership/nominate"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white shadow-lg hover:brightness-110 active:scale-[0.98] transition-all"
+                  >
+                    <Award className="w-4 h-4" />
+                    <span>Become a Leader</span>
+                  </Link>
+
                   <GalaxyButton
                     onClick={handleScrollToForm}
-                    variant="primary"
+                    variant="transparent"
                     size="default"
                     className="font-bold uppercase tracking-wider"
                   >
-                    Begin Application
+                    Expression of Interest
                   </GalaxyButton>
 
                   <GalaxyButton

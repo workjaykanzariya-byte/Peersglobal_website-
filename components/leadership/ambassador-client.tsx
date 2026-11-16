@@ -281,11 +281,11 @@ export function AmbassadorClient() {
                 Download Unity App
               </GalaxyButton>
               <GalaxyButton
-                href="/contact?intent=leadership"
+                href="/leadership/nominate"
                 variant="transparent"
                 size="md"
               >
-                Become an Ambassador
+                Become Ambassador
               </GalaxyButton>
             </div>
           </div>
@@ -704,8 +704,8 @@ export function AmbassadorClient() {
         title="The community travels through people."
         subtitle="When you introduce PEERS GLOBAL to someone, you may be introducing them to a relationship, a Circle, and a possibility."
         description="Carry the name with respect. Carry it with authenticity. Carry it with responsibility."
-        primaryButtonText="APPLY TO LEAD"
-        primaryButtonHref="/contact?intent=leadership"
+        primaryButtonText="BECOME AMBASSADOR"
+        primaryButtonHref="/leadership/nominate"
         secondaryButtonText=""
       />
     </div>

@@ -8,7 +8,7 @@ const UNITY_API_BASE = 'https://peersunity.com'
 /**
  * Normalizes any profile_photo_url format from database / API to full public image URL
  */
-export function normalizePhotoUrl(rawPhoto: string | null | undefined): string | null {
+function normalizePhotoUrl(rawPhoto: string | null | undefined): string | null {
   if (!rawPhoto || typeof rawPhoto !== 'string') return null
   const trimmed = rawPhoto.trim()
   if (!trimmed || trimmed.includes('unsplash.com')) return null

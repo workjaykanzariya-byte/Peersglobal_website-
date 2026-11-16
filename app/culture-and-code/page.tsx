@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 // =========================================================================
 // THE SIX APPROVED PEERS CODE COMMITMENTS
 // =========================================================================
-export const PEERS_CODE_COMMITMENTS = [
+const PEERS_CODE_COMMITMENTS = [
   {
     id: 'give-first',
     num: '01',
