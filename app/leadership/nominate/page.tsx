@@ -5,14 +5,14 @@ import { NominationSingleForm } from '@/components/leadership/nomination-single-
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Become a Leader — File Your Nomination | Peers Global',
+  title: 'Apply for Leadership — File Your Nomination | Peers Global',
   description:
     'Nominate yourself for a leadership position at Peers Global. Democratic, high-trust election process for Circle Chairs, Industry Directors, Circle Leaders and Executive Directors.',
   alternates: {
     canonical: 'https://peersglobal.com/leadership/nominate',
   },
   openGraph: {
-    title: 'Become a Leader — Candidate Nomination | Peers Global',
+    title: 'Apply for Leadership — Candidate Nomination | Peers Global',
     description:
       'Nominate yourself for a leadership role at Peers Global. Apply for Circle Chair, Industry Director, Circle Founder or Executive Director across Bharat.',
     url: 'https://peersglobal.com/leadership/nominate',
