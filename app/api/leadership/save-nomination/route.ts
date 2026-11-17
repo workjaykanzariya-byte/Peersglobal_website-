@@ -243,15 +243,7 @@ export async function POST(req: Request) {
         )
       }
 
-      // Secondary sync to campaign nominations endpoint
-      await fetch(`${UNITY_API_BASE}/api/v1/leadership/public/campaigns/${activeCampaignId}/nominate`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify(primaryPayload),
-      }).catch(() => {})
+      // Secondary sync removed: only dispatch one primary nomination to prevent duplicate creation
     } catch (err) {
       console.warn('Note on production nominate API call:', err)
     }
