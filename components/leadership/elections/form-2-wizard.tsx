@@ -622,10 +622,10 @@ export function Form2Wizard({
   // Case C: Form 2 Questionnaire Wizard (Verified Nominee)
   // -------------------------------------------------------------------------
   const stepTitles = [
-    { id: 1, title: 'Business & Track Record', short: 'A & B: Credibility' },
-    { id: 2, title: 'Network & Leadership Bench', short: 'C & D: Bench Pipeline' },
-    { id: 3, title: 'Roadmap & Commitment', short: 'E & F: 12-Mo Plan' },
-    { id: 4, title: 'References & Documents', short: 'G & H: Proofs' },
+    { id: 1, title: 'Business & Track Record', short: 'Credibility' },
+    { id: 2, title: 'Network & Leadership Bench', short: 'Bench Pipeline' },
+    { id: 3, title: 'Roadmap & Commitment', short: '12-Mo Plan' },
+    { id: 4, title: 'References & Documents', short: 'Proofs' },
     { id: 5, title: 'Review & Submit', short: 'Final Review' },
   ]
 
@@ -729,7 +729,7 @@ export function Form2Wizard({
                   <Briefcase className="w-5 h-5" />
                 </div>
                 <div>
-                  <h2 className="text-lg font-bold text-slate-900">Section A: Business Credibility</h2>
+                  <h2 className="text-lg font-bold text-slate-900">Business Credibility</h2>
                   <p className="text-xs text-slate-500">
                     Enterprise scale, incorporation details, and audited standing.
                   </p>
@@ -860,7 +860,7 @@ export function Form2Wizard({
                 </div>
                 <div>
                   <h2 className="text-lg font-bold text-slate-900">
-                    Section B: Leadership Track Record
+                    Leadership Track Record
                   </h2>
                   <p className="text-xs text-slate-500">
                     Governance experience, leaders mentored, and resilience history.
@@ -961,7 +961,7 @@ export function Form2Wizard({
                   <Network className="w-5 h-5" />
                 </div>
                 <div>
-                  <h2 className="text-lg font-bold text-slate-900">Section C: Network Strength</h2>
+                  <h2 className="text-lg font-bold text-slate-900">Network Strength</h2>
                   <p className="text-xs text-slate-500">
                     Industry bodies, institutional ties, and corporate partner ecosystems.
                   </p>
@@ -1030,7 +1030,7 @@ export function Form2Wizard({
                   </div>
                   <div>
                     <h2 className="text-lg font-bold text-slate-900 flex items-center gap-2">
-                      Section D: Leadership Bench Pipeline
+                      Leadership Bench Pipeline
                       <span className="text-xs px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-800 border border-amber-200 font-bold">
                         Core Requirement
                       </span>
@@ -1299,7 +1299,7 @@ export function Form2Wizard({
                   <Target className="w-5 h-5" />
                 </div>
                 <div>
-                  <h2 className="text-lg font-bold text-slate-900">Section E: 12-Month Execution Plan</h2>
+                  <h2 className="text-lg font-bold text-slate-900">12-Month Execution Plan</h2>
                   <p className="text-xs text-slate-500">
                     Concrete milestones, first 90 days sprint, and risk mitigation.
                   </p>
@@ -1380,7 +1380,7 @@ export function Form2Wizard({
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
-                  <h2 className="text-lg font-bold text-slate-900">Section F: Commitment &amp; Cultural Fit</h2>
+                  <h2 className="text-lg font-bold text-slate-900">Commitment &amp; Cultural Fit</h2>
                   <p className="text-xs text-slate-500">
                     Dedicated weekly hours, conflict disclosure, and Give-First ethos alignment.
                   </p>
@@ -1509,7 +1509,7 @@ export function Form2Wizard({
                   <User className="w-5 h-5" />
                 </div>
                 <div>
-                  <h2 className="text-lg font-bold text-slate-900">Section G: Professional References</h2>
+                  <h2 className="text-lg font-bold text-slate-900">Professional References</h2>
                   <p className="text-xs text-slate-500">
                     Two established industry or chamber references who can vouch for your integrity.
                   </p>
@@ -1664,7 +1664,7 @@ export function Form2Wizard({
                   <FileCheck className="w-5 h-5" />
                 </div>
                 <div>
-                  <h2 className="text-lg font-bold text-slate-900">Section H: Document Proofs</h2>
+                  <h2 className="text-lg font-bold text-slate-900">Document Proofs</h2>
                   <p className="text-xs text-slate-500">
                     Upload official KYC proof, business certificates, or profile deck.
                   </p>
