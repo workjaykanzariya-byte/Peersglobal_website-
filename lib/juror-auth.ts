@@ -60,11 +60,6 @@ export async function verifyJurorOtp(
     return { verified: false, message: 'Please enter the 6-digit OTP.' }
   }
 
-  // Developer bypass codes for instant evaluation / testing
-  if (cleanOtp === '452109' || cleanOtp === '123456') {
-    return { verified: true, message: 'OTP verified successfully.' }
-  }
-
   // Check memory store
   const mem = jurorMemoryOtpStore[cleanEmail]
   if (mem && mem.code === cleanOtp && mem.expiresAt > Date.now()) {

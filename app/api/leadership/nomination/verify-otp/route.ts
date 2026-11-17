@@ -43,44 +43,39 @@ export async function POST(req: Request) {
     let isExistingMember = false
     let memberProfile: any = null
 
-    // 1. Try Backend verification first
-    try {
-      const res = await fetch(`${UNITY_API_BASE}/api/v1/leadership/public/verification/nomination/verify-otp`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify({
-          verification_id: verificationId,
-          otp: otp,
-        }),
-      })
+    // 1. Strictly verify with live backend API (No mock or hardcoded bypasses)
+    const res = await fetch(`${UNITY_API_BASE}/api/v1/leadership/public/verification/nomination/verify-otp`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        verification_id: verificationId,
+        otp: otp,
+      }),
+    })
 
-      if (res.ok) {
-        const data = await res.json()
-        if (data.success && data.data) {
-          isVerified = true
-          isExistingMember = !!data.data.is_existing_member
-          if (data.data.profile) {
-            memberProfile = data.data.profile
-          }
-        }
-      }
-    } catch (e) {
-      console.warn('[verify-otp] Backend fetch error:', e)
+    const data = await res.json().catch(() => ({}))
+
+    if (!res.ok || !data?.success) {
+      return NextResponse.json(
+        {
+          success: false,
+          verified: false,
+          message: data?.message || 'Invalid or expired verification code. Please check and try again.',
+          errors: data?.errors || null,
+        },
+        { status: res.status || 400 }
+      )
     }
 
-    // 2. Fallback / local verification (accepts standard demo OTP 123456 or 6-digit input)
-    if (!isVerified) {
-      if (otp === '123456' || otp.length === 6) {
-        isVerified = true
-      } else {
-        return NextResponse.json(
-          { success: false, message: 'Invalid 6-digit verification code. Please check and try again.' },
-          { status: 400 }
-        )
-      }
+    isVerified = true
+    isExistingMember = Boolean(data.data?.is_existing_member ?? data.is_existing_member ?? true)
+    if (data.data?.profile) {
+      memberProfile = data.data.profile
+    } else if (data.data && typeof data.data === 'object' && data.data.full_name) {
+      memberProfile = data.data
     }
 
     // 3. If verified and contact is provided, lookup full profile from backend or database

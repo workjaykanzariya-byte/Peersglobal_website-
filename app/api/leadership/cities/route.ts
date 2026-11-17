@@ -15,7 +15,7 @@ let cachedCities: CityItem[] | null = null
 let lastFetchedTime = 0
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000 // 24 hours
 
-export function formatCityLocation(c: { name: string; district?: string | null; state?: string | null; country?: string | null }): string {
+function formatCityLocation(c: { name: string; district?: string | null; state?: string | null; country?: string | null }): string {
   const parts: string[] = [c.name]
   if (c.district && c.district.trim() !== c.name.trim()) {
     parts.push(c.district.includes('District') || c.district.includes('County') ? c.district : `${c.district} District`)
