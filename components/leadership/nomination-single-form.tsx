@@ -309,7 +309,7 @@ export function NominationSingleForm() {
   }
 
   // =========================================================================
-  // IDENTITY CHECK & OTP HANDLERS (Seamless: Enter -> Check Member -> OTP or Direct Form)
+  // IDENTITY CHECK & OTP HANDLERS (OTP required for ALL candidates: Member & Non-Member)
   // =========================================================================
   const handleCheckAndProceed = async () => {
     const email = contactInput.trim().toLowerCase()
@@ -327,51 +327,51 @@ export function NominationSingleForm() {
     setVerificationMessage(null)
 
     try {
-      // Step 1: Check in the background if this email belongs to an existing member
-      const checkRes = await fetch('/api/leadership/check-member', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: email,
-        }),
-      })
-
-      const checkData = await checkRes.json()
-
-      if (checkRes.ok && checkData.success && checkData.exists && checkData.is_existing_member) {
-        // CASE A: User IS an existing member in our user table!
-        // Show OTP box and dispatch code so their private profile is protected.
-        cachedMemberProfileRef.current = checkData.profile || null
-
-        const otpRes = await fetch('/api/leadership/nomination/request-otp', {
+      // Step 1: Check in the background if this email belongs to an existing member (for profile hydration)
+      let isExisting = false
+      try {
+        const checkRes = await fetch('/api/leadership/check-member', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            contact: email,
-            contact_type: 'email',
-            campaign_id: campaignId,
+            email: email,
           }),
         })
 
-        const otpData = await otpRes.json()
-        if (otpRes.ok && otpData.success) {
-          setOtpSent(true)
-          setVerificationId(otpData.data?.verification_id || '')
-          setVerificationMessage(
-            otpData.message || `Peers Global member account found! A 6-digit verification code has been sent to your email (${email}). Please enter it below to unlock your profile.`
-          )
+        const checkData = await checkRes.json()
+        if (checkRes.ok && checkData.success && checkData.exists && checkData.is_existing_member) {
+          isExisting = true
+          cachedMemberProfileRef.current = checkData.profile || null
         } else {
-          setVerificationError(otpData.message || 'Could not send verification code to your email. Please check and try again.')
+          cachedMemberProfileRef.current = null
         }
-      } else {
-        // CASE B: User is NOT in our user table -> Simply proceed directly to form!
-        setIsVerified(true)
-        setIsExistingMember(false)
-        masterProfileRef.current = null
+      } catch (err) {
+        console.warn('Member check error:', err)
         cachedMemberProfileRef.current = null
+      }
 
-        setVerifiedEmail(email)
-        setVerificationMessage("You're not yet in Peers Global. Continue as a new nominee.")
+      // Step 2: Request OTP via email for ALL users (both existing members & new nominees)
+      const otpRes = await fetch('/api/leadership/nomination/request-otp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contact: email,
+          contact_type: 'email',
+          campaign_id: campaignId,
+        }),
+      })
+
+      const otpData = await otpRes.json()
+      if (otpRes.ok && otpData.success) {
+        setOtpSent(true)
+        setVerificationId(otpData.data?.verification_id || '')
+        setVerificationMessage(
+          isExisting
+            ? `Peers Global member account found! A 6-digit verification code has been sent to your email (${email}). Please enter it below to unlock your profile.`
+            : `A 6-digit verification code has been sent to your email (${email}). Please enter it below to verify your email and proceed.`
+        )
+      } else {
+        setVerificationError(otpData.message || 'Could not send verification code to your email. Please check and try again.')
       }
     } catch (e: any) {
       setVerificationError(e?.message || 'Network error while checking identity.')
@@ -416,6 +416,7 @@ export function NominationSingleForm() {
       return
     }
 
+    const email = contactInput.trim().toLowerCase()
     setIsVerifyingOtp(true)
     setVerificationError(null)
 
@@ -426,24 +427,26 @@ export function NominationSingleForm() {
         body: JSON.stringify({
           verification_id: verificationId,
           otp: code,
-          contact: contactInput.trim(),
+          contact: email,
+          contact_type: 'email',
         }),
       })
 
       const data = await res.json()
       if (res.ok && data.success && data.verified) {
         setIsVerified(true)
-        setIsExistingMember(true)
+        setVerifiedEmail(email)
 
         const p = data.profile || cachedMemberProfileRef.current
-        if (p) {
+        if (data.is_existing_member && p) {
+          setIsExistingMember(true)
           masterProfileRef.current = p
           setFullName(p.full_name || p.fullName || '')
           setCompanyName(p.company_name || p.company || '')
           setDesignation(p.designation || '')
           setIndustryName(p.industry || p.industry_name || '')
-          setVerifiedEmail(p.email || (contactInput.includes('@') ? contactInput : ''))
-          setVerifiedMobile(p.mobile || p.phone || (!contactInput.includes('@') ? contactInput : ''))
+          setVerifiedEmail(p.email || email)
+          setVerifiedMobile(p.mobile || p.phone || '')
           setLinkedinUrl(p.linkedin || p.socialLinks || '')
           setWebsiteUrl(p.website || '')
           setPhotoUrl(p.photo_url || p.profile_photo_url || null)
@@ -464,13 +467,17 @@ export function NominationSingleForm() {
           setAttendanceRate('')
           setVerificationMessage('Identity verified! Your profile data has been securely loaded.')
         } else {
-          setVerificationMessage('Identity verified successfully!')
+          // Non-member / New nominee path
+          setIsExistingMember(false)
+          masterProfileRef.current = null
+          cachedMemberProfileRef.current = null
+          setVerificationMessage("Email verified! You're not yet in Peers Global. Continue as a new nominee.")
         }
       } else {
         setVerificationError(data.message || 'Invalid or expired verification code. Please check and try again.')
       }
     } catch (e: any) {
-      setVerificationError(e?.message || 'Verification error occurred.')
+      setVerificationError(e?.message || 'Error verifying OTP.')
     } finally {
       setIsVerifyingOtp(false)
     }
@@ -1031,7 +1038,7 @@ export function NominationSingleForm() {
                   </span>
                 </div>
                 <p className="text-xs text-slate-600 leading-relaxed">
-                  Enter your registered email address. If you are an existing member, we will verify your identity with a 6-digit OTP before loading your profile.
+                  Enter your email address to receive a 6-digit verification code. If you are an existing member, we will securely load your profile once verified.
                 </p>
 
                 {!isVerified ? (
@@ -1098,7 +1105,7 @@ export function NominationSingleForm() {
                           onClick={handleVerifyOtp}
                           className="h-11 px-6 rounded-xl bg-[#047857] hover:bg-[#065F46] text-white text-xs font-bold transition-all disabled:opacity-50"
                         >
-                          {isVerifyingOtp ? 'Verifying...' : 'Verify & Load Profile'}
+                          {isVerifyingOtp ? 'Verifying...' : (cachedMemberProfileRef.current ? 'Verify & Load Profile' : 'Verify & Proceed')}
                         </button>
                         <button
                           type="button"
@@ -1130,7 +1137,7 @@ export function NominationSingleForm() {
                       <div className="flex items-center gap-2">
                         <Check className="w-4 h-4 text-[#047857] stroke-[3]" />
                         <span className="text-xs font-bold text-[#047857]">
-                          {isExistingMember ? 'Identity Verified: Peers Global Member' : 'Identity Verified: New Leadership Nominee'}
+                          {isExistingMember ? 'Identity Verified: Peers Global Member' : 'Email Verified: New Leadership Nominee'}
                         </span>
                       </div>
                       <span className="text-xs font-mono text-slate-600">{contactInput}</span>
