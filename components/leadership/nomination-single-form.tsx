@@ -308,9 +308,13 @@ export function NominationSingleForm() {
   // IDENTITY CHECK & OTP HANDLERS (Seamless: Enter -> Check Member -> OTP or Direct Form)
   // =========================================================================
   const handleCheckAndProceed = async () => {
-    const contact = contactInput.trim()
-    if (!contact) {
-      setVerificationError('Please enter your mobile number or email address.')
+    const email = contactInput.trim().toLowerCase()
+    if (!email) {
+      setVerificationError('Please enter your email address.')
+      return
+    }
+    if (!email.includes('@') || !email.includes('.')) {
+      setVerificationError('Please enter a valid email address.')
       return
     }
 
@@ -319,14 +323,12 @@ export function NominationSingleForm() {
     setVerificationMessage(null)
 
     try {
-      // Step 1: Check in the background if this email/phone belongs to an existing member
+      // Step 1: Check in the background if this email belongs to an existing member
       const checkRes = await fetch('/api/leadership/check-member', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          email: contact.includes('@') ? contact : undefined,
-          phone: !contact.includes('@') ? contact : undefined,
-          mobile: !contact.includes('@') ? contact : undefined,
+          email: email,
         }),
       })
 
@@ -341,7 +343,8 @@ export function NominationSingleForm() {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            contact,
+            contact: email,
+            contact_type: 'email',
             campaign_id: campaignId,
           }),
         })
@@ -351,10 +354,10 @@ export function NominationSingleForm() {
           setOtpSent(true)
           setVerificationId(otpData.data?.verification_id || '')
           setVerificationMessage(
-            otpData.message || `Peers Global member account found! A 6-digit verification code has been sent to ${contact}. Please enter it below to unlock your profile.`
+            otpData.message || `Peers Global member account found! A 6-digit verification code has been sent to your email (${email}). Please enter it below to unlock your profile.`
           )
         } else {
-          setVerificationError(otpData.message || 'Could not send verification code. Please check your contact and try again.')
+          setVerificationError(otpData.message || 'Could not send verification code to your email. Please check and try again.')
         }
       } else {
         // CASE B: User is NOT in our user table -> Simply proceed directly to form!
@@ -363,12 +366,7 @@ export function NominationSingleForm() {
         masterProfileRef.current = null
         cachedMemberProfileRef.current = null
 
-        if (contact.includes('@')) {
-          setVerifiedEmail(contact)
-        } else {
-          setVerifiedMobile(contact)
-        }
-
+        setVerifiedEmail(email)
         setVerificationMessage("You're not yet in Peers Global. Continue as a new nominee.")
       }
     } catch (e: any) {
@@ -379,8 +377,8 @@ export function NominationSingleForm() {
   }
 
   const handleResendOtp = async () => {
-    const contact = contactInput.trim()
-    if (!contact) return
+    const email = contactInput.trim().toLowerCase()
+    if (!email) return
     setIsSendingOtp(true)
     setVerificationError(null)
     try {
@@ -388,14 +386,15 @@ export function NominationSingleForm() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          contact,
+          contact: email,
+          contact_type: 'email',
           campaign_id: campaignId,
         }),
       })
       const data = await res.json()
       if (res.ok && data.success) {
         setVerificationId(data.data?.verification_id || '')
-        setVerificationMessage(`A new 6-digit verification code has been sent to ${contact}.`)
+        setVerificationMessage(`A new 6-digit verification code has been sent to your email (${email}).`)
       } else {
         setVerificationError(data.message || 'Could not resend verification code.')
       }
@@ -514,7 +513,8 @@ export function NominationSingleForm() {
     companyName.trim() !== '' &&
     designation.trim() !== '' &&
     industryName.trim() !== '' &&
-    Boolean(verifiedEmail || verifiedMobile)
+    verifiedEmail.trim() !== '' &&
+    verifiedMobile.trim() !== ''
   const isNominationDetailsDone =
     statementWords > 0 &&
     statementWords <= 20 &&
@@ -534,6 +534,8 @@ export function NominationSingleForm() {
   if (!companyName.trim()) missingItems.push({ label: 'your company name', href: '#sec-profile' })
   if (!designation.trim()) missingItems.push({ label: 'your designation', href: '#sec-profile' })
   if (!industryName.trim()) missingItems.push({ label: 'your industry', href: '#sec-profile' })
+  if (!verifiedEmail.trim()) missingItems.push({ label: 'your email address', href: '#sec-profile' })
+  if (!verifiedMobile.trim()) missingItems.push({ label: 'your mobile number', href: '#sec-profile' })
   if (statementWords === 0) missingItems.push({ label: 'one-line leadership statement', href: '#sec-nomination' })
   if (statementWords > 20) missingItems.push({ label: 'leadership statement (max 20 words)', href: '#sec-nomination' })
   if (visionWords === 0) missingItems.push({ label: '12-month vision plan', href: '#sec-nomination' })
@@ -987,14 +989,14 @@ export function NominationSingleForm() {
                   </span>
                 </div>
                 <p className="text-xs text-slate-600 leading-relaxed">
-                  Enter your registered mobile number or email address. If you are an existing member, we will verify your identity with a 6-digit OTP before loading your profile.
+                  Enter your registered email address. If you are an existing member, we will verify your identity with a 6-digit OTP before loading your profile.
                 </p>
 
                 {!isVerified ? (
                   <div className="flex flex-col gap-3">
                     <div className="flex flex-col sm:flex-row gap-2.5">
                       <input
-                        type="text"
+                        type="email"
                         disabled={otpSent || isSendingOtp}
                         value={contactInput}
                         onChange={(e) => setContactInput(e.target.value)}
@@ -1004,7 +1006,7 @@ export function NominationSingleForm() {
                             handleCheckAndProceed()
                           }
                         }}
-                        placeholder="Mobile number (+91...) or Email address"
+                        placeholder="Email address"
                         className="flex-1 h-11 px-3.5 bg-white border border-[#8190A7] rounded-xl text-sm text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8] disabled:bg-slate-100"
                       />
                       {!otpSent ? (
@@ -1027,7 +1029,7 @@ export function NominationSingleForm() {
                           }}
                           className="h-11 px-3.5 rounded-xl border border-slate-300 bg-white text-xs font-semibold text-slate-700 hover:bg-slate-50 shrink-0"
                         >
-                          Change Contact
+                          Change Email
                         </button>
                       )}
                     </div>
@@ -1279,7 +1281,7 @@ export function NominationSingleForm() {
 
                     <div className="flex flex-col gap-1.5">
                       <label className="text-xs font-bold text-slate-700">
-                        Mobile number <span className="text-xs font-normal text-slate-400">(Verified)</span>
+                        Mobile number <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="tel"
@@ -1328,6 +1330,35 @@ export function NominationSingleForm() {
                       />
                     </div>
                   </div>
+
+                  {/* Read-Only Peers Global Membership Details (from Unity) */}
+                  {isExistingMember && (
+                    <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 mt-2">
+                      <div className="flex items-center justify-between pb-1.5 border-b border-slate-200 text-xs">
+                        <span className="font-bold text-slate-700 uppercase tracking-wider">Peers Global Membership (Read-Only)</span>
+                        <span className="text-[11px] font-semibold text-slate-500">Auto-filled from Unity</span>
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs pt-1">
+                        <div>
+                          <span className="text-slate-400 block">Current Circle & Role:</span>
+                          <span className="font-semibold text-slate-800">
+                            {currentCircle || 'Peers Global Community'} · {currentRoleHeld || 'Active Peer Member'}
+                          </span>
+                        </div>
+                        <div>
+                          <span className="text-slate-400 block">Member Since:</span>
+                          <span className="font-semibold text-slate-800">{memberSince || '2024'}</span>
+                        </div>
+                        <div>
+                          <span className="text-slate-400 block">Life Impact Score / Attendance:</span>
+                          <span className="font-semibold text-[#047857]">
+                            {lifeImpactScore || 85} / 100 · {attendanceRate || 92}% Attendance
+                          </span>
+                          <span className="text-[10px] text-slate-400 block">(For admin view only)</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </section>
 
                 {/* =================================================================== */}
@@ -1510,7 +1541,7 @@ export function NominationSingleForm() {
                             setOtherNetworkDetails(e.target.value)
                             setTouched(true)
                           }}
-                          placeholder="e.g. Past President at BNI Surat (2023-2024), Regional Council Member at CII..."
+                          placeholder="e.g. Chapter President (2022-2024), Industry Trade Association Executive Committee Member..."
                           className="w-full p-3 bg-white border border-[#8190A7] rounded-xl text-sm text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8] resize-y"
                         />
                       </div>
@@ -1557,9 +1588,9 @@ export function NominationSingleForm() {
                     </span>
                   </div>
 
-                  {/* Four Checkboxes matching exact user specifications */}
-                  <div className="space-y-3">
-                    <label className="flex items-start gap-3 p-3.5 border border-[#8190A7] rounded-xl cursor-pointer text-xs text-slate-800 bg-slate-50/50 hover:bg-slate-50">
+                  {/* Four Checkboxes: Clean 4-line layout */}
+                  <div className="space-y-3 pt-1">
+                    <label className="flex items-start gap-3 cursor-pointer text-xs text-slate-700 hover:text-slate-900 select-none">
                       <input
                         type="checkbox"
                         checked={decTruth}
@@ -1567,14 +1598,14 @@ export function NominationSingleForm() {
                           setDecTruth(e.target.checked)
                           setTouched(true)
                         }}
-                        className="w-4 h-4 mt-0.5 rounded text-[#1D4ED8] focus:ring-[#1D4ED8] shrink-0"
+                        className="w-4 h-4 mt-0.5 rounded border-slate-300 text-[#1D4ED8] focus:ring-[#1D4ED8] shrink-0"
                       />
                       <span className="leading-relaxed">
-                        <strong>Information is true:</strong> I declare that all information and statements submitted in this application are accurate, verifiable, and true.
+                        <strong className="text-slate-900">Information is true:</strong> I declare that all information and statements submitted in this application are accurate, verifiable, and true.
                       </span>
                     </label>
 
-                    <label className="flex items-start gap-3 p-3.5 border border-[#8190A7] rounded-xl cursor-pointer text-xs text-slate-800 bg-slate-50/50 hover:bg-slate-50">
+                    <label className="flex items-start gap-3 cursor-pointer text-xs text-slate-700 hover:text-slate-900 select-none">
                       <input
                         type="checkbox"
                         checked={decConduct}
@@ -1582,14 +1613,14 @@ export function NominationSingleForm() {
                           setDecConduct(e.target.checked)
                           setTouched(true)
                         }}
-                        className="w-4 h-4 mt-0.5 rounded text-[#1D4ED8] focus:ring-[#1D4ED8] shrink-0"
+                        className="w-4 h-4 mt-0.5 rounded border-slate-300 text-[#1D4ED8] focus:ring-[#1D4ED8] shrink-0"
                       />
                       <span className="leading-relaxed">
-                        <strong>Accept Code of Conduct:</strong> I accept the Peers Global Code of Conduct, including strict prohibition of incentives, financial inducements, or transactional favours for votes.
+                        <strong className="text-slate-900">Accept Code of Conduct:</strong> I accept the Peers Global Code of Conduct, including strict prohibition of incentives, financial inducements, or transactional favours for votes.
                       </span>
                     </label>
 
-                    <label className="flex items-start gap-3 p-3.5 border border-[#8190A7] rounded-xl cursor-pointer text-xs text-slate-800 bg-slate-50/50 hover:bg-slate-50">
+                    <label className="flex items-start gap-3 cursor-pointer text-xs text-slate-700 hover:text-slate-900 select-none">
                       <input
                         type="checkbox"
                         checked={decConsent}
@@ -1597,14 +1628,14 @@ export function NominationSingleForm() {
                           setDecConsent(e.target.checked)
                           setTouched(true)
                         }}
-                        className="w-4 h-4 mt-0.5 rounded text-[#1D4ED8] focus:ring-[#1D4ED8] shrink-0"
+                        className="w-4 h-4 mt-0.5 rounded border-slate-300 text-[#1D4ED8] focus:ring-[#1D4ED8] shrink-0"
                       />
                       <span className="leading-relaxed">
-                        <strong>Consent to Public Profile & Creative:</strong> I consent to the publication of my candidate profile, statement, and official creative if shortlisted.
+                        <strong className="text-slate-900">Consent to Public Profile & Creative:</strong> I consent to the publication of my candidate profile, statement, and official creative if shortlisted.
                       </span>
                     </label>
 
-                    <label className="flex items-start gap-3 p-3.5 border border-[#8190A7] rounded-xl cursor-pointer text-xs text-slate-800 bg-slate-50/50 hover:bg-slate-50">
+                    <label className="flex items-start gap-3 cursor-pointer text-xs text-slate-700 hover:text-slate-900 select-none">
                       <input
                         type="checkbox"
                         checked={decJury}
@@ -1612,10 +1643,10 @@ export function NominationSingleForm() {
                           setDecJury(e.target.checked)
                           setTouched(true)
                         }}
-                        className="w-4 h-4 mt-0.5 rounded text-[#1D4ED8] focus:ring-[#1D4ED8] shrink-0"
+                        className="w-4 h-4 mt-0.5 rounded border-slate-300 text-[#1D4ED8] focus:ring-[#1D4ED8] shrink-0"
                       />
                       <span className="leading-relaxed">
-                        <strong>Consent to Jury Evaluation:</strong> I consent to be contacted by the Scrutiny Committee and Jury Board for verification and evaluation interviews.
+                        <strong className="text-slate-900">Consent to Jury Evaluation:</strong> I consent to be contacted by the Scrutiny Committee and Jury Board for verification and evaluation interviews.
                       </span>
                     </label>
                   </div>

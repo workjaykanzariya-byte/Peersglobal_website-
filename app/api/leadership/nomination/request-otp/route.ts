@@ -7,13 +7,13 @@ const UNITY_API_BASE = 'https://peersunity.com'
 export async function POST(req: Request) {
   try {
     const body = await req.json().catch(() => ({}))
-    const contact = String(body.contact || body.email || body.mobile || '').trim()
-    const contactType = body.contact_type || (contact.includes('@') ? 'email' : 'mobile')
+    const contact = String(body.contact || body.email || '').trim().toLowerCase()
+    const contactType = 'email'
     const campaignId = body.campaign_id || '23ba107a-f314-4cd9-b04a-7af04951f95c'
 
-    if (!contact) {
+    if (!contact || !contact.includes('@')) {
       return NextResponse.json(
-        { success: false, message: 'Please provide a valid email or mobile number.' },
+        { success: false, message: 'Please provide a valid email address.' },
         { status: 400 }
       )
     }
