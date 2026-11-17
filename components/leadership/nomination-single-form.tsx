@@ -1396,7 +1396,7 @@ export function NominationSingleForm() {
                         <div>
                           <span className="text-slate-400 block">Life Impact Score:</span>
                           <span className="font-semibold text-[#047857]">
-                            {lifeImpactScore !== null && lifeImpactScore !== undefined ? lifeImpactScore : 0} / 100
+                            {lifeImpactScore !== null && lifeImpactScore !== undefined ? lifeImpactScore : 0}
                           </span>
                           <span className="text-[10px] text-slate-400 block">(For admin view only)</span>
                         </div>
@@ -1808,10 +1808,10 @@ export function NominationSingleForm() {
                 {isSubmitting ? (
                   <>
                     <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                    <span>Submitting nomination...</span>
+                    <span>Submitting...</span>
                   </>
                 ) : (
-                  <span>Submit my nomination</span>
+                  <span>Submit</span>
                 )}
               </button>
             ) : (
