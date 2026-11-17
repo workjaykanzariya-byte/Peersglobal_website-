@@ -81,13 +81,14 @@ export function NominationSingleForm() {
   // =========================================================================
   // SECTION 1: IDENTIFY STATE
   // =========================================================================
-  const [selectedRoleKey, setSelectedRoleKey] = useState<string>('ded')
+  const [selectedRoleKey, setSelectedRoleKey] = useState<string>('')
   const [selectedBelongingId, setSelectedBelongingId] = useState<string>('')
   const [selectedBelongingName, setSelectedBelongingName] = useState<string>('')
   const [selectedCity, setSelectedCity] = useState<string>('')
   const [selectedCityId, setSelectedCityId] = useState<string>('')
 
   // City Search Autocomplete
+  const cityDropdownRef = useRef<HTMLDivElement>(null)
   const [citySearchOpen, setCitySearchOpen] = useState(false)
   const [citySearchQuery, setCitySearchQuery] = useState('')
   const [citySearchResults, setCitySearchResults] = useState<CityOption[]>([])
@@ -254,15 +255,35 @@ export function NominationSingleForm() {
     return () => clearTimeout(timer)
   }, [citySearchQuery])
 
-  // Get active role object
-  const currentRole = roles.find((r) => r.key === selectedRoleKey) || {
+  // 4. Click outside & Escape key handler to close city search dropdown
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (cityDropdownRef.current && !cityDropdownRef.current.contains(event.target as Node)) {
+        setCitySearchOpen(false)
+      }
+    }
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        setCitySearchOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener('keydown', handleKeyDown)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [])
+
+  // Get active role object (null when no role selected by default)
+  const currentRole = roles.find((r) => r.key === selectedRoleKey) || (selectedRoleKey ? {
     key: selectedRoleKey,
     name: selectedRoleKey.toUpperCase(),
     short_name: selectedRoleKey.toUpperCase(),
     category: 'Leadership',
     belonging_type: 'district',
-    description: 'Lead executive governance and strategic ecosystem growth.',
-  }
+    description: '',
+  } : null)
 
   // Handle Role Change
   const handleRoleSelect = (key: string) => {
@@ -426,9 +447,9 @@ export function NominationSingleForm() {
           if (p.city) {
             setSelectedCity(
               p.formatted_location ||
-                `${p.city}, ${p.district || p.city}, ${p.state || ''}, ${p.country || 'India'}`
-                  .replace(/,\s*,/g, ',')
-                  .trim()
+              `${p.city}, ${p.district || p.city}, ${p.state || ''}, ${p.country || 'India'}`
+                .replace(/,\s*,/g, ',')
+                .trim()
             )
           }
           setCurrentCircle(p.current_circle || 'Peers Global Community')
@@ -503,7 +524,7 @@ export function NominationSingleForm() {
     hasOtherNetworkRole !== null &&
     (hasOtherNetworkRole === false || otherNetworkDetails.trim() !== '') &&
     hoursPerWeek !== ''
-  const isDeclarationsDone = decTruth && decConduct && decConsent && decJury && Boolean(idFile)
+  const isDeclarationsDone = decTruth && decConduct && decConsent && decJury
 
   // Missing items tracker for the sticky bottom bar
   const missingItems: Array<{ label: string; href: string }> = []
@@ -520,7 +541,6 @@ export function NominationSingleForm() {
   if (whyRoleWords > 150) missingItems.push({ label: 'why role answer (max 150 words)', href: '#sec-nomination' })
   if (hasOtherNetworkRole === null) missingItems.push({ label: 'network association disclosure', href: '#sec-nomination' })
   if (hasOtherNetworkRole === true && !otherNetworkDetails.trim()) missingItems.push({ label: 'network association details', href: '#sec-nomination' })
-  if (!idFile) missingItems.push({ label: 'ID proof document', href: '#sec-declarations' })
   if (!decTruth || !decConduct || !decConsent || !decJury) missingItems.push({ label: 'mandatory declarations', href: '#sec-declarations' })
 
   const isReadyToSubmit = missingItems.length === 0
@@ -544,8 +564,8 @@ export function NominationSingleForm() {
         email: verifiedEmail.trim().toLowerCase(),
         mobile: verifiedMobile.trim(),
         applied_role: selectedRoleKey,
-        role_name: currentRole.name,
-        belonging_type: currentRole.belonging_type,
+        role_name: currentRole?.name || selectedRoleKey,
+        belonging_type: currentRole?.belonging_type || 'district',
         belonging_id: selectedBelongingId,
         belonging_name: selectedBelongingName,
         city_name: selectedCity,
@@ -665,7 +685,7 @@ export function NominationSingleForm() {
               <h1 className="text-3xl font-extrabold tracking-tight text-[#0F172A]">Nomination submitted</h1>
               <p className="text-base text-slate-600 max-w-lg leading-relaxed">
                 Thank you, <strong className="text-slate-900">{fullName.split(' ')[0] || 'Leader'}</strong>. Your application
-                for <strong className="text-[#1D4ED8]">{currentRole.name}</strong> representing{' '}
+                for <strong className="text-[#1D4ED8]">{currentRole?.name || selectedRoleKey}</strong> representing{' '}
                 <strong className="text-slate-900">{selectedCity}</strong> has been received and securely forwarded to the
                 Scrutiny Committee.
               </p>
@@ -685,7 +705,7 @@ export function NominationSingleForm() {
                 </div>
                 <div>
                   <span className="text-slate-500 block">Applied Role:</span>
-                  <span className="font-semibold text-slate-800">{currentRole.short_name}</span>
+                  <span className="font-semibold text-slate-800">{currentRole?.short_name || selectedRoleKey}</span>
                 </div>
                 <div className="col-span-2">
                   <span className="text-slate-500 block">Jurisdiction / Location:</span>
@@ -794,12 +814,14 @@ export function NominationSingleForm() {
                   </select>
                   <ChevronDown className="w-4 h-4 text-slate-500 absolute right-3.5 top-4 pointer-events-none" />
                 </div>
-                <p className="text-xs text-slate-500 mt-0.5 italic">{currentRole.description}</p>
+                {currentRole?.description ? (
+                  <p className="text-xs text-slate-500 mt-0.5 italic">{currentRole.description}</p>
+                ) : null}
               </div>
 
               {/* Territory / Industry / Circle Selection */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
-                {currentRole.belonging_type === 'industry' && (
+                {currentRole?.belonging_type === 'industry' && (
                   <div className="flex flex-col gap-1.5">
                     <label className="text-xs font-bold uppercase tracking-wider text-slate-600">
                       Industry Vertical <span className="text-red-500">*</span>
@@ -827,7 +849,7 @@ export function NominationSingleForm() {
                   </div>
                 )}
 
-                {currentRole.belonging_type === 'committee' && (
+                {currentRole?.belonging_type === 'committee' && (
                   <div className="flex flex-col gap-1.5">
                     <label className="text-xs font-bold uppercase tracking-wider text-slate-600">
                       Committee <span className="text-red-500">*</span>
@@ -852,8 +874,8 @@ export function NominationSingleForm() {
                   </div>
                 )}
 
-                {/* City / District with Country and District formatted */}
-                <div className="flex flex-col gap-1.5 relative sm:col-span-2">
+                {/* City / District with Country and District formatted & Click-outside closing */}
+                <div ref={cityDropdownRef} className="flex flex-col gap-1.5 relative sm:col-span-2">
                   <label className="text-xs font-bold uppercase tracking-wider text-slate-600">
                     City / District / Territory <span className="text-red-500">*</span>
                   </label>
@@ -869,36 +891,88 @@ export function NominationSingleForm() {
                         setCitySearchOpen(true)
                         setTouched(true)
                       }}
-                      className="w-full h-12 px-3.5 pr-10 bg-white border border-[#8190A7] rounded-xl text-sm font-semibold text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]"
+                      className="w-full h-12 px-3.5 pr-20 bg-white border border-[#8190A7] rounded-xl text-sm font-semibold text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]"
                     />
-                    <Search className="w-4 h-4 text-slate-400 absolute right-3.5 top-4 pointer-events-none" />
+                    <div className="absolute right-3 top-3.5 flex items-center gap-1.5">
+                      {selectedCity ? (
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            setSelectedCity('')
+                            setSelectedCityId('')
+                            setCitySearchQuery('')
+                            setCitySearchOpen(false)
+                          }}
+                          className="p-1 text-slate-400 hover:text-slate-700 rounded-full hover:bg-slate-100 transition-colors"
+                          title="Clear city"
+                          aria-label="Clear city"
+                        >
+                          <X className="w-4 h-4" />
+                        </button>
+                      ) : citySearchOpen ? (
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            setCitySearchOpen(false)
+                          }}
+                          className="p-1 text-slate-400 hover:text-slate-700 rounded-full hover:bg-slate-100 transition-colors"
+                          title="Close dropdown"
+                          aria-label="Close dropdown"
+                        >
+                          <X className="w-4 h-4" />
+                        </button>
+                      ) : null}
+                      <Search className="w-4 h-4 text-slate-400 pointer-events-none" />
+                    </div>
                   </div>
 
-                  {citySearchOpen && citySearchResults.length > 0 && (
-                    <div className="absolute top-full left-0 right-0 mt-1 max-h-56 overflow-y-auto bg-white border border-slate-200 rounded-xl shadow-xl z-50 divide-y divide-slate-100">
-                      {citySearchResults.map((c) => {
-                        const fullLoc =
-                          c.formatted_location ||
-                          `${c.name}, ${c.district || c.name} District, ${c.state || ''}, ${c.country || 'India'}`
-                            .replace(/,\s*,/g, ',')
-                            .trim()
-                        return (
-                          <button
-                            key={c.id}
-                            type="button"
-                            onClick={() => {
-                              setSelectedCity(fullLoc)
-                              setSelectedCityId(c.id)
-                              setCitySearchOpen(false)
-                              setTouched(true)
-                            }}
-                            className="w-full text-left px-3.5 py-2.5 hover:bg-blue-50 text-xs flex items-center justify-between transition-colors"
-                          >
-                            <span className="font-semibold text-slate-800">{c.name}</span>
-                            <span className="text-slate-500 text-[11px]">{c.district ? `${c.district} · ` : ''}{c.state || ''} {c.country ? `(${c.country})` : ''}</span>
-                          </button>
-                        )
-                      })}
+                  {citySearchOpen && (
+                    <div className="absolute top-full left-0 right-0 mt-1 max-h-60 overflow-y-auto bg-white border border-slate-200 rounded-xl shadow-xl z-50 divide-y divide-slate-100">
+                      <div className="sticky top-0 z-10 flex items-center justify-between px-3.5 py-2 bg-slate-50/95 backdrop-blur-xs border-b border-slate-100 text-[11px] font-bold text-slate-500">
+                        <span>Select City / Jurisdiction</span>
+                        <button
+                          type="button"
+                          onClick={() => setCitySearchOpen(false)}
+                          className="inline-flex items-center gap-1 text-[11px] font-semibold text-slate-500 hover:text-slate-800 px-2 py-0.5 rounded hover:bg-slate-200/70 transition-colors"
+                        >
+                          <X className="w-3.5 h-3.5" />
+                          <span>Close</span>
+                        </button>
+                      </div>
+
+                      {citySearchResults.length > 0 ? (
+                        citySearchResults.map((c) => {
+                          const fullLoc =
+                            c.formatted_location ||
+                            `${c.name}, ${c.district || c.name} District, ${c.state || ''}, ${c.country || 'India'}`
+                              .replace(/,\s*,/g, ',')
+                              .trim()
+                          return (
+                            <button
+                              key={c.id}
+                              type="button"
+                              onClick={() => {
+                                setSelectedCity(fullLoc)
+                                setSelectedCityId(c.id)
+                                setCitySearchOpen(false)
+                                setTouched(true)
+                              }}
+                              className="w-full text-left px-3.5 py-2.5 hover:bg-blue-50 text-xs flex items-center justify-between transition-colors"
+                            >
+                              <span className="font-semibold text-slate-800">{c.name}</span>
+                              <span className="text-slate-500 text-[11px]">
+                                {c.district ? `${c.district} · ` : ''}{c.state || ''} {c.country ? `(${c.country})` : ''}
+                              </span>
+                            </button>
+                          )
+                        })
+                      ) : (
+                        <div className="px-3.5 py-3 text-xs text-slate-500 text-center">
+                          {isSearchingCities ? 'Searching locations...' : 'No matching locations found'}
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>
@@ -1583,157 +1657,6 @@ export function NominationSingleForm() {
                         <strong>Consent to Jury Evaluation:</strong> I consent to be contacted by the Scrutiny Committee and Jury Board for verification and evaluation interviews.
                       </span>
                     </label>
-                  </div>
-
-                  {/* Confidential Document Uploads with Clear / Deselect options */}
-                  <div className="pt-3 border-t border-slate-100 flex flex-col gap-3">
-                    <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700">
-                      Verification Documents (Confidential Admin & Jury View)
-                    </h3>
-
-                    {/* ID Proof (Required) */}
-                    <div className="flex flex-wrap items-center justify-between gap-3 p-4 bg-[#F6F8FC] border border-[#DDE3EE] rounded-xl">
-                      <div className="flex flex-col gap-1 flex-1 min-w-[240px]">
-                        <div className="flex items-center gap-2">
-                          <span className="text-sm font-semibold text-slate-900">ID proof</span>
-                          <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-[#E3EAFD] text-[#1E3A8A]">
-                            Required
-                          </span>
-                        </div>
-                        <span className="text-xs text-slate-500">
-                          Masked Aadhaar, Passport or Driving License. PDF or Image up to 5 MB.
-                        </span>
-                        {idFile && <span className="text-xs font-bold text-[#047857] mt-0.5">✓ {idFile}</span>}
-                      </div>
-                      <div className="flex items-center gap-2 shrink-0">
-                        <button
-                          type="button"
-                          onClick={() => idInputRef.current?.click()}
-                          className="h-10 px-4 rounded-xl border border-[#8190A7] bg-white text-slate-900 font-semibold text-xs inline-flex items-center gap-2 hover:bg-slate-50"
-                        >
-                          <UploadCloud className="w-4 h-4 text-slate-700" />
-                          {idFile ? 'Replace file' : 'Choose file'}
-                        </button>
-                        {idFile && (
-                          <button
-                            type="button"
-                            onClick={() => {
-                              setIdFile('')
-                              if (idInputRef.current) idInputRef.current.value = ''
-                              setTouched(true)
-                            }}
-                            className="h-10 px-3 rounded-xl border border-rose-200 bg-rose-50 text-rose-700 font-semibold text-xs inline-flex items-center gap-1 hover:bg-rose-100"
-                            title="Clear / Deselect file"
-                          >
-                            <X className="w-3.5 h-3.5 text-rose-600" />
-                            Clear
-                          </button>
-                        )}
-                      </div>
-                      <input
-                        ref={idInputRef}
-                        type="file"
-                        accept=".pdf,image/*"
-                        onChange={(e) => handleFileChange(e, setIdFile)}
-                        className="hidden"
-                      />
-                    </div>
-
-                    {/* Recommendation Letter (Optional) */}
-                    <div className="flex flex-wrap items-center justify-between gap-3 p-4 bg-[#F6F8FC] border border-[#DDE3EE] rounded-xl">
-                      <div className="flex flex-col gap-1 flex-1 min-w-[240px]">
-                        <div className="flex items-center gap-2">
-                          <span className="text-sm font-semibold text-slate-900">Recommendation letter</span>
-                          <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-[#EAEEF4] text-slate-600">
-                            Optional
-                          </span>
-                        </div>
-                        <span className="text-xs text-slate-500">
-                          Signed by a Circle Chair, Director, or peer leader.
-                        </span>
-                        {letterFile && <span className="text-xs font-bold text-[#047857] mt-0.5">✓ {letterFile}</span>}
-                      </div>
-                      <div className="flex items-center gap-2 shrink-0">
-                        <button
-                          type="button"
-                          onClick={() => letterInputRef.current?.click()}
-                          className="h-10 px-4 rounded-xl border border-[#8190A7] bg-white text-slate-900 font-semibold text-xs inline-flex items-center gap-2 hover:bg-slate-50"
-                        >
-                          <UploadCloud className="w-4 h-4 text-slate-700" />
-                          {letterFile ? 'Replace file' : 'Choose file'}
-                        </button>
-                        {letterFile && (
-                          <button
-                            type="button"
-                            onClick={() => {
-                              setLetterFile('')
-                              if (letterInputRef.current) letterInputRef.current.value = ''
-                              setTouched(true)
-                            }}
-                            className="h-10 px-3 rounded-xl border border-rose-200 bg-rose-50 text-rose-700 font-semibold text-xs inline-flex items-center gap-1 hover:bg-rose-100"
-                            title="Clear / Deselect file"
-                          >
-                            <X className="w-3.5 h-3.5 text-rose-600" />
-                            Clear
-                          </button>
-                        )}
-                      </div>
-                      <input
-                        ref={letterInputRef}
-                        type="file"
-                        accept=".pdf,.docx,image/*"
-                        onChange={(e) => handleFileChange(e, setLetterFile)}
-                        className="hidden"
-                      />
-                    </div>
-
-                    {/* Company Profile / Pitch Deck (Optional) */}
-                    <div className="flex flex-wrap items-center justify-between gap-3 p-4 bg-[#F6F8FC] border border-[#DDE3EE] rounded-xl">
-                      <div className="flex flex-col gap-1 flex-1 min-w-[240px]">
-                        <div className="flex items-center gap-2">
-                          <span className="text-sm font-semibold text-slate-900">Company profile / Pitch deck</span>
-                          <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-[#EAEEF4] text-slate-600">
-                            Optional
-                          </span>
-                        </div>
-                        <span className="text-xs text-slate-500">
-                          Overview about your business and community footprint.
-                        </span>
-                        {deckFile && <span className="text-xs font-bold text-[#047857] mt-0.5">✓ {deckFile}</span>}
-                      </div>
-                      <div className="flex items-center gap-2 shrink-0">
-                        <button
-                          type="button"
-                          onClick={() => deckInputRef.current?.click()}
-                          className="h-10 px-4 rounded-xl border border-[#8190A7] bg-white text-slate-900 font-semibold text-xs inline-flex items-center gap-2 hover:bg-slate-50"
-                        >
-                          <UploadCloud className="w-4 h-4 text-slate-700" />
-                          {deckFile ? 'Replace file' : 'Choose file'}
-                        </button>
-                        {deckFile && (
-                          <button
-                            type="button"
-                            onClick={() => {
-                              setDeckFile('')
-                              if (deckInputRef.current) deckInputRef.current.value = ''
-                              setTouched(true)
-                            }}
-                            className="h-10 px-3 rounded-xl border border-rose-200 bg-rose-50 text-rose-700 font-semibold text-xs inline-flex items-center gap-1 hover:bg-rose-100"
-                            title="Clear / Deselect file"
-                          >
-                            <X className="w-3.5 h-3.5 text-rose-600" />
-                            Clear
-                          </button>
-                        )}
-                      </div>
-                      <input
-                        ref={deckInputRef}
-                        type="file"
-                        accept=".pdf,.ppt,.pptx"
-                        onChange={(e) => handleFileChange(e, setDeckFile)}
-                        className="hidden"
-                      />
-                    </div>
                   </div>
                 </section>
               </>
