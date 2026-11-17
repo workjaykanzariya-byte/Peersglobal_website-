@@ -108,6 +108,35 @@ export async function POST(req: Request) {
             isExistingMember = true
             const resolvedPhoto = normalizePhotoUrl(p.photo_url || p.profile_photo_url || p.photo)
 
+            // Enrich with members-with-circles if available
+            let dynamicSince = p.member_since ? String(p.member_since) : (p.membership_starts_at ? `Since ${new Date(p.membership_starts_at).getFullYear()}` : (p.created_at ? `Since ${new Date(p.created_at).getFullYear()}` : ''))
+            let dynamicScore = typeof p.life_impact_score === 'number' ? p.life_impact_score : (typeof p.lives_impacted === 'number' ? p.lives_impacted : (p.life_impact_score !== undefined && p.life_impact_score !== null ? Number(p.life_impact_score) : 0))
+
+            if (p.user_id || p.id) {
+              try {
+                const enrichRes = await fetch(`${UNITY_API_BASE}/api/v1/members-with-circles/${p.user_id || p.id}`, {
+                  headers: {
+                    Authorization: `Bearer 302|cO0VMR2dmr9j8c3JtIU9dfkuZfSfvzaCCF1GVxJAdc6fdd2d`,
+                    Accept: 'application/json',
+                  },
+                })
+                if (enrichRes.ok) {
+                  const enrichJson = await enrichRes.json()
+                  const md = enrichJson.data || {}
+                  if (!dynamicSince && (md.membership_starts_at || md.created_at)) {
+                    dynamicSince = `Since ${new Date(md.membership_starts_at || md.created_at).getFullYear()}`
+                  }
+                  if (typeof md.lives_impacted === 'number') {
+                    dynamicScore = md.lives_impacted
+                  } else if (typeof md.life_impact_score === 'number') {
+                    dynamicScore = md.life_impact_score
+                  }
+                }
+              } catch (e) {
+                // optional enrichment
+              }
+            }
+
             memberProfile = {
               user_id: p.user_id || p.id,
               full_name: p.full_name || p.fullName || p.name || 'Verified Member',
@@ -124,11 +153,10 @@ export async function POST(req: Request) {
               profile_photo_url: resolvedPhoto,
               linkedin: p.linkedin_profile || p.social_links || p.linkedin || '',
               website: p.website || p.website_url || '',
-              current_circle: p.circle_name || p.current_circle || 'Peers Global Community',
-              current_role: p.role || p.current_role || 'Active Peer Member',
-              member_since: p.member_since || (p.created_at ? new Date(p.created_at).toLocaleDateString(undefined, { month: 'long', year: 'numeric' }) : 'Since 2024'),
-              life_impact_score: Number(p.life_impact_score) || 85,
-              attendance_rate: p.attendance_rate || '94%',
+              current_circle: p.circle_name || p.current_circle || '',
+              current_role: 'Peers Global Member',
+              member_since: dynamicSince,
+              life_impact_score: dynamicScore,
             }
           }
         }
@@ -153,7 +181,7 @@ export async function POST(req: Request) {
             const u = res.rows[0]
             isExistingMember = true
             const fullName = [u.first_name, u.last_name].filter(Boolean).join(' ').trim() || u.display_name || 'Verified Member'
-            const memberSinceYear = u.created_at ? new Date(u.created_at).getFullYear() : 2024
+            const memberSinceYear = u.created_at ? new Date(u.created_at).getFullYear() : ''
             const photo = normalizePhotoUrl(u.profile_photo_url)
 
             memberProfile = {
@@ -172,11 +200,10 @@ export async function POST(req: Request) {
               profile_photo_url: photo,
               linkedin: '',
               website: '',
-              current_circle: 'Peers Global Community',
-              current_role: 'Active Peer Member',
-              member_since: u.created_at ? new Date(u.created_at).toLocaleDateString(undefined, { month: 'long', year: 'numeric' }) : `Since ${memberSinceYear}`,
-              life_impact_score: 85,
-              attendance_rate: '94%',
+              current_circle: '',
+              current_role: 'Peers Global Member',
+              member_since: memberSinceYear ? `Since ${memberSinceYear}` : '',
+              life_impact_score: 0,
             }
           }
         } catch (dbErr) {

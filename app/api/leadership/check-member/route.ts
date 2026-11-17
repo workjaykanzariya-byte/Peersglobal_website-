@@ -104,14 +104,42 @@ export async function POST(req: Request) {
             })
           }
 
+          const userId = p.user_id || p.id
+          let dynamicSince = ''
+          let dynamicScore = 0
+          if (userId) {
+            try {
+              const enrichRes = await fetch(`${UNITY_API_BASE}/api/v1/members-with-circles/${userId}`, {
+                headers: {
+                  Authorization: `Bearer 302|cO0VMR2dmr9j8c3JtIU9dfkuZfSfvzaCCF1GVxJAdc6fdd2d`,
+                  Accept: 'application/json',
+                },
+              })
+              if (enrichRes.ok) {
+                const enrichJson = await enrichRes.json()
+                const md = enrichJson.data || {}
+                if (md.membership_starts_at || md.created_at) {
+                  dynamicSince = `Since ${new Date(md.membership_starts_at || md.created_at).getFullYear()}`
+                }
+                if (typeof md.lives_impacted === 'number') {
+                  dynamicScore = md.lives_impacted
+                } else if (typeof md.life_impact_score === 'number') {
+                  dynamicScore = md.life_impact_score
+                }
+              }
+            } catch (e) {
+              // optional
+            }
+          }
+
           return NextResponse.json({
             success: true,
             exists: true,
             is_existing_member: true,
-            candidate_id: p.user_id || p.id,
-            user_id: p.user_id || p.id,
+            candidate_id: userId,
+            user_id: userId,
             profile: {
-              user_id: p.user_id || p.id,
+              user_id: userId,
               fullName: p.full_name || p.name || 'Verified Member',
               full_name: p.full_name || p.name || 'Verified Member',
               email: p.email || email,
@@ -120,14 +148,18 @@ export async function POST(req: Request) {
               company: p.company || p.company_name || '',
               company_name: p.company || p.company_name || '',
               designation: p.designation || '',
-              city: p.city || 'Surat',
-              state: p.state || 'Gujarat',
+              city: p.city || '',
+              state: p.state || '',
               country: p.country || 'India',
-              yearsExperience: Number(p.experience_years) || 8,
-              bio: p.bio || p.short_bio || 'Dedicated business leader championing ecosystem collaboration across the District.',
-              socialLinks: p.linkedin_profile || p.social_links || `https://linkedin.com/in/${(p.full_name || 'member').toLowerCase().replace(/[^a-z0-9]/g, '-')}`,
+              yearsExperience: Number(p.experience_years) || 0,
+              bio: p.bio || p.short_bio || '',
+              socialLinks: p.linkedin_profile || p.social_links || '',
               profile_photo_url: resolvedPhoto,
               photo_url: resolvedPhoto,
+              current_circle: p.circle_name || p.current_circle || '',
+              current_role: 'Peers Global Member',
+              member_since: dynamicSince,
+              life_impact_score: dynamicScore,
             },
             message: liveJson.message || `Member profile verified successfully.`,
           })

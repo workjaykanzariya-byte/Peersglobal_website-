@@ -142,6 +142,9 @@ export function NominationSingleForm() {
   const [hasOtherNetworkRole, setHasOtherNetworkRole] = useState<boolean | null>(null)
   const [otherNetworkDetails, setOtherNetworkDetails] = useState('')
   const [videoUrl, setVideoUrl] = useState('')
+  const [videoSourceType, setVideoSourceType] = useState<'url' | 'upload'>('url')
+  const [videoFileName, setVideoFileName] = useState('')
+  const [videoPreviewUrl, setVideoPreviewUrl] = useState('')
 
   // =========================================================================
   // SECTION 4: DECLARATIONS & DOCUMENTS STATE
@@ -160,6 +163,7 @@ export function NominationSingleForm() {
   const letterInputRef = useRef<HTMLInputElement>(null)
   const deckInputRef = useRef<HTMLInputElement>(null)
   const photoInputRef = useRef<HTMLInputElement>(null)
+  const videoFileInputRef = useRef<HTMLInputElement>(null)
 
   // Form Status State
   const [touched, setTouched] = useState(false)
@@ -451,11 +455,13 @@ export function NominationSingleForm() {
                 .trim()
             )
           }
-          setCurrentCircle(p.current_circle || 'Peers Global Community')
-          setCurrentRoleHeld(p.current_role || 'Active Peer Member')
-          setMemberSince(p.member_since || '2024')
-          setLifeImpactScore(p.life_impact_score || 85)
-          setAttendanceRate(p.attendance_rate || '94%')
+          setCurrentCircle(p.current_circle || '')
+          setCurrentRoleHeld('Peers Global Member')
+          const dynamicSince = p.member_since ? String(p.member_since) : (p.membership_starts_at ? `Since ${new Date(p.membership_starts_at).getFullYear()}` : (p.created_at ? `Since ${new Date(p.created_at).getFullYear()}` : ''))
+          setMemberSince(dynamicSince)
+          const score = typeof p.life_impact_score === 'number' ? p.life_impact_score : (typeof p.lives_impacted === 'number' ? p.lives_impacted : (p.life_impact_score !== undefined && p.life_impact_score !== null ? Number(p.life_impact_score) : 0))
+          setLifeImpactScore(score)
+          setAttendanceRate('')
           setVerificationMessage('Identity verified! Your profile data has been securely loaded.')
         } else {
           setVerificationMessage('Identity verified successfully!')
@@ -498,6 +504,33 @@ export function NominationSingleForm() {
       }
       reader.readAsDataURL(file)
     }
+  }
+
+  const handleVideoFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (file) {
+      if (file.size > 100 * 1024 * 1024) {
+        alert('Video file size exceeds 100 MB limit.')
+        return
+      }
+      const sizeMb = (file.size / (1024 * 1024)).toFixed(1)
+      const name = `${file.name} (${sizeMb} MB)`
+      setVideoFileName(name)
+      const url = URL.createObjectURL(file)
+      setVideoPreviewUrl(url)
+      setVideoUrl(`uploaded:${file.name}`)
+      setTouched(true)
+    }
+  }
+
+  const handleRemoveVideoFile = () => {
+    setVideoFileName('')
+    setVideoPreviewUrl('')
+    setVideoUrl('')
+    if (videoFileInputRef.current) {
+      videoFileInputRef.current.value = ''
+    }
+    setTouched(true)
   }
 
   // =========================================================================
@@ -594,6 +627,15 @@ export function NominationSingleForm() {
         id_file: idFile,
         letter_file: letterFile,
         deck_file: deckFile,
+        documents: [
+          videoFileName
+            ? {
+                document_type: 'intro_video',
+                file_url: videoUrl,
+                original_name: videoFileName,
+              }
+            : null,
+        ].filter(Boolean),
         profile: {
           full_name: fullName.trim(),
           fullName: fullName.trim(),
@@ -1331,28 +1373,30 @@ export function NominationSingleForm() {
                     </div>
                   </div>
 
-                  {/* Read-Only Peers Global Membership Details (from Unity) */}
+                  {/* Peers Global Membership Details (from Unity) */}
                   {isExistingMember && (
                     <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 mt-2">
                       <div className="flex items-center justify-between pb-1.5 border-b border-slate-200 text-xs">
-                        <span className="font-bold text-slate-700 uppercase tracking-wider">Peers Global Membership (Read-Only)</span>
+                        <span className="font-bold text-slate-700 uppercase tracking-wider">Peers Global Membership</span>
                         <span className="text-[11px] font-semibold text-slate-500">Auto-filled from Unity</span>
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs pt-1">
                         <div>
-                          <span className="text-slate-400 block">Current Circle & Role:</span>
+                          <span className="text-slate-400 block">Current Role:</span>
                           <span className="font-semibold text-slate-800">
-                            {currentCircle || 'Peers Global Community'} · {currentRoleHeld || 'Active Peer Member'}
+                            Peers Global Member
                           </span>
                         </div>
                         <div>
                           <span className="text-slate-400 block">Member Since:</span>
-                          <span className="font-semibold text-slate-800">{memberSince || '2024'}</span>
+                          <span className="font-semibold text-slate-800">
+                            {memberSince || '—'}
+                          </span>
                         </div>
                         <div>
-                          <span className="text-slate-400 block">Life Impact Score / Attendance:</span>
+                          <span className="text-slate-400 block">Life Impact Score:</span>
                           <span className="font-semibold text-[#047857]">
-                            {lifeImpactScore || 85} / 100 · {attendanceRate || 92}% Attendance
+                            {lifeImpactScore !== null && lifeImpactScore !== undefined ? lifeImpactScore : 0} / 100
                           </span>
                           <span className="text-[10px] text-slate-400 block">(For admin view only)</span>
                         </div>
@@ -1541,29 +1585,110 @@ export function NominationSingleForm() {
                             setOtherNetworkDetails(e.target.value)
                             setTouched(true)
                           }}
-                          placeholder="e.g. Chapter President (2022-2024), Industry Trade Association Executive Committee Member..."
                           className="w-full p-3 bg-white border border-[#8190A7] rounded-xl text-sm text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8] resize-y"
                         />
                       </div>
                     )}
                   </div>
 
-                  {/* Optional 60-second intro video link */}
-                  <div className="flex flex-col gap-1.5 pt-1">
-                    <label className="text-xs font-bold text-slate-700">
-                      Optional 60-second intro video link
-                      <span className="text-xs font-normal text-slate-400 ml-1">(YouTube, Vimeo, Loom or Drive URL)</span>
-                    </label>
-                    <input
-                      type="url"
-                      value={videoUrl}
-                      onChange={(e) => {
-                        setVideoUrl(e.target.value)
-                        setTouched(true)
-                      }}
-                      placeholder="https://youtube.com/watch?v=... or Loom link"
-                      className="h-11 px-3.5 bg-white border border-[#8190A7] rounded-xl text-sm text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]"
-                    />
+                  {/* Optional 60-second intro video (Link or File Upload) */}
+                  <div className="flex flex-col gap-2 pt-1">
+                    <div className="flex items-center justify-between flex-wrap gap-2">
+                      <label className="text-xs font-bold text-slate-700">
+                        Optional 60-second intro video
+                      </label>
+                      <div className="flex items-center gap-1 bg-slate-100 p-0.5 rounded-lg border border-slate-200">
+                        <button
+                          type="button"
+                          onClick={() => setVideoSourceType('url')}
+                          className={`px-2.5 py-1 rounded-md text-[11px] font-semibold transition-all ${
+                            videoSourceType === 'url'
+                              ? 'bg-white text-[#1D4ED8] shadow-xs'
+                              : 'text-slate-600 hover:text-slate-900'
+                          }`}
+                        >
+                          Video Link
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setVideoSourceType('upload')}
+                          className={`px-2.5 py-1 rounded-md text-[11px] font-semibold transition-all ${
+                            videoSourceType === 'upload'
+                              ? 'bg-white text-[#1D4ED8] shadow-xs'
+                              : 'text-slate-600 hover:text-slate-900'
+                          }`}
+                        >
+                          Upload Video File
+                        </button>
+                      </div>
+                    </div>
+
+                    {videoSourceType === 'url' ? (
+                      <div className="flex flex-col gap-1">
+                        <input
+                          type="url"
+                          value={videoUrl.startsWith('uploaded:') ? '' : videoUrl}
+                          onChange={(e) => {
+                            setVideoUrl(e.target.value)
+                            setTouched(true)
+                          }}
+                          placeholder="https://youtube.com/watch?v=... or Loom link"
+                          className="h-11 px-3.5 bg-white border border-[#8190A7] rounded-xl text-sm text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]"
+                        />
+                        <span className="text-[11px] text-slate-400">
+                          Paste a shareable link from YouTube, Vimeo, Loom, or Google Drive (public access).
+                        </span>
+                      </div>
+                    ) : (
+                      <div className="flex flex-col gap-2">
+                        <div className="p-4 bg-slate-50 border border-dashed border-[#8190A7] rounded-xl flex flex-col items-center justify-center text-center gap-2">
+                          <input
+                            ref={videoFileInputRef}
+                            type="file"
+                            accept="video/mp4,video/webm,video/ogg,video/quicktime"
+                            onChange={handleVideoFileChange}
+                            className="hidden"
+                          />
+                          {!videoFileName ? (
+                            <>
+                              <UploadCloud className="w-6 h-6 text-slate-400" />
+                              <div className="text-xs text-slate-600">
+                                <button
+                                  type="button"
+                                  onClick={() => videoFileInputRef.current?.click()}
+                                  className="font-bold text-[#1D4ED8] hover:underline"
+                                >
+                                  Choose video file
+                                </button>{' '}
+                                to upload (MP4, WebM, MOV up to 100 MB)
+                              </div>
+                            </>
+                          ) : (
+                            <div className="w-full flex flex-col items-center gap-2">
+                              <div className="flex items-center justify-between w-full px-1 text-xs">
+                                <span className="font-semibold text-slate-800 truncate max-w-[280px]">
+                                  🎥 {videoFileName}
+                                </span>
+                                <button
+                                  type="button"
+                                  onClick={handleRemoveVideoFile}
+                                  className="text-xs text-rose-600 hover:underline font-semibold"
+                                >
+                                  Remove
+                                </button>
+                              </div>
+                              {videoPreviewUrl && (
+                                <video
+                                  controls
+                                  src={videoPreviewUrl}
+                                  className="w-full max-h-48 rounded-lg bg-black mt-1"
+                                />
+                              )}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </section>
 
