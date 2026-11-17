@@ -19,49 +19,33 @@ export async function POST(req: Request) {
     }
 
     // Call live backend OTP service
-    try {
-      const res = await fetch(`${UNITY_API_BASE}/api/v1/leadership/public/verification/nomination/request-otp`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify({
-          campaign_id: campaignId,
-          contact_type: contactType,
-          contact: contact,
-        }),
-      })
+    const res = await fetch(`${UNITY_API_BASE}/api/v1/leadership/public/verification/nomination/request-otp`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        campaign_id: campaignId,
+        contact_type: contactType,
+        contact: contact,
+      }),
+    })
 
-      if (res.ok) {
-        const data = await res.json()
-        return NextResponse.json(data)
-      }
+    const data = await res.json().catch(() => ({}))
 
-      const errData = await res.json().catch(() => ({}))
-      if (errData && errData.message) {
-        // If throttle or specific backend message, forward it
-        if (res.status === 429 || res.status === 422) {
-          return NextResponse.json({ success: false, message: errData.message }, { status: res.status })
-        }
-      }
-    } catch (fetchErr) {
-      console.warn('[nomination/request-otp] Backend fetch notice:', fetchErr)
+    if (res.ok && data?.success) {
+      return NextResponse.json(data)
     }
 
-    // Fallback resilient mock OTP challenge for development / testing
-    const fallbackVerificationId = `vnom_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`
-    console.log(`[Nomination OTP] Generated verification challenge for ${contactType}: ${contact}`)
-
-    return NextResponse.json({
-      success: true,
-      message: `A 6-digit verification code has been sent to ${contact}.`,
-      data: {
-        verification_id: fallbackVerificationId,
-        expires_in_seconds: 300,
-        resend_after_seconds: 60,
+    return NextResponse.json(
+      {
+        success: false,
+        message: data?.message || 'Could not send verification code from server. Please try again.',
+        errors: data?.errors || null,
       },
-    })
+      { status: res.status || 400 }
+    )
   } catch (err: any) {
     return NextResponse.json(
       { success: false, message: err?.message || 'Server error sending verification code.' },

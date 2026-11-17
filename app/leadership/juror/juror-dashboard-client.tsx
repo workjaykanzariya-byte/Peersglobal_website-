@@ -107,22 +107,10 @@ export function JurorDashboardClient() {
         setOtp('')
         setResendTimer(60)
       } else {
-        // Fallback for offline/local resilience
-        const fallbackOtp = '123456'
-        setDevOtpHint(fallbackOtp)
-        setSuccessMsg(`A verification OTP has been dispatched to ${cleanEmail}.`)
-        setStep('otp')
-        setOtp('')
-        setResendTimer(60)
+        setError(data?.message || 'Failed to dispatch verification OTP. Please try again.')
       }
     } catch {
-      // Local fallback
-      const fallbackOtp = '123456'
-      setDevOtpHint(fallbackOtp)
-      setSuccessMsg(`A verification OTP has been dispatched to ${cleanEmail}.`)
-      setStep('otp')
-      setOtp('')
-      setResendTimer(60)
+      setError('Connection error while sending OTP. Please try again.')
     } finally {
       setLoading(false)
     }
@@ -156,26 +144,11 @@ export function JurorDashboardClient() {
         localStorage.setItem('pg_juror_session_email', cleanEmail)
         localStorage.setItem('pg_juror_sanctum_token', data.token)
         await fetchAssignments(data.token)
-      } else if (cleanOtp === '123456' || cleanOtp === '452109' || cleanOtp === devOtpHint) {
-        // Instant verified fallback
-        const fallbackToken = `juror_session_${Date.now()}`
-        setToken(fallbackToken)
-        localStorage.setItem('pg_juror_session_email', cleanEmail)
-        localStorage.setItem('pg_juror_sanctum_token', fallbackToken)
-        await fetchAssignments(fallbackToken)
       } else {
         setError(data?.message || 'Invalid or expired OTP code. Please try again.')
       }
     } catch {
-      if (cleanOtp === '123456' || cleanOtp === '452109' || cleanOtp === devOtpHint) {
-        const fallbackToken = `juror_session_${Date.now()}`
-        setToken(fallbackToken)
-        localStorage.setItem('pg_juror_session_email', cleanEmail)
-        localStorage.setItem('pg_juror_sanctum_token', fallbackToken)
-        await fetchAssignments(fallbackToken)
-      } else {
-        setError('Verification failed. Please check the code and try again.')
-      }
+      setError('Verification failed. Please check the code and try again.')
     } finally {
       setLoading(false)
     }

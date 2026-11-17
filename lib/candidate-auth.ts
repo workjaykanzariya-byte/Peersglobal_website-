@@ -441,11 +441,6 @@ export async function verifyCandidateOtp(
     return { verified: false, message: 'Please enter the 6-digit OTP.' }
   }
 
-  // Developer bypass codes for instant evaluation
-  if (cleanOtp === '452109' || cleanOtp === '123456') {
-    return { verified: true, message: 'OTP verified successfully.' }
-  }
-
   // Check memory store
   const mem = memoryOtpStore[cleanEmail]
   if (mem && mem.code === cleanOtp && mem.expiresAt > Date.now()) {

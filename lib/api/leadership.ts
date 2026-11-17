@@ -1256,16 +1256,9 @@ class LeadershipApiService {
           }
         }
       }
-    } catch {
-      // fallback
-    }
-
-    // Demo simulation fallback
-    return {
-      success: true,
-      message: `OTP sent successfully to ${payload.contact} (Demo OTP: 452109)`,
-      verification_id: 'demo-nom-verif-' + Date.now(),
-      expires_in_seconds: 300,
+      throw new Error(res.error || res.rawResponse?.message || 'Failed to dispatch verification code.')
+    } catch (e: unknown) {
+      throw e
     }
   }
 
@@ -1285,23 +1278,6 @@ class LeadershipApiService {
       designation: string
     }
   }> {
-    // Demo OTP bypass for frictionless testing
-    if (payload.otp === '452109' || payload.verification_id?.startsWith('demo-')) {
-      return {
-        success: true,
-        verification_token: 'demo-tok-' + Math.random().toString(36).substring(2),
-        is_existing_member: true,
-        profile: {
-          user_id: '0199c000-cand-0000-8000-000000000001',
-          full_name: 'Hardik Chauhan',
-          email: 'hardik@peersglobal.com',
-          mobile: '+919558739086',
-          company: 'Aequitas IT Solutions',
-          designation: 'Managing Director & Founder',
-        },
-      }
-    }
-
     try {
       const res = await this.requestWithFallback<any>(`/public/verification/nomination/verify-otp`, {
         method: 'POST',
@@ -1320,14 +1296,7 @@ class LeadershipApiService {
         const profile =
           res.data?.profile ||
           res.rawResponse?.data?.profile ||
-          res.rawResponse?.profile || {
-            user_id: '0199c000-cand-0000-8000-000000000001',
-            full_name: 'Hardik Chauhan',
-            email: 'hardik@peersglobal.com',
-            mobile: '+919558739086',
-            company: 'Aequitas IT Solutions',
-            designation: 'Managing Director & Founder',
-          }
+          res.rawResponse?.profile
 
         return {
           success: true,
@@ -1336,28 +1305,9 @@ class LeadershipApiService {
           profile,
         }
       }
-      if (!res.ok && res.error) {
-        throw new Error(res.error)
-      }
+      throw new Error(res.error || res.rawResponse?.message || 'Invalid or expired OTP code.')
     } catch (e: unknown) {
-      if ((e as Error).message && !(e as Error).message.includes('fetch')) {
-        throw e
-      }
-    }
-
-    // Demo simulation fallback
-    return {
-      success: true,
-      verification_token: 'demo-tok-' + Math.random().toString(36).substring(2),
-      is_existing_member: true,
-      profile: {
-        user_id: '0199c000-cand-0000-8000-000000000001',
-        full_name: 'Hardik Chauhan',
-        email: 'hardik@peersglobal.com',
-        mobile: '+919558739086',
-        company: 'Aequitas IT Solutions',
-        designation: 'Managing Director & Founder',
-      },
+      throw e
     }
   }
 
@@ -1641,18 +1591,9 @@ class LeadershipApiService {
       })
       const json = await res.json()
       if (res.ok && json.success) return json
-      if (!res.ok && json.message) throw new Error(json.message)
+      throw new Error(json.message || 'Failed to dispatch voting OTP.')
     } catch (e: unknown) {
-      if ((e as Error).message && !(e as Error).message.includes('fetch')) {
-        throw e
-      }
-    }
-
-    return {
-      success: true,
-      message: `OTP sent successfully to voter ${payload.contact} (Demo OTP: 123456)`,
-      verification_id: 'voter-verif-' + Date.now(),
-      expires_in_seconds: 300,
+      throw e
     }
   }
 
@@ -1670,18 +1611,9 @@ class LeadershipApiService {
       })
       const json = await res.json()
       if (res.ok && json.success) return json
-      if (!res.ok && json.message) throw new Error(json.message)
+      throw new Error(json.message || 'Invalid or expired OTP code.')
     } catch (e: unknown) {
-      if ((e as Error).message && !(e as Error).message.includes('fetch')) {
-        throw e
-      }
-    }
-
-    // Demo fallback verification
-    return {
-      success: true,
-      verification_id: 'voter-auth-proof-' + Date.now(),
-      can_vote: true,
+      throw e
     }
   }
 

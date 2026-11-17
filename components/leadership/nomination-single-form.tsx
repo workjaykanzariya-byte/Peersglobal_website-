@@ -349,7 +349,7 @@ export function NominationSingleForm() {
         const otpData = await otpRes.json()
         if (otpRes.ok && otpData.success) {
           setOtpSent(true)
-          setVerificationId(otpData.data?.verification_id || `vnom_${Date.now()}`)
+          setVerificationId(otpData.data?.verification_id || '')
           setVerificationMessage(
             otpData.message || `Peers Global member account found! A 6-digit verification code has been sent to ${contact}. Please enter it below to unlock your profile.`
           )
@@ -394,7 +394,7 @@ export function NominationSingleForm() {
       })
       const data = await res.json()
       if (res.ok && data.success) {
-        setVerificationId(data.data?.verification_id || `vnom_${Date.now()}`)
+        setVerificationId(data.data?.verification_id || '')
         setVerificationMessage(`A new 6-digit verification code has been sent to ${contact}.`)
       } else {
         setVerificationError(data.message || 'Could not resend verification code.')
@@ -1204,7 +1204,7 @@ export function NominationSingleForm() {
                           markProfileChanged('full_name')
                           setTouched(true)
                         }}
-                        placeholder="e.g. Dr. Amit Agrawal"
+                        placeholder="e.g. John Doe"
                         className="h-12 px-3.5 bg-white border border-[#8190A7] rounded-xl text-sm text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]"
                       />
                     </div>
@@ -1221,7 +1221,7 @@ export function NominationSingleForm() {
                           markProfileChanged('company_name')
                           setTouched(true)
                         }}
-                        placeholder="e.g. Acme Health Technologies"
+                        placeholder="e.g. Acme Corp"
                         className="h-12 px-3.5 bg-white border border-[#8190A7] rounded-xl text-sm text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]"
                       />
                     </div>
@@ -1238,7 +1238,7 @@ export function NominationSingleForm() {
                           markProfileChanged('designation')
                           setTouched(true)
                         }}
-                        placeholder="e.g. Founder & Managing Director"
+                        placeholder="e.g. Founder / Managing Director"
                         className="h-12 px-3.5 bg-white border border-[#8190A7] rounded-xl text-sm text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]"
                       />
                     </div>
@@ -1255,7 +1255,7 @@ export function NominationSingleForm() {
                           markProfileChanged('industry')
                           setTouched(true)
                         }}
-                        placeholder="e.g. Manufacturing, Healthcare, IT..."
+                        placeholder="e.g. Technology, Manufacturing, Healthcare..."
                         className="h-12 px-3.5 bg-white border border-[#8190A7] rounded-xl text-sm text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]"
                       />
                     </div>
@@ -1328,39 +1328,6 @@ export function NominationSingleForm() {
                       />
                     </div>
                   </div>
-
-                  {/* Read-Only Member Verification Badge Card */}
-                  {isExistingMember && (
-                    <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 mt-1">
-                      <div className="flex items-center justify-between pb-1.5 border-b border-slate-200 text-xs">
-                        <span className="font-bold text-slate-600 uppercase tracking-wider">Peers Global Master Profile (Read-Only)</span>
-                        <span className="text-[11px] font-semibold text-slate-500">For Admin & Jury Review</span>
-                      </div>
-                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs pt-1">
-                        <div>
-                          <span className="text-slate-400 block">Current Circle:</span>
-                          <span className="font-semibold text-slate-800">{currentCircle || 'Peers Global Community'}</span>
-                        </div>
-                        <div>
-                          <span className="text-slate-400 block">Current Role:</span>
-                          <span className="font-semibold text-slate-800">{currentRoleHeld || 'Active Peer Member'}</span>
-                        </div>
-                        <div>
-                          <span className="text-slate-400 block">Member Since:</span>
-                          <span className="font-semibold text-slate-800">{memberSince || '2024'}</span>
-                        </div>
-                        <div>
-                          <span className="text-slate-400 block">Life Impact Score:</span>
-                          <span className="font-semibold text-[#047857]">{lifeImpactScore || 85} / 100</span>
-                        </div>
-                      </div>
-                      {profileChanges.length > 0 && (
-                        <div className="text-[11px] text-amber-700 pt-1">
-                          ✎ <strong>Flagged edits from master:</strong> {profileChanges.join(', ')} (Admin will review these updates)
-                        </div>
-                      )}
-                    </div>
-                  )}
                 </section>
 
                 {/* =================================================================== */}
@@ -1406,9 +1373,6 @@ export function NominationSingleForm() {
                     <div className="flex items-center justify-between">
                       <label className="text-xs font-bold text-slate-700">
                         One-line leadership statement <span className="text-red-500">*</span>
-                        <span className="text-xs font-normal text-slate-500 block">
-                          This becomes the headline on your official candidate creative. (Max 20 words)
-                        </span>
                       </label>
                       <span
                         className={`text-xs font-mono font-bold ${statementWords > 20 ? 'text-rose-600' : 'text-slate-500'
@@ -1459,9 +1423,6 @@ export function NominationSingleForm() {
                     <div className="flex items-center justify-between">
                       <label className="text-xs font-bold text-slate-700">
                         What will you build in the first 12 months? <span className="text-red-500">*</span>
-                        <span className="text-xs font-normal text-slate-500 block">
-                          A concise summary will be highlighted on your public candidate profile page. (Max 150 words)
-                        </span>
                       </label>
                       <span
                         className={`text-xs font-mono font-bold ${visionWords > 150 ? 'text-rose-600' : 'text-slate-500'
