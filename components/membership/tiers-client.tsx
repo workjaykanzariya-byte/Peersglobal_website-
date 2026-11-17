@@ -176,7 +176,9 @@ export function TiersClient() {
                   Download Unity App
                 </GalaxyButton>
                 <GalaxyButton
-                  href="/membership/criteria"
+                  href="https://peersunity.com/share?type=membership"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   variant="white-gradient"
                   size="default"
                   className="font-medium"
@@ -416,7 +418,9 @@ export function TiersClient() {
 
               <div className="pt-4 border-t border-slate-100">
                 <GalaxyButton
-                  href="/membership/criteria"
+                  href="https://peersunity.com/share?type=membership"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   size="default"
                   className="w-full uppercase tracking-wider font-bold"
                 >
@@ -486,7 +490,9 @@ export function TiersClient() {
 
               <div className="pt-4 border-t border-white/10">
                 <GalaxyButton
-                  href="/membership/criteria"
+                  href="https://peersunity.com/share?type=membership"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   variant="transparent-light"
                   size="default"
                   className="w-full uppercase tracking-wider font-bold"
@@ -936,7 +942,9 @@ export function TiersClient() {
 
               <div className="relative z-10 flex flex-col gap-3">
                 <GalaxyButton
-                  href="/membership/criteria"
+                  href="https://peersunity.com/share?type=membership"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   size="default"
                   className="w-full uppercase tracking-wider font-bold"
                 >

@@ -480,7 +480,9 @@ export function PeersCodeClient() {
             {/* Right Column: Action Buttons */}
             <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-3 justify-end lg:items-end w-full">
               <GalaxyButton
-                href="/membership"
+                href="https://peersunity.com/share?type=membership"
+                target="_blank"
+                rel="noopener noreferrer"
                 variant="primary"
                 size="md"
                 className="w-full sm:w-auto lg:w-full max-w-xs uppercase tracking-wider font-bold"

@@ -205,7 +205,7 @@ export default function TheTerritoryPage() {
                 </GalaxyButton>
 
                 <GalaxyButton
-                  href="https://peersunity.com/circles"
+                  href="https://peersunity.com/share?type=explore_circles"
                   target="_blank"
                   rel="noopener noreferrer"
                   variant="gradient-white"
@@ -1307,24 +1307,24 @@ export default function TheTerritoryPage() {
         buttons={
           <div className="flex flex-wrap items-center gap-3.5">
             <GalaxyButton
-              href="https://peersunity.com/circles"
+              href="https://peersunity.com/share?type=explore_circles"
               target="_blank"
               rel="noopener noreferrer"
               variant="white-gradient"
               size="lg"
-              className="text-xs sm:text-sm"
+              className="text-xs sm:text-sm font-bold"
             >
               FIND YOUR CIRCLE
             </GalaxyButton>
             <GalaxyButton
-              href="https://peersunity.com/membership"
+              href="https://peersunity.com/share?type=membership"
               target="_blank"
               rel="noopener noreferrer"
               variant="gradient-white"
               size="lg"
-              className="text-xs sm:text-sm"
+              className="text-xs sm:text-sm font-bold"
             >
-              JOIN PEERS GLOBAL
+              APPLY FOR MEMBERSHIP
             </GalaxyButton>
           </div>
         }

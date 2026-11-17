@@ -862,7 +862,9 @@ export function AwardsClient() {
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3.5 pt-3">
                 <GalaxyButton
-                  href="/membership"
+                  href="https://peersunity.com/share?type=membership"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   size="lg"
                   className="text-xs sm:text-sm font-semibold uppercase tracking-wider"
                 >

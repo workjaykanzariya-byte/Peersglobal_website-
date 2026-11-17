@@ -284,18 +284,14 @@ export function IndustryPageClient() {
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <GalaxyButton
-                  href="https://peersunity.com/circles"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/circles"
                   variant="primary"
                   size="md"
                 >
                   Find a Circle Near You
                 </GalaxyButton>
                 <GalaxyButton
-                  href="https://peersunity.com/circles"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/circles"
                   variant="transparent"
                   size="md"
                 >
@@ -989,7 +985,7 @@ export function IndustryPageClient() {
         subtitle="Now discover the people who understand it—and the people you may be able to help along the way."
         description="Your industry gives you a context. Your Circle gives you relationships. Your contribution gives those relationships meaning. Peers are Partners in Business and Friends in Life."
         primaryButtonText="FIND YOUR CIRCLE"
-        primaryButtonHref="https://peersunity.com/circles"
+        primaryButtonHref="https://peersunity.com/share?type=explore_circles"
         secondaryButtonText=""
       />
 

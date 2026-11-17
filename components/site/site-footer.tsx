@@ -151,18 +151,7 @@ export function SiteFooter() {
               </span>
             </h2>
 
-            <div className="flex flex-col gap-1.5 pt-0.5">
-              <p className="text-[16px] font-semibold text-slate-800 flex flex-wrap items-center gap-x-3 gap-y-1">
-                <span>Circles, not crowds.</span>
-                <span className="text-slate-300">•</span>
-                <span>Trust, not transactions.</span>
-                <span className="text-slate-300">•</span>
-                <span>Peers, not gurus.</span>
-              </p>
-              <p className="text-sm font-medium text-slate-500">
-                Designed in Bharat. Built for the World.
-              </p>
-            </div>
+
 
             {/* Dual CTAs: JOIN PEERS GLOBAL and DOWNLOAD UNITY APP */}
             <div className="flex flex-wrap items-center gap-3.5 pt-1.5">

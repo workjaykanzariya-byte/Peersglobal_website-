@@ -310,7 +310,7 @@ export function WhyJoinClient() {
                     Download Unity App
                   </GalaxyButton>
                   <GalaxyButton
-                    href="/membership/criteria"
+                    href="https://peersunity.com/share?type=membership" target="_blank" rel="noopener noreferrer"
                     variant="transparent-light"
                     size="default"
                     className="font-semibold"
@@ -956,7 +956,7 @@ export function WhyJoinClient() {
                   Download Unity App
                 </GalaxyButton>
                 <GalaxyButton
-                  href="/membership/criteria"
+                  href="https://peersunity.com/share?type=membership" target="_blank" rel="noopener noreferrer"
                   variant="white-gradient"
                   size="lg"
                   icon={<UserCheck className="size-4" />}

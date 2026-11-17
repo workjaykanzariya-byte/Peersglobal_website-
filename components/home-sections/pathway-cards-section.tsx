@@ -410,7 +410,7 @@ export function PathwayCardsSection() {
                 </div>
               </div>
               <div className="pt-2">
-                <a className="fd-pathway-cards__btn" href="https://peersunity.com/circles" target="_blank" rel="noopener noreferrer" aria-label="Find Your Circle">FIND YOUR CIRCLE →</a>
+                <a className="fd-pathway-cards__btn" href="https://peersunity.com/share?type=explore_circles" target="_blank" rel="noopener noreferrer" aria-label="Find Your Circle">FIND YOUR CIRCLE →</a>
               </div>
             </div>
           </div>
@@ -520,7 +520,7 @@ export function PathwayCardsSection() {
                 </div>
               </div>
               <div className="flex flex-wrap items-center gap-3 pt-2">
-                <a className="fd-pathway-cards__btn" href="/circles/find" aria-label="Find Your Circle">Find Your Circle</a>
+                <a className="fd-pathway-cards__btn" href="https://peersunity.com/share?type=explore_circles" target="_blank" rel="noopener noreferrer" aria-label="Find Your Circle">Find Your Circle</a>
                 <a
                   className="animated-glow-btn group inline-flex p-[1.5px] rounded-full transition-all"
                   href="/start-a-circle"

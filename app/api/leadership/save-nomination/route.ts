@@ -33,6 +33,21 @@ export async function POST(req: Request) {
       id_file,
       letter_file,
       deck_file,
+      // New fields from specification
+      leadership_statement,
+      why_role,
+      vision_12_months,
+      hours_per_week,
+      other_network_involvement,
+      other_network_details,
+      profile_changes,
+      industry,
+      website,
+      current_circle,
+      current_role,
+      member_since,
+      life_impact_score,
+      attendance_rate,
     } = body
 
     const cleanEmail = String(email || profile?.email || '').trim().toLowerCase()
@@ -40,7 +55,7 @@ export async function POST(req: Request) {
     const cleanMobile = String(mobile || profile?.mobile || '').trim()
     const cleanCompany = String(profile?.company_name || profile?.company || '').trim()
     const cleanDesignation = String(profile?.designation || '').trim()
-    const cleanCity = String(city_name || profile?.city || 'Surat').trim()
+    const cleanCity = String(city_name || profile?.city || '').trim()
     const cleanRole = String(applied_role || profile?.applied_role || 'ded').trim()
     const cleanRoleName = String(role_name || profile?.applied_role_name || 'District Executive Director (DED)').trim()
 
@@ -66,11 +81,13 @@ export async function POST(req: Request) {
           }))
       : []
 
-    const cleanTimeCommitment = time_commitment
-      ? String(time_commitment).includes('hour')
-        ? String(time_commitment)
-        : `${time_commitment} hours a week`
-      : '5-8 hours a week'
+    const cleanTimeCommitment = hours_per_week
+      ? String(hours_per_week)
+      : time_commitment
+        ? String(time_commitment).includes('hour')
+          ? String(time_commitment)
+          : `${time_commitment} hours a week`
+        : '10-15 hours/week'
 
     const fullProfileSnapshot = {
       full_name: cleanFullName,
@@ -78,27 +95,52 @@ export async function POST(req: Request) {
       mobile: cleanMobile,
       company_name: cleanCompany,
       designation: cleanDesignation,
+      industry: String(industry || profile?.industry || '').trim(),
       city: cleanCity,
       applied_role: cleanRole,
       since: String(since || '').trim(),
       time_commitment: cleanTimeCommitment,
+      hours_per_week: cleanTimeCommitment,
       video_url: String(video_url || '').trim(),
       goals: sanitizedGoals,
       leadership_roles: sanitizedRoles,
       photo_url: profile?.photo_url || null,
       bio: profile?.bio || '',
       linkedin: profile?.linkedin || '',
+      website: String(website || profile?.website || '').trim(),
+      // Leadership statement & vision
+      leadership_statement: String(leadership_statement || '').trim(),
+      why_role: String(why_role || '').trim(),
+      vision_12_months: String(vision_12_months || '').trim(),
+      other_network_involvement: Boolean(other_network_involvement),
+      other_network_details: String(other_network_details || '').trim(),
+      // Read-only member context & changes tracked
+      current_circle: current_circle || profile?.current_circle || null,
+      current_role: current_role || profile?.current_role || null,
+      member_since: member_since || profile?.member_since || null,
+      life_impact_score: life_impact_score || profile?.life_impact_score || null,
+      attendance_rate: attendance_rate || profile?.attendance_rate || null,
+      profile_changes: profile_changes || [],
     }
 
     const fullFormData = {
       applied_role: cleanRole,
       city_name: cleanCity,
       city: cleanCity,
+      industry: String(industry || '').trim(),
+      website: String(website || '').trim(),
       since: String(since || '').trim(),
       time_commitment: cleanTimeCommitment,
+      hours_per_week: cleanTimeCommitment,
       video_url: String(video_url || '').trim(),
       goals: sanitizedGoals,
       leadership_roles: sanitizedRoles,
+      leadership_statement: String(leadership_statement || '').trim(),
+      why_role: String(why_role || '').trim(),
+      vision_12_months: String(vision_12_months || '').trim(),
+      other_network_involvement: Boolean(other_network_involvement),
+      other_network_details: String(other_network_details || '').trim(),
+      profile_changes: profile_changes || [],
     }
 
     let liveApplicationNumber = applicationNumber
@@ -158,6 +200,10 @@ export async function POST(req: Request) {
         answers: fullFormData,
         documents: documentsList,
         declarations: {
+          dec_truthful_information: Boolean(declarations?.dec_truthful_information ?? true),
+          dec_code_of_conduct_no_incentives: Boolean(declarations?.dec_code_of_conduct_no_incentives ?? true),
+          dec_public_profile_consent: Boolean(declarations?.dec_public_profile_consent ?? true),
+          dec_jury_contact_consent: Boolean(declarations?.dec_jury_contact_consent ?? true),
           dec_code_of_conduct: true,
           dec_no_solicitation: true,
           dec_governance_neutrality: true,

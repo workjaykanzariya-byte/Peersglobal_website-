@@ -297,7 +297,9 @@ export function SitemapClient() {
                 </GalaxyButton>
 
                 <GalaxyButton
-                  href="/circles"
+                  href="https://peersunity.com/share?type=explore_circles"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   variant="transparent"
                   size="lg"
                   icon={false}

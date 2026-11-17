@@ -1740,7 +1740,7 @@ export function TheIdeaClient() {
         eyebrow="BEGIN WITH THE PEOPLE"
         title="Entrepreneurs should not have to build alone."
         subtitle="Peers are Partners in Business and Friends in Life."
-        description="Circles, not crowds. Trust, not transactions. Peers, not gurus. Discover your Circle."
+        description="Discover your Circle."
         primaryButtonText="EXPLORE CIRCLES"
         primaryButtonHref="/circles"
         secondaryButtonText=""

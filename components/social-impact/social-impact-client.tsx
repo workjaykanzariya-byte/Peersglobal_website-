@@ -463,7 +463,9 @@ export function SocialImpactClient() {
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3.5 pt-2">
                 <GalaxyButton
-                  href="/apply"
+                  href="https://peersunity.com/share?type=membership"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   size="md"
                   variant="primary"
                 >

@@ -1410,12 +1410,12 @@ export default function CultureAndCodePage() {
       <ClosingCtaSection
         eyebrow="PEERS ARE PARTNERS IN BUSINESS AND FRIENDS IN LIFE"
         title="Designed in Bharat. Built for the World."
-        subtitle="Circles, not crowds. Trust, not transactions. Peers, not gurus."
+        subtitle=""
         description="PEERS GLOBAL is the World's First Community of Collaboration. Enter a trusted Circle and experience culture in action."
         primaryButtonText="BECOME A PEER"
-        primaryButtonHref="https://peersunity.com/membership"
+        primaryButtonHref="https://peersunity.com/share?type=membership"
         secondaryButtonText="FIND YOUR CIRCLE"
-        secondaryButtonHref="https://peersunity.com/circles"
+        secondaryButtonHref="https://peersunity.com/share?type=explore_circles"
       />
 
     </div>

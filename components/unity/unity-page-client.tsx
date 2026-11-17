@@ -897,7 +897,7 @@ export function UnityPageClient() {
             {/* Action Buttons */}
             <div className="pt-2 flex flex-wrap items-center gap-3">
               <GalaxyButton
-                href="/membership"
+                href="https://peersunity.com/share?type=membership" target="_blank" rel="noopener noreferrer"
                 size="default"
                 className="font-semibold"
               >
