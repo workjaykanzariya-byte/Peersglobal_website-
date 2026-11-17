@@ -27,8 +27,8 @@ export interface ClosingCtaSectionProps {
 export function ClosingCtaSection({
   eyebrow = 'FINAL CALL',
   title,
-  subtitle = 'Circles, not crowds. • Trust, not transactions. • Peers, not gurus.',
-  description = 'Designed in Bharat. Built for the World.',
+  subtitle = '',
+  description = '',
   primaryButtonText = 'JOIN PEERS GLOBAL',
   primaryButtonHref = '/membership',
   secondaryButtonText = 'DOWNLOAD UNITY APP',

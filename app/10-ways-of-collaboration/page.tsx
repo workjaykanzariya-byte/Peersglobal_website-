@@ -290,22 +290,22 @@ export default function TenWaysOfCollaborationPage() {
               {/* CTAs */}
               <div className="flex flex-wrap items-center gap-3.5 pt-2">
                 <GalaxyButton
-                  href="https://peersunity.com/circles"
+                  href="https://peersunity.com/share?type=explore_circles"
                   target="_blank"
                   rel="noopener noreferrer"
                   variant="white-gradient"
                   size="lg"
-                  className="text-xs sm:text-sm"
+                  className="text-xs sm:text-sm font-bold"
                 >
                   FIND YOUR CIRCLE
                 </GalaxyButton>
                 <GalaxyButton
-                  href="https://peersunity.com/apply_membership"
+                  href="https://peersunity.com/share?type=membership"
                   target="_blank"
                   rel="noopener noreferrer"
                   variant="gradient-white"
                   size="lg"
-                  className="text-xs sm:text-sm"
+                  className="text-xs sm:text-sm font-bold"
                 >
                   APPLY FOR MEMBERSHIP
                 </GalaxyButton>
@@ -655,22 +655,22 @@ export default function TenWaysOfCollaborationPage() {
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3.5 mb-9">
                 <GalaxyButton
-                  href="https://peersunity.com/circles"
+                  href="https://peersunity.com/share?type=explore_circles"
                   target="_blank"
                   rel="noopener noreferrer"
                   variant="white-gradient"
                   size="lg"
-                  className="text-xs sm:text-sm"
+                  className="text-xs sm:text-sm font-bold"
                 >
                   FIND YOUR CIRCLE
                 </GalaxyButton>
                 <GalaxyButton
-                  href="https://peersunity.com/apply_membership"
+                  href="https://peersunity.com/share?type=membership"
                   target="_blank"
                   rel="noopener noreferrer"
                   variant="gradient-white"
                   size="lg"
-                  className="text-xs sm:text-sm"
+                  className="text-xs sm:text-sm font-bold"
                 >
                   APPLY FOR MEMBERSHIP
                 </GalaxyButton>
@@ -983,20 +983,22 @@ export default function TenWaysOfCollaborationPage() {
           {/* Action CTAs */}
           <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
             <GalaxyButton
-              href="https://peersunity.com/circles"
+              href="https://peersunity.com/share?type=explore_circles"
               target="_blank"
               rel="noopener noreferrer"
               variant="white-gradient"
               size="lg"
+              className="text-xs sm:text-sm font-bold"
             >
               FIND YOUR CIRCLE
             </GalaxyButton>
             <GalaxyButton
-              href="https://peersunity.com/apply_membership"
+              href="https://peersunity.com/share?type=membership"
               target="_blank"
               rel="noopener noreferrer"
               variant="gradient-white"
               size="lg"
+              className="text-xs sm:text-sm font-bold"
             >
               APPLY FOR MEMBERSHIP
             </GalaxyButton>

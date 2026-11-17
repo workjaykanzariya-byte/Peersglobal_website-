@@ -411,7 +411,9 @@ export function CommunityGuidelinesClient() {
               </GalaxyButton>
 
               <GalaxyButton
-                href="/membership"
+                href="https://peersunity.com/share?type=membership"
+                target="_blank"
+                rel="noopener noreferrer"
                 variant="secondary"
                 size="md"
                 className="w-full sm:w-auto lg:w-full max-w-xs uppercase tracking-wider font-bold"

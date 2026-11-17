@@ -1824,7 +1824,7 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
         eyebrow="YOUR NEXT CIRCLE"
         title="Find your people. Find your next opportunity."
         subtitle="Where could the right relationships help you grow—and where could your experience help someone else grow? That is where your Circle begins."
-        description="20–40 curated entrepreneurs • 18 Industry & Goal Circles • Built around LSR. Peers are Partners in Business and Friends in Life. Designed in Bharat. Built for the World."
+        description="20–40 curated entrepreneurs • 18 Industry & Goal Circles • Built around LSR. Peers are Partners in Business and Friends in Life."
         buttons={
           <div className="flex flex-wrap items-center gap-3.5">
             <GalaxyButton

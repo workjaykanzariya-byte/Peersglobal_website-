@@ -1011,7 +1011,9 @@ export function EventsPageClient({ initialEvents = [] }: EventsPageClientProps) 
               </GalaxyButton>
 
               <GalaxyButton
-                href="/membership"
+                href="https://peersunity.com/share?type=membership"
+                target="_blank"
+                rel="noopener noreferrer"
                 variant="transparent"
                 size="default"
                 className="uppercase tracking-wider font-bold"

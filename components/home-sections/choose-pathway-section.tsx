@@ -218,11 +218,12 @@ export function ChoosePathwaySection() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
           <GalaxyButton
-            href="https://peersunity.com/circles"
+            href="https://peersunity.com/share?type=explore_circles"
             target="_blank"
             rel="noopener noreferrer"
             size="lg"
             aria-label="Find Your Circle"
+            className="font-bold tracking-wider"
           >
             FIND YOUR CIRCLE
           </GalaxyButton>
@@ -231,6 +232,7 @@ export function ChoosePathwaySection() {
             variant="transparent"
             size="lg"
             aria-label="Explore Peers Global"
+            className="font-bold tracking-wider"
           >
             EXPLORE PEERS GLOBAL
           </GalaxyButton>
@@ -257,7 +259,7 @@ export function ChoosePathwaySection() {
 
           <div className="flex items-center gap-2 shrink-0">
             <GalaxyButton
-              href="https://peersunity.com/circles"
+              href="https://peersunity.com/share?type=explore_circles"
               target="_blank"
               rel="noopener noreferrer"
               size="sm"

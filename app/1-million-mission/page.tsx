@@ -891,7 +891,7 @@ export default function OneMillionMissionPage() {
       <ClosingCtaSection
         eyebrow="1M+ ENTREPRENEURS TO IMPACT BY 2030"
         title="Designed in Bharat. Built for the World."
-        subtitle="Circles, not crowds. Trust, not transactions. Peers, not gurus."
+        subtitle=""
         description="PEERS GLOBAL is the World's First Community of Collaboration. Peers are Partners in Business and Friends in Life."
         primaryButtonText="BECOME A LIFE IMPACTOR"
         primaryButtonHref="/membership"

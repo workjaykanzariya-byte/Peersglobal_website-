@@ -12,7 +12,7 @@ export const SITE = {
   whatsappDisplay: '+91 93161 20831',
   whatsappUrl: 'https://wa.me/919316120831?text=Hello%20Peers%20Global%2C%20I%20would%20like%20to%20know%20more%20about%20membership%20and%20collaboration.',
   email: 'hello@peersglobal.com',
-  memberLoginUrl: 'https://peersunity.com/membership_login',
+  memberLoginUrl: 'https://peersunity.com/share?type=membership_login',
   appStoreUrl: 'https://apps.apple.com/in/app/peers-global-unity/id6739198477',
   playStoreUrl: 'https://play.google.com/store/apps/details?id=com.peers.peersunity&pcampaignid=web_share',
   socials: {
@@ -172,7 +172,7 @@ export const HEADER_NAV: NavItem[] = [
       { label: 'Life Impact Score', href: '/life-impact-score', desc: '1 Action = 1 Life Impacted tracking', phase: 1 },
       { label: 'Peers Coin', href: '/peers-coin', desc: 'Earned by helping peers, redeem in marketplace', phase: 1 },
       { label: 'Impact Confirmation', href: '/impact-confirmation', desc: 'Bilateral verification of contributions', phase: 1 },
-      { label: 'Member Login', href: 'https://peersunity.com/membership_login', desc: 'Launch the Unity App login', phase: 1, external: true },
+      { label: 'Member Login', href: 'https://peersunity.com/share?type=membership_login', desc: 'Launch the Unity App login', phase: 1, external: true },
     ],
   },
   {

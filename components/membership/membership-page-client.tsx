@@ -232,7 +232,7 @@ export function MembershipPageClient() {
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <GalaxyButton
-                  href="https://peersunity.com/circles"
+                  href="https://peersunity.com/share?type=explore_circles"
                   target="_blank"
                   rel="noopener noreferrer"
                   variant="white-gradient"
@@ -890,7 +890,7 @@ export function MembershipPageClient() {
 
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <GalaxyButton
-                  href="https://peersunity.com/circles"
+                  href="https://peersunity.com/share?type=explore_circles"
                   target="_blank"
                   rel="noopener noreferrer"
                   size="default"

@@ -52,7 +52,7 @@ export function HeroSection() {
 
             <div className="fd-hero__cta flex flex-wrap items-center gap-3.5">
               <GalaxyButton
-                href="https://peersunity.com/circles"
+                href="https://peersunity.com/share?type=explore_circles"
                 target="_blank"
                 rel="noopener noreferrer"
                 variant="white-gradient"
@@ -62,7 +62,7 @@ export function HeroSection() {
                 FIND YOUR CIRCLE
               </GalaxyButton>
               <GalaxyButton
-                href="https://peersunity.com/apply_membership"
+                href="https://peersunity.com/share?type=membership"
                 target="_blank"
                 rel="noopener noreferrer"
                 variant="gradient-white"

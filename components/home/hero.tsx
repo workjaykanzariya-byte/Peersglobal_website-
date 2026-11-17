@@ -144,14 +144,14 @@ export function HomeHero() {
               <span>Download Unity App</span>
             </a>
 
-            <a
-              href="https://peersunity.com/circles"
+            <Link
+              href="https://peersunity.com/share?type=explore_circles"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 px-3 py-2 text-sm sm:text-base font-semibold text-white/90 hover:text-white underline-offset-4 hover:underline transition-colors"
             >
               <span>Find Your Circle →</span>
-            </a>
+            </Link>
           </div>
 
         </div>

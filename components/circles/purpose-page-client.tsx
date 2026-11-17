@@ -575,11 +575,10 @@ export function PurposePageClient() {
                 <div
                   key={circle.slug}
                   onClick={() => setActiveCircle(isSelected ? null : circle.slug)}
-                  className={`group relative p-[1.5px] rounded-[28px] transition-all duration-300 cursor-pointer flex flex-col justify-between shadow-xs hover:shadow-xl hover:-translate-y-1.5 ${
-                    isSelected
+                  className={`group relative p-[1.5px] rounded-[28px] transition-all duration-300 cursor-pointer flex flex-col justify-between shadow-xs hover:shadow-xl hover:-translate-y-1.5 ${isSelected
                       ? 'bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] shadow-xl'
                       : 'bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:via-[#6366F1] hover:to-[#E11D48]'
-                  }`}
+                    }`}
                 >
                   <div className="relative w-full h-full bg-white rounded-[26.5px] p-6 sm:p-8 flex flex-col justify-between">
                     <div>
@@ -894,9 +893,8 @@ export function PurposePageClient() {
             {COMPARISON_ROWS.map((row, idx) => (
               <div
                 key={row.feature}
-                className={`grid grid-cols-12 p-4 sm:p-5 border-b border-slate-100 last:border-b-0 items-center text-xs sm:text-sm ${
-                  idx % 2 === 1 ? 'bg-[#FAFBFD]' : 'bg-white'
-                }`}
+                className={`grid grid-cols-12 p-4 sm:p-5 border-b border-slate-100 last:border-b-0 items-center text-xs sm:text-sm ${idx % 2 === 1 ? 'bg-[#FAFBFD]' : 'bg-white'
+                  }`}
               >
                 <div className="col-span-4 sm:col-span-4 font-semibold text-slate-600 pr-2">
                   {row.feature}
@@ -930,18 +928,14 @@ export function PurposePageClient() {
 
               <div className="flex flex-wrap items-center gap-3">
                 <GalaxyButton
-                  href="https://peersunity.com/circles"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/circles"
                   variant="primary"
                   size="sm"
                 >
                   Browse All Circles
                 </GalaxyButton>
                 <GalaxyButton
-                  href="https://peersunity.com/circles"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/circles/industry"
                   variant="transparent-light"
                   size="sm"
                 >
@@ -984,9 +978,8 @@ export function PurposePageClient() {
             {PURPOSE_GRID.map((item, idx) => (
               <div
                 key={item.circle}
-                className={`grid grid-cols-12 p-4 sm:p-5 border-b border-slate-100 last:border-b-0 items-center text-xs sm:text-sm ${
-                  idx % 2 === 1 ? 'bg-[#FAFBFD]' : 'bg-white'
-                }`}
+                className={`grid grid-cols-12 p-4 sm:p-5 border-b border-slate-100 last:border-b-0 items-center text-xs sm:text-sm ${idx % 2 === 1 ? 'bg-[#FAFBFD]' : 'bg-white'
+                  }`}
               >
                 <div className="col-span-5 sm:col-span-5 font-bold text-slate-900 pr-3">
                   {item.circle}
@@ -1132,9 +1125,8 @@ export function PurposePageClient() {
               return (
                 <div
                   key={i}
-                  className={`rounded-2xl border transition-all shadow-2xs ${
-                    isOpen ? 'border-blue-200 bg-blue-50/50' : 'border-slate-200/90 bg-white hover:border-blue-300'
-                  }`}
+                  className={`rounded-2xl border transition-all shadow-2xs ${isOpen ? 'border-blue-200 bg-blue-50/50' : 'border-slate-200/90 bg-white hover:border-blue-300'
+                    }`}
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : i)}
@@ -1168,13 +1160,13 @@ export function PurposePageClient() {
           ================================================================= */}
       <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-100">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="relative overflow-hidden rounded-3xl sm:rounded-[36px] bg-white border border-slate-200/90 shadow-sm p-8 sm:p-12 lg:p-16">
             <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-80 h-80 bg-rose-500/5 rounded-full blur-3xl pointer-events-none" />
 
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-              
+
               {/* Left Column: Heading, Context & Ambition Tags */}
               <div className="lg:col-span-7 space-y-6">
                 <div className="space-y-3">
@@ -1220,7 +1212,9 @@ export function PurposePageClient() {
                 <div className="pt-2 flex flex-col gap-3">
                   <div>
                     <GalaxyButton
-                      href="/circles"
+                      href="https://peersunity.com/share?type=explore_circles"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       size="lg"
                       className="text-xs sm:text-sm font-bold"
                     >
@@ -1235,9 +1229,9 @@ export function PurposePageClient() {
                 <div className="relative p-7 sm:p-9 rounded-3xl bg-gradient-to-br from-[#06112C] via-[#13071F] to-[#260513] text-white shadow-xl space-y-6 overflow-hidden border border-white/10">
                   <div className="absolute top-0 right-0 w-44 h-44 bg-blue-500/20 rounded-full blur-[50px] pointer-events-none" />
                   <div className="absolute bottom-0 left-0 w-36 h-36 bg-rose-500/20 rounded-full blur-[50px] pointer-events-none" />
-                  
+
                   <span className="font-serif text-5xl sm:text-6xl brand-gradient-text leading-none block -mb-4">“</span>
-                  
+
                   <p className="text-lg sm:text-xl font-medium leading-snug text-slate-100 relative z-10">
                     Sometimes the right people are not the people doing what you do. They are the people going where you are trying to go.
                   </p>
@@ -1267,7 +1261,7 @@ export function PurposePageClient() {
         eyebrow="FIND YOUR PURPOSE CIRCLE"
         title="Your industry tells your story today. Your purpose speaks about the future you are building."
         subtitle="Find the people who understand both."
-        description="Peers are Partners in Business and Friends in Life. Circles, not crowds. Trust, not transactions. Peers, not gurus. Designed in Bharat. Built for the World."
+        description="Peers are Partners in Business and Friends in Life."
         primaryButtonText="EXPLORE ALL CIRCLES"
         primaryButtonHref="/circles"
         secondaryButtonText=""

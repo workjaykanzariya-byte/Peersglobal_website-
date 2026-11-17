@@ -834,7 +834,7 @@ export function WatchlistClient() {
               </GalaxyButton>
 
               <GalaxyButton
-                href="/membership"
+                href="https://peersunity.com/share?type=membership" target="_blank" rel="noopener noreferrer"
                 variant="gradient-white"
                 size="default"
                 className="uppercase tracking-wider font-bold"

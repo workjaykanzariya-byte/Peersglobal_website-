@@ -5,35 +5,60 @@ export const dynamic = 'force-dynamic'
 interface CityItem {
   id: string
   name: string
-  state: string | null
   district: string | null
+  state: string | null
+  country: string
+  full_location?: string
 }
 
 let cachedCities: CityItem[] | null = null
 let lastFetchedTime = 0
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000 // 24 hours
 
+export function formatCityLocation(c: { name: string; district?: string | null; state?: string | null; country?: string | null }): string {
+  const parts: string[] = [c.name]
+  if (c.district && c.district.trim() !== c.name.trim()) {
+    parts.push(c.district.includes('District') || c.district.includes('County') ? c.district : `${c.district} District`)
+  }
+  if (c.state && c.state.trim() !== c.name.trim()) {
+    parts.push(c.state)
+  }
+  parts.push(c.country || 'India')
+  return parts.join(', ')
+}
+
 const POPULAR_CITIES: CityItem[] = [
-  { id: 'city-surat', name: 'Surat', state: 'Gujarat', district: 'Surat' },
-  { id: 'city-ahmedabad', name: 'Ahmedabad', state: 'Gujarat', district: 'Ahmedabad' },
-  { id: 'city-mumbai', name: 'Mumbai', state: 'Maharashtra', district: 'Mumbai' },
-  { id: 'city-delhi', name: 'Delhi', state: 'Delhi', district: 'New Delhi' },
-  { id: 'city-bengaluru', name: 'Bengaluru', state: 'Karnataka', district: 'Bengaluru Urban' },
-  { id: 'city-pune', name: 'Pune', state: 'Maharashtra', district: 'Pune' },
-  { id: 'city-vadodara', name: 'Vadodara', state: 'Gujarat', district: 'Vadodara' },
-  { id: 'city-rajkot', name: 'Rajkot', state: 'Gujarat', district: 'Rajkot' },
-  { id: 'city-hyderabad', name: 'Hyderabad', state: 'Telangana', district: 'Hyderabad' },
-  { id: 'city-chennai', name: 'Chennai', state: 'Tamil Nadu', district: 'Chennai' },
-  { id: 'city-kolkata', name: 'Kolkata', state: 'West Bengal', district: 'Kolkata' },
-  { id: 'city-jaipur', name: 'Jaipur', state: 'Rajasthan', district: 'Jaipur' },
-  { id: 'city-indore', name: 'Indore', state: 'Madhya Pradesh', district: 'Indore' },
-  { id: 'city-chandigarh', name: 'Chandigarh', state: 'Chandigarh', district: 'Chandigarh' },
-  { id: 'city-lucknow', name: 'Lucknow', state: 'Uttar Pradesh', district: 'Lucknow' },
-  { id: 'city-nagpur', name: 'Nagpur', state: 'Maharashtra', district: 'Nagpur' },
-  { id: 'city-bhavnagar', name: 'Bhavnagar', state: 'Gujarat', district: 'Bhavnagar' },
-  { id: 'city-jamnagar', name: 'Jamnagar', state: 'Gujarat', district: 'Jamnagar' },
-  { id: 'city-vapi', name: 'Vapi', state: 'Gujarat', district: 'Valsad' },
-  { id: 'city-navsari', name: 'Navsari', state: 'Gujarat', district: 'Navsari' },
+  // India Hubs
+  { id: 'city-surat', name: 'Surat', district: 'Surat', state: 'Gujarat', country: 'India' },
+  { id: 'city-ahmedabad', name: 'Ahmedabad', district: 'Ahmedabad', state: 'Gujarat', country: 'India' },
+  { id: 'city-mumbai', name: 'Mumbai', district: 'Mumbai City', state: 'Maharashtra', country: 'India' },
+  { id: 'city-delhi', name: 'Delhi', district: 'New Delhi', state: 'Delhi', country: 'India' },
+  { id: 'city-bengaluru', name: 'Bengaluru', district: 'Bengaluru Urban', state: 'Karnataka', country: 'India' },
+  { id: 'city-pune', name: 'Pune', district: 'Pune', state: 'Maharashtra', country: 'India' },
+  { id: 'city-vadodara', name: 'Vadodara', district: 'Vadodara', state: 'Gujarat', country: 'India' },
+  { id: 'city-rajkot', name: 'Rajkot', district: 'Rajkot', state: 'Gujarat', country: 'India' },
+  { id: 'city-hyderabad', name: 'Hyderabad', district: 'Hyderabad', state: 'Telangana', country: 'India' },
+  { id: 'city-chennai', name: 'Chennai', district: 'Chennai', state: 'Tamil Nadu', country: 'India' },
+  { id: 'city-kolkata', name: 'Kolkata', district: 'Kolkata', state: 'West Bengal', country: 'India' },
+  { id: 'city-jaipur', name: 'Jaipur', district: 'Jaipur', state: 'Rajasthan', country: 'India' },
+  { id: 'city-indore', name: 'Indore', district: 'Indore', state: 'Madhya Pradesh', country: 'India' },
+  { id: 'city-chandigarh', name: 'Chandigarh', district: 'Chandigarh', state: 'Chandigarh', country: 'India' },
+  { id: 'city-lucknow', name: 'Lucknow', district: 'Lucknow', state: 'Uttar Pradesh', country: 'India' },
+  { id: 'city-nagpur', name: 'Nagpur', district: 'Nagpur', state: 'Maharashtra', country: 'India' },
+  { id: 'city-bhavnagar', name: 'Bhavnagar', district: 'Bhavnagar', state: 'Gujarat', country: 'India' },
+  { id: 'city-jamnagar', name: 'Jamnagar', district: 'Jamnagar', state: 'Gujarat', country: 'India' },
+  { id: 'city-vapi', name: 'Vapi', district: 'Valsad', state: 'Gujarat', country: 'India' },
+  { id: 'city-navsari', name: 'Navsari', district: 'Navsari', state: 'Gujarat', country: 'India' },
+
+  // Global Hubs
+  { id: 'city-dubai', name: 'Dubai', district: 'Dubai Emirate', state: 'Dubai', country: 'United Arab Emirates' },
+  { id: 'city-london', name: 'London', district: 'Greater London', state: 'England', country: 'United Kingdom' },
+  { id: 'city-singapore', name: 'Singapore', district: 'Central Singapore', state: 'Singapore', country: 'Singapore' },
+  { id: 'city-newyork', name: 'New York', district: 'New York County', state: 'New York', country: 'United States' },
+  { id: 'city-sf', name: 'San Francisco', district: 'San Francisco County', state: 'California', country: 'United States' },
+  { id: 'city-toronto', name: 'Toronto', district: 'Greater Toronto', state: 'Ontario', country: 'Canada' },
+  { id: 'city-sydney', name: 'Sydney', district: 'Sydney Metropolitan', state: 'New South Wales', country: 'Australia' },
+  { id: 'city-nairobi', name: 'Nairobi', district: 'Nairobi County', state: 'Nairobi', country: 'Kenya' },
 ]
 
 async function loadCities(): Promise<CityItem[]> {
@@ -50,12 +75,17 @@ async function loadCities(): Promise<CityItem[]> {
       const json = await res.json()
       const list = json?.data || json
       if (Array.isArray(list) && list.length > 0) {
-        cachedCities = list.map((c: any) => ({
-          id: String(c.id),
-          name: String(c.name || '').trim(),
-          state: c.state ? String(c.state).trim() : null,
-          district: c.district ? String(c.district).trim() : null,
-        }))
+        cachedCities = list.map((c: any) => {
+          const item: CityItem = {
+            id: String(c.id),
+            name: String(c.name || '').trim(),
+            district: c.district ? String(c.district).trim() : null,
+            state: c.state ? String(c.state).trim() : null,
+            country: c.country ? String(c.country).trim() : 'India',
+          }
+          item.full_location = formatCityLocation(item)
+          return item
+        })
         lastFetchedTime = now
         return cachedCities
       }
@@ -64,7 +94,7 @@ async function loadCities(): Promise<CityItem[]> {
     console.warn('Could not load live cities, using fallback:', err)
   }
 
-  return cachedCities || POPULAR_CITIES
+  return cachedCities || POPULAR_CITIES.map((c) => ({ ...c, full_location: formatCityLocation(c) }))
 }
 
 export async function GET(req: Request) {
@@ -94,14 +124,21 @@ export async function GET(req: Request) {
     })
   }
 
-  // Filter cities by search term
+  // Filter cities by search term across Name, District, State, and Country
   const matched: CityItem[] = []
   const qLower = q.toLowerCase()
 
   // 1. Exact / prefix matches
   for (const c of allCities) {
-    if (c.name.toLowerCase().startsWith(qLower)) {
-      matched.push(c)
+    if (
+      c.name.toLowerCase().startsWith(qLower) ||
+      (c.district && c.district.toLowerCase().startsWith(qLower)) ||
+      (c.country && c.country.toLowerCase().startsWith(qLower))
+    ) {
+      matched.push({
+        ...c,
+        full_location: c.full_location || formatCityLocation(c),
+      })
       if (matched.length >= limit) break
     }
   }
@@ -113,10 +150,14 @@ export async function GET(req: Request) {
       if (!existingIds.has(c.id)) {
         if (
           c.name.toLowerCase().includes(qLower) ||
+          (c.district && c.district.toLowerCase().includes(qLower)) ||
           (c.state && c.state.toLowerCase().includes(qLower)) ||
-          (c.district && c.district.toLowerCase().includes(qLower))
+          (c.country && c.country.toLowerCase().includes(qLower))
         ) {
-          matched.push(c)
+          matched.push({
+            ...c,
+            full_location: c.full_location || formatCityLocation(c),
+          })
           if (matched.length >= limit) break
         }
       }

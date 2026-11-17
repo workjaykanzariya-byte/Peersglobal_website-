@@ -111,7 +111,7 @@ export default async function StoryDetailPage({ params }: { params: Promise<{ sl
             <h2 className="display mt-1 text-2xl md:text-3xl">Build your own story.</h2>
           </div>
           <div className="flex shrink-0 flex-wrap gap-3">
-            <Cta href="/membership" variant="gold" size="lg">Apply for membership</Cta>
+            <Cta href="https://peersunity.com/share?type=membership" variant="gold" size="lg">Apply for membership</Cta>
             <Cta href="/stories" variant="onDark" size="lg">More stories →</Cta>
           </div>
         </div>

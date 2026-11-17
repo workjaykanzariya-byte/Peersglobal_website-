@@ -475,7 +475,9 @@ export function MembershipTermsClient() {
 
               <div className="flex flex-wrap items-center gap-4 pt-3">
                 <GalaxyButton
-                  href="/circles/find"
+                  href="https://peersunity.com/share?type=explore_circles"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   size="default"
                   className="uppercase tracking-wider font-bold"
                 >
