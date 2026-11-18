@@ -92,12 +92,10 @@ export interface StoreProductsResponse {
 }
 
 // The store catalogue is served from the Unity backend that holds the product
-// inventory. The production backend (https://peersunity.com) currently has no
-// store products, so we read from the dev backend in every environment.
-// Override with NEXT_PUBLIC_STORE_API_BASE_URL=https://peersunity.com once the
-// production store inventory is ready.
+// inventory.
 const API_BASE_URL =
   process.env.NEXT_PUBLIC_STORE_API_BASE_URL ||
+  process.env.NEXT_PUBLIC_API_BASE_URL ||
   'https://peersunity.com';
 
 const API_VERSION_BASE = `${API_BASE_URL.replace(/\/+$/, '')}/api/v1`;
@@ -108,6 +106,69 @@ const DEFAULT_HEADERS = {
 };
 
 /**
+ * Resolves relative store image paths (e.g. /storage/store/products/...) to absolute URLs
+ * using the backend API host (https://peersunity.com).
+ */
+export function resolveStoreImageUrl(imagePath?: string | null): string {
+  if (!imagePath) return '';
+  const trimmed = String(imagePath).trim();
+  if (!trimmed) return '';
+  if (
+    trimmed.startsWith('http://') ||
+    trimmed.startsWith('https://') ||
+    trimmed.startsWith('data:')
+  ) {
+    return trimmed;
+  }
+  const clean = trimmed.startsWith('/') ? trimmed : `/${trimmed}`;
+  const base =
+    process.env.NEXT_PUBLIC_STORE_API_BASE_URL ||
+    process.env.NEXT_PUBLIC_API_BASE_URL ||
+    'https://peersunity.com';
+  return `${base.replace(/\/+$/, '')}${clean}`;
+}
+
+/**
+ * Normalizes all image URLs in a product object to ensure they are fully qualified.
+ */
+export function normalizeStoreProduct<T extends StoreProduct>(product: T): T {
+  if (!product) return product;
+
+  const rawImages: ProductImage[] = Array.isArray(product.images)
+    ? product.images.map((img) => ({
+        ...img,
+        image_url: resolveStoreImageUrl(img.image_url),
+      }))
+    : [];
+
+  let primary_image: ProductImage | null = null;
+  if (product.primary_image?.image_url) {
+    primary_image = {
+      ...product.primary_image,
+      image_url: resolveStoreImageUrl(product.primary_image.image_url),
+    };
+  } else if (rawImages.length > 0) {
+    primary_image = rawImages.find((img) => img.is_primary) || rawImages[0];
+  }
+
+  const category = product.category
+    ? {
+        ...product.category,
+        image_url: product.category.image_url
+          ? resolveStoreImageUrl(product.category.image_url)
+          : null,
+      }
+    : product.category;
+
+  return {
+    ...product,
+    primary_image,
+    images: rawImages.length > 0 ? rawImages : undefined,
+    category,
+  };
+}
+
+/**
  * The products list endpoint only returns `primary_image`. When an image was
  * uploaded in the admin without being marked as primary, `primary_image` is
  * null, so we load the product details to get its `images` array instead.
@@ -115,21 +176,26 @@ const DEFAULT_HEADERS = {
 async function withProductImages(products: StoreProduct[]): Promise<StoreProduct[]> {
   return Promise.all(
     products.map(async (product) => {
-      if (product.primary_image?.image_url || product.images?.length) return product;
-      try {
-        const res = await fetch(`${API_VERSION_BASE}/store/products/${product.id}`, {
-          headers: DEFAULT_HEADERS,
-          next: { revalidate: 60 },
-        });
-        if (!res.ok) return product;
-        const json = await res.json();
-        const images: ProductImage[] = Array.isArray(json?.data?.images) ? json.data.images : [];
-        if (images.length === 0) return product;
-        const primary = images.find((img) => img.is_primary) || images[0];
-        return { ...product, images, primary_image: primary };
-      } catch {
-        return product;
+      let current = product;
+      if (!current.primary_image?.image_url && (!current.images || current.images.length === 0)) {
+        try {
+          const res = await fetch(`${API_VERSION_BASE}/store/products/${current.id}`, {
+            headers: DEFAULT_HEADERS,
+            next: { revalidate: 60 },
+          });
+          if (res.ok) {
+            const json = await res.json();
+            const images: ProductImage[] = Array.isArray(json?.data?.images) ? json.data.images : [];
+            if (images.length > 0) {
+              const primary = images.find((img) => img.is_primary) || images[0];
+              current = { ...current, images, primary_image: primary };
+            }
+          }
+        } catch {
+          // ignore error and continue
+        }
       }
+      return normalizeStoreProduct(current);
     })
   );
 }
@@ -145,7 +211,11 @@ export async function fetchStoreCategories(): Promise<StoreCategory[]> {
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const json = await res.json();
-    return json.success && Array.isArray(json.data) ? json.data : [];
+    const categories: StoreCategory[] = json.success && Array.isArray(json.data) ? json.data : [];
+    return categories.map((cat) => ({
+      ...cat,
+      image_url: cat.image_url ? resolveStoreImageUrl(cat.image_url) : null,
+    }));
   } catch (err) {
     console.error('Error fetching store categories:', err);
     return [];
@@ -250,7 +320,7 @@ export async function fetchStoreProductDetails(id: string): Promise<StoreProduct
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const json = await res.json();
-    return json.success && json.data ? json.data : null;
+    return json.success && json.data ? normalizeStoreProduct(json.data) : null;
   } catch (err) {
     console.error(`Error fetching product details for ${id}:`, err);
     return null;
@@ -268,7 +338,15 @@ export async function fetchStoreConfig(): Promise<StoreConfig | null> {
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const json = await res.json();
-    return json.success && json.data ? json.data : null;
+    if (!json.success || !json.data) return null;
+    const config: StoreConfig = json.data;
+    if (Array.isArray(config.banners)) {
+      config.banners = config.banners.map((b) => ({
+        ...b,
+        image_url: resolveStoreImageUrl(b.image_url),
+      }));
+    }
+    return config;
   } catch (err) {
     console.error('Error fetching store config:', err);
     return null;

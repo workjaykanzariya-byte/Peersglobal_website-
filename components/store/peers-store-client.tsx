@@ -34,11 +34,12 @@ import {
   Lock,
 } from 'lucide-react'
 import { SITE } from '@/lib/data/site'
-import type {
-  StoreProduct,
-  StoreCategory,
-  StoreBanner,
-  StoreConfig,
+import {
+  type StoreProduct,
+  type StoreCategory,
+  type StoreBanner,
+  type StoreConfig,
+  resolveStoreImageUrl,
 } from '@/lib/api/store'
 
 // Brand Partner Logos from homepage
@@ -323,7 +324,8 @@ export function PeersStoreClient({
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
               {products.map((item) => {
                 const coinPrice = item.price_coins || item.coin_price || 0
-                const imageUrl = item.primary_image?.image_url || item.images?.[0]?.image_url || null
+                const imageUrl =
+                  resolveStoreImageUrl(item.primary_image?.image_url || item.images?.[0]?.image_url) || null
                 const categoryLabel = item.category?.name || null
                 const descriptionText = item.short_description || item.description || null
 
@@ -336,12 +338,22 @@ export function PeersStoreClient({
                       {/* Product Thumbnail */}
                       <div className="relative aspect-4/3 w-full rounded-2xl overflow-hidden bg-slate-100 border border-slate-100">
                         {imageUrl ? (
-                          <img
-                            src={imageUrl}
-                            alt={item.name}
-                            className="size-full object-cover group-hover:scale-105 transition-transform duration-500"
-                            loading="lazy"
-                          />
+                          <>
+                            <img
+                              src={imageUrl}
+                              alt={item.name}
+                              className="size-full object-cover group-hover:scale-105 transition-transform duration-500"
+                              loading="lazy"
+                              onError={(e) => {
+                                e.currentTarget.style.display = 'none'
+                                const fb = e.currentTarget.parentElement?.querySelector('.store-fallback') as HTMLElement
+                                if (fb) fb.style.display = 'flex'
+                              }}
+                            />
+                            <div className="store-fallback size-full hidden items-center justify-center text-slate-300">
+                              <Package className="w-10 h-10" />
+                            </div>
+                          </>
                         ) : (
                           <div className="size-full flex items-center justify-center text-slate-300">
                             <Package className="w-10 h-10" />
@@ -482,7 +494,7 @@ export function PeersStoreClient({
                   className="relative rounded-2xl overflow-hidden shadow-sm group border border-slate-200 h-44 flex flex-col justify-end p-5"
                 >
                   <img
-                    src={banner.image_url}
+                    src={resolveStoreImageUrl(banner.image_url)}
                     alt={banner.title}
                     className="absolute inset-0 size-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
@@ -639,8 +651,11 @@ export function PeersStoreClient({
             <div className="relative aspect-16/9 w-full rounded-2xl overflow-hidden bg-slate-100 border border-slate-200">
               <img
                 src={
-                  selectedProduct.primary_image?.image_url ||
-                  selectedProduct.category?.image_url ||
+                  resolveStoreImageUrl(
+                    selectedProduct.primary_image?.image_url ||
+                    selectedProduct.images?.[0]?.image_url ||
+                    selectedProduct.category?.image_url
+                  ) ||
                   'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=800&auto=format&fit=crop&q=80'
                 }
                 alt={selectedProduct.name}
@@ -902,9 +917,9 @@ export function PeersStoreClient({
             <div className="overflow-y-auto p-5 sm:p-6 space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
                 <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-slate-100 border border-slate-200">
-                  {selectedProduct.primary_image?.image_url || selectedProduct.images?.[0]?.image_url ? (
+                  {resolveStoreImageUrl(selectedProduct.primary_image?.image_url || selectedProduct.images?.[0]?.image_url) ? (
                     <img
-                      src={selectedProduct.primary_image?.image_url || selectedProduct.images?.[0]?.image_url}
+                      src={resolveStoreImageUrl(selectedProduct.primary_image?.image_url || selectedProduct.images?.[0]?.image_url) || ''}
                       alt={selectedProduct.name}
                       className="size-full object-cover"
                     />
@@ -1112,7 +1127,7 @@ function BuyInAppModal({
   }
 
   const productImage: string | null =
-    product.primary_image?.image_url || product.images?.[0]?.image_url || null
+    resolveStoreImageUrl(product.primary_image?.image_url || product.images?.[0]?.image_url) || null
 
   const recommended: StoreTarget | null =
     platform === 'android' ? 'play' : platform === 'ios' ? 'app' : null
