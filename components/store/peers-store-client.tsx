@@ -336,13 +336,13 @@ export function PeersStoreClient({
                   >
                     <div className="space-y-3.5">
                       {/* Product Thumbnail */}
-                      <div className="relative aspect-4/3 w-full rounded-2xl overflow-hidden bg-slate-100 border border-slate-100">
+                      <div className="relative aspect-4/3 w-full rounded-2xl overflow-hidden bg-white border border-slate-100 p-4 flex items-center justify-center">
                         {imageUrl ? (
                           <>
                             <img
                               src={imageUrl}
                               alt={item.name}
-                              className="size-full object-cover group-hover:scale-105 transition-transform duration-500"
+                              className="size-full object-contain group-hover:scale-105 transition-transform duration-500"
                               loading="lazy"
                               onError={(e) => {
                                 e.currentTarget.style.display = 'none'
@@ -360,14 +360,14 @@ export function PeersStoreClient({
                           </div>
                         )}
                         {categoryLabel && (
-                          <div className="absolute top-2.5 left-2.5">
+                          <div className="absolute top-2.5 left-2.5 z-10 pointer-events-none">
                             <span className="text-[9.5px] uppercase font-bold tracking-wider text-slate-900 bg-white/95 backdrop-blur-md px-2.5 py-0.5 rounded-full shadow-xs border border-slate-200/50">
                               {categoryLabel}
                             </span>
                           </div>
                         )}
                         {item.is_featured && (
-                          <div className="absolute top-2.5 right-2.5">
+                          <div className="absolute top-2.5 right-2.5 z-10 pointer-events-none">
                             <span className="text-[9.5px] uppercase font-bold tracking-wider text-rose-700 bg-rose-50/95 backdrop-blur-md border border-rose-200 px-2 py-0.5 rounded-full shadow-xs">
                               Featured
                             </span>
@@ -648,7 +648,7 @@ export function PeersStoreClient({
             </div>
 
             {/* Product Image */}
-            <div className="relative aspect-16/9 w-full rounded-2xl overflow-hidden bg-slate-100 border border-slate-200">
+            <div className="relative aspect-[4/3] sm:aspect-16/9 w-full rounded-2xl overflow-hidden bg-white border border-slate-200 p-4 flex items-center justify-center">
               <img
                 src={
                   resolveStoreImageUrl(
@@ -659,7 +659,7 @@ export function PeersStoreClient({
                   'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=800&auto=format&fit=crop&q=80'
                 }
                 alt={selectedProduct.name}
-                className="size-full object-cover"
+                className="size-full object-contain"
               />
             </div>
 
@@ -916,12 +916,12 @@ export function PeersStoreClient({
             {/* Modal Body */}
             <div className="overflow-y-auto p-5 sm:p-6 space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
-                <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-slate-100 border border-slate-200">
+                <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-white border border-slate-200 p-4 flex items-center justify-center">
                   {resolveStoreImageUrl(selectedProduct.primary_image?.image_url || selectedProduct.images?.[0]?.image_url) ? (
                     <img
                       src={resolveStoreImageUrl(selectedProduct.primary_image?.image_url || selectedProduct.images?.[0]?.image_url) || ''}
                       alt={selectedProduct.name}
-                      className="size-full object-cover"
+                      className="size-full object-contain"
                     />
                   ) : (
                     <div className="size-full flex items-center justify-center text-slate-300">
@@ -1205,9 +1205,9 @@ function BuyInAppModal({
 
           {/* Product preview */}
           <div className="flex items-center gap-4 p-3 rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm">
-            <div className="size-14 rounded-xl overflow-hidden bg-white/10 ring-1 ring-white/10 shrink-0">
+            <div className="size-14 rounded-xl overflow-hidden bg-white/10 ring-1 ring-white/10 shrink-0 p-1 flex items-center justify-center">
               {productImage ? (
-                <img src={productImage} alt={product.name} className="size-full object-cover" />
+                <img src={productImage} alt={product.name} className="size-full object-contain" />
               ) : (
                 <div className="size-full flex items-center justify-center text-white/40">
                   <Package className="w-6 h-6" />

@@ -57,6 +57,14 @@ const nextConfig = {
       },
     ]
   },
+  async rewrites() {
+    return [
+      {
+        source: '/storage/:path*',
+        destination: 'https://peersunity.com/storage/:path*',
+      },
+    ]
+  },
   async redirects() {
     return [
       {
