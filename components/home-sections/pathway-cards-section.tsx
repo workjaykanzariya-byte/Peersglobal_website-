@@ -409,7 +409,7 @@ export function PathwayCardsSection() {
                   </p>
                 </div>
               </div>
-              <div className="pt-2">
+              <div className="pt-2 flex justify-center sm:justify-start w-full">
                 <a className="fd-pathway-cards__btn" href="https://peersunity.com/share?type=explore_circles" target="_blank" rel="noopener noreferrer" aria-label="Find Your Circle">FIND YOUR CIRCLE →</a>
               </div>
             </div>
@@ -519,7 +519,7 @@ export function PathwayCardsSection() {
                   <p className="fd-pathway-cards__quote pt-1">&ldquo;Every form of collaboration begins with one human being choosing to help another.&rdquo;</p>
                 </div>
               </div>
-              <div className="flex flex-wrap items-center gap-3 pt-2">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start justify-center sm:justify-start gap-3 pt-2 w-full">
                 <a className="fd-pathway-cards__btn" href="https://peersunity.com/share?type=explore_circles" target="_blank" rel="noopener noreferrer" aria-label="Find Your Circle">Find Your Circle</a>
                 <a
                   className="animated-glow-btn group inline-flex p-[1.5px] rounded-full transition-all"
@@ -651,7 +651,7 @@ export function PathwayCardsSection() {
                   </li>
                   <li className="fd-pathway-cards__item">
                     <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkAuth)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
-                    <span><strong className="text-white font-semibold">Unity</strong> — the digital community experience</span>
+                    <span><strong className="text-white font-semibold">Peers Global Unity</strong> — the digital community experience</span>
                   </li>
                 </ul>
 
@@ -664,7 +664,7 @@ export function PathwayCardsSection() {
                   </p>
                 </div>
               </div>
-              <div className="pt-2">
+              <div className="pt-2 flex justify-center sm:justify-start w-full">
                 <a className="fd-pathway-cards__btn" href="/events" aria-label="Explore Your Year">EXPLORE YOUR YEAR →</a>
               </div>
             </div>
@@ -780,7 +780,7 @@ export function PathwayCardsSection() {
                   </p>
                 </div>
               </div>
-              <div className="pt-2">
+              <div className="pt-2 flex justify-center sm:justify-start w-full">
                 <a className="fd-pathway-cards__btn" href="/how-to-earn-impact" aria-label="Discover the Impact System">DISCOVER THE IMPACT SYSTEM →</a>
               </div>
             </div>
@@ -881,7 +881,7 @@ export function PathwayCardsSection() {
                   </p>
                 </div>
               </div>
-              <div className="pt-2">
+              <div className="pt-2 flex justify-center sm:justify-start w-full">
                 <a className="fd-pathway-cards__btn" href="/why-peers-global" aria-label="Why Choose Peers Global">WHY CHOOSE PEERS GLOBAL →</a>
               </div>
             </div>
@@ -985,7 +985,7 @@ export function PathwayCardsSection() {
                   </p>
                 </div>
               </div>
-              <div className="pt-2">
+              <div className="pt-2 flex justify-center sm:justify-start w-full">
                 <a className="fd-pathway-cards__btn" href="/why-peers-global" aria-label="From Member To Peer">BECOME A PEER →</a>
               </div>
             </div>
