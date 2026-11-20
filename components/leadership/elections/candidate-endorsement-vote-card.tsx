@@ -55,7 +55,6 @@ export function CandidateEndorsementVoteCard({
   const [supportReason, setSupportReason] = useState('')
 
   // UI state
-  const [isBioExpanded, setIsBioExpanded] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [copiedLink, setCopiedLink] = useState(false)
@@ -227,45 +226,12 @@ export function CandidateEndorsementVoteCard({
                   {categoryName}
                 </div>
 
-                {/* Candidate Bio with Read More toggle */}
-                <div className="mt-2 text-xs text-slate-600 leading-relaxed font-normal">
-                  <p className={isBioExpanded ? '' : 'line-clamp-2'}>
-                    {shortBio}
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => setIsBioExpanded(!isBioExpanded)}
-                    className="text-[11px] font-bold text-[#1D4ED8] hover:text-[#1E40AF] mt-1 inline-flex items-center gap-1 cursor-pointer hover:underline"
-                  >
-                    <span>{isBioExpanded ? 'Read less' : 'Read more'}</span>
-                    <span className="text-[10px]">{isBioExpanded ? '▲' : '▼'}</span>
-                  </button>
-
-                  {/* Expanded Vision & Executive Priorities */}
-                  {isBioExpanded && (
-                    <div className="mt-3 p-3.5 rounded-2xl bg-blue-50/70 border border-blue-200/80 text-slate-700 space-y-2.5 animate-in fade-in zoom-in-95 duration-200 text-left">
-                      <div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#1D4ED8] block">
-                          Executive Vision Statement:
-                        </span>
-                        <p className="italic text-xs font-medium text-slate-800 mt-1 leading-relaxed">
-                          &ldquo;{candidate.vision_statement || 'To build an interconnected, high-trust leadership ecosystem that scales regional enterprises and unlocks multi-generational collaboration across the territory.'}&rdquo;
-                        </p>
-                      </div>
-
-                      <div className="pt-2 border-t border-blue-200/60 grid grid-cols-2 gap-2 text-[11px]">
-                        <div>
-                          <span className="text-slate-500 block">Stewardship Pledge:</span>
-                          <span className="font-semibold text-slate-900">10–15 hrs / month pledged</span>
-                        </div>
-                        <div>
-                          <span className="text-slate-500 block">Governance Standing:</span>
-                          <span className="font-semibold text-emerald-700">Code of Conduct Endorsed</span>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
+                {/* Candidate Bio */}
+                {shortBio && (
+                  <div className="mt-2 text-xs text-slate-600 leading-relaxed font-normal">
+                    <p>{shortBio}</p>
+                  </div>
+                )}
               </div>
             </div>
 
