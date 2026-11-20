@@ -19,7 +19,7 @@ const JOURNEY_STEPS: JourneyStep[] = [
     title: 'Looking for business connections?',
     description: 'Find entrepreneurs who understand what you are building and turn relationships into action.',
     image: '/images/unity-creatives/Post 2.png',
-    link: '/circles/find',
+    link: 'https://peersunity.com/share?type=near_me',
   },
   {
     step: '02',
@@ -33,7 +33,7 @@ const JOURNEY_STEPS: JourneyStep[] = [
     title: 'Looking for your next collaboration?',
     description: 'Create meaningful partnerships, mutual introductions and joint opportunities without friction.',
     image: '/images/who-we-are-friends.jpg',
-    link: '/circles/find',
+    link: 'https://peersunity.com/share?type=explore_collaboration',
   },
   {
     step: '04',
@@ -130,11 +130,14 @@ export function ChoosePathwaySection() {
       <div className="max-w-[920px] mx-auto flex flex-col gap-4 mb-16 relative z-10">
         {JOURNEY_STEPS.map((item, index) => {
           const isActive = activeStep === index
+          const isExternal = item.link.startsWith('http')
 
           return (
             <Link
               key={item.step}
               href={item.link}
+              target={isExternal ? '_blank' : undefined}
+              rel={isExternal ? 'noopener noreferrer' : undefined}
               onMouseEnter={() => setActiveStep(index)}
               style={{
                 background: 'linear-gradient(180deg, #f8f9fe 0%, #dde9fd 100%)',
