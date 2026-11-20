@@ -1115,6 +1115,61 @@ class LeadershipApiService {
     return normalizeCandidate({ id: candidateId, campaign_id: campaignId })
   }
 
+  /**
+   * Fetch candidate details by slug or nomination ID for clean voting URLs (/leadership/nomination/[slug])
+   * Queries the public API: GET https://admin.peersunity.com/api/v1/leadership/public/nomination/{slug}
+   */
+  async getCandidateBySlug(slug: string, campaignId?: string): Promise<Candidate | null> {
+    const cleanSlug = decodeURIComponent(slug).trim()
+    const endpoints = [
+      `https://admin.peersunity.com/api/v1/leadership/public/nomination/${encodeURIComponent(cleanSlug)}`,
+      `https://peersunity.com/api/v1/leadership/public/nomination/${encodeURIComponent(cleanSlug)}`,
+      `${this.baseUrl}/public/nomination/${encodeURIComponent(cleanSlug)}`,
+      `${this.baseUrl}/nomination/${encodeURIComponent(cleanSlug)}`,
+    ]
+
+    for (const url of endpoints) {
+      try {
+        const res = await fetch(url, {
+          headers: { Accept: 'application/json' },
+          next: { revalidate: 0 },
+        })
+        if (res.ok) {
+          const json = await res.json()
+          const data = json.data || json
+          if (data && (data.id || data.full_name || data.candidate_name)) {
+            return normalizeCandidate(data)
+          }
+        }
+      } catch {
+        // try next endpoint
+      }
+    }
+
+    // Fallback: search campaign candidates list
+    const targetCampaignId = campaignId || '23ba107a-f314-4cd9-b04a-7af04951f95c'
+    try {
+      const { data: candidates } = await this.getCampaignCandidates(targetCampaignId)
+      if (Array.isArray(candidates) && candidates.length > 0) {
+        const decoded = cleanSlug.toLowerCase()
+        const found = candidates.find((c: any) => {
+          if (c.id === cleanSlug || c.id === decoded) return true
+          if (c.application_number === cleanSlug || c.application_number === decoded) return true
+          const candSlug = (c.full_name || '').toLowerCase().trim().replace(/[^\w\s-]/g, '').replace(/[\s_-]+/g, '-')
+          const decodedSlug = decoded.replace(/[^\w\s-]/g, '').replace(/[\s_-]+/g, '-')
+          return candSlug === decodedSlug || (c.full_name || '').toLowerCase().trim() === decoded
+        })
+        if (found) {
+          return found
+        }
+      }
+    } catch {
+      // fallback
+    }
+
+    return null
+  }
+
   // Fetch Campaign Form Schema
   async getNominationForm(id: string): Promise<{ success: boolean; data: NominationFormTemplate; isLive: boolean }> {
     try {
