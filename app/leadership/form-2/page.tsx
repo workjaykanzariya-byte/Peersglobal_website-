@@ -12,8 +12,8 @@ export default async function LeadershipForm2IndexPage({ searchParams }: PagePro
   const nominationId = resolvedSearch.nomination || resolvedSearch.id || resolvedSearch.candidate || ''
 
   if (nominationId) {
-    redirect(`https://peersunity.com/leadership/form-2/${encodeURIComponent(nominationId)}`)
+    redirect(`/leadership/form-2/${encodeURIComponent(nominationId)}`)
   }
 
-  redirect('https://peersunity.com/leadership/form-2')
+  redirect('/leadership/nominate')
 }

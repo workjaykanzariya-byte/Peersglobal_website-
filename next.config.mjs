@@ -63,10 +63,6 @@ const nextConfig = {
         source: '/storage/:path*',
         destination: 'https://peersunity.com/storage/:path*',
       },
-      {
-        source: '/leadership/nomination/:id/live-votes',
-        destination: 'https://peersunity.com/leadership/nomination/:id/live-votes',
-      },
     ]
   },
   async redirects() {
