@@ -1385,7 +1385,7 @@ export function NominationSingleForm() {
                     <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 mt-2">
                       <div className="flex items-center justify-between pb-1.5 border-b border-slate-200 text-xs">
                         <span className="font-bold text-slate-700 uppercase tracking-wider">Peers Global Membership</span>
-                        <span className="text-[11px] font-semibold text-slate-500">Auto-filled from Unity</span>
+                        <span className="text-[11px] font-semibold text-slate-500">Auto-filled from Peers Global Unity</span>
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs pt-1">
                         <div>

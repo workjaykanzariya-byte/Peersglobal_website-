@@ -782,11 +782,6 @@ export function LeadershipLadderClient() {
                         {inf.text}
                       </p>
                     </div>
-
-                    <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400 font-medium">
-                      <span>Impact Outcome</span>
-                      <span className="brand-gradient-text opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 font-semibold">Realized &rarr;</span>
-                    </div>
                   </div>
                 </div>
               )
