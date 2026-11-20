@@ -172,10 +172,10 @@ export function SiteFooter() {
                 rel="noopener noreferrer"
                 variant="white-gradient"
                 size="default"
-                aria-label="Download Unity App"
+                aria-label="Download Peers Global Unity"
                 className="uppercase tracking-wider font-bold"
               >
-                DOWNLOAD UNITY APP
+                DOWNLOAD PEERS GLOBAL UNITY
               </GalaxyButton>
             </div>
 

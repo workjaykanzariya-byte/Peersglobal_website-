@@ -31,20 +31,29 @@ export function SiteHeader() {
     }
   }, [mobileMenuOpen])
 
-  const handleMouseEnter = (label: string) => {
-    if (hoverTimer.current) clearTimeout(hoverTimer.current)
+  const handleMouseEnter = (label: string | null) => {
+    if (hoverTimer.current) {
+      clearTimeout(hoverTimer.current)
+      hoverTimer.current = null
+    }
     setOpenMenu(label)
   }
 
   const handleMouseLeave = () => {
-    if (hoverTimer.current) clearTimeout(hoverTimer.current)
+    if (hoverTimer.current) {
+      clearTimeout(hoverTimer.current)
+    }
     hoverTimer.current = setTimeout(() => {
       setOpenMenu(null)
-    }, 280)
+      hoverTimer.current = null
+    }, 180)
   }
 
   const keepMenuOpen = () => {
-    if (hoverTimer.current) clearTimeout(hoverTimer.current)
+    if (hoverTimer.current) {
+      clearTimeout(hoverTimer.current)
+      hoverTimer.current = null
+    }
   }
 
   const toggleMobileAccordion = (label: string) => {
@@ -124,6 +133,7 @@ export function SiteHeader() {
             ref={navContainerRef}
             aria-label="Primary Navigation"
             onMouseEnter={keepMenuOpen}
+            onMouseLeave={handleMouseLeave}
             className="relative hidden lg:flex items-center gap-1 xl:gap-1.5 h-full py-2"
           >
             {/* Smooth Sliding Pill Indicator */}
@@ -150,8 +160,7 @@ export function SiteHeader() {
                   <div
                     key={item.label}
                     className="relative py-2"
-                    onMouseEnter={() => handleMouseEnter(item.label)}
-                    onMouseLeave={handleMouseLeave}
+                    onMouseEnter={() => handleMouseEnter(null)}
                   >
                     <Link
                       ref={(el) => {
@@ -176,7 +185,6 @@ export function SiteHeader() {
                   key={item.label}
                   className="relative py-2"
                   onMouseEnter={() => hasSubmenu && handleMouseEnter(item.label)}
-                  onMouseLeave={handleMouseLeave}
                 >
                   <div
                     ref={(el) => {
@@ -213,21 +221,16 @@ export function SiteHeader() {
                   </div>
 
                   {/* ================================================================= */}
-                  {/* SIMPLE ANCHORED FLOATING DROPDOWN (WHITE LIGHT THEME)             */}
+                  {/* SIMPLE ANCHORED FLOATING DROPDOWN (ONLY ACTIVE MOUNTED)           */}
                   {/* ================================================================= */}
-                  {hasSubmenu && (
+                  {hasSubmenu && isHovered && (
                     <div
                       onMouseEnter={keepMenuOpen}
                       onMouseLeave={handleMouseLeave}
-                      className={cn(
-                        'absolute top-[calc(100%-4px)] left-1/2 -translate-x-1/2 pt-2.5 z-50 transition-all duration-200 ease-out',
-                        isHovered
-                          ? 'opacity-100 translate-y-0 pointer-events-auto visible'
-                          : 'opacity-0 -translate-y-1.5 pointer-events-none invisible'
-                      )}
+                      className="absolute top-[calc(100%-4px)] left-1/2 -translate-x-1/2 pt-2.5 z-50 animate-in fade-in slide-in-from-top-1 duration-150 ease-out"
                     >
                       {/* Top invisible hit bridge extending across gap */}
-                      <div className="absolute -top-3 left-0 right-0 h-3 bg-transparent pointer-events-auto" />
+                      <div className="absolute -top-3.5 left-0 right-0 h-4 bg-transparent pointer-events-auto" />
 
                       {/* Clean Floating White Card */}
                       <div className="relative z-10 w-[360px] sm:w-[440px] rounded-2xl border border-slate-200/90 bg-white/98 backdrop-blur-2xl p-3.5 shadow-[0_20px_45px_rgba(15,23,42,0.12),0_2px_8px_rgba(15,23,42,0.04)] text-slate-900">
@@ -313,7 +316,7 @@ export function SiteHeader() {
               </Link>
             </div>
 
-            {/* DOWNLOAD PEERSUNITY: Desktop only (lg:), hidden on mobile view */}
+            {/* DOWNLOAD PEERS GLOBAL UNITY: Desktop only (lg:), hidden on mobile view */}
             <div className="hidden lg:inline-flex items-center">
               <GalaxyButton
                 href={smartAppUrl}
@@ -323,10 +326,10 @@ export function SiteHeader() {
                 variant="primary"
                 size="sm"
                 icon={true}
-                aria-label="Download PeersUnity"
+                aria-label="Download Peers Global Unity"
                 className="uppercase tracking-wider font-bold text-xs"
               >
-                DOWNLOAD PEERSUNITY
+                DOWNLOAD PEERS GLOBAL UNITY
               </GalaxyButton>
             </div>
 
