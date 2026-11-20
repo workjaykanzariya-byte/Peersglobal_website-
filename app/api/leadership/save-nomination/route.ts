@@ -104,7 +104,7 @@ export async function POST(req: Request) {
       video_url: String(video_url || '').trim(),
       goals: sanitizedGoals,
       leadership_roles: sanitizedRoles,
-      photo_url: profile?.photo_url || null,
+      photo_url: profile?.photo_url || body?.photo_url || body?.photo || body?.profile_photo || null,
       bio: profile?.bio || '',
       linkedin: profile?.linkedin || '',
       website: String(website || profile?.website || '').trim(),
