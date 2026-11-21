@@ -1,21 +1,28 @@
-import { redirect } from 'next/navigation'
+import type { Metadata } from 'next'
+import { Form2Client } from '@/components/leadership/form-2-client'
 
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
 interface PageProps {
-  params?: Promise<{ id?: string }>
-  searchParams?: Promise<{ nomination?: string }>
+  params: Promise<{ id: string }>
 }
 
-export default async function LeadershipForm2DetailPage({ params, searchParams }: PageProps) {
-  const resolvedParams = params ? await params : {}
-  const resolvedSearch = searchParams ? await searchParams : {}
-  const nominationId = resolvedParams.id || resolvedSearch.nomination || ''
-
-  if (nominationId) {
-    redirect(`https://peersunity.com/leadership/form-2/${encodeURIComponent(nominationId)}`)
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { id } = await params
+  return {
+    title: 'Jury Evaluation Dossier (Form 2) | Peers Global Leadership',
+    description: 'Official Jury Evaluation Dossier submission portal for shortlisted Peers Global Leadership candidates.',
+    robots: {
+      index: false,
+      follow: false,
+      nocache: true,
+    },
   }
+}
 
-  redirect('https://peersunity.com/leadership/form-2')
+export default async function LeadershipForm2DetailPage({ params }: PageProps) {
+  const { id } = await params
+
+  return <Form2Client nominationId={id} />
 }
