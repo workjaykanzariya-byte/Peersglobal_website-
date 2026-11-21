@@ -23,6 +23,7 @@ import {
   Building2,
   Award,
   Info,
+  CheckCircle2,
 } from 'lucide-react'
 
 export interface LeadershipRoleOption {
@@ -100,6 +101,9 @@ export function NominationSingleForm() {
   const [verificationId, setVerificationId] = useState('')
   const [otpCode, setOtpCode] = useState('')
   const [isSendingOtp, setIsSendingOtp] = useState(false)
+  const [isResendingOtp, setIsResendingOtp] = useState(false)
+  const [resendTimer, setResendTimer] = useState(0)
+  const [resendTimestamp, setResendTimestamp] = useState<string | null>(null)
   const [isVerifyingOtp, setIsVerifyingOtp] = useState(false)
   const [isVerified, setIsVerified] = useState(false)
   const [isExistingMember, setIsExistingMember] = useState<boolean | null>(null)
@@ -365,6 +369,8 @@ export function NominationSingleForm() {
       if (otpRes.ok && otpData.success) {
         setOtpSent(true)
         setVerificationId(otpData.data?.verification_id || '')
+        setResendTimer(60)
+        setResendTimestamp(null)
         setVerificationMessage(
           isExisting
             ? `Peers Global member account found! A 6-digit verification code has been sent to your email (${email}). Please enter it below to unlock your profile.`
@@ -380,10 +386,19 @@ export function NominationSingleForm() {
     }
   }
 
+  // Resend OTP countdown timer
+  useEffect(() => {
+    if (resendTimer <= 0) return
+    const interval = setInterval(() => {
+      setResendTimer((prev) => prev - 1)
+    }, 1000)
+    return () => clearInterval(interval)
+  }, [resendTimer])
+
   const handleResendOtp = async () => {
     const email = contactInput.trim().toLowerCase()
-    if (!email) return
-    setIsSendingOtp(true)
+    if (!email || resendTimer > 0 || isResendingOtp) return
+    setIsResendingOtp(true)
     setVerificationError(null)
     try {
       const res = await fetch('/api/leadership/nomination/request-otp', {
@@ -398,14 +413,17 @@ export function NominationSingleForm() {
       const data = await res.json()
       if (res.ok && data.success) {
         setVerificationId(data.data?.verification_id || '')
-        setVerificationMessage(`A new 6-digit verification code has been sent to your email (${email}).`)
+        const nowTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })
+        setResendTimestamp(nowTime)
+        setVerificationMessage(`A new 6-digit verification code has been sent to your email (${email}) at ${nowTime}.`)
+        setResendTimer(60)
       } else {
         setVerificationError(data.message || 'Could not resend verification code.')
       }
     } catch (e: any) {
       setVerificationError(e?.message || 'Error resending verification code.')
     } finally {
-      setIsSendingOtp(false)
+      setIsResendingOtp(false)
     }
   }
 
@@ -1109,17 +1127,37 @@ export function NominationSingleForm() {
                         </button>
                         <button
                           type="button"
+                          disabled={resendTimer > 0 || isResendingOtp}
                           onClick={handleResendOtp}
-                          className="text-xs text-[#1D4ED8] hover:underline font-semibold ml-1"
+                          className="inline-flex items-center gap-1.5 text-xs text-[#1D4ED8] hover:underline font-semibold ml-1 disabled:opacity-50 disabled:no-underline cursor-pointer disabled:cursor-not-allowed"
                         >
-                          Resend code
+                          {isResendingOtp ? (
+                            <>
+                              <div className="w-3 h-3 border-2 border-[#1D4ED8] border-t-transparent rounded-full animate-spin" />
+                              <span>Resending code...</span>
+                            </>
+                          ) : resendTimer > 0 ? (
+                            <span>Resend code in {resendTimer}s</span>
+                          ) : (
+                            <span>Resend code</span>
+                          )}
                         </button>
                       </div>
                     )}
 
                     {verificationMessage && !isVerified && (
-                      <div className="text-xs font-medium text-blue-700 bg-blue-50/80 p-2.5 rounded-lg border border-blue-200/80 flex items-center gap-1.5 mt-1">
-                        <ShieldCheck className="w-3.5 h-3.5 shrink-0 text-blue-600" />
+                      <div
+                        className={`text-xs font-medium p-2.5 rounded-lg border flex items-center gap-2 mt-1 transition-all ${
+                          resendTimestamp
+                            ? 'text-emerald-800 bg-emerald-50 border-emerald-200'
+                            : 'text-blue-700 bg-blue-50/80 border-blue-200/80'
+                        }`}
+                      >
+                        {resendTimestamp ? (
+                          <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-600" />
+                        ) : (
+                          <ShieldCheck className="w-4 h-4 shrink-0 text-blue-600" />
+                        )}
                         <span>{verificationMessage}</span>
                       </div>
                     )}

@@ -415,9 +415,17 @@ export function VoteModal({
                 <button
                   type="button"
                   onClick={handleRequestOtp}
-                  className="text-[#1D4ED8] hover:underline font-bold"
+                  disabled={loading}
+                  className="inline-flex items-center gap-1.5 text-[#1D4ED8] hover:underline font-bold disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
                 >
-                  Resend OTP
+                  {loading ? (
+                    <>
+                      <div className="w-3 h-3 border-2 border-[#1D4ED8] border-t-transparent rounded-full animate-spin" />
+                      <span>Resending...</span>
+                    </>
+                  ) : (
+                    <span>Resend OTP</span>
+                  )}
                 </button>
               )}
             </div>

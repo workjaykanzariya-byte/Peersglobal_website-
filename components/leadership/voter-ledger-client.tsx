@@ -59,6 +59,7 @@ export function VoterLedgerClient({ nominationId }: VoterLedgerClientProps) {
   const [authToken, setAuthToken] = useState<string | null>(null)
   const [gateError, setGateError] = useState<string | null>(null)
   const [resendTimer, setResendTimer] = useState(0)
+  const [resendNotice, setResendNotice] = useState<string | null>(null)
 
   // Ledger state
   const [votes, setVotes] = useState<VoteRecord[]>([])
@@ -118,13 +119,16 @@ export function VoterLedgerClient({ nominationId }: VoterLedgerClientProps) {
   }, [resendTimer])
 
   // Send OTP
-  const handleSendOtp = async (e?: React.FormEvent) => {
+  const handleSendOtp = async (e?: React.FormEvent, isResend = false) => {
     if (e) e.preventDefault()
     if (!candidateEmail.trim()) {
       setGateError('Please enter your registered candidate email address.')
       return
     }
     setGateError(null)
+    if (!isResend) {
+      setResendNotice(null)
+    }
     setIsSendingOtp(true)
 
     try {
@@ -142,6 +146,10 @@ export function VoterLedgerClient({ nominationId }: VoterLedgerClientProps) {
         setOtpSent(true)
         setVerificationId(data.data?.verification_id || '')
         setResendTimer(60)
+        if (isResend) {
+          const nowTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })
+          setResendNotice(`A fresh 6-digit access code was dispatched to ${candidateEmail} at ${nowTime}.`)
+        }
       } else {
         setGateError(data.message || 'Email mismatch: Does not match this approved nomination.')
       }
@@ -409,6 +417,13 @@ export function VoterLedgerClient({ nominationId }: VoterLedgerClientProps) {
                   )}
                 </button>
 
+                {resendNotice && (
+                  <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>{resendNotice}</span>
+                  </div>
+                )}
+
                 <div className="flex items-center justify-between text-xs text-slate-600 pt-2">
                   <button
                     type="button"
@@ -416,6 +431,7 @@ export function VoterLedgerClient({ nominationId }: VoterLedgerClientProps) {
                       setOtpSent(false)
                       setOtpCode('')
                       setGateError(null)
+                      setResendNotice(null)
                     }}
                     className="hover:text-slate-900 transition-colors flex items-center gap-1 font-semibold"
                   >
@@ -425,11 +441,20 @@ export function VoterLedgerClient({ nominationId }: VoterLedgerClientProps) {
 
                   <button
                     type="button"
-                    onClick={() => handleSendOtp()}
+                    onClick={() => handleSendOtp(undefined, true)}
                     disabled={resendTimer > 0 || isSendingOtp}
-                    className="text-[#1D4ED8] hover:underline font-bold disabled:opacity-40"
+                    className="inline-flex items-center gap-1.5 text-[#1D4ED8] hover:underline font-bold disabled:opacity-50 disabled:no-underline cursor-pointer disabled:cursor-not-allowed"
                   >
-                    {resendTimer > 0 ? `Resend code in ${resendTimer}s` : 'Resend code'}
+                    {isSendingOtp ? (
+                      <>
+                        <div className="w-3 h-3 border-2 border-[#1D4ED8] border-t-transparent rounded-full animate-spin" />
+                        <span>Resending code...</span>
+                      </>
+                    ) : resendTimer > 0 ? (
+                      <span>Resend code in {resendTimer}s</span>
+                    ) : (
+                      <span>Resend code</span>
+                    )}
                   </button>
                 </div>
               </div>
