@@ -35,6 +35,8 @@ import {
 } from 'lucide-react'
 import { OtpSixBoxInput } from '../otp-six-box-input'
 
+const API_BASE = process.env.NEXT_PUBLIC_LEADERSHIP_API_BASE_URL || 'https://peersunity.com/api/v1/leadership'
+
 export interface CandidateDossier {
   id: string
   name: string
@@ -79,78 +81,20 @@ export interface CandidateDossier {
 
 const DEFAULT_CANDIDATES: CandidateDossier[] = [
   {
-    id: 'cand-001',
-    name: 'Hardik Parmar',
+    id: 'e294394d-a868-49f9-8080-f05987139204',
+    name: 'New user',
     avatar_url: '',
-    application_number: 'PG-2026-00009',
-    role: 'District Executive Director',
-    scope: 'Ahmedabad District, Gujarat',
-    company: 'Parmar Innovations & Tech Labs',
-    designation: 'Managing Director & Founder',
-    category: 'Information Technology & Software',
-    contact_masked: '+91 98•••• ••42 · h•••••••@gmail.com',
-    form_2_status: 'Submitted',
-    evaluation_status: 'Evaluation Pending',
-    executive_bio:
-      'Over 14 years of technology leadership and regional enterprise scaling. Spearheaded cross-sector industry alliances and mentored over 40 emerging startup founders across Gujarat.',
-    operational_blueprint:
-      'Scale regional presence to 12 active charter Circles within 12 months. Deploy a structured District Executive Council across North and Central Gujarat, ensuring full industry exclusivity per Circle.',
-    bench_value: [
-      { name: 'Rajesh Solanki', role: 'Industry Director (Tech)', relationship: 'Enterprise Client', status: 'Committed' },
-      { name: 'Dr. Neha Varma', role: 'Circle Founder (Healthcare)', relationship: 'Association Colleague', status: 'Committed' },
-      { name: 'Amit Desai', role: 'Circle Founder (Manufacturing)', relationship: 'Professional Peer', status: 'Spoken, interested' },
-      { name: 'Kavita Patel', role: 'New Peer Leader', relationship: 'Advisory Partner', status: 'Committed' },
-      { name: 'Jignesh Shah', role: 'New Peer Leader', relationship: 'Client & Ally', status: 'Spoken, interested' },
-    ],
-    documents: [
-      { title: 'Business Registration Proof (GST & Incorporation)', type: 'PDF Document', url: '#' },
-      { title: 'District Expansion Strategy & 90-Day Roadmap', type: 'Executive Presentation', url: '#' },
-      { title: 'Verified Identity Record', type: 'Government ID', url: '#' },
-    ],
-  },
-  {
-    id: 'cand-002',
-    name: 'Pooja Chawla',
-    avatar_url: '',
-    application_number: 'PG-2026-00010',
-    role: 'District Executive Director',
-    scope: 'Surat & South Gujarat',
-    company: 'Apex Logistics & Supply Chain',
-    designation: 'Executive Director',
-    category: 'Logistics, Port Operations & Cargo',
-    contact_masked: '+91 94•••• ••18 · p••••••@apexlogistics.in',
-    form_2_status: 'Submitted',
-    evaluation_status: 'Evaluation Pending',
-    executive_bio:
-      '18+ years running multimodal logistics hubs across Hazira, Surat, and Mumbai. Served as Regional Secretary for South Gujarat Chamber of Commerce & Industry.',
-    operational_blueprint:
-      'Establish 8 high-density business Circles focusing on Gems & Jewellery, Textiles, and Engineering. Drive cross-chapter member business exchanges across western freight corridors.',
-    bench_value: [
-      { name: 'Vikram Merchant', role: 'Circle Founder (Diamonds)', relationship: 'Trade Ally', status: 'Committed' },
-      { name: 'Deepak Mehta', role: 'Industry Director (Textiles)', relationship: 'Chamber Peer', status: 'Committed' },
-      { name: 'Sanjay Kapadia', role: 'Circle Founder (Chemicals)', relationship: 'Vendor Partner', status: 'Committed' },
-    ],
-    documents: [
-      { title: 'GST Registration Certificate', type: 'PDF Document', url: '#' },
-      { title: 'Regional Industry Dossier 2026', type: 'Pitch Deck', url: '#' },
-    ],
-  },
-  {
-    id: 'cand-003',
-    name: 'Manoj Kulkarni',
-    avatar_url: '',
-    application_number: 'PG-2026-00012',
+    application_number: 'PG-00014',
     role: 'Circle Director',
-    scope: 'Pune Metropolitan Circle',
-    company: 'Kulkarni Precision Engineering',
-    designation: 'Chief Executive Officer',
-    category: 'Heavy Engineering & Robotics',
-    contact_masked: '+91 97•••• ••60 · m••••••@kulkarnieng.com',
+    scope: 'Ahmedabad, Silver Oak University',
+    company: 'Silver Oak University',
+    designation: 'ceo',
+    category: 'Higher Education & Technology',
+    contact_masked: '+91 95•••• ••86 · h•••••••••••@gmail.com',
     form_2_status: 'Awaiting Candidate',
     evaluation_status: 'Evaluation Pending',
-    executive_bio:
-      '22 years in industrial component manufacturing and export. Past president of Automotive Component Manufacturers Guild, Pune cluster.',
-    operational_blueprint: 'Awaiting submission of candidate Form 2 operational roadmap.',
+    executive_bio: '',
+    operational_blueprint: '',
     bench_value: [],
     documents: [],
   },
@@ -207,8 +151,14 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
 
       if (savedToken && initialView !== 'login') {
         setAuthToken(savedToken)
-        if (savedEmail) setJurorEmail(savedEmail)
-        if (savedName) setJurorName(savedName)
+        if (savedEmail) {
+          setJurorEmail(savedEmail)
+          if (savedEmail.toLowerCase() === 'plan.vishalparmar@gmail.com') {
+            setJurorName('Payal Parmar')
+          } else if (savedName) {
+            setJurorName(savedName)
+          }
+        }
       }
 
       // Restore saved local evaluations
@@ -223,6 +173,34 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
       }
     }
   }, [initialView])
+
+  // Fetch assigned candidates for logged-in juror
+  useEffect(() => {
+    async function loadJurorCandidates() {
+      if (!jurorEmail) return
+      try {
+        const res = await fetch(`/api/leadership/jury/candidates?email=${encodeURIComponent(jurorEmail)}`, {
+          headers: {
+            Accept: 'application/json',
+            ...(authToken ? { Authorization: `Bearer ${authToken}` } : {}),
+          },
+        })
+        const data = await res.json().catch(() => null)
+        if (res.ok && data?.success) {
+          if (data.juror?.name) {
+            setJurorName(data.juror.name)
+          }
+          if (Array.isArray(data.candidates)) {
+            const savedEvals = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('pg_jury_evaluations') || '{}') : {}
+            setCandidates(data.candidates.map((c: any) => (savedEvals[c.id] ? { ...c, ...savedEvals[c.id] } : c)))
+          }
+        }
+      } catch (err) {
+        console.error('Failed to load juror candidates:', err)
+      }
+    }
+    loadJurorCandidates()
+  }, [jurorEmail, authToken])
 
   // Resend cooldown timer
   useEffect(() => {
@@ -292,7 +270,13 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
 
       if (res.ok && data?.success) {
         const token = data.token || 'jury_session_' + Date.now()
-        const name = data.juror?.name || cleanEmail.split('@')[0].replace(/[._]+/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
+        let name = data.juror?.name
+        if (!name && cleanEmail === 'plan.vishalparmar@gmail.com') {
+          name = 'Payal Parmar'
+        }
+        if (!name) {
+          name = cleanEmail.split('@')[0].replace(/[._]+/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
+        }
 
         setAuthToken(token)
         setJurorEmail(cleanEmail)
@@ -331,6 +315,21 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
     setSelectedCandidate(candidate)
     setScoringError(null)
     setScoringSuccess(false)
+
+    // Attempt to resolve real photo if not already cached
+    if (!candidate.avatar_url && candidate.id) {
+      fetch(`${API_BASE}/public/nomination/${candidate.id}`, { headers: { Accept: 'application/json' } })
+        .then((r) => r.json())
+        .then((json) => {
+          const c = json?.data || json?.candidate || json
+          const p = c?.photo_url || c?.profile_photo_url || c?.photo || c?.avatar
+          if (p) {
+            setSelectedCandidate((prev) => (prev && prev.id === candidate.id ? { ...prev, avatar_url: p } : prev))
+            setCandidates((all) => all.map((item) => (item.id === candidate.id ? { ...item, avatar_url: p } : item)))
+          }
+        })
+        .catch(() => {})
+    }
 
     if (candidate.saved_evaluation) {
       setGovernanceScore(candidate.saved_evaluation.governance)
@@ -431,7 +430,8 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
         setCandidates((prev) =>
           prev.map((c) => (c.id === selectedCandidate.id ? updatedCandidate : c))
         )
-        setSelectedCandidate(updatedCandidate)
+        // Close candidate evaluation drawer immediately
+        setSelectedCandidate(null)
         setScoringSuccess(true)
 
         // Persist to localStorage
@@ -660,10 +660,6 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
             {/* Juror Welcome Banner */}
             <div className="bg-white border border-[#DDE3EE] rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div className="space-y-1.5">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-[#1E3A8A] text-xs font-bold">
-                  <Sparkles className="w-3.5 h-3.5 text-[#1D4ED8]" />
-                  <span>Peers Global Leadership Selection 2026</span>
-                </div>
                 <h1 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] tracking-tight">
                   Welcome, {jurorName}
                 </h1>
@@ -674,10 +670,10 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
 
               <div className="flex items-center gap-3">
                 <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-left">
-                  <div className="text-[11px] font-bold uppercase text-slate-500">Evaluation Deadline</div>
-                  <div className="text-sm font-extrabold text-[#0F172A] flex items-center gap-1.5 mt-0.5">
-                    <Clock className="w-4 h-4 text-[#E11D48]" />
-                    <span>28 Feb 2026 • 23:59 IST</span>
+                  <div className="text-[11px] font-bold uppercase text-slate-500">Evaluation Docket</div>
+                  <div className="text-sm font-extrabold text-emerald-700 flex items-center gap-1.5 mt-0.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span>Active Selection Round</span>
                   </div>
                 </div>
               </div>
@@ -899,8 +895,6 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
                     </span>
                   </div>
                   <div className="text-xs text-slate-500 mt-0.5 flex items-center gap-2">
-                    <span>App Ref: <strong className="text-slate-800">{selectedCandidate.application_number}</strong></span>
-                    <span>•</span>
                     <span>{selectedCandidate.scope}</span>
                   </div>
                 </div>
@@ -1181,110 +1175,114 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
                     </div>
 
                     {/* Criterion 1: Governance & Integrity */}
-                    <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
-                      <div className="flex items-center justify-between">
-                        <label className="text-xs font-bold text-slate-800">
+                    <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                      <div className="space-y-1">
+                        <label className="text-xs font-bold text-slate-900 block">
                           1. Governance &amp; Integrity
                         </label>
-                        <span className="text-sm font-extrabold text-[#1D4ED8]">{governanceScore} / 10</span>
+                        <p className="text-[11px] text-slate-500 leading-relaxed max-w-lg">
+                          Adherence to ethical peer standards, non-commercial community governance, and conflict-free stewardship.
+                        </p>
                       </div>
-                      <p className="text-[11px] text-slate-500">
-                        Adherence to ethical peer standards, non-commercial community governance, and conflict-free stewardship.
-                      </p>
-                      <input
-                        type="range"
-                        min="1"
-                        max="10"
-                        step="1"
-                        value={governanceScore}
-                        onChange={(e) => setGovernanceScore(Number(e.target.value))}
-                        className="w-full accent-[#1D4ED8] cursor-pointer"
-                      />
-                      <div className="flex justify-between text-[10px] text-slate-400 font-semibold">
-                        <span>1 (Poor)</span>
-                        <span>5 (Acceptable)</span>
-                        <span>10 (Exemplary)</span>
+                      <div className="flex items-center gap-2 self-end sm:self-center shrink-0">
+                        <label className="text-xs font-semibold text-slate-500">Score:</label>
+                        <input
+                          type="number"
+                          min="1"
+                          max="10"
+                          step="1"
+                          value={governanceScore}
+                          onChange={(e) => {
+                            const val = parseInt(e.target.value) || 0
+                            setGovernanceScore(Math.max(1, Math.min(10, val)))
+                          }}
+                          className="w-16 h-10 text-center font-extrabold text-base text-[#1D4ED8] bg-slate-50 border-2 border-slate-300 rounded-xl focus:border-[#1D4ED8] focus:bg-white focus:ring-2 focus:ring-blue-100 outline-none transition-all"
+                        />
+                        <span className="text-xs font-bold text-slate-400">/ 10</span>
                       </div>
                     </div>
 
                     {/* Criterion 2: Operational Execution */}
-                    <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
-                      <div className="flex items-center justify-between">
-                        <label className="text-xs font-bold text-slate-800">
+                    <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                      <div className="space-y-1">
+                        <label className="text-xs font-bold text-slate-900 block">
                           2. Operational Execution
                         </label>
-                        <span className="text-sm font-extrabold text-[#1D4ED8]">{executionScore} / 10</span>
+                        <p className="text-[11px] text-slate-500 leading-relaxed max-w-lg">
+                          Capability to deliver against targets, launch Circles, mobilize teams, and manage regional operations.
+                        </p>
                       </div>
-                      <p className="text-[11px] text-slate-500">
-                        Capability to deliver against 12-month targets, launch Circles, mobilize teams, and manage regional operations.
-                      </p>
-                      <input
-                        type="range"
-                        min="1"
-                        max="10"
-                        step="1"
-                        value={executionScore}
-                        onChange={(e) => setExecutionScore(Number(e.target.value))}
-                        className="w-full accent-[#1D4ED8] cursor-pointer"
-                      />
-                      <div className="flex justify-between text-[10px] text-slate-400 font-semibold">
-                        <span>1 (Poor)</span>
-                        <span>5 (Acceptable)</span>
-                        <span>10 (Exemplary)</span>
+                      <div className="flex items-center gap-2 self-end sm:self-center shrink-0">
+                        <label className="text-xs font-semibold text-slate-500">Score:</label>
+                        <input
+                          type="number"
+                          min="1"
+                          max="10"
+                          step="1"
+                          value={executionScore}
+                          onChange={(e) => {
+                            const val = parseInt(e.target.value) || 0
+                            setExecutionScore(Math.max(1, Math.min(10, val)))
+                          }}
+                          className="w-16 h-10 text-center font-extrabold text-base text-[#1D4ED8] bg-slate-50 border-2 border-slate-300 rounded-xl focus:border-[#1D4ED8] focus:bg-white focus:ring-2 focus:ring-blue-100 outline-none transition-all"
+                        />
+                        <span className="text-xs font-bold text-slate-400">/ 10</span>
                       </div>
                     </div>
 
                     {/* Criterion 3: Community Engagement */}
-                    <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
-                      <div className="flex items-center justify-between">
-                        <label className="text-xs font-bold text-slate-800">
+                    <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                      <div className="space-y-1">
+                        <label className="text-xs font-bold text-slate-900 block">
                           3. Community Engagement
                         </label>
-                        <span className="text-sm font-extrabold text-[#1D4ED8]">{engagementScore} / 10</span>
+                        <p className="text-[11px] text-slate-500 leading-relaxed max-w-lg">
+                          Relational standing, peer trust, collaborative give-first orientation, and ability to cultivate member loyalty.
+                        </p>
                       </div>
-                      <p className="text-[11px] text-slate-500">
-                        Relational standing, peer trust, collaborative give-first orientation, and ability to cultivate member loyalty.
-                      </p>
-                      <input
-                        type="range"
-                        min="1"
-                        max="10"
-                        step="1"
-                        value={engagementScore}
-                        onChange={(e) => setEngagementScore(Number(e.target.value))}
-                        className="w-full accent-[#1D4ED8] cursor-pointer"
-                      />
-                      <div className="flex justify-between text-[10px] text-slate-400 font-semibold">
-                        <span>1 (Poor)</span>
-                        <span>5 (Acceptable)</span>
-                        <span>10 (Exemplary)</span>
+                      <div className="flex items-center gap-2 self-end sm:self-center shrink-0">
+                        <label className="text-xs font-semibold text-slate-500">Score:</label>
+                        <input
+                          type="number"
+                          min="1"
+                          max="10"
+                          step="1"
+                          value={engagementScore}
+                          onChange={(e) => {
+                            const val = parseInt(e.target.value) || 0
+                            setEngagementScore(Math.max(1, Math.min(10, val)))
+                          }}
+                          className="w-16 h-10 text-center font-extrabold text-base text-[#1D4ED8] bg-slate-50 border-2 border-slate-300 rounded-xl focus:border-[#1D4ED8] focus:bg-white focus:ring-2 focus:ring-blue-100 outline-none transition-all"
+                        />
+                        <span className="text-xs font-bold text-slate-400">/ 10</span>
                       </div>
                     </div>
 
                     {/* Criterion 4: Strategic Vision */}
-                    <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
-                      <div className="flex items-center justify-between">
-                        <label className="text-xs font-bold text-slate-800">
+                    <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                      <div className="space-y-1">
+                        <label className="text-xs font-bold text-slate-900 block">
                           4. Strategic Vision
                         </label>
-                        <span className="text-sm font-extrabold text-[#1D4ED8]">{visionScore} / 10</span>
+                        <p className="text-[11px] text-slate-500 leading-relaxed max-w-lg">
+                          Strategic clarity, depth of bench leaders brought, and long-term ecosystem expansion roadmap.
+                        </p>
                       </div>
-                      <p className="text-[11px] text-slate-500">
-                        Strategic clarity, depth of bench leaders brought, and long-term ecosystem expansion roadmap.
-                      </p>
-                      <input
-                        type="range"
-                        min="1"
-                        max="10"
-                        step="1"
-                        value={visionScore}
-                        onChange={(e) => setVisionScore(Number(e.target.value))}
-                        className="w-full accent-[#1D4ED8] cursor-pointer"
-                      />
-                      <div className="flex justify-between text-[10px] text-slate-400 font-semibold">
-                        <span>1 (Poor)</span>
-                        <span>5 (Acceptable)</span>
-                        <span>10 (Exemplary)</span>
+                      <div className="flex items-center gap-2 self-end sm:self-center shrink-0">
+                        <label className="text-xs font-semibold text-slate-500">Score:</label>
+                        <input
+                          type="number"
+                          min="1"
+                          max="10"
+                          step="1"
+                          value={visionScore}
+                          onChange={(e) => {
+                            const val = parseInt(e.target.value) || 0
+                            setVisionScore(Math.max(1, Math.min(10, val)))
+                          }}
+                          className="w-16 h-10 text-center font-extrabold text-base text-[#1D4ED8] bg-slate-50 border-2 border-slate-300 rounded-xl focus:border-[#1D4ED8] focus:bg-white focus:ring-2 focus:ring-blue-100 outline-none transition-all"
+                        />
+                        <span className="text-xs font-bold text-slate-400">/ 10</span>
                       </div>
                     </div>
                   </div>
@@ -1384,13 +1382,10 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
                     {isSubmittingScore ? (
                       <>
                         <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                        <span>Submitting Official Evaluation...</span>
+                        <span>Submitting...</span>
                       </>
                     ) : (
-                      <>
-                        <ShieldCheck className="w-4 h-4" />
-                        <span>Submit Official Score &amp; Evaluation</span>
-                      </>
+                      <span>Submit</span>
                     )}
                   </button>
                 </form>

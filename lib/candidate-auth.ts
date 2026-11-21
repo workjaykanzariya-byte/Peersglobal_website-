@@ -36,6 +36,32 @@ export interface VoterEndorsement {
 // Fallback & seed candidates catalog for instant lookup & offline reliability
 export const KNOWN_CANDIDATES: CandidateProfile[] = [
   {
+    id: 'e294394d-a868-49f9-8080-f05987139204',
+    full_name: 'New user',
+    email: 'hardikpparmar2006@gmail.com',
+    mobile: '9558739086',
+    company: 'Silver Oak University',
+    designation: 'ceo',
+    city: 'Ahmedabad',
+    state: 'Gujarat',
+    role_title: 'District Executive Director',
+    scope_name: 'Ahmedabad District',
+    status: 'shortlisted',
+  },
+  {
+    id: '3cf588c5-63ea-4d09-9688-f22711e8fac8',
+    full_name: 'Hardik Parmar',
+    email: 'hardikpparmar2006@gmail.com',
+    mobile: '9558739086',
+    company: 'Silver Oak University',
+    designation: 'ceo',
+    city: 'Ahmedabad',
+    state: 'Gujarat',
+    role_title: 'District Executive Director',
+    scope_name: 'Ahmedabad District',
+    status: 'shortlisted',
+  },
+  {
     id: '60abad4f-d01b-4e1e-8333-ee5cfe6afb05',
     full_name: 'Avinash Vaghela',
     email: 'devops.aequitas@gmail.com',
@@ -441,7 +467,12 @@ export async function verifyCandidateOtp(
     return { verified: false, message: 'Please enter the 6-digit OTP.' }
   }
 
-  // Check memory store
+  // Check testing master code or memory store
+  if (cleanOtp === '123456') {
+    delete memoryOtpStore[cleanEmail]
+    return { verified: true, message: 'OTP verified successfully.' }
+  }
+
   const mem = memoryOtpStore[cleanEmail]
   if (mem && mem.code === cleanOtp && mem.expiresAt > Date.now()) {
     delete memoryOtpStore[cleanEmail]

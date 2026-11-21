@@ -127,7 +127,7 @@ export function CandidateEndorsementVoteCard({
 
       if (res.ok && data.success) {
         setReceipt({
-          reference: data.vote_reference || `PG-VOTE-2026-${Date.now().toString(36).toUpperCase()}`,
+          reference: data.vote_reference || `PG-VOTE-${Date.now().toString(36).toUpperCase()}`,
           timestamp: data.cast_at || new Date().toISOString(),
           voterName: fullName.trim(),
         })
@@ -174,14 +174,6 @@ export function CandidateEndorsementVoteCard({
         <div className="relative z-10 p-6 sm:p-9 space-y-6">
           {/* ================= SECTION 1: CANDIDATE PROFILE ================= */}
           <div className="space-y-4">
-            {/* Header: OFFICIAL NOMINEE · 2026 */}
-            <div className="text-center">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200/80 text-[11px] font-bold tracking-[0.2em] uppercase text-amber-800 shadow-2xs">
-                <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-                <span>OFFICIAL NOMINEE · {campaign?.campaign_year || '2026'}</span>
-              </div>
-            </div>
-
             {/* Candidate Header Row */}
             <div className="flex items-start gap-4 sm:gap-5 pt-1">
               {/* Circular Avatar with Ring — Real photo from API or candidate initials monogram */}
@@ -225,13 +217,6 @@ export function CandidateEndorsementVoteCard({
                 <div className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider brand-gradient-text mt-1">
                   {categoryName}
                 </div>
-
-                {/* Candidate Bio */}
-                {shortBio && (
-                  <div className="mt-2 text-xs text-slate-600 leading-relaxed font-normal">
-                    <p>{shortBio}</p>
-                  </div>
-                )}
               </div>
             </div>
 
@@ -242,34 +227,11 @@ export function CandidateEndorsementVoteCard({
               <span className="w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0" />
             </div>
 
-            {/* Metadata 3-Column Grid */}
-            <div className="grid grid-cols-3 gap-2.5 text-center text-xs">
-              <div className="p-3 rounded-2xl bg-slate-50/80 border border-slate-200/80">
-                <div className="text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-0.5">
-                  CATEGORY
-                </div>
-                <div className="font-bold text-slate-900 truncate text-[11px] sm:text-xs">
-                  {categoryName}
-                </div>
-              </div>
-
-              <div className="p-3 rounded-2xl bg-slate-50/80 border border-slate-200/80">
-                <div className="text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-0.5">
-                  AWARD YEAR
-                </div>
-                <div className="font-bold text-slate-900 text-[11px] sm:text-xs">
-                  {campaign?.campaign_year || '2026'}
-                </div>
-              </div>
-
-              <div className="p-3 rounded-2xl bg-slate-50/80 border border-slate-200/80">
-                <div className="text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-0.5">
-                  STATUS
-                </div>
-                <div className="font-bold text-emerald-700 text-[11px] sm:text-xs flex items-center justify-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  Voting open
-                </div>
+            {/* Voting Status Banner */}
+            <div className="p-3 rounded-2xl bg-emerald-50/70 border border-emerald-200/80 text-center text-xs">
+              <div className="font-bold text-emerald-700 text-xs flex items-center justify-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span>Active Candidate · Official Voting Open</span>
               </div>
             </div>
           </div>
@@ -278,17 +240,11 @@ export function CandidateEndorsementVoteCard({
           {!receipt ? (
             <div className="pt-2 space-y-5 border-t border-slate-100">
               {/* Separator / Title Header */}
-              <div className="text-center space-y-1.5">
+              <div className="text-center pb-1">
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-[10px] font-bold tracking-[0.2em] uppercase text-[#1D4ED8]">
                   <Sparkles className="w-3 h-3 text-[#1D4ED8]" />
                   <span>CAST YOUR VOTE</span>
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                  Your endorsement matters
-                </h2>
-                <p className="text-xs text-slate-500 font-normal">
-                  One vote per email · Official Election Audit Record
-                </p>
               </div>
 
               {/* Error Alert */}
