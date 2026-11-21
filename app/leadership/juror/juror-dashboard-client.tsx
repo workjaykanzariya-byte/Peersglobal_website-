@@ -294,9 +294,16 @@ export function JurorDashboardClient() {
                     type="button"
                     onClick={() => handleRequestOtp()}
                     disabled={loading}
-                    className="text-[11px] text-[#1D4ED8] hover:underline font-semibold cursor-pointer"
+                    className="inline-flex items-center gap-1.5 text-[11px] text-[#1D4ED8] hover:underline font-semibold cursor-pointer disabled:opacity-50"
                   >
-                    Resend OTP
+                    {loading ? (
+                      <>
+                        <div className="w-3 h-3 border-2 border-[#1D4ED8] border-t-transparent rounded-full animate-spin" />
+                        <span>Resending...</span>
+                      </>
+                    ) : (
+                      <span>Resend OTP</span>
+                    )}
                   </button>
                 )}
               </div>
