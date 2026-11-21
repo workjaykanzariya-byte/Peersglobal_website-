@@ -174,14 +174,6 @@ export function CandidateEndorsementVoteCard({
         <div className="relative z-10 p-6 sm:p-9 space-y-6">
           {/* ================= SECTION 1: CANDIDATE PROFILE ================= */}
           <div className="space-y-4">
-            {/* Header: OFFICIAL NOMINEE · 2026 */}
-            <div className="text-center">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200/80 text-[11px] font-bold tracking-[0.2em] uppercase text-amber-800 shadow-2xs">
-                <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-                <span>OFFICIAL NOMINEE · {campaign?.campaign_year || '2026'}</span>
-              </div>
-            </div>
-
             {/* Candidate Header Row */}
             <div className="flex items-start gap-4 sm:gap-5 pt-1">
               {/* Circular Avatar with Ring — Real photo from API or candidate initials monogram */}
@@ -242,17 +234,8 @@ export function CandidateEndorsementVoteCard({
               <span className="w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0" />
             </div>
 
-            {/* Metadata 3-Column Grid */}
-            <div className="grid grid-cols-3 gap-2.5 text-center text-xs">
-              <div className="p-3 rounded-2xl bg-slate-50/80 border border-slate-200/80">
-                <div className="text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-0.5">
-                  CATEGORY
-                </div>
-                <div className="font-bold text-slate-900 truncate text-[11px] sm:text-xs">
-                  {categoryName}
-                </div>
-              </div>
-
+            {/* Metadata 2-Column Grid */}
+            <div className="grid grid-cols-2 gap-2.5 text-center text-xs">
               <div className="p-3 rounded-2xl bg-slate-50/80 border border-slate-200/80">
                 <div className="text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-0.5">
                   AWARD YEAR
