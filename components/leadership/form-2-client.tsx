@@ -53,6 +53,7 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
     is_submitted: boolean
     status: string
     city?: string
+    photo_url?: string | null
   } | null>(null)
   const [, setIsLoadingMeta] = useState(true)
 
@@ -138,7 +139,6 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
   const [isUploading, setIsUploading] = useState<string | null>(null)
 
   // Submission state
-  const [declarationAgreed, setDeclarationAgreed] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
   const [isSubmittedSuccess, setIsSubmittedSuccess] = useState(false)
@@ -153,7 +153,22 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
         })
         const data = await res.json()
         if (res.ok && data.success && data.data) {
-          setCandidate(data.data)
+          let photoUrl = data.data.photo_url || data.data.profile_photo_url || data.data.photo || null
+          if (!photoUrl) {
+            try {
+              const pubRes = await fetch(`${API_BASE}/public/nomination/${encodeURIComponent(nominationId)}`, {
+                headers: { Accept: 'application/json' },
+              })
+              const pubJson = await pubRes.json()
+              const c = pubJson.data || pubJson.candidate || pubJson
+              if (c) {
+                photoUrl = c.photo_url || c.profile_photo_url || c.photo || null
+              }
+            } catch {
+              // fallback
+            }
+          }
+          setCandidate({ ...data.data, photo_url: photoUrl })
           if (data.data.is_submitted) {
             setIsSubmittedSuccess(true)
           }
@@ -367,11 +382,6 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
   const handleSubmitForm = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    if (!declarationAgreed) {
-      setSubmitError('Please review and agree to the declaration before submitting.')
-      return
-    }
-
     if (!benchContactDeclaration) {
       setSubmitError('Please check the acknowledgment confirming Peers Global may contact the leaders named in your Leadership Bench.')
       return
@@ -496,9 +506,17 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
 
         {/* Candidate Banner Card - Applicant Name & Info Centered, Subtitle & Status Badge Removed */}
         <div className="bg-white border border-[#DDE3EE] rounded-2xl p-6 sm:p-7 shadow-sm flex flex-col items-center justify-center text-center">
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#1D4ED8] to-[#2563EB] flex items-center justify-center text-white font-extrabold text-2xl shadow-md shadow-blue-500/20 mb-3">
-            {candidate?.candidate_name ? candidate.candidate_name.charAt(0).toUpperCase() : 'C'}
-          </div>
+          {candidate?.photo_url ? (
+            <img
+              src={candidate.photo_url}
+              alt={candidate.candidate_name || 'Candidate'}
+              className="w-16 h-16 rounded-2xl object-cover shadow-md shadow-blue-500/10 mb-3 border border-slate-200"
+            />
+          ) : (
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#1D4ED8] to-[#2563EB] flex items-center justify-center text-white font-extrabold text-2xl shadow-md shadow-blue-500/20 mb-3">
+              {candidate?.candidate_name ? candidate.candidate_name.charAt(0).toUpperCase() : 'C'}
+            </div>
+          )}
           <div className="flex items-center gap-2.5 flex-wrap justify-center">
             <h1 className="text-xl sm:text-2xl font-extrabold text-[#0F172A] tracking-tight">
               {candidate?.candidate_name || 'Leadership Candidate'}
@@ -507,39 +525,20 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
               {candidate?.role_name || 'District Executive Director'}
             </span>
           </div>
-          <div className="text-xs text-slate-500 mt-1.5">
-            App Ref: <strong className="text-slate-700">{candidate?.application_number || 'PG-2026-SHORTLIST'}</strong>
-          </div>
         </div>
 
         {/* =================================================================== */}
         {/* SUBMISSION SUCCESS SCREEN                                           */}
         {/* =================================================================== */}
         {isSubmittedSuccess ? (
-          <div className="bg-white border border-emerald-200 rounded-3xl p-8 sm:p-12 text-center space-y-6 shadow-md shadow-emerald-500/5">
+          <div className="bg-white border border-emerald-200 rounded-3xl p-8 sm:p-12 text-center space-y-4 shadow-md shadow-emerald-500/5">
             <div className="w-20 h-20 rounded-full bg-emerald-50 border-2 border-emerald-500/30 text-emerald-600 flex items-center justify-center mx-auto shadow-sm">
               <Check className="w-10 h-10 stroke-[2.5]" />
             </div>
-            <div className="space-y-2">
+            <div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] tracking-tight">
-                Jury Evaluation Dossier Successfully Submitted!
+                Successfully Submitted!
               </h2>
-              <p className="text-slate-600 text-sm max-w-xl mx-auto leading-relaxed">
-                Thank you, <strong className="text-slate-900">{candidate?.candidate_name}</strong>. Your business credibility, leadership track record, network strength, and leadership bench details have been securely recorded in the official Jury Evaluation Dossier and forwarded to the Scrutiny Committee &amp; Jury Board.
-              </p>
-            </div>
-
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-sm font-semibold">
-              <ShieldCheck className="w-4 h-4 text-emerald-600" /> Status: Under Scrutiny &amp; Jury Review
-            </div>
-
-            <div className="pt-4">
-              <Link
-                href="/"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white font-bold text-sm shadow-md shadow-blue-500/15 hover:opacity-95 transition-all"
-              >
-                Return to Peers Global Homepage
-              </Link>
             </div>
           </div>
         ) : !authToken ? (
@@ -1030,15 +1029,11 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
 
               {/* Dynamic Role Bench Guidance Banner */}
               <div className="p-4 rounded-xl bg-gradient-to-r from-blue-50/70 to-indigo-50/70 border border-blue-200 text-xs text-slate-700 space-y-1.5">
-                <div className="font-bold text-[#1E3A8A] flex items-center gap-1.5">
-                  <HelpCircle className="w-4 h-4 text-[#1D4ED8]" />
-                  <span>Bench Requirement for {candidate?.role_name || 'Your Target Role'}:</span>
+                <div className="font-bold text-[#1E3A8A]">
+                  Bench Requirement for {candidate?.role_name || 'Your Target Role'}:
                 </div>
                 <p>
                   As an applicant for <strong>{candidate?.role_name || 'Leadership'}</strong>, you must name at least <strong>{benchGuide.minCount} {benchGuide.mustName}</strong>.
-                </p>
-                <p className="text-[11px] text-slate-500 italic">
-                  Note: &ldquo;Committed&rdquo; means something only if it can be checked. Jurors weight Committed names heavily and &ldquo;Not yet approached&rdquo; names at almost nothing.
                 </p>
               </div>
 
@@ -1181,12 +1176,12 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
               </label>
             </div>
 
-            {/* 5. 12-MONTH PLAN (ROLE-SPECIFIC) */}
+            {/* 5. 12-MONTH PLAN */}
             <div className="bg-white border border-[#DDE3EE] rounded-2xl p-6 sm:p-7 shadow-sm flex flex-col gap-5">
               <div className="flex items-center justify-between pb-3 border-b border-slate-100">
                 <div className="flex items-center gap-2.5">
                   <Target className="w-5 h-5 text-[#1D4ED8]" />
-                  <h2 className="text-xl font-bold text-[#0F172A]">12-month plan (role-specific)</h2>
+                  <h2 className="text-xl font-bold text-[#0F172A]">12-month plan</h2>
                 </div>
                 <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-[#E3EAFD] text-[#1E3A8A]">
                   Required
@@ -1325,9 +1320,6 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
                   <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
                     Why Peers Global and not another network <span className="text-[#E11D48]">*</span>
                   </label>
-                  <p className="text-[11px] text-slate-500">
-                    This tests alignment with our Community of Collaboration ethos.
-                  </p>
                   <textarea
                     rows={3}
                     value={whyPeersGlobal}
@@ -1495,7 +1487,7 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
               <div className="pb-3 border-b border-slate-100">
                 <div className="flex items-center gap-2.5">
                   <FileText className="w-5 h-5 text-[#1D4ED8]" />
-                  <h2 className="text-xl font-bold text-[#0F172A]">Documents (admin view only)</h2>
+                  <h2 className="text-xl font-bold text-[#0F172A]">Documents</h2>
                 </div>
                 <p className="text-slate-500 text-xs mt-0.5">
                   Confidential records accessible solely to the Scrutiny Committee &amp; Jury Board (Max 10MB each).
@@ -1598,45 +1590,20 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
               </div>
             </div>
 
-            {/* FINAL DECLARATION & SUBMISSION */}
-            <div className="bg-white border border-[#DDE3EE] rounded-2xl p-6 sm:p-7 shadow-sm flex flex-col gap-5">
-              <div className="pb-3 border-b border-slate-100">
-                <h2 className="text-xl font-bold text-[#0F172A]">Ethical Stewardship Declaration</h2>
-              </div>
-
-              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700 leading-relaxed space-y-2">
-                <p>
-                  I solemnly declare that the facts and metrics stated in this Jury Evaluation Dossier are true and accurate to the best of my knowledge. I endorse the Peers Global Code of Ethical Stewardship, Zero Commercial Politics Mandate, and agree to uphold peer community governance unconditionally.
-                </p>
-              </div>
-
-              <label className="flex items-start gap-3 cursor-pointer select-none">
-                <input
-                  type="checkbox"
-                  checked={declarationAgreed}
-                  onChange={(e) => setDeclarationAgreed(e.target.checked)}
-                  className="mt-1 w-4 h-4 rounded border-slate-300 text-[#1D4ED8] focus:ring-[#1D4ED8] cursor-pointer"
-                />
-                <span className="text-xs text-slate-700 font-semibold leading-relaxed">
-                  I agree to the declaration above and affirm that I am the authorized nominee completing this official dossier. <span className="text-[#E11D48]">*</span>
-                </span>
-              </label>
-
+            {/* SUBMIT BUTTON */}
+            <div className="pt-2">
               <button
                 type="submit"
-                disabled={isSubmitting || !declarationAgreed}
+                disabled={isSubmitting}
                 className="w-full py-4 px-8 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-base shadow-lg shadow-blue-500/20 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
               >
                 {isSubmitting ? (
                   <>
                     <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                    <span>Submitting Dossier to Scrutiny Committee...</span>
+                    <span>Submitting...</span>
                   </>
                 ) : (
-                  <>
-                    <Award className="w-5 h-5" />
-                    <span>Submit Jury Evaluation Dossier</span>
-                  </>
+                  <span>Submit</span>
                 )}
               </button>
             </div>
