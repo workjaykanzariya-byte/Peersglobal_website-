@@ -8,6 +8,7 @@ interface OtpSixBoxInputProps {
   onComplete?: (val: string) => void
   disabled?: boolean
   autoFocus?: boolean
+  theme?: 'white' | 'dark'
 }
 
 export function OtpSixBoxInput({
@@ -16,6 +17,7 @@ export function OtpSixBoxInput({
   onComplete,
   disabled = false,
   autoFocus = true,
+  theme = 'white',
 }: OtpSixBoxInputProps) {
   const inputsRef = useRef<(HTMLInputElement | null)[]>([])
 
@@ -63,6 +65,11 @@ export function OtpSixBoxInput({
     }
   }
 
+  const inputStyle =
+    theme === 'white'
+      ? 'w-11 h-14 sm:w-12 sm:h-16 text-center text-xl sm:text-2xl font-extrabold bg-white border-2 border-slate-300 rounded-xl text-slate-900 placeholder:text-slate-300 focus:border-[#1D4ED8] focus:ring-4 focus:ring-[#1D4ED8]/15 outline-none transition-all shadow-xs disabled:opacity-50'
+      : 'w-11 h-14 sm:w-12 sm:h-16 text-center text-xl sm:text-2xl font-bold bg-[#0B132B]/80 border border-slate-700/80 rounded-xl text-white placeholder-slate-600 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 outline-none transition-all shadow-inner disabled:opacity-50'
+
   return (
     <div className="flex items-center justify-center gap-2 sm:gap-3 my-2">
       {Array.from({ length: 6 }).map((_, i) => (
@@ -80,7 +87,7 @@ export function OtpSixBoxInput({
           onKeyDown={(e) => handleKeyDown(i, e)}
           onPaste={handlePaste}
           disabled={disabled}
-          className="w-11 h-14 sm:w-12 sm:h-16 text-center text-xl sm:text-2xl font-bold bg-[#0B132B]/80 border border-slate-700/80 rounded-xl text-white placeholder-slate-600 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 outline-none transition-all shadow-inner disabled:opacity-50"
+          className={inputStyle}
           placeholder="•"
           autoComplete="one-time-code"
         />
