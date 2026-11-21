@@ -8,10 +8,8 @@ import {
   Lock,
   Mail,
   Send,
-  ArrowRight,
   RotateCcw,
   UploadCloud,
-  FileText,
   Trash2,
   Plus,
   AlertCircle,
@@ -359,48 +357,47 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
   }
 
   return (
-    <div className="min-h-screen bg-[#050811] text-slate-100 py-10 px-4 sm:px-6 lg:px-8 relative overflow-hidden font-sans">
-      {/* Ambient Radial Glow Accents */}
-      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
+    <div className="min-h-screen bg-[#F8FAFC] text-slate-900 py-8 sm:py-12 relative overflow-hidden font-sans">
+      {/* Subtle brand ambient accents matching nomination & voting pages */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 left-1/4 w-96 h-96 bg-rose-500/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-4xl mx-auto space-y-8 relative z-10">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 relative z-10">
         {/* Navigation Breadcrumb */}
-        <div className="flex items-center justify-between text-xs font-semibold text-slate-400">
+        <div className="flex items-center justify-between text-xs font-semibold text-slate-500">
           <Link
             href="/leadership/nominate"
-            className="flex items-center gap-1.5 hover:text-white transition-colors"
+            className="flex items-center gap-1 hover:text-[#1D4ED8] transition-colors"
           >
             <ChevronLeft className="w-4 h-4" />
             Leadership Portal
           </Link>
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-            <span className="uppercase tracking-widest text-[10px] text-slate-400">
-              Jury Evaluation System
+            <span className="w-2 h-2 rounded-full bg-[#1D4ED8] animate-pulse" />
+            <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
+              Jury Evaluation Dossier (Form 2)
             </span>
           </div>
         </div>
 
         {/* Candidate Banner Card */}
-        <div className="p-6 sm:p-7 rounded-2xl bg-slate-900/75 backdrop-blur-xl border border-white/10 shadow-2xl flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div className="bg-white border border-[#DDE3EE] rounded-2xl p-6 sm:p-7 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center text-white font-extrabold text-2xl shadow-lg shadow-blue-500/25">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#1D4ED8] to-[#2563EB] flex items-center justify-center text-white font-extrabold text-2xl shadow-md shadow-blue-500/20">
               {candidate?.candidate_name ? candidate.candidate_name.charAt(0).toUpperCase() : 'C'}
             </div>
             <div>
               <div className="flex items-center gap-2.5 flex-wrap">
-                <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                <h1 className="text-xl sm:text-2xl font-extrabold text-[#0F172A] tracking-tight">
                   {candidate?.candidate_name || 'Leadership Candidate'}
                 </h1>
-                <span className="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/15 border border-blue-400/30 text-blue-400">
+                <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#E3EAFD] text-[#1E3A8A] border border-blue-200">
                   {candidate?.role_name || 'District Executive Director'}
                 </span>
               </div>
-              <div className="text-xs text-slate-400 mt-1 flex items-center gap-3">
+              <div className="text-xs text-slate-500 mt-1 flex items-center gap-3">
                 <span>
-                  App Ref: <strong className="text-slate-200">{candidate?.application_number || 'PG-2026-SHORTLIST'}</strong>
+                  App Ref: <strong className="text-slate-700">{candidate?.application_number || 'PG-2026-SHORTLIST'}</strong>
                 </span>
                 <span>•</span>
                 <span>{candidate?.campaign_name || 'National Leadership Selection 2026'}</span>
@@ -410,13 +407,13 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
 
           <div>
             {isSubmittedSuccess || candidate?.is_submitted ? (
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 shadow-sm">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 shadow-xs">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                 Evaluation Dossier Submitted
               </span>
             ) : (
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold bg-amber-500/15 border border-amber-500/30 text-amber-400 shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-amber-50 text-amber-700 border border-amber-200 shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
                 Jury Evaluation Pending
               </span>
             )}
@@ -427,48 +424,51 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
         {/* SUBMISSION SUCCESS SCREEN                                           */}
         {/* =================================================================== */}
         {isSubmittedSuccess ? (
-          <div className="p-8 sm:p-12 rounded-3xl bg-slate-900/80 backdrop-blur-2xl border border-emerald-500/20 text-center space-y-6 shadow-2xl">
-            <div className="w-20 h-20 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mx-auto shadow-lg shadow-emerald-500/10">
+          <div className="bg-white border border-emerald-200 rounded-3xl p-8 sm:p-12 text-center space-y-6 shadow-md shadow-emerald-500/5">
+            <div className="w-20 h-20 rounded-full bg-emerald-50 border-2 border-emerald-500/30 text-emerald-600 flex items-center justify-center mx-auto shadow-sm">
               <Check className="w-10 h-10 stroke-[2.5]" />
             </div>
             <div className="space-y-2">
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] tracking-tight">
                 Jury Evaluation Dossier Successfully Submitted!
               </h2>
-              <p className="text-slate-400 text-sm max-w-xl mx-auto leading-relaxed">
-                Thank you, <strong className="text-slate-200">{candidate?.candidate_name}</strong>. Your operational metrics, strategic vision, and leadership bench details have been securely recorded in the official Jury Evaluation Dossier and forwarded to the Scrutiny Committee &amp; Jury Board.
+              <p className="text-slate-600 text-sm max-w-xl mx-auto leading-relaxed">
+                Thank you, <strong className="text-slate-900">{candidate?.candidate_name}</strong>. Your operational metrics, strategic vision, and leadership bench details have been securely recorded in the official Jury Evaluation Dossier and forwarded to the Scrutiny Committee &amp; Jury Board.
               </p>
             </div>
 
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm font-semibold">
-              <ShieldCheck className="w-4 h-4" /> Status: Under Scrutiny &amp; Jury Review
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-sm font-semibold">
+              <ShieldCheck className="w-4 h-4 text-emerald-600" /> Status: Under Scrutiny &amp; Jury Review
             </div>
 
             <div className="pt-4">
               <Link
                 href="/"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold text-sm shadow-lg shadow-blue-600/30 hover:opacity-95 transition-all"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white font-bold text-sm shadow-md shadow-blue-500/15 hover:opacity-95 transition-all"
               >
                 Return to Peers Global Homepage
               </Link>
             </div>
           </div>
         ) : !authToken ? (
-          <div className="max-w-xl mx-auto p-8 sm:p-10 rounded-3xl bg-slate-900/80 backdrop-blur-2xl border border-white/10 shadow-2xl space-y-6">
+          /* =================================================================== */
+          /* FLOW 1: CANDIDATE IDENTITY & OTP VERIFICATION GATE                 */
+          /* =================================================================== */
+          <div className="bg-white border border-[#DDE3EE] rounded-2xl p-6 sm:p-8 shadow-sm max-w-xl mx-auto space-y-6">
             <div className="text-center space-y-2">
-              <div className="w-16 h-16 rounded-2xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 rounded-2xl bg-blue-50 border border-blue-200 text-[#1D4ED8] flex items-center justify-center mx-auto mb-3 shadow-xs">
                 <Lock className="w-8 h-8" />
               </div>
-              <h2 className="text-2xl font-extrabold text-white">Identity &amp; OTP Verification</h2>
-              <p className="text-slate-400 text-sm leading-relaxed">
+              <h2 className="text-2xl font-extrabold text-[#0F172A]">Identity &amp; OTP Verification</h2>
+              <p className="text-slate-600 text-sm leading-relaxed">
                 To protect candidate confidentiality, please verify your registered nomination email address for candidate{' '}
-                <strong className="text-slate-200">{candidate?.candidate_name || 'Leader'}</strong>.
+                <strong className="text-slate-900">{candidate?.candidate_name || 'Leader'}</strong>.
               </p>
             </div>
 
             {gateError && (
-              <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-xs flex items-center gap-2.5">
-                <AlertCircle className="w-4 h-4 shrink-0" />
+              <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs flex items-center gap-2.5">
+                <AlertCircle className="w-4 h-4 shrink-0 text-red-600" />
                 <span>{gateError}</span>
               </div>
             )}
@@ -476,8 +476,8 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
             {!otpSent ? (
               <form onSubmit={handleSendOtp} className="space-y-4">
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                    Registered Candidate Email Address
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                    Registered Candidate Email Address <span className="text-[#E11D48]">*</span>
                   </label>
                   <div className="relative">
                     <input
@@ -486,9 +486,9 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
                       onChange={(e) => setCandidateEmail(e.target.value)}
                       placeholder="name@example.com"
                       required
-                      className="w-full h-12 px-4 pl-11 bg-slate-950/80 border border-slate-700/80 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 text-sm transition-all"
+                      className="w-full h-12 px-4 pl-11 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]/15 focus:border-[#1D4ED8] transition-all shadow-2xs"
                     />
-                    <Mail className="w-4 h-4 text-slate-500 absolute left-4 top-4" />
+                    <Mail className="w-4 h-4 text-slate-400 absolute left-4 top-4" />
                   </div>
                   <p className="text-[11px] text-slate-500">
                     Must match the email address provided in your initial candidate nomination.
@@ -498,7 +498,7 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
                 <button
                   type="submit"
                   disabled={isSendingOtp}
-                  className="w-full h-12 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-lg shadow-blue-600/30 transition-all disabled:opacity-60 cursor-pointer"
+                  className="w-full py-3.5 px-6 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-sm shadow-md shadow-blue-500/15 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
                 >
                   {isSendingOtp ? (
                     <>
@@ -515,13 +515,13 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
               </form>
             ) : (
               <div className="space-y-5">
-                <div className="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800 text-center space-y-1">
-                  <div className="text-xs text-slate-400">Verification code sent to:</div>
-                  <div className="text-sm font-bold text-white">{candidateEmail}</div>
+                <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-center space-y-1">
+                  <div className="text-xs text-slate-500">Verification code sent to:</div>
+                  <div className="text-sm font-bold text-[#0F172A]">{candidateEmail}</div>
                 </div>
 
                 <div className="space-y-2 text-center">
-                  <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
                     Enter 6-Digit Verification Code
                   </label>
                   <OtpSixBoxInput
@@ -529,6 +529,7 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
                     onChange={setOtpCode}
                     onComplete={(val) => handleVerifyOtp(val)}
                     disabled={isVerifyingOtp}
+                    theme="white"
                   />
                   <p className="text-[11px] text-slate-500">
                     Check your inbox or spam folder for your 6-digit access code.
@@ -539,7 +540,7 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
                   type="button"
                   onClick={() => handleVerifyOtp()}
                   disabled={isVerifyingOtp || otpCode.length !== 6}
-                  className="w-full h-12 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-lg shadow-blue-600/30 transition-all disabled:opacity-50 cursor-pointer"
+                  className="w-full py-3.5 px-6 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-sm shadow-md shadow-blue-500/15 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                 >
                   {isVerifyingOtp ? (
                     <>
@@ -554,7 +555,7 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
                   )}
                 </button>
 
-                <div className="flex items-center justify-between text-xs text-slate-400 pt-2">
+                <div className="flex items-center justify-between text-xs text-slate-600 pt-2">
                   <button
                     type="button"
                     onClick={() => {
@@ -562,7 +563,7 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
                       setOtpCode('')
                       setGateError(null)
                     }}
-                    className="hover:text-white transition-colors flex items-center gap-1"
+                    className="hover:text-slate-900 transition-colors flex items-center gap-1 font-semibold"
                   >
                     <RotateCcw className="w-3.5 h-3.5" />
                     Change email
@@ -572,7 +573,7 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
                     type="button"
                     onClick={() => handleSendOtp()}
                     disabled={resendTimer > 0 || isSendingOtp}
-                    className="text-blue-400 hover:text-blue-300 font-semibold disabled:opacity-40"
+                    className="text-[#1D4ED8] hover:underline font-bold disabled:opacity-40"
                   >
                     {resendTimer > 0 ? `Resend code in ${resendTimer}s` : 'Resend code'}
                   </button>
@@ -581,28 +582,33 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
             )}
           </div>
         ) : (
-          <form onSubmit={handleSubmitForm} className="space-y-8">
+          /* =================================================================== */
+          /* FLOW 2: UNLOCKED FORM 2 DOSSIER                                    */
+          /* =================================================================== */
+          <form onSubmit={handleSubmitForm} className="space-y-6">
             {submitError && (
-              <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm flex items-center gap-3">
-                <AlertCircle className="w-5 h-5 shrink-0" />
+              <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm flex items-center gap-3">
+                <AlertCircle className="w-5 h-5 shrink-0 text-red-600" />
                 <span>{submitError}</span>
               </div>
             )}
 
             {/* SECTION 1: LEADERSHIP & STRATEGIC VISION */}
-            <div className="p-6 sm:p-8 rounded-2xl bg-slate-900/75 backdrop-blur-xl border border-white/10 space-y-6 shadow-xl">
-              <div className="border-b border-white/10 pb-4">
-                <div className="text-xs font-bold uppercase tracking-wider text-blue-400">Section 1</div>
-                <h3 className="text-xl font-bold text-white mt-1">Leadership &amp; Strategic Vision</h3>
-                <p className="text-slate-400 text-xs mt-0.5">
-                  Articulate your governance philosophy, ecosystem impact, and 1-year roadmap for Peers Global.
-                </p>
+            <div className="bg-white border border-[#DDE3EE] rounded-2xl p-6 sm:p-7 shadow-sm flex flex-col gap-5">
+              <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#1D4ED8]">Section 1</span>
+                  <h2 className="text-xl font-bold text-[#0F172A]">Leadership &amp; Strategic Vision</h2>
+                </div>
+                <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-[#E3EAFD] text-[#1E3A8A]">
+                  Required
+                </span>
               </div>
 
-              <div className="space-y-5">
+              <div className="space-y-4">
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold uppercase tracking-wider text-slate-300">
-                    Executive Leadership Philosophy &amp; Vision Statement <span className="text-red-400">*</span>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                    Executive Leadership Philosophy &amp; Vision Statement <span className="text-[#E11D48]">*</span>
                   </label>
                   <textarea
                     rows={4}
@@ -610,13 +616,13 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
                     onChange={(e) => setVisionStatement(e.target.value)}
                     placeholder="Describe how you will cultivate trust, collaboration, and high-impact peer networks in your target role..."
                     required
-                    className="w-full p-4 bg-slate-950/80 border border-slate-700/80 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]/15 focus:border-[#1D4ED8] transition-all shadow-2xs"
                   />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold uppercase tracking-wider text-slate-300">
-                    1-Year Operational Roadmap &amp; Regional Objectives <span className="text-red-400">*</span>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                    1-Year Operational Roadmap &amp; Regional Objectives <span className="text-[#E11D48]">*</span>
                   </label>
                   <textarea
                     rows={4}
@@ -624,12 +630,12 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
                     onChange={(e) => setRoadmap(e.target.value)}
                     placeholder="Outline your milestones for Q1 through Q4: Circle launches, member onboarding targets, and flagship summits..."
                     required
-                    className="w-full p-4 bg-slate-950/80 border border-slate-700/80 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]/15 focus:border-[#1D4ED8] transition-all shadow-2xs"
                   />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold uppercase tracking-wider text-slate-300">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
                     Proposed Ecosystem Initiatives &amp; Industry Collaboration
                   </label>
                   <textarea
@@ -637,26 +643,28 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
                     value={initiatives}
                     onChange={(e) => setInitiatives(e.target.value)}
                     placeholder="Key strategic partnerships, enterprise collaborations, or cross-chapter initiatives you plan to execute..."
-                    className="w-full p-4 bg-slate-950/80 border border-slate-700/80 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]/15 focus:border-[#1D4ED8] transition-all shadow-2xs"
                   />
                 </div>
               </div>
             </div>
 
-            {/* SECTION 2: EXECUTION RIGOR & CASE STUDY */}
-            <div className="p-6 sm:p-8 rounded-2xl bg-slate-900/75 backdrop-blur-xl border border-white/10 space-y-6 shadow-xl">
-              <div className="border-b border-white/10 pb-4">
-                <div className="text-xs font-bold uppercase tracking-wider text-blue-400">Section 2</div>
-                <h3 className="text-xl font-bold text-white mt-1">Execution Rigor &amp; Track Record</h3>
-                <p className="text-slate-400 text-xs mt-0.5">
-                  Demonstrate enterprise stability, team leadership capacity, and tangible past outcomes.
-                </p>
+            {/* SECTION 2: EXECUTION RIGOR & TRACK RECORD */}
+            <div className="bg-white border border-[#DDE3EE] rounded-2xl p-6 sm:p-7 shadow-sm flex flex-col gap-5">
+              <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#1D4ED8]">Section 2</span>
+                  <h2 className="text-xl font-bold text-[#0F172A]">Execution Rigor &amp; Track Record</h2>
+                </div>
+                <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-[#E3EAFD] text-[#1E3A8A]">
+                  Required
+                </span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold uppercase tracking-wider text-slate-300">
-                    Business / Entity Structure <span className="text-red-400">*</span>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                    Business / Entity Structure <span className="text-[#E11D48]">*</span>
                   </label>
                   <input
                     type="text"
@@ -664,13 +672,13 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
                     onChange={(e) => setBusinessType(e.target.value)}
                     placeholder="e.g. Private Limited, LLP, Partnership"
                     required
-                    className="w-full h-12 px-4 bg-slate-950/80 border border-slate-700/80 rounded-xl text-white text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]/15 focus:border-[#1D4ED8] transition-all shadow-2xs"
                   />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold uppercase tracking-wider text-slate-300">
-                    Year Founded <span className="text-red-400">*</span>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                    Year Founded <span className="text-[#E11D48]">*</span>
                   </label>
                   <input
                     type="number"
@@ -680,19 +688,19 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
                     min="1950"
                     max="2026"
                     required
-                    className="w-full h-12 px-4 bg-slate-950/80 border border-slate-700/80 rounded-xl text-white text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]/15 focus:border-[#1D4ED8] transition-all shadow-2xs"
                   />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold uppercase tracking-wider text-slate-300">
-                    Annual Turnover Band <span className="text-red-400">*</span>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                    Annual Turnover Band <span className="text-[#E11D48]">*</span>
                   </label>
                   <select
                     value={turnoverBand}
                     onChange={(e) => setTurnoverBand(e.target.value)}
                     required
-                    className="w-full h-12 px-4 bg-slate-950/80 border border-slate-700/80 rounded-xl text-white text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all cursor-pointer"
+                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]/15 focus:border-[#1D4ED8] transition-all shadow-2xs cursor-pointer"
                   >
                     <option value="">-- Select Turnover Band --</option>
                     <option value="Under ₹50 Lakhs">Under ₹50 Lakhs</option>
@@ -704,8 +712,8 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold uppercase tracking-wider text-slate-300">
-                    Team Size (Full-Time) <span className="text-red-400">*</span>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                    Team Size (Full-Time) <span className="text-[#E11D48]">*</span>
                   </label>
                   <input
                     type="text"
@@ -713,15 +721,15 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
                     onChange={(e) => setTeamSize(e.target.value)}
                     placeholder="e.g. 24 full-time professionals"
                     required
-                    className="w-full h-12 px-4 bg-slate-950/80 border border-slate-700/80 rounded-xl text-white text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]/15 focus:border-[#1D4ED8] transition-all shadow-2xs"
                   />
                 </div>
               </div>
 
               {/* Achievements */}
-              <div className="space-y-3 pt-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-slate-300">
-                  Top 3 Major Business &amp; Community Milestones <span className="text-red-400">*</span>
+              <div className="space-y-3 pt-1">
+                <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                  Top 3 Major Business &amp; Community Milestones <span className="text-[#E11D48]">*</span>
                 </label>
                 <input
                   type="text"
@@ -729,7 +737,7 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
                   onChange={(e) => setAchievement1(e.target.value)}
                   placeholder="1. Landmark client/ecosystem milestone..."
                   required
-                  className="w-full h-12 px-4 bg-slate-950/80 border border-slate-700/80 rounded-xl text-white text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                  className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]/15 focus:border-[#1D4ED8] transition-all shadow-2xs"
                 />
                 <input
                   type="text"
@@ -737,7 +745,7 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
                   onChange={(e) => setAchievement2(e.target.value)}
                   placeholder="2. Expansion, market penetration, or revenue scale..."
                   required
-                  className="w-full h-12 px-4 bg-slate-950/80 border border-slate-700/80 rounded-xl text-white text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                  className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]/15 focus:border-[#1D4ED8] transition-all shadow-2xs"
                 />
                 <input
                   type="text"
@@ -745,14 +753,14 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
                   onChange={(e) => setAchievement3(e.target.value)}
                   placeholder="3. Industry recognition, patent, or community leadership role..."
                   required
-                  className="w-full h-12 px-4 bg-slate-950/80 border border-slate-700/80 rounded-xl text-white text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                  className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]/15 focus:border-[#1D4ED8] transition-all shadow-2xs"
                 />
               </div>
 
               {/* Case Study */}
-              <div className="space-y-1.5 pt-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-slate-300">
-                  Flagship Case Study / Problem Solved <span className="text-red-400">*</span>
+              <div className="space-y-1.5 pt-1">
+                <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                  Flagship Case Study / Problem Solved <span className="text-[#E11D48]">*</span>
                 </label>
                 <textarea
                   rows={4}
@@ -760,18 +768,18 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
                   onChange={(e) => setCaseStudy(e.target.value)}
                   placeholder="Detail a complex initiative you spearheaded: the initial friction, strategic intervention, and measurable outcome..."
                   required
-                  className="w-full p-4 bg-slate-950/80 border border-slate-700/80 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                  className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]/15 focus:border-[#1D4ED8] transition-all shadow-2xs"
                 />
               </div>
             </div>
 
             {/* SECTION 3: BENCH STRENGTH */}
-            <div className="p-6 sm:p-8 rounded-2xl bg-slate-900/75 backdrop-blur-xl border border-white/10 space-y-6 shadow-xl">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
+            <div className="bg-white border border-[#DDE3EE] rounded-2xl p-6 sm:p-7 shadow-sm flex flex-col gap-5">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-3 border-b border-slate-100">
                 <div>
-                  <div className="text-xs font-bold uppercase tracking-wider text-blue-400">Section 3</div>
-                  <h3 className="text-xl font-bold text-white mt-1">Bench Strength (Proposed Leadership Team)</h3>
-                  <p className="text-slate-400 text-xs mt-0.5">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#1D4ED8]">Section 3</span>
+                  <h2 className="text-xl font-bold text-[#0F172A]">Bench Strength (Proposed Leadership Team)</h2>
+                  <p className="text-slate-500 text-xs mt-0.5">
                     Leaders who are aligned with your vision and ready to support your district/industry initiatives.
                   </p>
                 </div>
@@ -779,7 +787,7 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
                 <button
                   type="button"
                   onClick={handleAddBenchLeader}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-blue-600/20 border border-blue-500/30 text-blue-400 hover:bg-blue-600/30 text-xs font-bold transition-all cursor-pointer w-fit"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-blue-200 bg-blue-50 text-[#1D4ED8] hover:bg-blue-100 text-xs font-bold transition-all cursor-pointer w-fit"
                 >
                   <Plus className="w-4 h-4" /> Add Proposed Leader
                 </button>
@@ -789,17 +797,17 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
                 {benchLeaders.map((leader, idx) => (
                   <div
                     key={idx}
-                    className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-4 relative"
+                    className="p-4 sm:p-5 rounded-xl bg-slate-50 border border-slate-200 space-y-3 relative"
                   >
-                    <div className="flex items-center justify-between pb-2 border-b border-slate-800/80">
-                      <span className="text-xs font-bold text-blue-400 uppercase tracking-wider">
+                    <div className="flex items-center justify-between pb-2 border-b border-slate-200/80">
+                      <span className="text-xs font-bold text-[#1D4ED8] uppercase tracking-wider">
                         #{idx + 1} Proposed Leader
                       </span>
                       {benchLeaders.length > 1 && (
                         <button
                           type="button"
                           onClick={() => handleRemoveBenchLeader(idx)}
-                          className="text-slate-500 hover:text-red-400 transition-colors p-1"
+                          className="text-slate-400 hover:text-red-600 transition-colors p-1"
                           title="Remove Leader"
                         >
                           <Trash2 className="w-4 h-4" />
@@ -809,70 +817,70 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
 
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                       <div className="space-y-1">
-                        <label className="text-[11px] font-bold uppercase text-slate-400">Full Name *</label>
+                        <label className="text-[11px] font-bold uppercase text-slate-700">Full Name *</label>
                         <input
                           type="text"
                           value={leader.name}
                           onChange={(e) => handleBenchLeaderChange(idx, 'name', e.target.value)}
                           placeholder="Leader Name"
                           required
-                          className="w-full h-10 px-3 bg-slate-900 border border-slate-700/80 rounded-lg text-white text-xs focus:outline-none focus:border-blue-500"
+                          className="w-full h-10 px-3 bg-white border border-slate-300 rounded-lg text-slate-900 text-xs focus:outline-none focus:border-[#1D4ED8] focus:ring-2 focus:ring-[#1D4ED8]/15"
                         />
                       </div>
 
                       <div className="space-y-1">
-                        <label className="text-[11px] font-bold uppercase text-slate-400">Mobile Number *</label>
+                        <label className="text-[11px] font-bold uppercase text-slate-700">Mobile Number *</label>
                         <input
                           type="tel"
                           value={leader.mobile}
                           onChange={(e) => handleBenchLeaderChange(idx, 'mobile', e.target.value)}
                           placeholder="+91 9876543210"
                           required
-                          className="w-full h-10 px-3 bg-slate-900 border border-slate-700/80 rounded-lg text-white text-xs focus:outline-none focus:border-blue-500"
+                          className="w-full h-10 px-3 bg-white border border-slate-300 rounded-lg text-slate-900 text-xs focus:outline-none focus:border-[#1D4ED8] focus:ring-2 focus:ring-[#1D4ED8]/15"
                         />
                       </div>
 
                       <div className="space-y-1">
-                        <label className="text-[11px] font-bold uppercase text-slate-400">City / District *</label>
+                        <label className="text-[11px] font-bold uppercase text-slate-700">City / District *</label>
                         <input
                           type="text"
                           value={leader.city}
                           onChange={(e) => handleBenchLeaderChange(idx, 'city', e.target.value)}
                           placeholder="City"
                           required
-                          className="w-full h-10 px-3 bg-slate-900 border border-slate-700/80 rounded-lg text-white text-xs focus:outline-none focus:border-blue-500"
+                          className="w-full h-10 px-3 bg-white border border-slate-300 rounded-lg text-slate-900 text-xs focus:outline-none focus:border-[#1D4ED8] focus:ring-2 focus:ring-[#1D4ED8]/15"
                         />
                       </div>
 
                       <div className="space-y-1">
-                        <label className="text-[11px] font-bold uppercase text-slate-400">Company &amp; Role</label>
+                        <label className="text-[11px] font-bold uppercase text-slate-700">Company &amp; Role</label>
                         <input
                           type="text"
                           value={leader.industry}
                           onChange={(e) => handleBenchLeaderChange(idx, 'industry', e.target.value)}
                           placeholder="e.g. Apex Tech, Director"
-                          className="w-full h-10 px-3 bg-slate-900 border border-slate-700/80 rounded-lg text-white text-xs focus:outline-none focus:border-blue-500"
+                          className="w-full h-10 px-3 bg-white border border-slate-300 rounded-lg text-slate-900 text-xs focus:outline-none focus:border-[#1D4ED8] focus:ring-2 focus:ring-[#1D4ED8]/15"
                         />
                       </div>
 
                       <div className="space-y-1">
-                        <label className="text-[11px] font-bold uppercase text-slate-400">Relationship *</label>
+                        <label className="text-[11px] font-bold uppercase text-slate-700">Relationship *</label>
                         <input
                           type="text"
                           value={leader.relationship}
                           onChange={(e) => handleBenchLeaderChange(idx, 'relationship', e.target.value)}
                           placeholder="Client, peer, associate"
                           required
-                          className="w-full h-10 px-3 bg-slate-900 border border-slate-700/80 rounded-lg text-white text-xs focus:outline-none focus:border-blue-500"
+                          className="w-full h-10 px-3 bg-white border border-slate-300 rounded-lg text-slate-900 text-xs focus:outline-none focus:border-[#1D4ED8] focus:ring-2 focus:ring-[#1D4ED8]/15"
                         />
                       </div>
 
                       <div className="space-y-1">
-                        <label className="text-[11px] font-bold uppercase text-slate-400">Onboarding Timeline</label>
+                        <label className="text-[11px] font-bold uppercase text-slate-700">Onboarding Timeline</label>
                         <select
                           value={leader.timeline}
                           onChange={(e) => handleBenchLeaderChange(idx, 'timeline', e.target.value)}
-                          className="w-full h-10 px-3 bg-slate-900 border border-slate-700/80 rounded-lg text-white text-xs focus:outline-none focus:border-blue-500 cursor-pointer"
+                          className="w-full h-10 px-3 bg-white border border-slate-300 rounded-lg text-slate-900 text-xs focus:outline-none focus:border-[#1D4ED8] cursor-pointer"
                         >
                           <option value="30 days">Within 30 Days</option>
                           <option value="90 days">Within 90 Days</option>
@@ -886,35 +894,35 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
             </div>
 
             {/* SECTION 4: SUPPORTING ATTACHMENTS */}
-            <div className="p-6 sm:p-8 rounded-2xl bg-slate-900/75 backdrop-blur-xl border border-white/10 space-y-6 shadow-xl">
-              <div className="border-b border-white/10 pb-4">
-                <div className="text-xs font-bold uppercase tracking-wider text-blue-400">Section 4</div>
-                <h3 className="text-xl font-bold text-white mt-1">Supporting Attachments &amp; Proofs</h3>
-                <p className="text-slate-400 text-xs mt-0.5">
+            <div className="bg-white border border-[#DDE3EE] rounded-2xl p-6 sm:p-7 shadow-sm flex flex-col gap-5">
+              <div className="pb-3 border-b border-slate-100">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#1D4ED8]">Section 4</span>
+                <h2 className="text-xl font-bold text-[#0F172A]">Supporting Attachments &amp; Proofs</h2>
+                <p className="text-slate-500 text-xs mt-0.5">
                   Upload PDF, DOCX, or presentation decks for Jury committee verification (Max 10MB each).
                 </p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {/* File 1: Business Credibility */}
-                <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800 space-y-3">
-                  <div className="text-xs font-bold text-slate-300">1. Business Proof / Registration</div>
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
+                  <div className="text-xs font-bold text-slate-800">1. Business Proof / Registration</div>
                   <div className="text-[11px] text-slate-500">GST, Incorporation, or Trade Certificate</div>
                   {businessProofUrl ? (
-                    <div className="p-2.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs flex items-center justify-between">
-                      <span className="truncate max-w-[140px]">Document Uploaded</span>
+                    <div className="p-2.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center justify-between">
+                      <span className="truncate max-w-[140px] font-medium">Document Uploaded</span>
                       <button
                         type="button"
                         onClick={() => setBusinessProofUrl('')}
-                        className="text-slate-400 hover:text-red-400"
+                        className="text-slate-400 hover:text-red-600"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
                       </button>
                     </div>
                   ) : (
-                    <label className="flex flex-col items-center justify-center p-4 border border-dashed border-slate-700 rounded-xl cursor-pointer hover:border-blue-500 transition-colors">
+                    <label className="flex flex-col items-center justify-center p-4 border border-dashed border-slate-300 rounded-xl cursor-pointer hover:border-[#1D4ED8] bg-white hover:bg-blue-50/40 transition-all">
                       <UploadCloud className="w-6 h-6 text-slate-400 mb-1" />
-                      <span className="text-xs text-slate-300 font-semibold">
+                      <span className="text-xs text-slate-700 font-semibold">
                         {isUploading === 'business' ? 'Uploading...' : 'Choose File'}
                       </span>
                       <input
@@ -928,24 +936,24 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
                 </div>
 
                 {/* File 2: Identity Proof */}
-                <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800 space-y-3">
-                  <div className="text-xs font-bold text-slate-300">2. Identity Proof</div>
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
+                  <div className="text-xs font-bold text-slate-800">2. Identity Proof</div>
                   <div className="text-[11px] text-slate-500">Government Photo ID / Passport / Aadhaar</div>
                   {identityProofUrl ? (
-                    <div className="p-2.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs flex items-center justify-between">
-                      <span className="truncate max-w-[140px]">Document Uploaded</span>
+                    <div className="p-2.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center justify-between">
+                      <span className="truncate max-w-[140px] font-medium">Document Uploaded</span>
                       <button
                         type="button"
                         onClick={() => setIdentityProofUrl('')}
-                        className="text-slate-400 hover:text-red-400"
+                        className="text-slate-400 hover:text-red-600"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
                       </button>
                     </div>
                   ) : (
-                    <label className="flex flex-col items-center justify-center p-4 border border-dashed border-slate-700 rounded-xl cursor-pointer hover:border-blue-500 transition-colors">
+                    <label className="flex flex-col items-center justify-center p-4 border border-dashed border-slate-300 rounded-xl cursor-pointer hover:border-[#1D4ED8] bg-white hover:bg-blue-50/40 transition-all">
                       <UploadCloud className="w-6 h-6 text-slate-400 mb-1" />
-                      <span className="text-xs text-slate-300 font-semibold">
+                      <span className="text-xs text-slate-700 font-semibold">
                         {isUploading === 'identity' ? 'Uploading...' : 'Choose File'}
                       </span>
                       <input
@@ -959,24 +967,24 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
                 </div>
 
                 {/* File 3: Presentation Deck */}
-                <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800 space-y-3">
-                  <div className="text-xs font-bold text-slate-300">3. Pitch Deck / Profile Presentation</div>
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
+                  <div className="text-xs font-bold text-slate-800">3. Pitch Deck / Profile Presentation</div>
                   <div className="text-[11px] text-slate-500">Leadership Vision or Company Overview</div>
                   {deckUrl ? (
-                    <div className="p-2.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs flex items-center justify-between">
-                      <span className="truncate max-w-[140px]">Document Uploaded</span>
+                    <div className="p-2.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center justify-between">
+                      <span className="truncate max-w-[140px] font-medium">Document Uploaded</span>
                       <button
                         type="button"
                         onClick={() => setDeckUrl('')}
-                        className="text-slate-400 hover:text-red-400"
+                        className="text-slate-400 hover:text-red-600"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
                       </button>
                     </div>
                   ) : (
-                    <label className="flex flex-col items-center justify-center p-4 border border-dashed border-slate-700 rounded-xl cursor-pointer hover:border-blue-500 transition-colors">
+                    <label className="flex flex-col items-center justify-center p-4 border border-dashed border-slate-300 rounded-xl cursor-pointer hover:border-[#1D4ED8] bg-white hover:bg-blue-50/40 transition-all">
                       <UploadCloud className="w-6 h-6 text-slate-400 mb-1" />
-                      <span className="text-xs text-slate-300 font-semibold">
+                      <span className="text-xs text-slate-700 font-semibold">
                         {isUploading === 'deck' ? 'Uploading...' : 'Choose File'}
                       </span>
                       <input
@@ -992,13 +1000,13 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
             </div>
 
             {/* SECTION 5: FINAL DECLARATION & SUBMIT */}
-            <div className="p-6 sm:p-8 rounded-2xl bg-slate-900/75 backdrop-blur-xl border border-white/10 space-y-6 shadow-xl">
-              <div className="border-b border-white/10 pb-4">
-                <div className="text-xs font-bold uppercase tracking-wider text-blue-400">Section 5</div>
-                <h3 className="text-xl font-bold text-white mt-1">Ethical Stewardship Declaration</h3>
+            <div className="bg-white border border-[#DDE3EE] rounded-2xl p-6 sm:p-7 shadow-sm flex flex-col gap-5">
+              <div className="pb-3 border-b border-slate-100">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#1D4ED8]">Section 5</span>
+                <h2 className="text-xl font-bold text-[#0F172A]">Ethical Stewardship Declaration</h2>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-950/60 border border-slate-800 text-xs text-slate-300 leading-relaxed space-y-2">
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700 leading-relaxed space-y-2">
                 <p>
                   I solemnly declare that the facts and metrics stated in this Jury Evaluation Dossier are true and accurate to the best of my knowledge. I endorse the Peers Global Code of Ethical Stewardship, Zero Commercial Politics Mandate, and agree to uphold peer community governance unconditionally.
                 </p>
@@ -1009,9 +1017,9 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
                   type="checkbox"
                   checked={declarationAgreed}
                   onChange={(e) => setDeclarationAgreed(e.target.checked)}
-                  className="mt-1 w-4 h-4 rounded border-slate-700 text-blue-600 focus:ring-blue-500 cursor-pointer"
+                  className="mt-1 w-4 h-4 rounded border-slate-300 text-[#1D4ED8] focus:ring-[#1D4ED8] cursor-pointer"
                 />
-                <span className="text-xs text-slate-300 font-medium leading-relaxed">
+                <span className="text-xs text-slate-700 font-semibold leading-relaxed">
                   I agree to the declaration above and affirm that I am the authorized nominee completing this official dossier.
                 </span>
               </label>
@@ -1019,7 +1027,7 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
               <button
                 type="submit"
                 disabled={isSubmitting || !declarationAgreed}
-                className="w-full h-14 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-base flex items-center justify-center gap-2 shadow-xl shadow-blue-600/30 transition-all disabled:opacity-50 cursor-pointer"
+                className="w-full py-4 px-8 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-base shadow-lg shadow-blue-500/20 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
               >
                 {isSubmitting ? (
                   <>
