@@ -47,6 +47,7 @@ export function VoterLedgerClient({ nominationId }: VoterLedgerClientProps) {
     application_number: string
     is_voting_open: boolean
     voting_ends_at?: string
+    photo_url?: string | null
   } | null>(null)
 
   // Auth / OTP Gate state
@@ -87,6 +88,7 @@ export function VoterLedgerClient({ nominationId }: VoterLedgerClientProps) {
               city: c.city || c.scope_name || 'India',
               application_number: c.application_number || 'PG-2026-SHORTLIST',
               is_voting_open: true,
+              photo_url: c.photo_url || c.profile_photo_url || c.photo || null,
             })
           }
         }
@@ -225,7 +227,11 @@ export function VoterLedgerClient({ nominationId }: VoterLedgerClientProps) {
 
         if (res.ok && data.status) {
           if (data.candidate) {
-            setCandidate(data.candidate)
+            setCandidate((prev) => ({
+              ...prev,
+              ...data.candidate,
+              photo_url: data.candidate.photo_url || data.candidate.profile_photo_url || data.candidate.photo || prev?.photo_url || null,
+            }))
           }
           setTotalVotes(data.total_votes || 0)
           setVotes(data.votes || [])
@@ -277,9 +283,17 @@ export function VoterLedgerClient({ nominationId }: VoterLedgerClientProps) {
 
         {/* Candidate Banner Card - Clean & Centered */}
         <div className="bg-white border border-[#DDE3EE] rounded-2xl p-6 sm:p-7 shadow-sm flex flex-col items-center justify-center text-center">
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#1D4ED8] to-[#2563EB] flex items-center justify-center text-white font-extrabold text-2xl shadow-md shadow-blue-500/20 mb-3">
-            {candidate?.name ? candidate.name.charAt(0).toUpperCase() : 'C'}
-          </div>
+          {candidate?.photo_url ? (
+            <img
+              src={candidate.photo_url}
+              alt={candidate.name || 'Candidate'}
+              className="w-16 h-16 rounded-2xl object-cover shadow-md shadow-blue-500/10 mb-3 border border-slate-200"
+            />
+          ) : (
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#1D4ED8] to-[#2563EB] flex items-center justify-center text-white font-extrabold text-2xl shadow-md shadow-blue-500/20 mb-3">
+              {candidate?.name ? candidate.name.charAt(0).toUpperCase() : 'C'}
+            </div>
+          )}
           <div className="flex items-center gap-2.5 flex-wrap justify-center">
             <h1 className="text-xl sm:text-2xl font-extrabold text-[#0F172A] tracking-tight">
               {candidate?.name || decodeURIComponent(nominationId).replace(/[-_]+/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())}
@@ -287,17 +301,6 @@ export function VoterLedgerClient({ nominationId }: VoterLedgerClientProps) {
             <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#E3EAFD] text-[#1E3A8A] border border-blue-200">
               {candidate?.role || 'District Executive Director'}
             </span>
-          </div>
-          <div className="text-xs text-slate-500 mt-1.5 flex items-center gap-2 justify-center">
-            <span>
-              App Ref: <strong className="text-slate-700">{candidate?.application_number || 'PG-2026-SHORTLIST'}</strong>
-            </span>
-            {candidate?.city && (
-              <>
-                <span>•</span>
-                <span>{candidate.city}</span>
-              </>
-            )}
           </div>
         </div>
 
@@ -466,47 +469,36 @@ export function VoterLedgerClient({ nominationId }: VoterLedgerClientProps) {
           /* =================================================================== */
           <div className="space-y-6">
             {/* KPI Live Tally & Quick Refresh Bar */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="bg-white border border-[#DDE3EE] rounded-2xl p-6 shadow-sm md:col-span-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div>
-                  <div className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                    Total Verified Peer Votes
-                  </div>
-                  <div className="flex items-baseline gap-3 mt-1">
-                    <span className="text-4xl sm:text-5xl font-extrabold text-[#0F172A] tracking-tight">
-                      {totalVotes}
-                    </span>
-                    <span className="text-sm font-semibold text-emerald-600 flex items-center gap-1">
-                      <CheckCircle2 className="w-4 h-4" /> Authenticated via OTP
-                    </span>
-                  </div>
+            <div className="bg-white border border-[#DDE3EE] rounded-2xl p-6 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <div className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                  Total Verified Peer Votes
                 </div>
-
-                <div className="flex items-center gap-3">
-                  {lastRefreshedAt && (
-                    <span className="text-xs text-slate-500 hidden sm:inline">
-                      Refreshed at {lastRefreshedAt}
-                    </span>
-                  )}
-                  <button
-                    type="button"
-                    onClick={() => fetchLedger(true)}
-                    disabled={isRefreshing}
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-blue-200 bg-blue-50 text-[#1D4ED8] hover:bg-blue-100 text-xs font-bold transition-all disabled:opacity-50 cursor-pointer shadow-2xs"
-                  >
-                    <RefreshCw className={`w-3.5 h-3.5 ${isRefreshing ? 'animate-spin' : ''}`} />
-                    <span>Refresh Live Votes</span>
-                  </button>
+                <div className="flex items-baseline gap-3 mt-1">
+                  <span className="text-4xl sm:text-5xl font-extrabold text-[#0F172A] tracking-tight">
+                    {totalVotes}
+                  </span>
+                  <span className="text-sm font-semibold text-emerald-600 flex items-center gap-1">
+                    <CheckCircle2 className="w-4 h-4" /> Authenticated via OTP
+                  </span>
                 </div>
               </div>
 
-              <div className="bg-white border border-[#DDE3EE] rounded-2xl p-6 shadow-sm flex flex-col justify-center">
-                <div className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                  Privacy Compliance
-                </div>
-                <div className="text-xs text-slate-600 mt-1 leading-relaxed">
-                  Individual phone numbers &amp; emails are cryptographically masked in accordance with Peer Privacy Standards.
-                </div>
+              <div className="flex items-center gap-3">
+                {lastRefreshedAt && (
+                  <span className="text-xs text-slate-500 hidden sm:inline">
+                    Refreshed at {lastRefreshedAt}
+                  </span>
+                )}
+                <button
+                  type="button"
+                  onClick={() => fetchLedger(true)}
+                  disabled={isRefreshing}
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-blue-200 bg-blue-50 text-[#1D4ED8] hover:bg-blue-100 text-xs font-bold transition-all disabled:opacity-50 cursor-pointer shadow-2xs"
+                >
+                  <RefreshCw className={`w-3.5 h-3.5 ${isRefreshing ? 'animate-spin' : ''}`} />
+                  <span>Refresh Live Votes</span>
+                </button>
               </div>
             </div>
 
