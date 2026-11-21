@@ -32,10 +32,70 @@ import {
   Target,
   Sparkles,
   AlertTriangle,
+  Plus,
 } from 'lucide-react'
 import { OtpSixBoxInput } from '../otp-six-box-input'
 
 const API_BASE = process.env.NEXT_PUBLIC_LEADERSHIP_API_BASE_URL || 'https://peersunity.com/api/v1/leadership'
+
+export interface EvaluationCriterion {
+  id: string
+  name: string
+  description?: string
+  score: number
+  isCustom?: boolean
+}
+
+export const DEFAULT_EVALUATION_CRITERIA: EvaluationCriterion[] = [
+  {
+    id: 'crit-1',
+    name: 'Leadership of leaders',
+    description: 'Ability to inspire, align, and empower fellow leaders and founders across the region.',
+    score: 8,
+  },
+  {
+    id: 'crit-2',
+    name: 'Execution capability',
+    description: 'Demonstrated track record of delivering measurable outcomes, programs, and strategic goals.',
+    score: 8,
+  },
+  {
+    id: 'crit-3',
+    name: 'Leadership Bench strength (quality and status of the named people)',
+    description: 'Quality, standing, and commitment of the core succession bench and key cabinet members named.',
+    score: 8,
+  },
+  {
+    id: 'crit-4',
+    name: 'Community-building track record',
+    description: 'History of giving first, fostering trust, and driving community cohesion without self-serving agenda.',
+    score: 8,
+  },
+  {
+    id: 'crit-5',
+    name: 'Business credibility',
+    description: 'Standing in business ecosystem, ethical reputation, financial stability, and peer enterprise respect.',
+    score: 8,
+  },
+  {
+    id: 'crit-6',
+    name: 'Vision and plan realism',
+    description: 'Clarity, feasibility, and realistic execution roadmap of the build plan and milestone projections.',
+    score: 8,
+  },
+  {
+    id: 'crit-7',
+    name: 'Commitment and availability',
+    description: 'Pledged weekly time investment, board presence, and willingness to travel and mentor chapter chairs.',
+    score: 8,
+  },
+  {
+    id: 'crit-8',
+    name: 'Values alignment',
+    description: 'Adherence to Peers Global core philosophy: Partners in business, friends in life.',
+    score: 8,
+  },
+]
 
 export interface CandidateDossier {
   id: string
@@ -67,10 +127,11 @@ export interface CandidateDossier {
   }[]
   // Saved evaluation if completed
   saved_evaluation?: {
-    governance: number
-    execution: number
-    engagement: number
-    vision: number
+    criteria_scores?: EvaluationCriterion[]
+    governance?: number
+    execution?: number
+    engagement?: number
+    vision?: number
     strengths: string
     concerns: string
     conflict_of_interest: boolean
@@ -129,11 +190,10 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
   const [selectedCandidate, setSelectedCandidate] = useState<CandidateDossier | null>(null)
   const [drawerTab, setDrawerTab] = useState<'profile' | 'form2' | 'scoring'>('profile')
 
-  // Scoring Form State
-  const [governanceScore, setGovernanceScore] = useState<number>(8)
-  const [executionScore, setExecutionScore] = useState<number>(8)
-  const [engagementScore, setEngagementScore] = useState<number>(8)
-  const [visionScore, setVisionScore] = useState<number>(8)
+  // Scoring Form State - 8 Default Criteria + Dynamic Additions
+  const [criteriaList, setCriteriaList] = useState<EvaluationCriterion[]>(DEFAULT_EVALUATION_CRITERIA)
+  const [newCriterionName, setNewCriterionName] = useState<string>('')
+  const [isAddingCriterion, setIsAddingCriterion] = useState<boolean>(false)
   const [strengths, setStrengths] = useState<string>('')
   const [concerns, setConcerns] = useState<string>('')
   const [conflictType, setConflictType] = useState<'none' | 'disclosed'>('none')
@@ -141,6 +201,32 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
   const [isSubmittingScore, setIsSubmittingScore] = useState<boolean>(false)
   const [scoringError, setScoringError] = useState<string | null>(null)
   const [scoringSuccess, setScoringSuccess] = useState<boolean>(false)
+
+  // Handle Score Updates
+  const handleScoreChange = (id: string, newScore: number) => {
+    const val = Math.max(1, Math.min(10, newScore))
+    setCriteriaList((prev) => prev.map((c) => (c.id === id ? { ...c, score: val } : c)))
+  }
+
+  // Add Dynamic Criterion
+  const handleAddCustomCriterion = () => {
+    if (!newCriterionName.trim()) return
+    const newCrit: EvaluationCriterion = {
+      id: 'custom-' + Date.now(),
+      name: newCriterionName.trim(),
+      description: 'Custom metric added by evaluation juror',
+      score: 8,
+      isCustom: true,
+    }
+    setCriteriaList((prev) => [...prev, newCrit])
+    setNewCriterionName('')
+    setIsAddingCriterion(false)
+  }
+
+  // Remove Dynamic Criterion
+  const handleRemoveCriterion = (id: string) => {
+    setCriteriaList((prev) => prev.filter((c) => c.id !== id))
+  }
 
   // Check saved session on mount
   useEffect(() => {
@@ -175,31 +261,63 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
   }, [initialView])
 
   // Fetch assigned candidates for logged-in juror
-  useEffect(() => {
-    async function loadJurorCandidates() {
-      if (!jurorEmail) return
-      try {
-        const res = await fetch(`/api/leadership/jury/candidates?email=${encodeURIComponent(jurorEmail)}`, {
-          headers: {
-            Accept: 'application/json',
-            ...(authToken ? { Authorization: `Bearer ${authToken}` } : {}),
-          },
-        })
-        const data = await res.json().catch(() => null)
-        if (res.ok && data?.success) {
-          if (data.juror?.name) {
-            setJurorName(data.juror.name)
-          }
-          if (Array.isArray(data.candidates)) {
-            const savedEvals = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('pg_jury_evaluations') || '{}') : {}
-            setCandidates(data.candidates.map((c: any) => (savedEvals[c.id] ? { ...c, ...savedEvals[c.id] } : c)))
-          }
+  const [isRefreshing, setIsRefreshing] = useState<boolean>(false)
+
+  const refreshJurorCandidates = async () => {
+    if (!jurorEmail) return
+    setIsRefreshing(true)
+    try {
+      const res = await fetch(`/api/leadership/jury/candidates?email=${encodeURIComponent(jurorEmail)}`, {
+        headers: {
+          Accept: 'application/json',
+          ...(authToken ? { Authorization: `Bearer ${authToken}` } : {}),
+        },
+      })
+      const data = await res.json().catch(() => null)
+      if (res.ok && data?.success) {
+        if (data.juror?.name) {
+          setJurorName(data.juror.name)
         }
-      } catch (err) {
-        console.error('Failed to load juror candidates:', err)
+        if (Array.isArray(data.candidates)) {
+          const savedEvals = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('pg_jury_evaluations') || '{}') : {}
+          setCandidates(data.candidates.map((c: any) => {
+            const localF2Str = typeof window !== 'undefined' ? localStorage.getItem('pg_form2_' + c.id) : null
+            let localF2: any = null
+            if (localF2Str) {
+              try { localF2 = JSON.parse(localF2Str) } catch {}
+            }
+            const merged = { ...c }
+            if (localF2) {
+              merged.form_2_status = 'Submitted'
+              if (localF2.roles_held) {
+                merged.executive_bio = `Roles Held: ${localF2.roles_held}\nLargest Community: ${localF2.largest_community || ''}\nDeveloped Leaders: ${localF2.developed_leader_1 || ''}`
+              }
+              if (localF2.targets_12_months) {
+                merged.operational_blueprint = `12-Month Targets:\n${localF2.targets_12_months}\n\n90-Day Actions:\n1. ${localF2.action_90_day_1 || ''}\n2. ${localF2.action_90_day_2 || ''}\n3. ${localF2.action_90_day_3 || ''}`
+              }
+              if (Array.isArray(localF2.bench) && localF2.bench.length > 0) {
+                merged.bench_value = localF2.bench
+              }
+              if (localF2.deck_url || localF2.identity_proof_url) {
+                merged.documents = [
+                  ...(localF2.deck_url ? [{ title: 'Pitch Deck / Strategic Presentation', type: 'PDF / Deck', url: localF2.deck_url }] : []),
+                  ...(localF2.identity_proof_url ? [{ title: 'Identity Proof Document', type: 'ID Proof', url: localF2.identity_proof_url }] : []),
+                ]
+              }
+            }
+            return savedEvals[c.id] ? { ...merged, ...savedEvals[c.id] } : merged
+          }))
+        }
       }
+    } catch (err) {
+      console.error('Failed to load juror candidates:', err)
+    } finally {
+      setIsRefreshing(false)
     }
-    loadJurorCandidates()
+  }
+
+  useEffect(() => {
+    refreshJurorCandidates()
   }, [jurorEmail, authToken])
 
   // Resend cooldown timer
@@ -331,21 +449,61 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
         .catch(() => {})
     }
 
+    // Dynamic Form 2 fetch if not already populated
+    if (candidate.id && (!candidate.executive_bio || candidate.form_2_status !== 'Submitted')) {
+      const localF2Str = typeof window !== 'undefined' ? localStorage.getItem('pg_form2_' + candidate.id) : null
+      if (localF2Str) {
+        try {
+          const localF2 = JSON.parse(localF2Str)
+          setSelectedCandidate((prev) => (prev && prev.id === candidate.id ? {
+            ...prev,
+            form_2_status: 'Submitted',
+            executive_bio: localF2.roles_held ? `Roles Held: ${localF2.roles_held}\nLargest Community: ${localF2.largest_community || ''}\nDeveloped Leaders: ${localF2.developed_leader_1 || ''}` : prev.executive_bio,
+            operational_blueprint: localF2.targets_12_months ? `12-Month Targets:\n${localF2.targets_12_months}\n\n90-Day Priority Actions:\n1. ${localF2.action_90_day_1 || ''}\n2. ${localF2.action_90_day_2 || ''}\n3. ${localF2.action_90_day_3 || ''}` : prev.operational_blueprint,
+            bench_value: Array.isArray(localF2.bench) && localF2.bench.length > 0 ? localF2.bench : prev.bench_value,
+            documents: [
+              ...(localF2.deck_url ? [{ title: 'Pitch Deck / Strategic Presentation', type: 'PDF / Deck', url: localF2.deck_url }] : []),
+              ...(localF2.identity_proof_url ? [{ title: 'Identity Proof Document', type: 'ID Proof', url: localF2.identity_proof_url }] : []),
+            ],
+          } : prev))
+        } catch {}
+      }
+
+      // Also query live Form 2 details endpoint
+      fetch(`${API_BASE}/public/nominations/${candidate.id}/form-2`, { headers: { Accept: 'application/json' } })
+        .then((r) => r.json())
+        .then((f2Res) => {
+          const f2 = f2Res?.data?.existing_data || f2Res?.data?.form_2 || f2Res?.data || {}
+          if (f2 && (f2.roles_held || f2.targets_12_months || f2.executive_bio || f2.bench)) {
+            setSelectedCandidate((prev) => (prev && prev.id === candidate.id ? {
+              ...prev,
+              form_2_status: 'Submitted',
+              executive_bio: f2.executive_bio || (f2.roles_held ? `Roles Held: ${f2.roles_held}\nLargest Community: ${f2.largest_community || ''}\nDeveloped Leaders: ${f2.developed_leader_1 || ''}` : prev.executive_bio),
+              operational_blueprint: f2.operational_blueprint || (f2.targets_12_months ? `12-Month Targets:\n${f2.targets_12_months}\n\n90-Day Actions:\n1. ${f2.action_90_day_1 || ''}\n2. ${f2.action_90_day_2 || ''}\n3. ${f2.action_90_day_3 || ''}` : prev.operational_blueprint),
+              bench_value: Array.isArray(f2.bench) && f2.bench.length > 0 ? f2.bench : prev.bench_value,
+              documents: [
+                ...(f2.deck_url ? [{ title: 'Pitch Deck / Strategic Presentation', type: 'PDF / Deck', url: f2.deck_url }] : []),
+                ...(f2.identity_proof_url ? [{ title: 'Identity Proof Document', type: 'ID Proof', url: f2.identity_proof_url }] : []),
+              ],
+            } : prev))
+          }
+        })
+        .catch(() => {})
+    }
+
     if (candidate.saved_evaluation) {
-      setGovernanceScore(candidate.saved_evaluation.governance)
-      setExecutionScore(candidate.saved_evaluation.execution)
-      setEngagementScore(candidate.saved_evaluation.engagement)
-      setVisionScore(candidate.saved_evaluation.vision)
-      setStrengths(candidate.saved_evaluation.strengths)
-      setConcerns(candidate.saved_evaluation.concerns)
+      if (candidate.saved_evaluation.criteria_scores && candidate.saved_evaluation.criteria_scores.length > 0) {
+        setCriteriaList(candidate.saved_evaluation.criteria_scores)
+      } else {
+        setCriteriaList(DEFAULT_EVALUATION_CRITERIA)
+      }
+      setStrengths(candidate.saved_evaluation.strengths || '')
+      setConcerns(candidate.saved_evaluation.concerns || '')
       setConflictType(candidate.saved_evaluation.conflict_of_interest ? 'disclosed' : 'none')
       setConflictDisclosure(candidate.saved_evaluation.conflict_disclosure || '')
       setDrawerTab('scoring')
     } else {
-      setGovernanceScore(8)
-      setExecutionScore(8)
-      setEngagementScore(8)
-      setVisionScore(8)
+      setCriteriaList(DEFAULT_EVALUATION_CRITERIA)
       setStrengths('')
       setConcerns('')
       setConflictType('none')
@@ -354,8 +512,10 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
     }
   }
 
-  // Calculate live weighted/average score
-  const computedAverageScore = ((governanceScore + executionScore + engagementScore + visionScore) / 4).toFixed(1)
+  // Calculate live weighted/average score across all criteria
+  const computedAverageScore = (
+    criteriaList.reduce((acc, c) => acc + (c.score || 0), 0) / (criteriaList.length || 1)
+  ).toFixed(1)
 
   // Submit Official Score
   const handleSubmitScore = async (e: React.FormEvent) => {
@@ -382,13 +542,12 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
       candidate_id: selectedCandidate.id,
       application_number: selectedCandidate.application_number,
       juror_email: jurorEmail,
-      scores: {
-        governance_integrity: governanceScore,
-        operational_execution: executionScore,
-        community_engagement: engagementScore,
-        strategic_vision: visionScore,
-        overall_average: parseFloat(computedAverageScore),
-      },
+      overall_average: parseFloat(computedAverageScore),
+      scores: criteriaList.map((c) => ({
+        criterion_name: c.name,
+        score: c.score,
+        is_custom: !!c.isCustom,
+      })),
       key_strengths: strengths.trim(),
       key_concerns: concerns.trim(),
       conflict_of_interest: conflictType === 'disclosed',
@@ -415,10 +574,7 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
           evaluation_status: 'Completed',
           score: parseFloat(computedAverageScore),
           saved_evaluation: {
-            governance: governanceScore,
-            execution: executionScore,
-            engagement: engagementScore,
-            vision: visionScore,
+            criteria_scores: criteriaList,
             strengths: strengths.trim(),
             concerns: concerns.trim(),
             conflict_of_interest: conflictType === 'disclosed',
@@ -508,7 +664,7 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
           <div className="max-w-md mx-auto py-6 sm:py-10">
             <div className="bg-white border border-[#DDE3EE] rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
               <div className="text-center space-y-2">
-                <div className="w-16 h-16 rounded-2xl bg-blue-50 border border-blue-200 text-[#1D4ED8] flex items-center justify-center mx-auto mb-3 shadow-xs">
+                <div className="w-16 h-16 rounded-full bg-blue-50 border border-blue-200 text-[#1D4ED8] flex items-center justify-center mx-auto mb-3 shadow-xs">
                   <ShieldCheck className="w-8 h-8" />
                 </div>
                 <h1 className="text-2xl font-extrabold text-[#0F172A] tracking-tight">
@@ -737,6 +893,17 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
                     {filter}
                   </button>
                 ))}
+
+                <button
+                  type="button"
+                  onClick={refreshJurorCandidates}
+                  disabled={isRefreshing}
+                  className="px-3.5 py-1.5 rounded-full text-xs font-bold bg-white border border-slate-300 text-slate-700 hover:bg-slate-50 transition-all flex items-center gap-1.5 cursor-pointer disabled:opacity-50 ml-auto"
+                  title="Refresh candidate assignments & Form 2 status"
+                >
+                  <RotateCcw className={`w-3.5 h-3.5 ${isRefreshing ? 'animate-spin text-[#1D4ED8]' : ''}`} />
+                  <span>{isRefreshing ? 'Refreshing...' : 'Refresh'}</span>
+                </button>
               </div>
             </div>
 
@@ -759,7 +926,7 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
                       <th className="py-4 px-5">Candidate</th>
                       <th className="py-4 px-5">Application Number</th>
                       <th className="py-4 px-5">Applied Role &amp; Scope</th>
-                      <th className="py-4 px-5">Form 2 Dossier</th>
+                      <th className="py-4 px-5">Form 2</th>
                       <th className="py-4 px-5">Evaluation Status</th>
                       <th className="py-4 px-5 text-right">Action</th>
                     </tr>
@@ -773,10 +940,10 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
                               <img
                                 src={c.avatar_url}
                                 alt={c.name}
-                                className="w-10 h-10 rounded-xl object-cover border border-slate-200"
+                                className="w-10 h-10 rounded-full object-cover border border-slate-200"
                               />
                             ) : (
-                              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#1D4ED8] to-[#2563EB] text-white font-extrabold flex items-center justify-center text-sm shadow-xs">
+                              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#1D4ED8] to-[#2563EB] text-white font-extrabold flex items-center justify-center text-sm shadow-xs">
                                 {c.name.charAt(0)}
                               </div>
                             )}
@@ -878,10 +1045,10 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
                   <img
                     src={selectedCandidate.avatar_url}
                     alt={selectedCandidate.name}
-                    className="w-14 h-14 rounded-2xl object-cover border border-slate-200"
+                    className="w-14 h-14 rounded-full object-cover border border-slate-200"
                   />
                 ) : (
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#1D4ED8] to-[#2563EB] text-white font-extrabold flex items-center justify-center text-xl shadow-xs">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#1D4ED8] to-[#2563EB] text-white font-extrabold flex items-center justify-center text-xl shadow-xs">
                     {selectedCandidate.name.charAt(0)}
                   </div>
                 )}
@@ -934,7 +1101,7 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
                 }`}
               >
                 <FileText className="w-4 h-4" />
-                <span>2. Form 2 Dossier</span>
+                <span>2. Detailed Form</span>
                 {selectedCandidate.form_2_status === 'Submitted' && (
                   <span className="w-2 h-2 rounded-full bg-emerald-500" />
                 )}
@@ -1021,22 +1188,22 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
                       onClick={() => setDrawerTab('form2')}
                       className="px-6 py-2.5 rounded-full bg-[#1D4ED8] hover:bg-blue-700 text-white font-bold text-xs shadow-xs inline-flex items-center gap-1.5"
                     >
-                      <span>Proceed to Form 2 Dossier</span>
+                      <span>Proceed to Detailed Form</span>
                       <ChevronRight className="w-4 h-4" />
                     </button>
                   </div>
                 </div>
               )}
 
-              {/* ---------------- TAB 2: FORM 2 DOSSIER ---------------- */}
+              {/* ---------------- TAB 2: DETAILED FORM ---------------- */}
               {drawerTab === 'form2' && (
                 <div className="space-y-6">
                   {selectedCandidate.form_2_status !== 'Submitted' ? (
                     <div className="p-8 rounded-2xl bg-slate-50 border border-slate-200 text-center space-y-3">
                       <Clock className="w-10 h-10 text-slate-400 mx-auto" />
-                      <h4 className="font-bold text-base text-[#0F172A]">Awaiting Form 2 Dossier</h4>
-                      <p className="text-xs text-slate-500 max-w-md mx-auto">
-                        This candidate has not yet submitted their official Form 2 Operational Dossier. Jurors may still evaluate based on Form 1 profile and executive credentials.
+                      <h4 className="font-bold text-base text-[#0F172A]">Form Pending Submission</h4>
+                      <p className="text-xs text-slate-600 max-w-md mx-auto leading-relaxed">
+                        This user has pending submission of their evaluation form.
                       </p>
                     </div>
                   ) : (
@@ -1174,117 +1341,112 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
                       </div>
                     </div>
 
-                    {/* Criterion 1: Governance & Integrity */}
-                    <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                      <div className="space-y-1">
-                        <label className="text-xs font-bold text-slate-900 block">
-                          1. Governance &amp; Integrity
-                        </label>
-                        <p className="text-[11px] text-slate-500 leading-relaxed max-w-lg">
-                          Adherence to ethical peer standards, non-commercial community governance, and conflict-free stewardship.
-                        </p>
+                    {/* Dynamic Criteria List (8 Default + Custom Added) */}
+                    {criteriaList.map((crit, idx) => (
+                      <div
+                        key={crit.id}
+                        className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+                      >
+                        <div className="space-y-1 flex-1">
+                          <div className="flex items-center gap-2">
+                            <label className="text-xs font-bold text-slate-900 block">
+                              {idx + 1}. {crit.name}
+                            </label>
+                            {crit.isCustom && (
+                              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-50 text-purple-700 border border-purple-200">
+                                Custom Metric
+                              </span>
+                            )}
+                          </div>
+                          {crit.description && (
+                            <p className="text-[11px] text-slate-500 leading-relaxed max-w-lg">
+                              {crit.description}
+                            </p>
+                          )}
+                        </div>
+                        <div className="flex items-center gap-3 self-end sm:self-center shrink-0">
+                          <div className="flex items-center gap-2">
+                            <label className="text-xs font-semibold text-slate-500">Score:</label>
+                            <input
+                              type="number"
+                              min="1"
+                              max="10"
+                              step="1"
+                              value={crit.score}
+                              onChange={(e) => {
+                                const val = parseInt(e.target.value) || 0
+                                handleScoreChange(crit.id, val)
+                              }}
+                              className="w-16 h-10 text-center font-extrabold text-base text-[#1D4ED8] bg-slate-50 border-2 border-slate-300 rounded-xl focus:border-[#1D4ED8] focus:bg-white focus:ring-2 focus:ring-blue-100 outline-none transition-all"
+                            />
+                            <span className="text-xs font-bold text-slate-400">/ 10</span>
+                          </div>
+                          {crit.isCustom && (
+                            <button
+                              type="button"
+                              onClick={() => handleRemoveCriterion(crit.id)}
+                              className="p-1.5 rounded-lg text-slate-400 hover:text-red-600 hover:bg-red-50 transition-colors cursor-pointer"
+                              title="Remove custom criterion"
+                            >
+                              <X className="w-4 h-4" />
+                            </button>
+                          )}
+                        </div>
                       </div>
-                      <div className="flex items-center gap-2 self-end sm:self-center shrink-0">
-                        <label className="text-xs font-semibold text-slate-500">Score:</label>
-                        <input
-                          type="number"
-                          min="1"
-                          max="10"
-                          step="1"
-                          value={governanceScore}
-                          onChange={(e) => {
-                            const val = parseInt(e.target.value) || 0
-                            setGovernanceScore(Math.max(1, Math.min(10, val)))
-                          }}
-                          className="w-16 h-10 text-center font-extrabold text-base text-[#1D4ED8] bg-slate-50 border-2 border-slate-300 rounded-xl focus:border-[#1D4ED8] focus:bg-white focus:ring-2 focus:ring-blue-100 outline-none transition-all"
-                        />
-                        <span className="text-xs font-bold text-slate-400">/ 10</span>
-                      </div>
-                    </div>
+                    ))}
 
-                    {/* Criterion 2: Operational Execution */}
-                    <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                      <div className="space-y-1">
-                        <label className="text-xs font-bold text-slate-900 block">
-                          2. Operational Execution
+                    {/* Add Custom Criterion Action */}
+                    {!isAddingCriterion ? (
+                      <button
+                        type="button"
+                        onClick={() => setIsAddingCriterion(true)}
+                        className="w-full py-3 px-4 rounded-2xl border-2 border-dashed border-slate-200 hover:border-[#1D4ED8]/40 hover:bg-blue-50/30 text-xs font-bold text-slate-600 hover:text-[#1D4ED8] transition-all flex items-center justify-center gap-2 cursor-pointer"
+                      >
+                        <Plus className="w-4 h-4" />
+                        <span>+ Add Custom Evaluation Criterion</span>
+                      </button>
+                    ) : (
+                      <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+                        <label className="text-xs font-bold text-slate-700 block">
+                          Add Custom Evaluation Criterion Name
                         </label>
-                        <p className="text-[11px] text-slate-500 leading-relaxed max-w-lg">
-                          Capability to deliver against targets, launch Circles, mobilize teams, and manage regional operations.
-                        </p>
+                        <div className="flex flex-col sm:flex-row gap-2">
+                          <input
+                            type="text"
+                            value={newCriterionName}
+                            onChange={(e) => setNewCriterionName(e.target.value)}
+                            placeholder="e.g. Technical Architecture Depth, Global Ecosystem Synergy..."
+                            className="flex-1 px-3.5 py-2 text-xs rounded-xl border border-slate-300 bg-white focus:border-[#1D4ED8] focus:ring-2 focus:ring-blue-100 outline-none"
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter') {
+                                e.preventDefault()
+                                handleAddCustomCriterion()
+                              }
+                            }}
+                          />
+                          <div className="flex items-center gap-2">
+                            <button
+                              type="button"
+                              onClick={handleAddCustomCriterion}
+                              disabled={!newCriterionName.trim()}
+                              className="px-4 py-2 rounded-xl bg-[#1D4ED8] text-white text-xs font-bold hover:bg-[#1e40af] disabled:opacity-50 transition-colors cursor-pointer"
+                            >
+                              Add Metric
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setIsAddingCriterion(false)
+                                setNewCriterionName('')
+                              }}
+                              className="px-3 py-2 rounded-xl bg-slate-200 text-slate-700 text-xs font-semibold hover:bg-slate-300 transition-colors cursor-pointer"
+                            >
+                              Cancel
+                            </button>
+                          </div>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-2 self-end sm:self-center shrink-0">
-                        <label className="text-xs font-semibold text-slate-500">Score:</label>
-                        <input
-                          type="number"
-                          min="1"
-                          max="10"
-                          step="1"
-                          value={executionScore}
-                          onChange={(e) => {
-                            const val = parseInt(e.target.value) || 0
-                            setExecutionScore(Math.max(1, Math.min(10, val)))
-                          }}
-                          className="w-16 h-10 text-center font-extrabold text-base text-[#1D4ED8] bg-slate-50 border-2 border-slate-300 rounded-xl focus:border-[#1D4ED8] focus:bg-white focus:ring-2 focus:ring-blue-100 outline-none transition-all"
-                        />
-                        <span className="text-xs font-bold text-slate-400">/ 10</span>
-                      </div>
-                    </div>
-
-                    {/* Criterion 3: Community Engagement */}
-                    <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                      <div className="space-y-1">
-                        <label className="text-xs font-bold text-slate-900 block">
-                          3. Community Engagement
-                        </label>
-                        <p className="text-[11px] text-slate-500 leading-relaxed max-w-lg">
-                          Relational standing, peer trust, collaborative give-first orientation, and ability to cultivate member loyalty.
-                        </p>
-                      </div>
-                      <div className="flex items-center gap-2 self-end sm:self-center shrink-0">
-                        <label className="text-xs font-semibold text-slate-500">Score:</label>
-                        <input
-                          type="number"
-                          min="1"
-                          max="10"
-                          step="1"
-                          value={engagementScore}
-                          onChange={(e) => {
-                            const val = parseInt(e.target.value) || 0
-                            setEngagementScore(Math.max(1, Math.min(10, val)))
-                          }}
-                          className="w-16 h-10 text-center font-extrabold text-base text-[#1D4ED8] bg-slate-50 border-2 border-slate-300 rounded-xl focus:border-[#1D4ED8] focus:bg-white focus:ring-2 focus:ring-blue-100 outline-none transition-all"
-                        />
-                        <span className="text-xs font-bold text-slate-400">/ 10</span>
-                      </div>
-                    </div>
-
-                    {/* Criterion 4: Strategic Vision */}
-                    <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                      <div className="space-y-1">
-                        <label className="text-xs font-bold text-slate-900 block">
-                          4. Strategic Vision
-                        </label>
-                        <p className="text-[11px] text-slate-500 leading-relaxed max-w-lg">
-                          Strategic clarity, depth of bench leaders brought, and long-term ecosystem expansion roadmap.
-                        </p>
-                      </div>
-                      <div className="flex items-center gap-2 self-end sm:self-center shrink-0">
-                        <label className="text-xs font-semibold text-slate-500">Score:</label>
-                        <input
-                          type="number"
-                          min="1"
-                          max="10"
-                          step="1"
-                          value={visionScore}
-                          onChange={(e) => {
-                            const val = parseInt(e.target.value) || 0
-                            setVisionScore(Math.max(1, Math.min(10, val)))
-                          }}
-                          className="w-16 h-10 text-center font-extrabold text-base text-[#1D4ED8] bg-slate-50 border-2 border-slate-300 rounded-xl focus:border-[#1D4ED8] focus:bg-white focus:ring-2 focus:ring-blue-100 outline-none transition-all"
-                        />
-                        <span className="text-xs font-bold text-slate-400">/ 10</span>
-                      </div>
-                    </div>
+                    )}
                   </div>
 
                   {/* Qualitative Feedback */}

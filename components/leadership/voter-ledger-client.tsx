@@ -373,10 +373,10 @@ export function VoterLedgerClient({ nominationId }: VoterLedgerClientProps) {
             <img
               src={candidate.photo_url}
               alt={candidate.name || 'Candidate'}
-              className="w-16 h-16 rounded-2xl object-cover shadow-md shadow-blue-500/10 mb-3 border border-slate-200"
+              className="w-16 h-16 rounded-full object-cover shadow-md shadow-blue-500/10 mb-3 border border-slate-200"
             />
           ) : (
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#1D4ED8] to-[#2563EB] flex items-center justify-center text-white font-extrabold text-2xl shadow-md shadow-blue-500/20 mb-3">
+            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#1D4ED8] to-[#2563EB] flex items-center justify-center text-white font-extrabold text-2xl shadow-md shadow-blue-500/20 mb-3">
               {candidate?.name ? candidate.name.charAt(0).toUpperCase() : 'C'}
             </div>
           )}
@@ -393,7 +393,7 @@ export function VoterLedgerClient({ nominationId }: VoterLedgerClientProps) {
         {/* Expired Notice */}
         {isExpired ? (
           <div className="max-w-xl mx-auto p-8 rounded-3xl bg-white border border-amber-200 text-center space-y-4 shadow-sm">
-            <div className="w-16 h-16 rounded-2xl bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center mx-auto">
+            <div className="w-16 h-16 rounded-full bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center mx-auto">
               <Clock className="w-8 h-8" />
             </div>
             <h2 className="text-xl font-bold text-[#0F172A]">Voting Concluded</h2>
@@ -410,7 +410,7 @@ export function VoterLedgerClient({ nominationId }: VoterLedgerClientProps) {
           /* =================================================================== */
           <div className="max-w-md mx-auto p-6 sm:p-8 rounded-2xl bg-white border border-[#DDE3EE] shadow-sm space-y-6">
             <div className="text-center space-y-2">
-              <div className="w-16 h-16 rounded-2xl bg-blue-50 border border-blue-200 text-[#1D4ED8] flex items-center justify-center mx-auto mb-3 shadow-xs">
+              <div className="w-16 h-16 rounded-full bg-blue-50 border border-blue-200 text-[#1D4ED8] flex items-center justify-center mx-auto mb-3 shadow-xs">
                 <Lock className="w-8 h-8" />
               </div>
               <h2 className="text-2xl font-extrabold text-[#0F172A]">Candidate Voter Ledger Access</h2>

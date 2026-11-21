@@ -474,6 +474,18 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
       const data = await res.json()
 
       if (res.ok && data.success) {
+        if (typeof window !== 'undefined') {
+          try {
+            localStorage.setItem('pg_form2_' + nominationId, JSON.stringify(payload))
+          } catch {}
+        }
+        // Sync local PostgreSQL database in background
+        fetch(`/api/leadership/form-2/${nominationId}/submit`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        }).catch(() => {})
+
         setIsSubmittedSuccess(true)
         window.scrollTo({ top: 0, behavior: 'smooth' })
       } else {
@@ -510,10 +522,10 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
             <img
               src={candidate.photo_url}
               alt={candidate.candidate_name || 'Candidate'}
-              className="w-16 h-16 rounded-2xl object-cover shadow-md shadow-blue-500/10 mb-3 border border-slate-200"
+              className="w-16 h-16 rounded-full object-cover shadow-md shadow-blue-500/10 mb-3 border border-slate-200"
             />
           ) : (
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#1D4ED8] to-[#2563EB] flex items-center justify-center text-white font-extrabold text-2xl shadow-md shadow-blue-500/20 mb-3">
+            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#1D4ED8] to-[#2563EB] flex items-center justify-center text-white font-extrabold text-2xl shadow-md shadow-blue-500/20 mb-3">
               {candidate?.candidate_name ? candidate.candidate_name.charAt(0).toUpperCase() : 'C'}
             </div>
           )}
@@ -547,7 +559,7 @@ export function Form2Client({ nominationId }: Form2ClientProps) {
           /* =================================================================== */
           <div className="bg-white border border-[#DDE3EE] rounded-2xl p-6 sm:p-8 shadow-sm max-w-xl mx-auto space-y-6">
             <div className="text-center space-y-2">
-              <div className="w-16 h-16 rounded-2xl bg-blue-50 border border-blue-200 text-[#1D4ED8] flex items-center justify-center mx-auto mb-3 shadow-xs">
+              <div className="w-16 h-16 rounded-full bg-blue-50 border border-blue-200 text-[#1D4ED8] flex items-center justify-center mx-auto mb-3 shadow-xs">
                 <Lock className="w-8 h-8" />
               </div>
               <h2 className="text-2xl font-extrabold text-[#0F172A]">Identity &amp; OTP Verification</h2>
