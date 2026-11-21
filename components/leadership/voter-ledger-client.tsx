@@ -13,11 +13,9 @@ import {
   CheckCircle2,
   Calendar,
   AlertCircle,
-  Building2,
   MapPin,
   ChevronLeft,
   Clock,
-  Sparkles,
 } from 'lucide-react'
 import { OtpSixBoxInput } from './otp-six-box-input'
 
@@ -69,6 +67,36 @@ export function VoterLedgerClient({ nominationId }: VoterLedgerClientProps) {
   const [isRefreshing, setIsRefreshing] = useState(false)
   const [isExpired, setIsExpired] = useState(false)
   const [lastRefreshedAt, setLastRefreshedAt] = useState<string>('')
+
+  // Prefetch candidate public details on mount
+  useEffect(() => {
+    async function fetchCandidateInfo() {
+      try {
+        const cleanId = decodeURIComponent(nominationId).trim()
+        const res = await fetch(`${API_BASE}/public/nomination/${encodeURIComponent(cleanId)}`, {
+          headers: { Accept: 'application/json' },
+        })
+        const json = await res.json()
+        if (res.ok && json) {
+          const c = json.data || json.candidate || json
+          if (c && (c.full_name || c.candidate_name || c.name)) {
+            setCandidate({
+              name: c.full_name || c.candidate_name || c.name,
+              role: c.role_name || c.designation || c.role?.name || 'District Executive Director',
+              city: c.city || c.scope_name || 'India',
+              application_number: c.application_number || 'PG-2026-SHORTLIST',
+              is_voting_open: true,
+            })
+          }
+        }
+      } catch {
+        // Fallback or preview
+      }
+    }
+    if (nominationId) {
+      fetchCandidateInfo()
+    }
+  }, [nominationId])
 
   // Check saved auth token on mount
   useEffect(() => {
@@ -188,7 +216,9 @@ export function VoterLedgerClient({ nominationId }: VoterLedgerClientProps) {
         const data = await res.json()
 
         if (res.ok && data.status) {
-          setCandidate(data.candidate || null)
+          if (data.candidate) {
+            setCandidate(data.candidate)
+          }
           setTotalVotes(data.total_votes || 0)
           setVotes(data.votes || [])
           setLastRefreshedAt(
@@ -227,7 +257,7 @@ export function VoterLedgerClient({ nominationId }: VoterLedgerClientProps) {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 relative z-10">
         {/* Navigation Breadcrumb */}
-        <div className="flex items-center justify-between text-xs font-semibold text-slate-500">
+        <div className="flex items-center text-xs font-semibold text-slate-500">
           <Link
             href="/leadership/nominate"
             className="flex items-center gap-1 hover:text-[#1D4ED8] transition-colors"
@@ -235,26 +265,32 @@ export function VoterLedgerClient({ nominationId }: VoterLedgerClientProps) {
             <ChevronLeft className="w-4 h-4" />
             Leadership Portal
           </Link>
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
-              Candidate Private Access • Strictly Confidential
-            </span>
-          </div>
         </div>
 
-        {/* Hero Header */}
-        <div className="text-center space-y-2">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-xs font-bold text-[#1E3A8A]">
-            <Lock className="w-3.5 h-3.5 text-amber-600" />
-            <span>Private Nominee Access &bull; Unindexed Page</span>
+        {/* Candidate Banner Card - Clean & Centered */}
+        <div className="bg-white border border-[#DDE3EE] rounded-2xl p-6 sm:p-7 shadow-sm flex flex-col items-center justify-center text-center">
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#1D4ED8] to-[#2563EB] flex items-center justify-center text-white font-extrabold text-2xl shadow-md shadow-blue-500/20 mb-3">
+            {candidate?.name ? candidate.name.charAt(0).toUpperCase() : 'C'}
           </div>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight">
-            Candidate Private Voter Ledger
-          </h1>
-          <p className="text-slate-600 text-sm max-w-xl mx-auto leading-relaxed">
-            Live, verified peer voting breakdown for your official leadership candidacy.
-          </p>
+          <div className="flex items-center gap-2.5 flex-wrap justify-center">
+            <h1 className="text-xl sm:text-2xl font-extrabold text-[#0F172A] tracking-tight">
+              {candidate?.name || decodeURIComponent(nominationId).replace(/[-_]+/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())}
+            </h1>
+            <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#E3EAFD] text-[#1E3A8A] border border-blue-200">
+              {candidate?.role || 'District Executive Director'}
+            </span>
+          </div>
+          <div className="text-xs text-slate-500 mt-1.5 flex items-center gap-2 justify-center">
+            <span>
+              App Ref: <strong className="text-slate-700">{candidate?.application_number || 'PG-2026-SHORTLIST'}</strong>
+            </span>
+            {candidate?.city && (
+              <>
+                <span>•</span>
+                <span>{candidate.city}</span>
+              </>
+            )}
+          </div>
         </div>
 
         {/* Expired Notice */}
@@ -280,9 +316,10 @@ export function VoterLedgerClient({ nominationId }: VoterLedgerClientProps) {
               <div className="w-16 h-16 rounded-2xl bg-blue-50 border border-blue-200 text-[#1D4ED8] flex items-center justify-center mx-auto mb-3 shadow-xs">
                 <Lock className="w-8 h-8" />
               </div>
-              <h2 className="text-2xl font-extrabold text-[#0F172A]">Identity Verification</h2>
+              <h2 className="text-2xl font-extrabold text-[#0F172A]">Candidate Voter Ledger Access</h2>
               <p className="text-slate-600 text-xs leading-relaxed">
-                Enter your registered candidate email address to receive a secure 6-digit access code.
+                To protect candidate confidentiality, please verify your registered nomination email address for candidate{' '}
+                <strong className="text-slate-900">{candidate?.name || 'Leader'}</strong>.
               </p>
             </div>
 
@@ -403,44 +440,6 @@ export function VoterLedgerClient({ nominationId }: VoterLedgerClientProps) {
           /* FLOW 2: LIVE VOTER LEDGER DASHBOARD                                */
           /* =================================================================== */
           <div className="space-y-6">
-            {/* Header Candidate Dossier Card */}
-            <div className="bg-white border border-[#DDE3EE] rounded-2xl p-6 sm:p-7 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#1D4ED8] to-[#2563EB] flex items-center justify-center text-white font-extrabold text-2xl shadow-md shadow-blue-500/20">
-                  {candidate?.name ? candidate.name.charAt(0).toUpperCase() : 'C'}
-                </div>
-                <div>
-                  <div className="flex items-center gap-2.5 flex-wrap">
-                    <h2 className="text-xl sm:text-2xl font-extrabold text-[#0F172A] tracking-tight">
-                      {candidate?.name || 'Leadership Nominee'}
-                    </h2>
-                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#E3EAFD] text-[#1E3A8A] border border-blue-200">
-                      {candidate?.role || 'District Executive Director'}
-                    </span>
-                    <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-700 border border-slate-200">
-                      {candidate?.city || 'Ahmedabad, Gujarat'}
-                    </span>
-                  </div>
-                  <div className="text-xs text-slate-500 mt-1 flex items-center gap-3">
-                    <span>
-                      App Ref: <strong className="text-slate-700">{candidate?.application_number || 'PG-2026-00003'}</strong>
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2 flex-wrap">
-                <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 shadow-xs">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  Voting Active &amp; Open
-                </span>
-                <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold bg-blue-50 text-[#1D4ED8] border border-blue-200 shadow-xs">
-                  <ShieldCheck className="w-3.5 h-3.5" />
-                  100% Verified Peer OTP Votes
-                </span>
-              </div>
-            </div>
-
             {/* KPI Live Tally & Quick Refresh Bar */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="bg-white border border-[#DDE3EE] rounded-2xl p-6 shadow-sm md:col-span-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
