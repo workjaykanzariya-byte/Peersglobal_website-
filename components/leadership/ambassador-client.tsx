@@ -41,10 +41,10 @@ import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
 
 // ─── Stats Bar ────────────────────────────────────────────────────────────
 const STATS = [
-  { icon: Users, value: '10,000+', label: 'Peers' },
-  { icon: Globe2, value: '25+', label: 'Countries' },
+  { icon: Users, value: '10,450+', label: 'Peers' },
+  { icon: Globe2, value: '26+', label: 'Countries' },
   { icon: Network, value: '100+', label: 'Industry Circles' },
-  { icon: Target, value: '1M', label: 'Live Impacts' },
+  { icon: Target, value: '643+', label: 'Live Impacts' },
 ]
 
 // ─── What The Role Carries (3 Pillars) ────────────────────────────────────

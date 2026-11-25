@@ -19,7 +19,7 @@ const DEFAULT_STATS: EcosystemStatsData = {
   peers: { value: '10,450+', label: 'Peers', raw: 10450 },
   cities: { value: '48+', label: 'Cities', raw: 48 },
   countries: { value: '26+', label: 'Countries', raw: 26 },
-  liveImpacts: { value: '1M', label: 'Live Impacts', raw: 1000000 },
+  liveImpacts: { value: '643+', label: 'Live Impacts', raw: 643 },
 }
 
 let cachedMetrics: EcosystemStatsData | null = null

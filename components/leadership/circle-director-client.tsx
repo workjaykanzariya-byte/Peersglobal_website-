@@ -41,25 +41,25 @@ const STATS = [
   {
     key: 'peers',
     icon: Users,
-    value: '10,000+',
+    value: '10,450+',
     label: 'Peers',
   },
   {
     key: 'cities',
     icon: Building2,
-    value: '45+',
+    value: '48+',
     label: 'Cities',
   },
   {
     key: 'countries',
     icon: Globe2,
-    value: '25+',
+    value: '26+',
     label: 'Countries',
   },
   {
     key: 'liveImpacts',
     icon: Target,
-    value: '1M',
+    value: '643+',
     label: 'Live Impacts',
   },
 ]

@@ -36,8 +36,10 @@ export interface EcosystemMetrics {
 function formatNumber(num: number, type: 'peers' | 'cities' | 'countries' | 'liveImpacts'): string {
   if (type === 'liveImpacts') {
     if (num >= 1_000_000) return `${Math.floor(num / 1_000_000)}M`
-    if (num >= 1_000) return `${Math.floor(num / 1_000)}K+`
-    return `${num}`
+    if (num >= 10_000) return `${Math.floor(num / 1_000)}K+`
+    if (num >= 1_000) return `${(num / 1_000).toFixed(1)}K+`
+    if (num > 0) return `${num}+`
+    return '643+'
   }
 
   if (type === 'peers') {
@@ -50,14 +52,14 @@ function formatNumber(num: number, type: 'peers' | 'cities' | 'countries' | 'liv
       return `${rounded.toLocaleString('en-IN')}+`
     }
     if (num > 0) return `${num}+`
-    return '10,000+'
+    return '10,450+'
   }
 
   if (type === 'cities' || type === 'countries') {
     if (num >= 100) return `${Math.floor(num / 10) * 10}+`
     if (num >= 20) return `${Math.floor(num / 5) * 5}+`
     if (num > 0) return `${num}+`
-    return type === 'cities' ? '45+' : '25+'
+    return type === 'cities' ? '48+' : '26+'
   }
 
   return `${num}`
@@ -68,7 +70,7 @@ export async function GET() {
     peers: { raw: 10450, display: '10,450+', label: 'Peers' },
     cities: { raw: 48, display: '48+', label: 'Cities' },
     countries: { raw: 26, display: '26+', label: 'Countries' },
-    liveImpacts: { raw: 1000000, display: '1M', label: 'Live Impacts' },
+    liveImpacts: { raw: 643, display: '643+', label: 'Live Impacts' },
     updatedAt: new Date().toISOString(),
     source: 'fallback',
   }
@@ -154,21 +156,24 @@ export async function GET() {
   // -------------------------------------------------------------------------
   if (pool) {
     try {
-      const [peersRes, citiesRes, countriesRes] = await Promise.all([
+      const [peersRes, citiesRes, countriesRes, impactsRes] = await Promise.all([
         pool.query(`SELECT COUNT(*)::int AS count FROM public.users`).catch(() => ({ rows: [] })),
         pool.query(`SELECT COUNT(DISTINCT LOWER(TRIM(city)))::int AS count FROM public.users WHERE city IS NOT NULL AND TRIM(city) != ''`).catch(() => ({ rows: [] })),
         pool.query(`SELECT COUNT(DISTINCT LOWER(TRIM(country)))::int AS count FROM public.users WHERE country IS NOT NULL AND TRIM(country) != ''`).catch(() => ({ rows: [] })),
+        pool.query(`SELECT COUNT(*)::int AS count FROM public.life_impact_histories`).catch(() => ({ rows: [] })),
       ])
 
       const peersCount = peersRes.rows[0]?.count || 0
       const citiesCount = citiesRes.rows[0]?.count || 0
       const countriesCount = countriesRes.rows[0]?.count || 0
+      const impactsCount = impactsRes.rows[0]?.count || 643
 
       // Only use DB if meaningful data is present
-      if (peersCount > 0) {
-        const peersRaw = Math.max(peersCount, 10000)
-        const citiesRaw = Math.max(citiesCount, 45)
-        const countriesRaw = Math.max(countriesCount, 25)
+      if (peersCount > 0 || impactsCount > 0) {
+        const peersRaw = Math.max(peersCount, 10450)
+        const citiesRaw = Math.max(citiesCount, 48)
+        const countriesRaw = Math.max(countriesCount, 26)
+        const impactsRaw = impactsCount > 0 ? impactsCount : 643
 
         return NextResponse.json({
           success: true,
@@ -189,8 +194,8 @@ export async function GET() {
               label: 'Countries',
             },
             liveImpacts: {
-              raw: 1000000,
-              display: '1M',
+              raw: impactsRaw,
+              display: formatNumber(impactsRaw, 'liveImpacts'),
               label: 'Live Impacts',
             },
             updatedAt: new Date().toISOString(),
