@@ -43,10 +43,10 @@ import { useEcosystemStats } from '@/lib/hooks/use-ecosystem-stats'
 
 // ─── Stats Bar ────────────────────────────────────────────────────────────
 const STATS = [
-  { key: 'peers', icon: Users, value: '10,000+', label: 'Peers' },
+  { key: 'peers', icon: Users, value: '10,450+', label: 'Peers' },
   { key: 'experience', icon: Award, value: '30+ Yrs', label: 'Senior Experience' },
-  { key: 'cities', icon: Building2, value: '45+', label: 'Cities' },
-  { key: 'liveImpacts', icon: Target, value: '1M', label: 'Live Impacts' },
+  { key: 'cities', icon: Building2, value: '48+', label: 'Cities' },
+  { key: 'liveImpacts', icon: Target, value: '643+', label: 'Live Impacts' },
 ]
 
 // ─── How Experience Is Learned ────────────────────────────────────────────
