@@ -474,35 +474,15 @@ export function ContactPageClient() {
                     const el = document.getElementById('send-message')
                     if (el) el.scrollIntoView({ behavior: 'smooth' })
                   }}
-                  className={`relative !rounded-2xl cursor-pointer shadow-2xs hover:shadow-xl transition-all duration-300 ${
+                  className={`group relative rounded-2xl cursor-pointer transition-all duration-300 bg-white border ${
                     isSelected
-                      ? 'shadow-xl -translate-y-1.5'
-                      : 'hover:-translate-y-1'
+                      ? 'border-[#1D4ED8] ring-2 ring-[#1D4ED8]/15 shadow-md -translate-y-1'
+                      : 'border-slate-200/90 hover:border-slate-300 hover:shadow-md hover:-translate-y-1'
                   }`}
                   tabIndex={0}
                   role="button"
                 >
-                  {isSelected && (
-                    <svg className="animated-border-svg !rounded-2xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-                      <defs>
-                        <linearGradient id={`routeCardGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                          <stop offset="0%" stopColor="#1D4ED8" />
-                          <stop offset="100%" stopColor="#E11D48" />
-                        </linearGradient>
-                      </defs>
-                      <path
-                        className="animated-border-path"
-                        style={{
-                          stroke: `url(#routeCardGrad-${idx})`,
-                          opacity: 1,
-                          animation: 'traceBorderLoop 3s linear infinite',
-                        }}
-                        d="M 12,0 H 88 Q 100,0 100,12 V 88 Q 100,100 88,100 H 12 Q 0,100 0,88 V 12 Q 0,0 12,0 Z"
-                      />
-                    </svg>
-                  )}
-
-                  <div className="p-6 sm:p-7 rounded-2xl bg-white flex flex-col justify-between space-y-4 h-full">
+                  <div className="p-6 sm:p-7 rounded-2xl flex flex-col justify-between space-y-4 h-full">
                     <div className="space-y-4">
                       {/* Top Row: Icon + Route ID + Tag */}
                       <div className="flex items-center justify-between">
