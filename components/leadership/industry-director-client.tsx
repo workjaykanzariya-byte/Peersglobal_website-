@@ -36,13 +36,14 @@ import {
   Smartphone,
 } from 'lucide-react'
 import { usePageMedia } from '@/lib/hooks/use-page-media'
+import { useEcosystemStats } from '@/lib/hooks/use-ecosystem-stats'
 
 // ─── Stats Bar ────────────────────────────────────────────────────────────
 const STATS = [
-  { icon: Users, value: '10,000+', label: 'Entrepreneurs' },
-  { icon: Building2, value: '25+', label: 'Industries' },
-  { icon: Globe2, value: '45+', label: 'Cities' },
-  { icon: Target, value: '1M', label: 'Lives to Impact' },
+  { key: 'peers', icon: Users, value: '10,000+', label: 'Peers' },
+  { key: 'industries', icon: Building2, value: '25+', label: 'Industries' },
+  { key: 'cities', icon: Globe2, value: '45+', label: 'Cities' },
+  { key: 'liveImpacts', icon: Target, value: '1M', label: 'Live Impacts' },
 ]
 
 // ─── Three Important Dimensions ───────────────────────────────────────────
@@ -189,6 +190,13 @@ const FAQ = [
 
 export function IndustryDirectorClient() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const { stats: dynamicStats } = useEcosystemStats()
+
+  const displayStats = STATS.map((s) => ({
+    ...s,
+    value: (dynamicStats as any)[s.key]?.value || s.value,
+    label: (dynamicStats as any)[s.key]?.label || s.label,
+  }))
 
   const { getMedia } = usePageMedia('leadership')
   const heroMedia = getMedia({
@@ -203,7 +211,7 @@ export function IndustryDirectorClient() {
   return (
     <div className="flex flex-col min-h-screen bg-white text-[#0F172A] selection:bg-[#0062D2] selection:text-white font-sans antialiased">
       {/* Global SVG Gradients for Icons and Card Borders */}
-      <svg className="absolute size-0 overflow-hidden pointer-events-none" aria-hidden="true">
+      <svg width="0" height="0" className="absolute pointer-events-none" aria-hidden="true" style={{ position: 'absolute', width: 0, height: 0 }}>
         <defs>
           <linearGradient id="brandIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#1D4ED8" />
@@ -311,7 +319,7 @@ export function IndustryDirectorClient() {
 
           {/* Floating Stats Bar */}
           <div className="mt-8 sm:mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 items-stretch">
-            {STATS.map((stat, i) => {
+            {displayStats.map((stat, i) => {
               const Icon = stat.icon
               return (
                 <div

@@ -271,7 +271,7 @@ export function WhoBelongsClient() {
                     <Sparkles className="w-3.5 h-3.5 stroke-[url(#brandStatGrad)] text-amber-300" />
                     <span className="text-lg font-bold bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">1M+</span>
                   </div>
-                  <span className="text-[11px] text-slate-300 font-medium">Lives to Impact</span>
+                  <span className="text-[11px] text-slate-300 font-medium">Live Impacts</span>
                 </div>
               </div>
             </div>

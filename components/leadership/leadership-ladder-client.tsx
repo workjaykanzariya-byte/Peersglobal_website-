@@ -179,7 +179,7 @@ export function LeadershipLadderClient() {
   return (
     <div className="flex flex-col min-h-screen bg-white text-[#0F172A] selection:bg-[#0062D2] selection:text-white font-sans antialiased">
       {/* Global SVG Gradients for Icons and Card Borders */}
-      <svg className="absolute size-0 overflow-hidden pointer-events-none" aria-hidden="true">
+      <svg width="0" height="0" className="absolute pointer-events-none" aria-hidden="true" style={{ position: 'absolute', width: 0, height: 0 }}>
         <defs>
           <linearGradient id="brandIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#1D4ED8" />

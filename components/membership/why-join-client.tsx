@@ -43,7 +43,7 @@ const STATS = [
   {
     icon: Users,
     value: '10,000+',
-    label: 'Entrepreneurs',
+    label: 'Peers',
   },
   {
     icon: Building2,
@@ -58,7 +58,7 @@ const STATS = [
   {
     icon: Target,
     value: '1M',
-    label: 'Lives to Impact',
+    label: 'Live Impacts',
   },
 ]
 
@@ -758,7 +758,7 @@ export function WhyJoinClient() {
               <div className="absolute bottom-6 inset-x-6 z-10 grid grid-cols-3 gap-2 text-center text-white bg-black/40 backdrop-blur-md rounded-2xl p-4 border border-white/15">
                 <div>
                   <div className="font-serif text-xl sm:text-2xl font-bold text-white">1M</div>
-                  <div className="text-[10px] sm:text-xs text-slate-300 font-medium">Lives to Impact</div>
+                  <div className="text-[10px] sm:text-xs text-slate-300 font-medium">Live Impacts</div>
                 </div>
                 <div className="border-x border-white/15">
                   <div className="font-serif text-xl sm:text-2xl font-bold text-amber-300">∞</div >
