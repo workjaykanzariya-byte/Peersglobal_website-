@@ -311,27 +311,40 @@ export function PartnerPageClient() {
                 <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8">
                   <GalaxyButton
                     href="#start-conversation"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      setSubmitted(false)
+                      document.getElementById('start-conversation')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                    }}
                     variant="white-gradient"
                     size="default"
-                    className="uppercase tracking-wider font-bold"
+                    className="uppercase tracking-wider font-bold cursor-pointer"
                   >
                     Start a Conversation
                   </GalaxyButton>
 
                   <GalaxyButton
                     href="#who-we-partner-with"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      document.getElementById('who-we-partner-with')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                    }}
                     variant="gradient-white"
                     size="default"
-                    className="uppercase tracking-wider font-bold"
+                    className="uppercase tracking-wider font-bold cursor-pointer"
                   >
                     Who We Partner With
                   </GalaxyButton>
 
                   <GalaxyButton
                     href="#partners-vs-sponsors"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      document.getElementById('partners-vs-sponsors')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                    }}
                     variant="transparent"
                     size="default"
-                    className="uppercase tracking-wider font-bold"
+                    className="uppercase tracking-wider font-bold cursor-pointer"
                   >
                     Partner vs Sponsor
                   </GalaxyButton>
@@ -753,12 +766,12 @@ export function PartnerPageClient() {
       </section>
 
       {/* ── SPONSORSHIP & ADVERTISING ── */}
-      <section className="py-16 sm:py-24 bg-gradient-to-b from-white via-[#FAFBFD] to-white border-b border-slate-200/80 relative overflow-hidden">
+      <section id="sponsorship-and-advertising" className="py-16 sm:py-24 bg-gradient-to-b from-white via-[#FAFBFD] to-white border-b border-slate-200/80 relative overflow-hidden scroll-mt-20">
         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_60%_50%_at_75%_40%,rgba(225,29,72,0.03),transparent_60%)]" />
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* SPONSORSHIP */}
-            <div className="space-y-6">
+            <div id="sponsorship" className="space-y-6 scroll-mt-24">
               <div>
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-blue-50/80 to-rose-50/80 border border-slate-200 text-xs font-bold mb-3">
                   <Gift className="w-4 h-4 [stroke:url(#partnerBrandGrad)]" />
@@ -791,7 +804,7 @@ export function PartnerPageClient() {
             </div>
 
             {/* ADVERTISE WITH US */}
-            <div className="space-y-6">
+            <div id="advertising" className="space-y-6 scroll-mt-24">
               <div>
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-blue-50/80 to-rose-50/80 border border-slate-200 text-xs font-bold mb-3">
                   <Megaphone className="w-4 h-4 [stroke:url(#partnerBrandGrad)]" />
@@ -1423,32 +1436,56 @@ export function PartnerPageClient() {
             {/* Right Column: Interactive Quick Actions */}
             <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-3 justify-end lg:items-end w-full">
               <GalaxyButton
-                href="#start-conversation"
+                onClick={() => {
+                  setSubmitted(false)
+                  setFormData((prev) => ({ ...prev, relationshipType: 'Strategic Partnership' }))
+                  const el = document.getElementById('start-conversation')
+                  if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                    const input = el.querySelector('input')
+                    input?.focus()
+                  }
+                }}
                 size="default"
-                className="w-full max-w-xs uppercase tracking-wider font-bold"
+                className="w-full max-w-xs uppercase tracking-wider font-bold cursor-pointer"
               >
                 Become a Partner
               </GalaxyButton>
 
               <GalaxyButton
-                href="#start-conversation"
+                onClick={() => {
+                  const el = document.getElementById('sponsorship') || document.getElementById('sponsorship-and-advertising') || document.getElementById('start-conversation')
+                  if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                  }
+                }}
                 variant="transparent"
                 size="default"
-                className="w-full max-w-xs uppercase tracking-wider font-bold"
+                className="w-full max-w-xs uppercase tracking-wider font-bold cursor-pointer text-white hover:bg-white/10"
               >
                 Explore Sponsorship
               </GalaxyButton>
 
               <div className="flex gap-2.5 w-full max-w-xs">
-                <a
-                  href="#start-conversation"
-                  className="flex-1 py-2.5 px-3 rounded-xl bg-white/[0.05] hover:bg-white/[0.10] text-slate-200 hover:text-white font-semibold text-[11px] uppercase tracking-wider transition-all border border-white/10 text-center"
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSubmitted(false)
+                    setFormData((prev) => ({ ...prev, relationshipType: 'Public Channel Advertising' }))
+                    const el = document.getElementById('start-conversation') || document.getElementById('advertising')
+                    if (el) {
+                      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                      const input = el.querySelector('input')
+                      input?.focus()
+                    }
+                  }}
+                  className="flex-1 py-2.5 px-3 rounded-xl bg-white/[0.05] hover:bg-white/[0.12] text-slate-200 hover:text-white font-semibold text-[11px] uppercase tracking-wider transition-all border border-white/10 text-center cursor-pointer active:scale-95"
                 >
                   Ad Enquiry
-                </a>
+                </button>
                 <Link
                   href="/contact"
-                  className="flex-1 py-2.5 px-3 rounded-xl bg-white/[0.05] hover:bg-white/[0.10] text-slate-200 hover:text-white font-semibold text-[11px] uppercase tracking-wider transition-all border border-white/10 text-center"
+                  className="flex-1 py-2.5 px-3 rounded-xl bg-white/[0.05] hover:bg-white/[0.12] text-slate-200 hover:text-white font-semibold text-[11px] uppercase tracking-wider transition-all border border-white/10 text-center cursor-pointer active:scale-95 flex items-center justify-center"
                 >
                   Contact Us
                 </Link>
