@@ -37,7 +37,7 @@ const STATS = [
   {
     icon: Users,
     value: '10,000+',
-    label: 'Entrepreneurs',
+    label: 'Peers',
   },
   {
     icon: Building2,
@@ -52,7 +52,7 @@ const STATS = [
   {
     icon: Target,
     value: '1M',
-    label: 'Lives to Impact',
+    label: 'Live Impacts',
   },
 ]
 

@@ -264,7 +264,7 @@ export function ApplyToLeadClient() {
   return (
     <div className="min-h-screen bg-[#FAFBFD] text-slate-900 font-sans selection:bg-[#EFF6FF] selection:text-[#1D4ED8]">
       {/* Global Shared SVG Gradient Definition for Brand Icons & Card Borders */}
-      <svg className="absolute size-0 overflow-hidden pointer-events-none" aria-hidden="true" focusable="false">
+      <svg width="0" height="0" className="absolute pointer-events-none" aria-hidden="true" focusable="false" style={{ position: 'absolute', width: 0, height: 0 }}>
         <defs>
           <linearGradient id="brandIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#1D4ED8" />

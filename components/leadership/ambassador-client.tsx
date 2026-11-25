@@ -41,10 +41,10 @@ import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
 
 // ─── Stats Bar ────────────────────────────────────────────────────────────
 const STATS = [
-  { icon: Users, value: '10,000+', label: 'Entrepreneurs' },
+  { icon: Users, value: '10,000+', label: 'Peers' },
   { icon: Globe2, value: '25+', label: 'Countries' },
   { icon: Network, value: '100+', label: 'Industry Circles' },
-  { icon: Target, value: '1M', label: 'Lives to Impact' },
+  { icon: Target, value: '1M', label: 'Live Impacts' },
 ]
 
 // ─── What The Role Carries (3 Pillars) ────────────────────────────────────
@@ -193,7 +193,7 @@ export function AmbassadorClient() {
   return (
     <div className="flex flex-col min-h-screen bg-[#FAFBFD] text-slate-900">
       {/* Global SVG Gradients for Icons and Card Borders */}
-      <svg className="absolute size-0 overflow-hidden pointer-events-none" aria-hidden="true">
+      <svg width="0" height="0" className="absolute pointer-events-none" aria-hidden="true" style={{ position: 'absolute', width: 0, height: 0 }}>
         <defs>
           <linearGradient id="brandIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#1D4ED8" />
