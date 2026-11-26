@@ -190,6 +190,17 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
   const [selectedCandidate, setSelectedCandidate] = useState<CandidateDossier | null>(null)
   const [drawerTab, setDrawerTab] = useState<'profile' | 'form2' | 'scoring'>('profile')
 
+  // Lock body scroll when drawer is open so there is only one scrollbar at a time
+  useEffect(() => {
+    if (selectedCandidate) {
+      const originalOverflow = document.body.style.overflow
+      document.body.style.overflow = 'hidden'
+      return () => {
+        document.body.style.overflow = originalOverflow || 'unset'
+      }
+    }
+  }, [selectedCandidate])
+
   // Scoring Form State - 8 Default Criteria + Dynamic Additions
   const [criteriaList, setCriteriaList] = useState<EvaluationCriterion[]>(DEFAULT_EVALUATION_CRITERIA)
   const [newCriterionName, setNewCriterionName] = useState<string>('')
@@ -1070,9 +1081,11 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
               <button
                 type="button"
                 onClick={() => setSelectedCandidate(null)}
-                className="p-2 rounded-full hover:bg-slate-200 text-slate-400 hover:text-slate-700 transition-colors"
+                className="px-3.5 py-1.5 rounded-full bg-white hover:bg-slate-100 text-slate-700 hover:text-slate-900 font-bold text-xs flex items-center gap-1.5 border border-slate-300 shadow-xs transition-all shrink-0 cursor-pointer"
+                title="Close evaluation details"
               >
-                <X className="w-5 h-5" />
+                <X className="w-4 h-4 text-slate-600" strokeWidth={2.5} />
+                <span>Close</span>
               </button>
             </div>
 
