@@ -564,9 +564,6 @@ export function VoterLedgerClient({ nominationId }: VoterLedgerClientProps) {
                   <span className="text-4xl sm:text-5xl font-extrabold text-[#0F172A] tracking-tight">
                     {totalVotes}
                   </span>
-                  <span className="text-sm font-semibold text-emerald-600 flex items-center gap-1">
-                    <CheckCircle2 className="w-4 h-4" /> Authenticated via OTP
-                  </span>
                 </div>
               </div>
 

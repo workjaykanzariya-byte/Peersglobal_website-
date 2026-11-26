@@ -1515,7 +1515,6 @@ export function NominationSingleForm() {
                           <span className="font-semibold text-[#047857]">
                             {lifeImpactScore !== null && lifeImpactScore !== undefined ? lifeImpactScore : 0}
                           </span>
-                          <span className="text-[10px] text-slate-400 block">(For admin view only)</span>
                         </div>
                       </div>
                     </div>
