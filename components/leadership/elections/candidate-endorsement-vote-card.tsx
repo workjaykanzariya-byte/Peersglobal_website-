@@ -86,6 +86,19 @@ function resolveCandidateRole(candidate: Candidate | any, campaign?: Campaign | 
   return campaign?.role?.name || 'District Executive Director (DED)'
 }
 
+function isValidEmail(email: string): boolean {
+  return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email.trim())
+}
+
+function isValidPhone(phone: string): boolean {
+  const clean = phone.replace(/[\s\-_()]/g, '')
+  // Indian format: 10 digits starting with 6,7,8,9 (with optional +91 or 0 prefix)
+  if (/^(\+91|0)?[6-9]\d{9}$/.test(clean)) return true
+  // International format: 7 to 15 digits optionally starting with +
+  if (/^\+?[1-9]\d{6,14}$/.test(clean)) return true
+  return false
+}
+
 export function CandidateEndorsementVoteCard({
   candidate,
   campaign,
@@ -142,12 +155,12 @@ export function CandidateEndorsementVoteCard({
       setError('Please enter your full name')
       return
     }
-    if (!email.trim() || !email.includes('@')) {
-      setError('Please enter a valid email address')
+    if (!email.trim() || !isValidEmail(email)) {
+      setError('Please enter a valid email address (e.g. name@company.com)')
       return
     }
-    if (!phone.trim()) {
-      setError('Please enter your phone number')
+    if (!phone.trim() || !isValidPhone(phone)) {
+      setError('Please enter a valid 10-digit mobile number')
       return
     }
     if (!city.trim()) {
@@ -334,7 +347,7 @@ export function CandidateEndorsementVoteCard({
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="your@email.com"
+                    placeholder="e.g. name@company.com"
                     className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]/15 focus:border-[#1D4ED8] transition-all shadow-2xs"
                     required
                   />
@@ -372,13 +385,17 @@ export function CandidateEndorsementVoteCard({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                   <div>
                     <label className="block text-xs font-bold text-slate-900 mb-1.5">
-                      PHONE <span className="text-[#E11D48]">*</span>
+                      PHONE (10 DIGITS) <span className="text-[#E11D48]">*</span>
                     </label>
                     <input
                       type="tel"
                       value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      placeholder="+91 98765 43210"
+                      onChange={(e) => {
+                        const val = e.target.value.replace(/[^\d\s+\-]/g, '')
+                        setPhone(val)
+                      }}
+                      placeholder="e.g. 98765 43210"
+                      maxLength={16}
                       className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]/15 focus:border-[#1D4ED8] transition-all shadow-2xs"
                       required
                     />

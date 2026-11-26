@@ -624,8 +624,6 @@ export function VoterLedgerClient({ nominationId }: VoterLedgerClientProps) {
                         <th className="py-3.5 px-4">Verified Voter Name</th>
                         <th className="py-3.5 px-4">Business / Org &amp; Role</th>
                         <th className="py-3.5 px-4">Chapter / City</th>
-                        <th className="py-3.5 px-4">Support Statement</th>
-                        <th className="py-3.5 px-4">Vote Ref Code</th>
                         <th className="py-3.5 px-4">Voted At</th>
                       </tr>
                     </thead>
@@ -661,16 +659,6 @@ export function VoterLedgerClient({ nominationId }: VoterLedgerClientProps) {
                             <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-slate-100 border border-slate-200 text-slate-700 text-[11px] font-medium">
                               <MapPin className="w-3 h-3 text-slate-400" />
                               {v.city || 'India'}
-                            </span>
-                          </td>
-                          <td className="py-4 px-4 max-w-xs">
-                            <div className="p-2.5 rounded-lg bg-slate-50 border-l-2 border-[#1D4ED8] text-[11px] text-slate-700 italic">
-                              &ldquo;{v.support_statement || 'Verified community support for circle growth'}&rdquo;
-                            </div>
-                          </td>
-                          <td className="py-4 px-4">
-                            <span className="font-mono text-[11px] px-2 py-1 rounded bg-slate-100 border border-slate-200 text-slate-700 font-semibold">
-                              {v.vote_ref_code}
                             </span>
                           </td>
                           <td className="py-4 px-4 text-slate-500 text-nowrap">
