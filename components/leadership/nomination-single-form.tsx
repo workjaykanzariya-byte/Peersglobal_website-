@@ -372,8 +372,8 @@ export function NominationSingleForm() {
       setVerificationError('Please enter your email address.')
       return
     }
-    if (!email.includes('@') || !email.includes('.')) {
-      setVerificationError('Please enter a valid email address.')
+    if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+      setVerificationError('Please enter a valid email address (e.g. name@company.com).')
       return
     }
 
@@ -612,13 +612,20 @@ export function NominationSingleForm() {
   const visionWords = countWords(vision12Months)
 
   const isIdentifyDone = isVerified && selectedRoleKey !== '' && selectedCity.trim() !== ''
+  const cleanMobile = verifiedMobile.replace(/[\s\-_()]/g, '')
+  const isMobileValid =
+    /^(\+91|0)?[6-9]\d{9}$/.test(cleanMobile) || /^\+?[1-9]\d{6,14}$/.test(cleanMobile)
+  const isEmailValid = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(
+    verifiedEmail.trim()
+  )
+
   const isProfileDone =
     fullName.trim() !== '' &&
     companyName.trim() !== '' &&
     designation.trim() !== '' &&
     industryName.trim() !== '' &&
-    verifiedEmail.trim() !== '' &&
-    verifiedMobile.trim() !== ''
+    isEmailValid &&
+    isMobileValid
   const isNominationDetailsDone =
     statementWords > 0 &&
     statementWords <= 20 &&
@@ -638,8 +645,16 @@ export function NominationSingleForm() {
   if (!companyName.trim()) missingItems.push({ label: 'your company name', href: '#sec-profile' })
   if (!designation.trim()) missingItems.push({ label: 'your designation', href: '#sec-profile' })
   if (!industryName.trim()) missingItems.push({ label: 'your industry', href: '#sec-profile' })
-  if (!verifiedEmail.trim()) missingItems.push({ label: 'your email address', href: '#sec-profile' })
-  if (!verifiedMobile.trim()) missingItems.push({ label: 'your mobile number', href: '#sec-profile' })
+  if (!verifiedEmail.trim()) {
+    missingItems.push({ label: 'your email address', href: '#sec-profile' })
+  } else if (!isEmailValid) {
+    missingItems.push({ label: 'valid email format (e.g. name@company.com)', href: '#sec-profile' })
+  }
+  if (!verifiedMobile.trim()) {
+    missingItems.push({ label: 'your mobile number', href: '#sec-profile' })
+  } else if (!isMobileValid) {
+    missingItems.push({ label: 'valid 10-digit mobile number', href: '#sec-profile' })
+  }
   if (statementWords === 0) missingItems.push({ label: 'one-line leadership statement', href: '#sec-nomination' })
   if (statementWords > 20) missingItems.push({ label: 'leadership statement (max 20 words)', href: '#sec-nomination' })
   if (visionWords === 0) missingItems.push({ label: '12-month vision plan', href: '#sec-nomination' })
@@ -793,16 +808,23 @@ export function NominationSingleForm() {
         {/* ========================================================================= */}
         {submitted ? (
           <div className="bg-white border border-[#DDE3EE] rounded-2xl p-8 sm:p-12 flex flex-col items-center gap-5 text-center shadow-sm">
-            <span className="w-16 h-16 rounded-full bg-white border-2 border-emerald-500 flex items-center justify-center text-emerald-600 shadow-sm">
-              <Check className="w-8 h-8 stroke-[2.5]" />
-            </span>
+            <div className="w-16 h-16 rounded-full p-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] flex items-center justify-center shadow-sm">
+              <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
+                <Check className="w-8 h-8 stroke-[2.5]" />
+              </div>
+            </div>
             <div className="space-y-2">
               <h1 className="text-3xl font-extrabold tracking-tight text-[#0F172A]">Nomination submitted</h1>
               <p className="text-base text-slate-600 max-w-lg leading-relaxed">
-                Thank you, <strong className="text-slate-900">{fullName.split(' ')[0] || 'Leader'}</strong>. Your application
-                for <strong className="text-[#1D4ED8]">{currentRole?.name || selectedRoleKey}</strong> representing{' '}
-                <strong className="text-slate-900">{selectedCity}</strong> has been received and securely forwarded to the
-                Scrutiny Committee.
+                Thank you, <strong className="text-slate-900">{fullName.split(' ')[0] || 'Leader'}</strong>. Your application{' '}
+                {currentRole?.name || selectedRoleKey ? (
+                  <>
+                    for <strong className="text-[#1D4ED8]">{currentRole?.name || selectedRoleKey}</strong> representing{' '}
+                  </>
+                ) : (
+                  'for representing '
+                )}
+                <strong className="text-slate-900">{selectedCity}</strong> has been received.
               </p>
             </div>
 
@@ -820,7 +842,7 @@ export function NominationSingleForm() {
                 </div>
                 <div>
                   <span className="text-slate-500 block">Applied Role:</span>
-                  <span className="font-semibold text-slate-800">{currentRole?.short_name || selectedRoleKey}</span>
+                  <span className="font-semibold text-slate-800">{currentRole?.short_name || currentRole?.name || selectedRoleKey || '—'}</span>
                 </div>
                 <div className="col-span-2">
                   <span className="text-slate-500 block">Jurisdiction / Location:</span>
@@ -1422,11 +1444,13 @@ export function NominationSingleForm() {
                         type="tel"
                         value={verifiedMobile}
                         onChange={(e) => {
-                          setVerifiedMobile(e.target.value)
+                          const val = e.target.value.replace(/[^\d\s+\-]/g, '')
+                          setVerifiedMobile(val)
                           markProfileChanged('mobile')
                           setTouched(true)
                         }}
-                        placeholder="+91..."
+                        placeholder="e.g. +91 98765 43210"
+                        maxLength={16}
                         className="h-12 px-3.5 bg-white border border-[#8190A7] rounded-xl text-sm text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]"
                       />
                     </div>
