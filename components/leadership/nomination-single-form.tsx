@@ -61,10 +61,61 @@ export interface CityOption {
   district: string | null
   country?: string | null
   formatted_location?: string
+  full_location?: string
 }
 
 function countWords(str: string): number {
   return str.trim() ? str.trim().split(/\s+/).length : 0
+}
+
+function formatLocationDisplay(c: {
+  city?: string | null
+  name?: string | null
+  district?: string | null
+  state?: string | null
+  country?: string | null
+  formatted_location?: string | null
+  full_location?: string | null
+}): string {
+  if (c.formatted_location) return c.formatted_location
+  if (c.full_location) return c.full_location
+
+  const cityName = (c.city || c.name || '').trim()
+  const rawDistrict = (c.district || '').trim()
+  const rawState = (c.state || '').trim()
+  const countryName = (c.country || 'India').trim()
+
+  const normCity = cityName.toLowerCase().replace(/[\s\-_]+/g, '')
+  const normDistrict = rawDistrict
+    .toLowerCase()
+    .replace(/\b(district|city|urban|rural|metropolitan|county|region)\b/gi, '')
+    .replace(/[\s\-_]+/g, '')
+
+  // If district is not provided or is essentially the same as city (e.g. Ahmedabad, Surat, Rajkot, Mumbai), omit district
+  const isDistrictSameAsCity =
+    !normDistrict ||
+    normCity === normDistrict ||
+    normCity.includes(normDistrict) ||
+    normDistrict.includes(normCity)
+
+  const parts: string[] = [cityName]
+
+  if (rawDistrict && !isDistrictSameAsCity) {
+    const formattedDistrict = /\b(district|county)\b/i.test(rawDistrict)
+      ? rawDistrict
+      : `${rawDistrict} District`
+    parts.push(formattedDistrict)
+  }
+
+  if (rawState && rawState.toLowerCase() !== cityName.toLowerCase()) {
+    parts.push(rawState)
+  }
+
+  if (countryName) {
+    parts.push(countryName)
+  }
+
+  return parts.join(', ')
 }
 
 export function NominationSingleForm() {
@@ -469,12 +520,7 @@ export function NominationSingleForm() {
           setWebsiteUrl(p.website || '')
           setPhotoUrl(p.photo_url || p.profile_photo_url || null)
           if (p.city) {
-            setSelectedCity(
-              p.formatted_location ||
-              `${p.city}, ${p.district || p.city}, ${p.state || ''}, ${p.country || 'India'}`
-                .replace(/,\s*,/g, ',')
-                .trim()
-            )
+            setSelectedCity(formatLocationDisplay(p))
           }
           setCurrentCircle(p.current_circle || '')
           setCurrentRoleHeld('Peers Global Member')
@@ -1013,11 +1059,13 @@ export function NominationSingleForm() {
 
                       {citySearchResults.length > 0 ? (
                         citySearchResults.map((c) => {
-                          const fullLoc =
-                            c.formatted_location ||
-                            `${c.name}, ${c.district || c.name} District, ${c.state || ''}, ${c.country || 'India'}`
-                              .replace(/,\s*,/g, ',')
-                              .trim()
+                          const fullLoc = formatLocationDisplay(c)
+                          const normCity = (c.name || '').toLowerCase().replace(/[\s\-_]+/g, '')
+                          const normDist = (c.district || '')
+                            .toLowerCase()
+                            .replace(/\b(district|city|urban|rural|metropolitan|county|region)\b/gi, '')
+                            .replace(/[\s\-_]+/g, '')
+                          const isSame = !normDist || normCity === normDist || normCity.includes(normDist) || normDist.includes(normCity)
                           return (
                             <button
                               key={c.id}
@@ -1032,7 +1080,7 @@ export function NominationSingleForm() {
                             >
                               <span className="font-semibold text-slate-800">{c.name}</span>
                               <span className="text-slate-500 text-[11px]">
-                                {c.district ? `${c.district} · ` : ''}{c.state || ''} {c.country ? `(${c.country})` : ''}
+                                {!isSame && c.district ? `${c.district} · ` : ''}{c.state || ''} {c.country ? `(${c.country})` : ''}
                               </span>
                             </button>
                           )

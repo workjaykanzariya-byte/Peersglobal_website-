@@ -9,21 +9,54 @@ interface CityItem {
   state: string | null
   country: string
   full_location?: string
+  formatted_location?: string
 }
 
 let cachedCities: CityItem[] | null = null
 let lastFetchedTime = 0
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000 // 24 hours
 
-function formatCityLocation(c: { name: string; district?: string | null; state?: string | null; country?: string | null }): string {
-  const parts: string[] = [c.name]
-  if (c.district && c.district.trim() !== c.name.trim()) {
-    parts.push(c.district.includes('District') || c.district.includes('County') ? c.district : `${c.district} District`)
+function formatCityLocation(c: {
+  name: string
+  district?: string | null
+  state?: string | null
+  country?: string | null
+}): string {
+  const cityName = (c.name || '').trim()
+  const rawDistrict = (c.district || '').trim()
+  const rawState = (c.state || '').trim()
+  const countryName = (c.country || 'India').trim()
+
+  const normCity = cityName.toLowerCase().replace(/[\s\-_]+/g, '')
+  const normDistrict = rawDistrict
+    .toLowerCase()
+    .replace(/\b(district|city|urban|rural|metropolitan|county|region)\b/gi, '')
+    .replace(/[\s\-_]+/g, '')
+
+  // If district is not provided or is essentially the same as city (e.g. Ahmedabad, Surat, Rajkot, Mumbai), omit district
+  const isDistrictSameAsCity =
+    !normDistrict ||
+    normCity === normDistrict ||
+    normCity.includes(normDistrict) ||
+    normDistrict.includes(normCity)
+
+  const parts: string[] = [cityName]
+
+  if (rawDistrict && !isDistrictSameAsCity) {
+    const formattedDistrict = /\b(district|county)\b/i.test(rawDistrict)
+      ? rawDistrict
+      : `${rawDistrict} District`
+    parts.push(formattedDistrict)
   }
-  if (c.state && c.state.trim() !== c.name.trim()) {
-    parts.push(c.state)
+
+  if (rawState && rawState.toLowerCase() !== cityName.toLowerCase()) {
+    parts.push(rawState)
   }
-  parts.push(c.country || 'India')
+
+  if (countryName) {
+    parts.push(countryName)
+  }
+
   return parts.join(', ')
 }
 
@@ -84,6 +117,7 @@ async function loadCities(): Promise<CityItem[]> {
             country: c.country ? String(c.country).trim() : 'India',
           }
           item.full_location = formatCityLocation(item)
+          item.formatted_location = item.full_location
           return item
         })
         lastFetchedTime = now
@@ -94,7 +128,13 @@ async function loadCities(): Promise<CityItem[]> {
     console.warn('Could not load live cities, using fallback:', err)
   }
 
-  return cachedCities || POPULAR_CITIES.map((c) => ({ ...c, full_location: formatCityLocation(c) }))
+  return (
+    cachedCities ||
+    POPULAR_CITIES.map((c) => {
+      const loc = formatCityLocation(c)
+      return { ...c, full_location: loc, formatted_location: loc }
+    })
+  )
 }
 
 export async function GET(req: Request) {
@@ -135,9 +175,11 @@ export async function GET(req: Request) {
       (c.district && c.district.toLowerCase().startsWith(qLower)) ||
       (c.country && c.country.toLowerCase().startsWith(qLower))
     ) {
+      const loc = c.full_location || formatCityLocation(c)
       matched.push({
         ...c,
-        full_location: c.full_location || formatCityLocation(c),
+        full_location: loc,
+        formatted_location: loc,
       })
       if (matched.length >= limit) break
     }
@@ -154,9 +196,11 @@ export async function GET(req: Request) {
           (c.state && c.state.toLowerCase().includes(qLower)) ||
           (c.country && c.country.toLowerCase().includes(qLower))
         ) {
+          const loc = c.full_location || formatCityLocation(c)
           matched.push({
             ...c,
-            full_location: c.full_location || formatCityLocation(c),
+            full_location: loc,
+            formatted_location: loc,
           })
           if (matched.length >= limit) break
         }
