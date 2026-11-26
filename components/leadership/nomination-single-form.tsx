@@ -793,8 +793,8 @@ export function NominationSingleForm() {
         {/* ========================================================================= */}
         {submitted ? (
           <div className="bg-white border border-[#DDE3EE] rounded-2xl p-8 sm:p-12 flex flex-col items-center gap-5 text-center shadow-sm">
-            <span className="w-16 h-16 rounded-full bg-[#047857] flex items-center justify-center text-white shadow-md">
-              <Check className="w-8 h-8 stroke-[3]" />
+            <span className="w-16 h-16 rounded-full bg-white border-2 border-emerald-500 flex items-center justify-center text-emerald-600 shadow-sm">
+              <Check className="w-8 h-8 stroke-[2.5]" />
             </span>
             <div className="space-y-2">
               <h1 className="text-3xl font-extrabold tracking-tight text-[#0F172A]">Nomination submitted</h1>

@@ -92,6 +92,10 @@ export interface Candidate {
   company: string
   designation: string
   scope_name: string
+  role_name?: string
+  applied_role?: string
+  applied_role_name?: string
+  city?: string
   photo_url?: string
   bio?: string
   vision_statement?: string
@@ -804,6 +808,19 @@ export function normalizeCandidate(raw: any, campaign?: Campaign): Candidate {
     campaign?.role?.name ||
     'District Executive Director (DED)'
 
+  const appliedRoleName =
+    raw.role_name ||
+    raw.applied_role_name ||
+    raw.applied_role ||
+    raw.target_role ||
+    profile.role_name ||
+    profile.applied_role_name ||
+    profile.applied_role ||
+    (raw.role && typeof raw.role === 'string' ? raw.role : raw.role?.name) ||
+    (profile.role && typeof profile.role === 'string' ? profile.role : profile.role?.name) ||
+    campaign?.role?.name ||
+    designation
+
   // 4. Scope / Jurisdiction
   const scopeName =
     raw.scope_name ||
@@ -876,6 +893,10 @@ export function normalizeCandidate(raw: any, campaign?: Campaign): Candidate {
     company,
     designation,
     scope_name: scopeName,
+    role_name: appliedRoleName,
+    applied_role_name: appliedRoleName,
+    applied_role: raw.applied_role || profile.applied_role || raw.role,
+    city: raw.city || profile.city || scopeName,
     photo_url: photoUrl || undefined,
     bio,
     vision_statement: visionStatement,

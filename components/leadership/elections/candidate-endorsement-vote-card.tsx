@@ -29,6 +29,63 @@ interface CandidateEndorsementVoteCardProps {
   showBackToggle?: boolean
 }
 
+const ROLE_DICTIONARY: Record<string, string> = {
+  ded: 'District Executive Director (DED)',
+  eed: 'Ecosystem Executive Director (EED)',
+  industry_director: 'Industry Director',
+  circle_director: 'Circle Director',
+  chair: 'Circle Chair',
+  vice_chair: 'Circle Vice Chair',
+  circle_leader: 'Circle Leader',
+  circle_founder: 'Circle Founder',
+  secretary: 'Circle Secretary',
+  treasurer: 'Circle Treasurer',
+  committee_leader: 'Committee Leader',
+  growth_chair: 'Growth & Membership Chair',
+  events_chair: 'Events & Experience Chair',
+  communications_chair: 'Communications & Brand Chair',
+  mentorship_chair: 'Mentorship & Impact Chair',
+  governance_chair: 'Governance & Ethics Chair',
+}
+
+function resolveCandidateRole(candidate: Candidate | any, campaign?: Campaign | any): string {
+  const cityName = (candidate.city || candidate.scope_name || '').trim().toLowerCase()
+
+  const rawRoleCandidates = [
+    candidate.role_name,
+    candidate.applied_role_name,
+    candidate.applied_role,
+    candidate.target_role,
+    candidate.role?.name,
+    typeof candidate.role === 'string' ? candidate.role : null,
+    candidate.profile_snapshot?.role_name,
+    candidate.profile_snapshot?.applied_role_name,
+    candidate.profile_snapshot?.applied_role,
+    candidate.designation,
+    campaign?.role?.name,
+  ]
+
+  for (const candidateRole of rawRoleCandidates) {
+    if (!candidateRole || typeof candidateRole !== 'string') continue
+    const trimmed = candidateRole.trim()
+    if (!trimmed) continue
+
+    // Do NOT allow city/location to be treated as role
+    if (cityName && (trimmed.toLowerCase() === cityName || cityName.includes(trimmed.toLowerCase()))) {
+      continue
+    }
+
+    const key = trimmed.toLowerCase().replace(/[\s-]+/g, '_')
+    if (ROLE_DICTIONARY[key]) {
+      return ROLE_DICTIONARY[key]
+    }
+
+    return trimmed
+  }
+
+  return campaign?.role?.name || 'District Executive Director (DED)'
+}
+
 export function CandidateEndorsementVoteCard({
   candidate,
   campaign,
@@ -142,11 +199,7 @@ export function CandidateEndorsementVoteCard({
     }
   }
 
-  const categoryName =
-    candidate.scope_name ||
-    campaign?.role?.name ||
-    campaign?.title ||
-    'District Executive Director (DED)'
+  const roleName = resolveCandidateRole(candidate, campaign)
 
   const shortBio = candidate.bio ||
     'Pioneering business leader driving enterprise expansion, regional innovation, and collaborative ecosystem impact in the Peers Global community.'
@@ -215,7 +268,7 @@ export function CandidateEndorsementVoteCard({
                   {candidate.company || 'Peers Global Member Enterprise'}
                 </div>
                 <div className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider brand-gradient-text mt-1">
-                  {categoryName}
+                  {roleName}
                 </div>
               </div>
             </div>
@@ -399,9 +452,6 @@ export function CandidateEndorsementVoteCard({
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
                   Vote Successfully Recorded!
                 </h2>
-                <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-                  Thank you, <strong className="text-slate-900">{receipt.voterName}</strong>. Your verified endorsement for <strong className="text-slate-900">{candidate.full_name}</strong> has been officially confirmed and logged.
-                </p>
               </div>
 
               {/* Clean Official Vote Receipt Card (No Technical Reference Codes) */}
@@ -430,7 +480,7 @@ export function CandidateEndorsementVoteCard({
                       Position &amp; Role
                     </span>
                     <span className="font-extrabold text-sm text-slate-900 block truncate">
-                      {categoryName}
+                      {roleName}
                     </span>
                   </div>
 
