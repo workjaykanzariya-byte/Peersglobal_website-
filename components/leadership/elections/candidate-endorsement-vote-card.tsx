@@ -19,6 +19,7 @@ import {
   AlertCircle,
   ExternalLink,
   Sparkles,
+  X,
 } from 'lucide-react'
 import { Candidate, Campaign } from '@/lib/api/leadership'
 
@@ -137,6 +138,14 @@ export function CandidateEndorsementVoteCard({
     voterName: string
   } | null>(null)
 
+  // Already Voted Modal State
+  const [showAlreadyVotedModal, setShowAlreadyVotedModal] = useState<boolean>(false)
+  const [alreadyVotedDetail, setAlreadyVotedDetail] = useState<{
+    voterEmail: string
+    candidateName: string
+    message?: string
+  } | null>(null)
+
   // Share link handler
   const handleCopyLink = () => {
     if (typeof window !== 'undefined') {
@@ -166,6 +175,24 @@ export function CandidateEndorsementVoteCard({
     if (!city.trim()) {
       setError('Please enter your city')
       return
+    }
+
+    const cleanEmail = email.trim().toLowerCase()
+
+    // Pre-check if voter has already submitted a vote for this candidate on this device
+    if (typeof window !== 'undefined') {
+      try {
+        const storedVote = localStorage.getItem(`pg_voted_${candidate.id}_${cleanEmail}`)
+        if (storedVote) {
+          setAlreadyVotedDetail({
+            voterEmail: cleanEmail,
+            candidateName: candidate.full_name,
+            message: `You have already voted for ${candidate.full_name} with ${cleanEmail}. In accordance with Peers Global election governance rules, only one vote per member is permitted for each leadership role.`,
+          })
+          setShowAlreadyVotedModal(true)
+          return
+        }
+      } catch {}
     }
 
     setIsSubmitting(true)
@@ -202,6 +229,18 @@ export function CandidateEndorsementVoteCard({
           voterName: fullName.trim(),
         })
         setVotesCount((prev) => prev + 1)
+        if (typeof window !== 'undefined') {
+          try {
+            localStorage.setItem(`pg_voted_${candidate.id}_${cleanEmail}`, 'true')
+          } catch {}
+        }
+      } else if (data.already_voted || res.status === 422 || (data.message && data.message.toLowerCase().includes('already voted'))) {
+        setAlreadyVotedDetail({
+          voterEmail: cleanEmail,
+          candidateName: candidate.full_name,
+          message: data.message || `You have already voted for ${candidate.full_name} with ${cleanEmail}. Each member can only vote once per nominee.`,
+        })
+        setShowAlreadyVotedModal(true)
       } else {
         setError(data.message || 'Unable to record your vote. Please try again.')
       }
@@ -568,6 +607,67 @@ export function CandidateEndorsementVoteCard({
           )}
         </div>
       </div>
+
+      {/* ================= ALREADY VOTED MODAL POPUP ================= */}
+      {showAlreadyVotedModal && (
+        <div
+          className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200"
+          onClick={() => setShowAlreadyVotedModal(false)}
+        >
+          <div
+            className="max-w-md w-full bg-white rounded-3xl p-6 sm:p-8 text-center shadow-2xl border border-slate-200 relative animate-in zoom-in-95 duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Top Close Button */}
+            <button
+              type="button"
+              onClick={() => setShowAlreadyVotedModal(false)}
+              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition-colors cursor-pointer"
+              title="Close"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            {/* Icon */}
+            <div className="w-16 h-16 rounded-2xl bg-amber-50 border-2 border-amber-300 text-amber-600 flex items-center justify-center mx-auto mb-4">
+              <ShieldCheck className="w-8 h-8 text-amber-600" />
+            </div>
+
+            {/* Heading */}
+            <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900">
+              Vote Already Cast
+            </h3>
+
+            {/* Body Copy */}
+            <p className="text-sm text-slate-600 mt-2.5 leading-relaxed">
+              You have already cast your vote for{' '}
+              <strong className="text-slate-900">{alreadyVotedDetail?.candidateName || candidate.full_name}</strong>{' '}
+              using the email address{' '}
+              <strong className="text-slate-900">{alreadyVotedDetail?.voterEmail || email}</strong>.
+            </p>
+
+            {/* Policy Notice Box */}
+            <div className="mt-5 p-4 rounded-2xl bg-slate-50 border border-slate-200 text-left space-y-1.5">
+              <div className="text-xs font-bold text-slate-800">
+                Election Governance Protocol:
+              </div>
+              <ul className="text-xs text-slate-600 space-y-1 leading-relaxed">
+                <li>• <strong>1 Member = 1 Vote</strong> per nominee.</li>
+                <li>• Duplicate votes from the same contact are strictly restricted to protect election integrity.</li>
+              </ul>
+            </div>
+
+            {/* CTA Button */}
+            <button
+              type="button"
+              onClick={() => setShowAlreadyVotedModal(false)}
+              className="mt-6 w-full py-3 rounded-xl bg-[#0f172a] hover:bg-slate-800 text-white font-bold text-sm transition-all shadow-md cursor-pointer"
+            >
+              Understand & Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
