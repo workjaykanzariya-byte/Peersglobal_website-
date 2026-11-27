@@ -185,6 +185,19 @@ export function VoteModal({
       return
     }
 
+    const cleanContact = contact.trim().toLowerCase()
+
+    // Pre-check local storage duplicate key
+    if (typeof window !== 'undefined') {
+      try {
+        const stored = localStorage.getItem(`pg_voted_${candidate.id}_${cleanContact}`)
+        if (stored) {
+          setStep('already_voted')
+          return
+        }
+      } catch {}
+    }
+
     setLoading(true)
     setError(null)
     setStep('casting')
@@ -202,6 +215,12 @@ export function VoteModal({
       }
 
       if (res.success && res.vote_reference) {
+        // Cache successful vote key locally
+        if (typeof window !== 'undefined') {
+          try {
+            localStorage.setItem(`pg_voted_${candidate.id}_${cleanContact}`, 'true')
+          } catch {}
+        }
         setVoteReceipt({
           reference: res.vote_reference,
           timestamp: res.cast_at || new Date().toISOString(),
@@ -246,37 +265,39 @@ export function VoteModal({
         </button>
 
         {/* Selected Candidate Preview Banner */}
-        <div className="flex items-center gap-3.5 p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 mb-6">
-          <div className="w-12 h-12 rounded-xl overflow-hidden shrink-0 border border-blue-200 bg-slate-200">
-            {candidate.photo_url || (candidate as any).profile_photo_url ? (
-              <img
-                src={candidate.photo_url || (candidate as any).profile_photo_url}
-                alt={candidate.full_name}
-                onError={(e) => {
-                  if (candidate.full_name) {
-                    ;(e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(candidate.full_name)}&background=1D4ED8&color=fff&size=400&bold=true`
-                  }
-                }}
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center font-bold text-[#1D4ED8]">
-                {candidate.full_name.charAt(0)}
+        {step !== 'success' && step !== 'already_voted' && (
+          <div className="flex items-center gap-3.5 p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 mb-6">
+            <div className="w-12 h-12 rounded-xl overflow-hidden shrink-0 border border-blue-200 bg-slate-200">
+              {candidate.photo_url || (candidate as any).profile_photo_url ? (
+                <img
+                  src={candidate.photo_url || (candidate as any).profile_photo_url}
+                  alt={candidate.full_name}
+                  onError={(e) => {
+                    if (candidate.full_name) {
+                      ;(e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(candidate.full_name)}&background=1D4ED8&color=fff&size=400&bold=true`
+                    }
+                  }}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center font-bold text-[#1D4ED8]">
+                  {candidate.full_name.charAt(0)}
+                </div>
+              )}
+            </div>
+            <div className="min-w-0 flex-1">
+              <div className="text-[11px] font-bold text-[#1D4ED8] uppercase tracking-wider">
+                Voting For Candidate
               </div>
-            )}
-          </div>
-          <div className="min-w-0 flex-1">
-            <div className="text-[11px] font-bold text-[#1D4ED8] uppercase tracking-wider">
-              Voting For Candidate
-            </div>
-            <div className="font-serif font-bold text-base text-slate-900 truncate">
-              {candidate.full_name}
-            </div>
-            <div className="text-xs text-slate-500 truncate">
-              {candidate.designation} · {candidate.company}
+              <div className="font-serif font-bold text-base text-slate-900 truncate">
+                {candidate.full_name}
+              </div>
+              <div className="text-xs text-slate-500 truncate">
+                {candidate.designation} · {candidate.company}
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Error Alert */}
         {error && (
@@ -569,32 +590,44 @@ export function VoteModal({
 
         {/* ---------------- DUPLICATE PREVENTED: ALREADY VOTED ---------------- */}
         {step === 'already_voted' && (
-          <div className="text-center py-4">
-            <div className="w-14 h-14 rounded-full bg-amber-50 border-2 border-amber-500 text-amber-600 flex items-center justify-center mx-auto mb-4">
-              <ShieldCheck className="w-8 h-8" />
+          <div className="text-center py-2 animate-in zoom-in-95 duration-200">
+            {/* Icon */}
+            <div className="w-16 h-16 rounded-2xl bg-amber-50 border-2 border-amber-300 text-amber-600 flex items-center justify-center mx-auto mb-4">
+              <ShieldCheck className="w-8 h-8 text-amber-600" />
             </div>
 
-            <h3 className="font-serif text-2xl font-bold tracking-tight text-slate-900 mb-2">
+            {/* Heading */}
+            <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900">
               Vote Already Cast
             </h3>
-            <p className="text-xs text-slate-600 leading-relaxed mb-6">
-              Our system records indicate that a verified vote has already been cast from this member contact for{' '}
-              <strong>{campaign.name}</strong>. In accordance with organizational election rules, each member may vote only once per campaign.
+
+            {/* Body Copy */}
+            <p className="text-sm text-slate-600 mt-2.5 leading-relaxed">
+              You have already cast your vote for{' '}
+              <strong className="text-slate-900">{candidate.full_name}</strong>{' '}
+              using the email address{' '}
+              <strong className="text-slate-900">{contact.trim() || 'this contact'}</strong>.
             </p>
 
-            <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-500 mb-6">
-
+            {/* Policy Notice Box */}
+            <div className="mt-5 p-4 rounded-2xl bg-slate-50 border border-slate-200 text-left space-y-1.5">
+              <div className="text-xs font-bold text-slate-800">
+                Election Governance Protocol:
+              </div>
+              <ul className="text-xs text-slate-600 space-y-1 leading-relaxed">
+                <li>• <strong>1 Member = 1 Vote</strong> per nominee.</li>
+                <li>• Duplicate votes from the same contact are strictly restricted to protect election integrity.</li>
+              </ul>
             </div>
 
-            <div className="flex gap-3">
-              <button
-                type="button"
-                onClick={onClose}
-                className="flex-1 py-3 px-4 rounded-full bg-slate-100 text-slate-800 font-bold text-xs hover:bg-slate-200 transition-colors"
-              >
-                Close
-              </button>
-            </div>
+            {/* CTA */}
+            <button
+              type="button"
+              onClick={onClose}
+              className="mt-6 w-full py-3 rounded-xl bg-[#0f172a] hover:bg-slate-800 text-white font-bold text-sm transition-all shadow-md cursor-pointer"
+            >
+              Understand & Close
+            </button>
           </div>
         )}
       </div>

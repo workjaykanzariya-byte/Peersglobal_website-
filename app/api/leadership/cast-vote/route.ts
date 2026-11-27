@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import pool from '@/lib/db'
 import { KNOWN_CANDIDATES, IN_MEMORY_VOTES } from '@/lib/candidate-auth'
 
 export const dynamic = 'force-dynamic'
@@ -75,6 +76,47 @@ export async function POST(req: Request) {
       }
     }
 
+    // 0. Pre-submission Duplicate Check: Ensure one vote per nominee per email
+    const duplicateInMemory = IN_MEMORY_VOTES.find(
+      (v) =>
+        v.voter_email?.toLowerCase() === cleanEmail &&
+        (v.candidate_id === cleanCandidateId ||
+          (resolvedCandEmail && v.candidate_email?.toLowerCase() === resolvedCandEmail) ||
+          (candidate_name && v.candidate_name?.toLowerCase() === String(candidate_name).toLowerCase()))
+    )
+
+    if (duplicateInMemory) {
+      return NextResponse.json(
+        {
+          success: false,
+          already_voted: true,
+          message: `You have already voted for this nominee with ${cleanEmail}. In accordance with Peers Global election governance rules, only one vote per member is permitted for each leadership role.`,
+        },
+        { status: 422 }
+      )
+    }
+
+    try {
+      const dbCheck = await pool.query(
+        `SELECT id, vote_reference FROM public.web_votes 
+         WHERE LOWER(voter_email) = $1 
+           AND (nomination_id = $2 OR LOWER(candidate_name) = LOWER($3) OR (candidate_email IS NOT NULL AND LOWER(candidate_email) = LOWER($4)))
+         LIMIT 1`,
+        [cleanEmail, cleanCandidateId, candidate_name || '', resolvedCandEmail || '']
+      )
+
+      if (dbCheck.rows.length > 0) {
+        return NextResponse.json(
+          {
+            success: false,
+            already_voted: true,
+            message: `You have already voted for this nominee with ${cleanEmail}. In accordance with Peers Global election governance rules, only one vote per member is permitted for each leadership role.`,
+          },
+          { status: 422 }
+        )
+      }
+    } catch {}
+
     // Call live REST API: POST https://peersunity.com/api/v1/leadership/public/votes
     // Spec Flow A: Direct Candidate Endorsement Vote (No OTP)
     const livePayload = {
@@ -113,10 +155,14 @@ export async function POST(req: Request) {
         liveMessage = liveJson.message || 'Your vote has been recorded.'
       } else if (liveJson?.message) {
         // If live API returns specific error (e.g. already voted)
-        if (liveRes.status === 422 || liveRes.status === 400) {
+        if (liveRes.status === 422 || liveRes.status === 400 || liveJson.already_voted) {
           return NextResponse.json(
-            { success: false, message: liveJson.message },
-            { status: liveRes.status }
+            {
+              success: false,
+              already_voted: true,
+              message: liveJson.message,
+            },
+            { status: 422 }
           )
         }
       }
