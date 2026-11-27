@@ -33,6 +33,7 @@ import {
   Sparkles,
   AlertTriangle,
   Plus,
+  Pencil,
 } from 'lucide-react'
 import { OtpSixBoxInput } from '../otp-six-box-input'
 
@@ -204,7 +205,14 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
   // Scoring Form State - 8 Default Criteria + Dynamic Additions
   const [criteriaList, setCriteriaList] = useState<EvaluationCriterion[]>(DEFAULT_EVALUATION_CRITERIA)
   const [newCriterionName, setNewCriterionName] = useState<string>('')
+  const [newCriterionDesc, setNewCriterionDesc] = useState<string>('')
   const [isAddingCriterion, setIsAddingCriterion] = useState<boolean>(false)
+
+  // Editing Criterion State (supports editing all default and custom criteria)
+  const [editingCriterionId, setEditingCriterionId] = useState<string | null>(null)
+  const [editCriterionName, setEditCriterionName] = useState<string>('')
+  const [editCriterionDesc, setEditCriterionDesc] = useState<string>('')
+
   const [strengths, setStrengths] = useState<string>('')
   const [concerns, setConcerns] = useState<string>('')
   const [conflictType, setConflictType] = useState<'none' | 'disclosed'>('none')
@@ -219,24 +227,57 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
     setCriteriaList((prev) => prev.map((c) => (c.id === id ? { ...c, score: val } : c)))
   }
 
+  // Start Editing Criterion
+  const handleStartEditCriterion = (crit: EvaluationCriterion) => {
+    setEditingCriterionId(crit.id)
+    setEditCriterionName(crit.name)
+    setEditCriterionDesc(crit.description || '')
+  }
+
+  // Save Criterion Edit
+  const handleSaveCriterionEdit = (id: string) => {
+    if (!editCriterionName.trim()) return
+    setCriteriaList((prev) =>
+      prev.map((c) =>
+        c.id === id
+          ? { ...c, name: editCriterionName.trim(), description: editCriterionDesc.trim() || undefined }
+          : c
+      )
+    )
+    setEditingCriterionId(null)
+    setEditCriterionName('')
+    setEditCriterionDesc('')
+  }
+
+  // Cancel Criterion Edit
+  const handleCancelCriterionEdit = () => {
+    setEditingCriterionId(null)
+    setEditCriterionName('')
+    setEditCriterionDesc('')
+  }
+
   // Add Dynamic Criterion
   const handleAddCustomCriterion = () => {
     if (!newCriterionName.trim()) return
     const newCrit: EvaluationCriterion = {
       id: 'custom-' + Date.now(),
       name: newCriterionName.trim(),
-      description: 'Custom metric added by evaluation juror',
+      description: newCriterionDesc.trim() || 'Custom metric added by evaluation juror',
       score: 8,
       isCustom: true,
     }
     setCriteriaList((prev) => [...prev, newCrit])
     setNewCriterionName('')
+    setNewCriterionDesc('')
     setIsAddingCriterion(false)
   }
 
   // Remove Dynamic Criterion
   const handleRemoveCriterion = (id: string) => {
     setCriteriaList((prev) => prev.filter((c) => c.id !== id))
+    if (editingCriterionId === id) {
+      setEditingCriterionId(null)
+    }
   }
 
   // Check saved session on mount
@@ -1354,58 +1395,130 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
                       </div>
                     </div>
 
-                    {/* Dynamic Criteria List (8 Default + Custom Added) */}
+                    {/* Dynamic Criteria List (8 Default + Custom Added - All Fully Editable) */}
                     {criteriaList.map((crit, idx) => (
-                      <div
-                        key={crit.id}
-                        className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3"
-                      >
-                        <div className="space-y-1 flex-1">
-                          <div className="flex items-center gap-2">
-                            <label className="text-xs font-bold text-slate-900 block">
-                              {idx + 1}. {crit.name}
-                            </label>
+                      editingCriterionId === crit.id ? (
+                        <div
+                          key={crit.id}
+                          className="p-4 rounded-2xl bg-blue-50/50 border-2 border-[#1D4ED8] shadow-sm space-y-3"
+                        >
+                          <div className="flex items-center justify-between">
+                            <span className="text-xs font-extrabold text-[#1D4ED8] flex items-center gap-1.5">
+                              <Pencil className="w-3.5 h-3.5" />
+                              <span>Edit Criterion #{idx + 1}</span>
+                            </span>
                             {crit.isCustom && (
                               <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-50 text-purple-700 border border-purple-200">
                                 Custom Metric
                               </span>
                             )}
                           </div>
-                          {crit.description && (
-                            <p className="text-[11px] text-slate-500 leading-relaxed max-w-lg">
-                              {crit.description}
-                            </p>
-                          )}
-                        </div>
-                        <div className="flex items-center gap-3 self-end sm:self-center shrink-0">
-                          <div className="flex items-center gap-2">
-                            <label className="text-xs font-semibold text-slate-500">Score:</label>
-                            <input
-                              type="number"
-                              min="1"
-                              max="10"
-                              step="1"
-                              value={crit.score}
-                              onChange={(e) => {
-                                const val = parseInt(e.target.value) || 0
-                                handleScoreChange(crit.id, val)
-                              }}
-                              className="w-16 h-10 text-center font-extrabold text-base text-[#1D4ED8] bg-slate-50 border-2 border-slate-300 rounded-xl focus:border-[#1D4ED8] focus:bg-white focus:ring-2 focus:ring-blue-100 outline-none transition-all"
-                            />
-                            <span className="text-xs font-bold text-slate-400">/ 10</span>
+                          <div className="space-y-2">
+                            <div>
+                              <label className="text-[11px] font-bold uppercase tracking-wider text-slate-700 block mb-1">
+                                Criterion Title / Competency Name *
+                              </label>
+                              <input
+                                type="text"
+                                value={editCriterionName}
+                                onChange={(e) => setEditCriterionName(e.target.value)}
+                                placeholder="e.g. Leadership of leaders"
+                                className="w-full px-3.5 py-2 text-xs rounded-xl border border-slate-300 bg-white font-bold text-slate-900 focus:border-[#1D4ED8] focus:ring-2 focus:ring-blue-100 outline-none"
+                              />
+                            </div>
+                            <div>
+                              <label className="text-[11px] font-bold uppercase tracking-wider text-slate-700 block mb-1">
+                                Description &amp; Guiding Rubric
+                              </label>
+                              <textarea
+                                rows={2}
+                                value={editCriterionDesc}
+                                onChange={(e) => setEditCriterionDesc(e.target.value)}
+                                placeholder="Describe the capability or outcome to assess..."
+                                className="w-full px-3.5 py-2 text-xs rounded-xl border border-slate-300 bg-white text-slate-800 focus:border-[#1D4ED8] focus:ring-2 focus:ring-blue-100 outline-none resize-none"
+                              />
+                            </div>
                           </div>
-                          {crit.isCustom && (
+                          <div className="flex items-center justify-end gap-2 pt-1">
                             <button
                               type="button"
-                              onClick={() => handleRemoveCriterion(crit.id)}
-                              className="p-1.5 rounded-lg text-slate-400 hover:text-red-600 hover:bg-red-50 transition-colors cursor-pointer"
-                              title="Remove custom criterion"
+                              onClick={handleCancelCriterionEdit}
+                              className="px-3.5 py-1.5 rounded-xl bg-white border border-slate-300 text-slate-700 text-xs font-semibold hover:bg-slate-50 transition-colors cursor-pointer"
                             >
-                              <X className="w-4 h-4" />
+                              Cancel
                             </button>
-                          )}
+                            <button
+                              type="button"
+                              onClick={() => handleSaveCriterionEdit(crit.id)}
+                              disabled={!editCriterionName.trim()}
+                              className="px-4 py-1.5 rounded-xl bg-[#1D4ED8] hover:bg-blue-700 text-white text-xs font-bold transition-colors cursor-pointer disabled:opacity-50 flex items-center gap-1.5 shadow-xs"
+                            >
+                              <Check className="w-3.5 h-3.5" />
+                              <span>Save Criterion</span>
+                            </button>
+                          </div>
                         </div>
-                      </div>
+                      ) : (
+                        <div
+                          key={crit.id}
+                          className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 group hover:border-slate-300 transition-colors"
+                        >
+                          <div className="space-y-1 flex-1">
+                            <div className="flex items-center gap-2 flex-wrap">
+                              <label className="text-xs font-bold text-slate-900 block">
+                                {idx + 1}. {crit.name}
+                              </label>
+                              {crit.isCustom && (
+                                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-50 text-purple-700 border border-purple-200">
+                                  Custom Metric
+                                </span>
+                              )}
+                              <button
+                                type="button"
+                                onClick={() => handleStartEditCriterion(crit)}
+                                className="px-2 py-0.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-600 hover:text-[#1D4ED8] hover:border-blue-300 hover:bg-blue-50 transition-all cursor-pointer inline-flex items-center gap-1 text-[11px] font-semibold shadow-2xs"
+                                title="Edit criterion title & description"
+                              >
+                                <Pencil className="w-3 h-3 text-[#1D4ED8]" />
+                                <span>Edit</span>
+                              </button>
+                            </div>
+                            {crit.description && (
+                              <p className="text-[11px] text-slate-500 leading-relaxed max-w-lg">
+                                {crit.description}
+                              </p>
+                            )}
+                          </div>
+                          <div className="flex items-center gap-3 self-end sm:self-center shrink-0">
+                            <div className="flex items-center gap-2">
+                              <label className="text-xs font-semibold text-slate-500">Score:</label>
+                              <input
+                                type="number"
+                                min="1"
+                                max="10"
+                                step="1"
+                                value={crit.score}
+                                onChange={(e) => {
+                                  const val = parseInt(e.target.value) || 0
+                                  handleScoreChange(crit.id, val)
+                                }}
+                                className="w-16 h-10 text-center font-extrabold text-base text-[#1D4ED8] bg-slate-50 border-2 border-slate-300 rounded-xl focus:border-[#1D4ED8] focus:bg-white focus:ring-2 focus:ring-blue-100 outline-none transition-all"
+                              />
+                              <span className="text-xs font-bold text-slate-400">/ 10</span>
+                            </div>
+                            {crit.isCustom && (
+                              <button
+                                type="button"
+                                onClick={() => handleRemoveCriterion(crit.id)}
+                                className="p-1.5 rounded-lg text-slate-400 hover:text-red-600 hover:bg-red-50 transition-colors cursor-pointer"
+                                title="Remove custom criterion"
+                              >
+                                <X className="w-4 h-4" />
+                              </button>
+                            )}
+                          </div>
+                        </div>
+                      )
                     ))}
 
                     {/* Add Custom Criterion Action */}
@@ -1421,15 +1534,15 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
                     ) : (
                       <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
                         <label className="text-xs font-bold text-slate-700 block">
-                          Add Custom Evaluation Criterion Name
+                          Add Custom Evaluation Criterion
                         </label>
-                        <div className="flex flex-col sm:flex-row gap-2">
+                        <div className="space-y-2">
                           <input
                             type="text"
                             value={newCriterionName}
                             onChange={(e) => setNewCriterionName(e.target.value)}
-                            placeholder="e.g. Technical Architecture Depth, Global Ecosystem Synergy..."
-                            className="flex-1 px-3.5 py-2 text-xs rounded-xl border border-slate-300 bg-white focus:border-[#1D4ED8] focus:ring-2 focus:ring-blue-100 outline-none"
+                            placeholder="Criterion Title (e.g. Technical Architecture Depth, Global Ecosystem Synergy...)"
+                            className="w-full px-3.5 py-2 text-xs rounded-xl border border-slate-300 bg-white font-semibold text-slate-900 focus:border-[#1D4ED8] focus:ring-2 focus:ring-blue-100 outline-none"
                             onKeyDown={(e) => {
                               if (e.key === 'Enter') {
                                 e.preventDefault()
@@ -1437,26 +1550,34 @@ export function JuryPortalClient({ initialView = 'auto' }: JuryPortalClientProps
                               }
                             }}
                           />
-                          <div className="flex items-center gap-2">
-                            <button
-                              type="button"
-                              onClick={handleAddCustomCriterion}
-                              disabled={!newCriterionName.trim()}
-                              className="px-4 py-2 rounded-xl bg-[#1D4ED8] text-white text-xs font-bold hover:bg-[#1e40af] disabled:opacity-50 transition-colors cursor-pointer"
-                            >
-                              Add Metric
-                            </button>
-                            <button
-                              type="button"
-                              onClick={() => {
-                                setIsAddingCriterion(false)
-                                setNewCriterionName('')
-                              }}
-                              className="px-3 py-2 rounded-xl bg-slate-200 text-slate-700 text-xs font-semibold hover:bg-slate-300 transition-colors cursor-pointer"
-                            >
-                              Cancel
-                            </button>
-                          </div>
+                          <textarea
+                            rows={2}
+                            value={newCriterionDesc}
+                            onChange={(e) => setNewCriterionDesc(e.target.value)}
+                            placeholder="Criterion Description (optional guiding rubric for this metric)..."
+                            className="w-full px-3.5 py-2 text-xs rounded-xl border border-slate-300 bg-white text-slate-800 focus:border-[#1D4ED8] focus:ring-2 focus:ring-blue-100 outline-none resize-none"
+                          />
+                        </div>
+                        <div className="flex items-center justify-end gap-2 pt-1">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setIsAddingCriterion(false)
+                              setNewCriterionName('')
+                              setNewCriterionDesc('')
+                            }}
+                            className="px-3.5 py-1.5 rounded-xl bg-white border border-slate-300 text-slate-700 text-xs font-semibold hover:bg-slate-50 transition-colors cursor-pointer"
+                          >
+                            Cancel
+                          </button>
+                          <button
+                            type="button"
+                            onClick={handleAddCustomCriterion}
+                            disabled={!newCriterionName.trim()}
+                            className="px-4 py-1.5 rounded-xl bg-[#1D4ED8] text-white text-xs font-bold hover:bg-[#1e40af] disabled:opacity-50 transition-colors cursor-pointer"
+                          >
+                            Add Metric
+                          </button>
                         </div>
                       </div>
                     )}
